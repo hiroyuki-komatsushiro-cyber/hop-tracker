@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ホップ アロマ比較 / 製品ホップ成分表</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:#f7f6f2;color:#2c2c2a;display:flex;flex-direction:column;}
+.tab-nav{display:flex;background:#2c2c2a;flex-shrink:0;z-index:200;}
+.tab-nav button{flex:1;padding:13px 4px;font-size:13px;font-weight:600;border:none;background:transparent;color:#888;cursor:pointer;border-bottom:3px solid transparent;}
+.tab-nav button.active{color:#fff;border-bottom-color:#639922;}
+.panels{flex:1;overflow:hidden;position:relative;}
+.tab-panel{position:absolute;inset:0;overflow-y:auto;display:none;padding:12px;}
+.tab-panel.active{display:block;}
+@media(min-width:700px){.tab-panel{max-width:720px;left:50%;transform:translateX(-50%);right:auto;width:720px;}}
+h2{font-size:16px;font-weight:700;margin-bottom:8px;}
+.note{font-size:11px;color:#888780;margin-top:12px;line-height:1.6;padding-bottom:20px;}
+
+/* TAB1 RADAR */
+.progress{font-size:12px;color:#5f5e5a;margin-bottom:6px;}
+.pbar{height:5px;background:#e0ddd4;border-radius:3px;overflow:hidden;margin-top:3px;}
+.pbar-fill{height:100%;background:#639922;}
+.srch-row{display:flex;gap:6px;margin-bottom:6px;}
+.srch-row input{flex:1;padding:8px 10px;font-size:14px;border:1px solid #ccc;border-radius:8px;}
+.srch-row button{padding:8px 12px;font-size:13px;border:1px solid #ccc;border-radius:8px;background:#fff;cursor:pointer;white-space:nowrap;}
+#alpha-tabs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px;}
+.alpha-tab{padding:5px 8px;font-size:12px;font-weight:600;border:1px solid #ddd;border-radius:6px;background:#fff;cursor:pointer;color:#555;min-width:28px;text-align:center;}
+.alpha-tab.active{background:#2c2c2a;color:#fff;border-color:#2c2c2a;}
+#hop-buttons{display:grid;grid-template-columns:repeat(2,1fr);gap:5px;max-height:180px;overflow-y:auto;padding:5px;border:1px solid #e0ddd4;border-radius:8px;background:#fff;margin-bottom:10px;}
+@media(min-width:420px){#hop-buttons{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:700px){#hop-buttons{grid-template-columns:repeat(4,1fr);}}
+#hop-buttons button{font-size:11px;line-height:1.3;padding:7px 4px;border:1px solid #ccc;border-radius:7px;background:#fff;cursor:pointer;text-align:center;min-height:36px;display:flex;align-items:center;justify-content:center;word-break:break-word;}
+#hop-buttons button.active{font-weight:700;}
+.chart-wrap{position:relative;width:100%;height:290px;background:#fff;border-radius:8px;padding:6px;}
+@media(min-width:700px){.chart-wrap{height:380px;}}
+#legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;font-size:11px;color:#5f5e5a;}
+#legend span{display:flex;align-items:center;gap:3px;}
+.sw{width:9px;height:9px;border-radius:2px;display:inline-block;flex-shrink:0;}
+.hop-desc-box{background:#f7f6f2;border:1px solid #e0ddd4;border-radius:8px;padding:8px;margin-top:8px;display:none;display:flex;flex-direction:column;gap:6px;}
+.hop-desc-item{background:#fff;border-radius:6px;padding:8px 10px;border-left:3px solid #639922;}
+.hop-desc-name{font-size:12px;font-weight:700;color:#2c2c2a;margin-bottom:2px;}
+.hop-desc-text{font-size:11px;color:#5f5e5a;line-height:1.6;}
+.back-to-products-btn{width:100%;padding:9px;font-size:13px;font-weight:600;background:#f0f0ee;color:#2c2c2a;border:1px solid #ddd;border-radius:8px;cursor:pointer;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:4px;}
+.back-to-products-btn:active{background:#e5e3de;}
+
+/* TAB2 PRODUCTS */
+.t2-header{display:flex;gap:6px;margin-bottom:6px;align-items:center;}
+.t2-header input[type=search]{flex:1;padding:8px 10px;font-size:14px;border:1px solid #ccc;border-radius:8px;}
+.t2-header select{padding:8px 6px;font-size:13px;border:1px solid #ccc;border-radius:8px;background:#fff;max-width:110px;}
+#prod-count{font-size:11px;color:#888;margin-bottom:6px;}
+.updated-line{font-size:11px;color:#aaa;margin-bottom:6px;}
+#prod-list{display:flex;flex-direction:column;gap:0;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);}
+
+/* 商品行 */
+.prod-row{display:flex;align-items:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #f0ede6;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.prod-row-img{width:52px;height:52px;border-radius:8px;object-fit:cover;flex-shrink:0;background:#f5f3ee;}
+.prod-row-img-placeholder{width:52px;height:52px;border-radius:8px;background:#f0ede6;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:20px;}
+.m-img{width:100%;max-width:200px;height:200px;object-fit:cover;border-radius:12px;margin:0 auto 16px;display:block;}
+.m-img-wrap{text-align:center;}
+.prod-row:last-child{border-bottom:none;}
+.prod-row:active{background:#f0ede6;}
+
+/* 左: 商品名・メーカー・バッジ */
+.prod-row-left{flex:1;min-width:0;}
+.prod-row-name{font-size:13px;font-weight:600;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.prod-row-brewery{font-size:11px;color:#639922;font-weight:500;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.prod-row-sub{font-size:10px;color:#aaa;margin-top:3px;display:flex;gap:5px;align-items:center;}
+.sbadge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:6px;background:#e3eef8;color:#1a4a7a;white-space:nowrap;}
+.new-badge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:6px;background:#E24B4A;color:#fff;white-space:nowrap;}
+.abv-text{color:#bbb;}
+
+/* 右: ホップ名 + 矢印 */
+.prod-row-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;max-width:38%;min-width:80px;}
+.prod-hop-list{font-size:10px;color:#639922;font-weight:500;text-align:right;line-height:1.5;word-break:break-word;}
+.prod-hop-none{font-size:11px;color:#ddd;text-align:right;}
+.prod-row-arrow{color:#ddd;font-size:16px;line-height:1;align-self:center;}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.5);align-items:flex-end;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#fff;border-radius:20px 20px 0 0;width:100%;max-width:600px;max-height:88vh;overflow-y:auto;padding:16px 16px 40px;animation:su .2s ease;}
+@keyframes su{from{transform:translateY(50px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+.modal-handle{width:36px;height:4px;background:#ddd;border-radius:2px;margin:0 auto 14px;}
+.m-title{font-size:16px;font-weight:700;line-height:1.3;margin-bottom:3px;}
+.m-brewery{font-size:13px;color:#639922;font-weight:600;margin-bottom:14px;}
+.m-sec{margin-bottom:14px;}
+.m-lbl{font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px;}
+.m-val{font-size:14px;}
+.m-hops{display:flex;flex-wrap:wrap;gap:6px;}
+.m-hop{font-size:13px;padding:5px 12px;border-radius:20px;background:#e8f3d6;color:#3a6010;border:1px solid #c5dc9a;cursor:pointer;}
+.m-hop:active{background:#d1eaa8;}
+.m-nohop{font-size:13px;color:#bbb;}
+.m-desc{font-size:13px;color:#4a4a48;line-height:1.65;}
+.m-actions{display:flex;gap:8px;margin-top:18px;flex-direction:column;}
+.m-btn-chart{padding:13px;font-size:14px;font-weight:700;background:#639922;color:#fff;border:none;border-radius:10px;cursor:pointer;}
+.m-btn-chart:active{background:#4e7a1a;}
+.m-btn-link{padding:13px;font-size:14px;font-weight:600;background:#f0f0ee;color:#2c2c2a;border:none;border-radius:10px;cursor:pointer;text-decoration:none;display:block;text-align:center;}
+.m-btn-close{padding:13px;font-size:14px;background:#fff;color:#555;border:1px solid #ddd;border-radius:10px;cursor:pointer;margin-top:4px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;}
+.shop-badge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:6px;background:#f3e8ff;color:#6b21a8;white-space:nowrap;margin-left:4px;}
+</style>
+</head>
+<body>
+
+<div class="tab-nav">
+  <button class="active" onclick="switchTab('t1',this)">&#x1F37A; ホップ アロマ比較</button>
+  <button onclick="switchTab('t2',this)">&#x1F4CB; 製品ホップ成分表</button>
+</div>
+
+<div class="panels">
+
+<div id="t1" class="tab-panel active">
+  <h2>ホップ アロマ特性 比較チャート（全133品種）</h2>
+  <div class="progress">収録品種: 133/133 <div class="pbar"><div class="pbar-fill" style="width:100%"></div></div></div>
+  <div class="srch-row">
+    <input type="text" id="srch" placeholder="品種名で検索...">
+    <button id="clrBtn" type="button">クリア</button>
+  </div>
+  <div id="alpha-tabs"></div>
+  <div id="hop-buttons"></div>
+  <div class="chart-wrap"><canvas id="hopChart"></canvas></div>
+  <div id="legend"></div>
+  <div class="hop-desc-box" id="hop-desc-box" style="display:none;"></div>
+  <p class="note">※ 頭文字タブで絞り込み、★は選択中の品種一覧。複数選択でレーダーチャートに重ねて比較できます。各アロマ軸は0〜5の強度の目安(BeerMaverick等のテイスティングノートに基づく)。</p>
+</div>
+
+<div id="t2" class="tab-panel">
+  <h2>製品別ホップ成分表 — Antenna America</h2>
+  <div class="updated-line">最終更新: 2026-08-17</div>
+  <div class="t2-header">
+    <input type="search" id="psrch" placeholder="製品名・ブリュワリーで検索...">
+    <select id="sfil">
+      <option value="">全スタイル</option>
+      <option value="IPA">IPA / Hazy</option>
+      <option value="DIPA">DIPA</option>
+      <option value="Pale Ale">Pale Ale</option>
+      <option value="Sour">Sour / Saison</option>
+      <option value="Stout">Stout / Porter</option>
+      <option value="Lager">Lager</option>
+      <option value="Other">その他</option>
+    </select>
+    <select id="shopfil">
+      <option value="">全ショップ</option>
+      <option value="antenna">Antenna America</option>
+      <option value="southbound">Southbound</option>
+    </select>
+    <select id="bfil">
+      <option value="">全ブルワリー</option>
+    </select>
+  </div>
+  <div id="prod-count"></div>
+  <div id="prod-list"></div>
+  <p class="note">※ 商品をタップすると成分表が表示されます。一度登録した商品はサイトから消えても削除しません。直近7日以内の新商品にはNEWバッジが付きます。</p>
+</div>
+
+</div>
+
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal-box" id="mbox">
+    <div class="modal-handle"></div>
+    <div class="m-img-wrap" id="m-img-wrap"></div>
+    <div class="m-title" id="m-title"></div>
+    <div class="m-brewery" id="m-brewery"></div>
+    <div class="m-sec"><div class="m-lbl">スタイル</div><div class="m-val" id="m-style"></div></div>
+    <div class="m-sec"><div class="m-lbl">アルコール度数</div><div class="m-val" id="m-abv"></div></div>
+    <div class="m-sec" id="m-desc-sec"><div class="m-lbl">商品説明</div><div class="m-desc" id="m-desc"></div></div>
+    <div class="m-sec"><div class="m-lbl">使用ホップ</div><div id="m-hops"></div></div>
+    <div class="m-actions" id="m-actions"></div>
+    <button class="m-btn-close" onclick="document.getElementById('modal').classList.remove('open')">&#8592; 商品一覧に戻る</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+function switchTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.tab-nav button').forEach(function(b){b.classList.remove('active');});
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  if(id==='t1' && typeof chart !== 'undefined') chart.resize();
+}
+</script>
+<script>// ===== RADAR / HOPS TAB =====
+
+var pal = ["#D85A30","#378ADD","#639922","#993556","#0F6E56","#BA7517","#7F77DD","#D4537E",
+           "#888780","#1D9E75","#85B7EB","#F0997B","#5DCAA5","#ED93B1","#EF9F27"];
+var rlabels = ["トロピカル","シトラス","ベリー/ストーンフルーツ","フローラル","パイン/樹脂","ハーブ/スパイス・土"];
+
+// ホップ説明文（選択時にチャート下に表示）
+var hopDesc = {
+  "Ahtanum":        "グレープフルーツ・フローラルが主体。カスケードに似た柑橘感を持ちながら、より松脂のニュアンスが強い。",
+  "Ales for ALS":   "ALS研究支援のためのチャリティーブレンド。トロピカル・シトラス・ベリーが複合的に香る。",
+  "Amarillo":       "オレンジ・グレープフルーツのシトラスと甘いフローラルが特徴。現代IPAの定番品種。",
+  "Aramis":         "フランス産のノーブルホップ。アニス・スパイス・ハーブが中心のクラシックなアロマ。",
+  "Apollo":         "グレープフルーツ・ライム・オレンジのシトラスに、力強いパイン・樹脂感。高α酸ホップ。",
+  "Aurora":         "スロベニア産。フローラルとスパイスが穏やかに香る繊細なノーブル系。",
+  "Azacca":         "マンゴー・パイナップル・柑橘が爆発するジャマイカ語で「農業の神」を意味する品種。",
+  "Bobek":          "スロベニア産。フローラル・スパイス・わずかなパインが香るノーブル系の代表格。",
+  "Bravo":          "オレンジ・バニラ・フローラルの上品なアロマ。ビタリング・アロマ両用の万能品種。",
+  "Brewer's Gold":  "イギリス・カナダ産の古典品種。ブラックカラントのベリー感と土っぽいアロマ。",
+  "Cascade":        "グレープフルーツ・フローラル・スパイスのバランスが絶妙。アメリカクラフトビール革命の立役者。",
+  "Cashmere":       "レモン・ライム・ピーチ・ハーブが柔らかく融合。飲みやすさと香りの両立が魅力。",
+  "Celeia":         "スロベニア産ノーブル系。ラベンダー・フローラル・スパイスが上品に広がる。",
+  "Centennial":     "グレープフルーツ・フローラルにパインが加わる。「スーパーカスケード」とも呼ばれる万能品種。",
+  "Challenger":     "イギリス産。シダー・グリーンティー・フルーツが穏やかに広がるバランス型。",
+  "Chelan":         "柑橘・フローラル・フルーティが穏やかに香る。マイルドで飲みやすいスタイルに最適。",
+  "Chinook":        "パイン・グレープフルーツ・スモーキーなスパイスが力強く主張する西海岸IPAの定番。",
+  "Citra":          "グレープフルーツ・ライム・パッションフルーツ・ライチが炸裂。現代ヘイジーIPAの代名詞。",
+  "Cluster":        "フローラル・ベリー（ブラックカラント）・アーシーが穏やかに香るアメリカ最古の品種の一つ。",
+  "Cluster Fugget": "クラスターとフグルの特性を持つブレンド系。フローラル・アーシーが中心。",
+  "Columbia":       "パイナップル・レモン・柑橘の明るいアロマ。ノーブル系の穏やかさも兼ね備える。",
+  "Columbus":       "ブラックペッパー・カレー・リコリスのスパイシーなアロマ。ビタリングホップとしても定番。",
+  "Comet":          "グレープフルーツ・ワイルドグラッシーなアロマ。古典品種として近年再注目されている。",
+  "Cryo Pop Original Blend": "クライオホップ技術によるブレンド。トロピカル・シトラスが凝縮されたジューシーな香り。",
+  "Crystal":        "フローラル・スパイス（シナモン・ナツメグ）・フルーティが穏やかに香るドイツ系。",
+  "CTZ":            "ブラックペッパー・カレー・アーシーのスパイシーかつ力強いアロマ。Columbus/Tomahawk/Zeusの総称。",
+  "Dolcita":        "ピーチ・パイナップル・オレンジのスウィートなトロピカル系。甘く上品な香りが魅力。",
+  "East Kent Golding": "ラベンダー・ハチミツ・タイム・オレンジの繊細なフローラル。イギリス伝統品種の象徴。",
+  "Ekuanot":        "レモン・ライム・オレンジ・トロピカルフルーツ・ベリー・パパイヤが複合的に香る多面体品種。",
+  "El Dorado":      "パイナップル・マンゴー・ウォーターメロン・キャンディのジューシーなトロピカル感。",
+  "Elani":          "パイナップル・グアバ・ホワイトピーチ・タンジェリン・ライム。南洋風のエキゾチックな香り。",
+  "Endeavour":      "ブラックカラント・ログベリーのベリー感と、グレープフルーツのシトラスが印象的。",
+  "Ernest":         "アプリコット・シトラス・スパイスが中心。ストーンフルーツの甘みが特徴的。",
+  "Falconer's Flight 7Cs":  "7つのC系ホップのブレンド。トロピカル・フローラル・柑橘・パインが複合的に香る。",
+  "Falconer's Flight Blend": "C系ホップのブレンド。レモン・グレープフルーツ・トロピカルのバランスが良い。",
+  "First Gold":     "タンジェリン・オレンジマーマレード・アプリコット・レッドベリーのフルーティな英国品種。",
+  "Fuggle":         "ウッド・グラス・ミントの穏やかでアーシーなアロマ。英国ポーターの伝統的なホップ。",
+  "Galaxy":         "パッションフルーツ・シトラス・ピーチのトロピカル感が際立つオーストラリア産人気品種。",
+  "Galena":         "フルーティ（ペアー・パイナップル・ブラックカラント）・グレープフルーツ・ウッディな複合アロマ。",
+  "Glacier":        "プラム・ブラックベリー・ウッドのストーンフルーツ感が穏やかに広がる。",
+  "Hallertau Blanc": "パイナップル・パッションフルーツ・エルダーフラワー・グーズベリーのエレガントなドイツ品種。",
+  "Hallertauer Mittelfruher": "スパイシー・フローラル・ハーブのクラシックなノーブル感。ドイツラガーの魂。",
+  "Hallertauer Tradition": "フローラル・アーシー・グラッシーのクラシックドイツ品種。ミッテルフリューの後継。",
+  "HBC 472":        "トロピカル・シトラス・フローラルが複合的に香る実験的品種。",
+  "HBC 630":        "ベリー（チェリー・ラズベリー）・トロピカル・シトラスのフルーティな実験品種。",
+  "HBC 638":        "マンゴー・パイナップル・チェリー・ストロベリーのトロピカルかつベリー感が特徴の実験品種。",
+  "HBC 682":        "ハーブ・アーシー・フローラル・ミャルドシトラスを持つ実験品種。",
+  "Helga":          "フローラル・スパイス・ハーブのノーブル系。オーストラリア版ハラタウ。",
+  "Herkules":       "柑橘（メロン・レモン）・パイン・スパイシーのバランス型ドイツ品種。高α酸でもアロマが豊か。",
+  "Hersbrucker Spat": "フローラル・ハーブ・スパイス・ヘイのクラシックなバイエルン産ノーブルホップ。",
+  "Horizon":        "フローラル・スパイスのノーブル系。センテニアルの兄弟品種として安定した品質を誇る。",
+  "Huell Melon":    "メロン・ストロベリーのベリー感が突出するドイツ産の異色品種。甘いフルーティさが魅力。",
+  "Idaho 7":        "アプリコット・パパイヤ・パイナップル・オレンジ・グレープフルーツ・パインの複合アロマ。",
+  "Idaho Gem":      "ストーンフルーツ・トロピカル・ベリーのアロマ。アイダホ7の親戚的存在。",
+  "Jarrylo":        "スパイス・バナナ・柑橘・フローラル。サイソン・ウィートビールとの相性が抜群。",
+  "Kazbek":         "チェコ産のザーツ代替品種。柑橘・フローラル・ハーブのバランスが良い。",
+  "Kohatu":         "NZ産。トロピカル（パイン・グレープフルーツ）とパインの爽快感が特徴。",
+  "Krush":          "トロピカル・シトラス・ベリーの強烈なアロマを持つ新鋭品種。ドライホップに最適。",
+  "Liberty":        "フローラル・ハーブ・ウッディの穏やかなアロマ。ハラタウ・ミッテルフリューのアメリカ版。",
+  "Loral":          "フローラル（ローズ）・エキゾチックフルーツ・スパイスの上品なアロマ。貴族的な品種。",
+  "Magnum":         "フローラル・スパイス・柑橘の繊細なアロマ。ビタリングホップとしても世界標準。",
+  "Mandarina Bavaria": "タンジェリン・オレンジのシトラス感が突出するドイツ品種。フルーツIPAに最適。",
+  "Millennium":     "ハーブ・フローラル・ストーンフルーツ・パインの複合アロマ。マグナムの後継品種。",
+  "Mosaic":         "マンゴー・パイナップル・ブルーベリー・タンジェリン・パインの多面体アロマ。ヘイジーIPAの王者。",
+  "Motueka":        "ライム・レモン・トロピカルのシャープなシトラス感が特徴のNZ品種。",
+  "Motueka (MacHops)": "ライム・レモン・トロピカルのシャープなシトラス感。マックホップス社供給のモツエカ。",
+  "Motueka (NZ Hops)": "ライム・レモン・トロピカルのシャープなシトラス感。NZホップス社供給のモツエカ。",
+  "Moutere":        "マンゴー・シトラス・ストーンフルーツのトロピカル感。Nelson Sauvinの弟分的NZ品種。",
+  "Mt. Hood":       "フローラル・ハーブ・スパイスの穏やかなアロマ。ドイツ・ハラタウ系のアメリカ版。",
+  "Mt. Rainier":    "フローラル・フルーティ・スパイスのバランス型。ハラタウとイギリス系の交配種。",
+  "Nectaron":       "パッションフルーツ・グアバ・ピーチ・マンゴーのトロピカル爆弾。NZ産の最新スーパー品種。",
+  "Nelson Sauvin":  "白ワイン・グーズベリー・パッションフルーツの独特なワインライクアロマ。NZを代表する品種。",
+  "Nelson Sauvin (MacHops)": "白ワイン・グーズベリー・パッションフルーツ。マックホップス社供給のネルソン・ソーヴィン。",
+  "Nelson Sauvin (NZ Hops)": "白ワイン・グーズベリー・パッションフルーツ。NZホップス社供給のネルソン・ソーヴィン。",
+  "Newport":        "ハーブ・パイン・樹脂のアロマ。高α酸ビタリングホップとして安定した品質。",
+  "Northdown":      "パイン・ウッド・フルーティのバランス型イギリス品種。チャレンジャーの後継。",
+  "Northern Brewer": "パイン・ハーブ・ミントのクリーンなアロマ。ラガーからエールまで幅広く使用。",
+  "Nugget":         "ハーブ・フローラル・パイン・スパイスのクラシックなアメリカホップ。ビタリング中心だが香りも良好。",
+  "Olympic":        "ハーブ・パイン・柑橘の穏やかなアロマ。北西部産の安定したビタリング品種。",
+  "Opal":           "フローラル・スパイス・ストーンフルーツ・パインのバランス型ドイツ品種。",
+  "Pacific Crest Blend": "ハーブ・アーシー・パイン・柑橘のブレンド。太平洋岸トレイルをイメージした複合アロマ。",
+  "Pacific Gem":    "ブラックカラント・ウッド・パインのNZ産品種。ビタリング向けだが独特なアロマも持つ。",
+  "Pacific Jade":   "柑橘・スパイス・パインのクリーンなNZ品種。ビタリングとアロマの両用で活躍。",
+  "Pacifica (MacHops)": "柑橘（オレンジ・タンジェリン）・フローラルのNZ品種。マックホップス社供給。",
+  "Pacifica (NZ Hops)": "柑橘（オレンジ・タンジェリン）・フローラルのNZ品種。NZホップス社供給。",
+  "Palisade":       "パイナップル・アプリコット・ハーブのアロマ。まろやかで親しみやすい香り。",
+  "Pekko":          "ミント・フローラル・シトラスの清涼感あふれる品種。軽快なスタイルに最適。",
+  "Perle":          "フローラル・ミント・スパイスのクリーンなドイツ品種。ピルスナーに伝統的に使用。",
+  "Phoenix":        "フローラル・スパイス・パインのバランス型イギリス品種。チャレンジャーに近い性質。",
+  "Pilgrim":        "スパイシー・フルーティ・フローラルの多面体イギリス品種。モダンな英国IPAに活用。",
+  "Pilot":          "スパイス・ハーブ・パインのアーシーなアロマ。イギリス産ビタリング向け品種。",
+  "Pink Boots Blend": "女性醸造家支援のチャリティーブレンド。トロピカル・シトラス・ベリーの明るいアロマ。",
+  "Polaris":        "ミント・パイン・柑橘の爽快なアロマ。超高α酸（約20%）のドイツ産品種。",
+  "Premiant":       "フローラル・スパイス・ハーブのチェコ産ノーブル系。ピルスナーに最適。",
+  "Pride of Ringwood": "アーシー・パイン・樹脂のオーストラリア伝統品種。フォスターズ等の定番ビールに使用。",
+  "Progress":       "ハーブ・フルーティ・フローラルの穏やかなイギリス品種。フグルの後継として開発。",
+  "Rakau":          "アプリコット・マンゴー・プラム・シトラスのストーンフルーツ感が豊かなNZ品種。",
+  "Rakau (MacHops)": "アプリコット・マンゴー・プラムのストーンフルーツ感。マックホップス社供給のラカウ。",
+  "Rakau (NZ Hops)": "アプリコット・マンゴー・プラムのストーンフルーツ感。NZホップス社供給のラカウ。",
+  "Riwaka":         "シトラス（ライム・レモン）が突出するNZ品種。鮮烈な柑橘感がヘイジーIPAを彩る。",
+  "Saaz":           "スパイシー・フローラル・アーシーのクラシックノーブル感。チェコピルスナーの象徴。",
+  "Sabro":          "タンジェリン・ライム・トロピカル・ミント・クリームシクル。多面体の個性的なアロマ。",
+  "Santiam":        "フローラル・ハーブ・スパイスのノーブル感。ドイツ品種のアメリカ版的存在。",
+  "Saphir":         "タンジェリン・フローラル・スパイスの繊細なドイツ品種。ハラタウ系の上品さ。",
+  "Savinjski Golding": "スロベニア産ゴールディング。柑橘・フローラル・スパイスの上品なアロマ。",
+  "Simcoe":         "パッションフルーツ・柑橘・パイン・アーシーの力強いアロマ。WCIPAのマストホップ。",
+  "Sladek":         "ハーブ・スパイス・フローラルのチェコ産ノーブル系。ザーツの現代版。",
+  "Sorachi Ace":    "レモン・ディル・コリアンダーのユニークな日本産品種。個性的な柑橘×ハーブ感。",
+  "Southern Cross (NZ Hops)": "柑橘（ライム・レモン）・スパイス・パインのNZ品種。南十字星の名が示す南半球産。",
+  "Sovereign":      "フローラル・ストーンフルーツ・ハーブのイギリス品種。ファーストゴールドに近い性質。",
+  "Spalter":        "フローラル・スパイス・ハーブのクラシックドイツ・ノーブル品種。バイエルン伝統の味。",
+  "Spalter Select": "フローラル・スパイスのノーブル感。シュパルターの改良品種で香りがより明確。",
+  "Sterling":       "フローラル・スパイス・柑橘のノーブル系アメリカ品種。ザーツとアメリカ品種の交配。",
+  "Strata":         "パッションフルーツ・ストロベリー・グレープフルーツのトロピカル×ベリー感が特徴。",
+  "Strisselspalter": "スパイス・フローラル・アーシーのフランス・アルザス産伝統品種。",
+  "Summer":         "トロピカル・ストーンフルーツ・柑橘のオーストラリア産品種。夏向けのフルーティさ。",
+  "Summit":         "オニオン・柑橘・スパイスの個性的なアロマ。愛好家を選ぶ超高α酸品種。",
+  "Super Pride":    "アーシー・パイン・樹脂の高α酸オーストラリア品種。Pride of Ringwoodの後継。",
+  "Superdelic (NZ Hops)": "トロピカル・シトラス・ベリーのエレクトリックなNZ品種。",
+  "Sussex Hop":     "フローラル・スパイス・柑橘のイングランド・サセックス産品種。",
+  "Sylva":          "フローラル・スパイス・ハーブのドイツ品種。繊細で上品なアロマ。",
+  "Tahoma":         "シトラス・スパイス・フルーティのバランス型。シムコー・シェランの交配から生まれた品種。",
+  "Talus":          "グレープフルーツ・フローラル・ストーンフルーツ・パインの多面体品種。次世代スター候補。",
+  "Tangier":        "タンジェリン・ネーブルオレンジ・オレンジクリームシクルのシトラス爆弾。2021年発見の新鋭。",
+  "Target":         "スパイシー・ハーブ・パインの力強いイギリス品種。ビタリング中心だが複雑なアロマも持つ。",
+  "Tettnanger":     "フローラル・スパイス・ハーブの繊細なドイツ産ノーブルホップ。テットナングの宝。",
+  "Topaz":          "トロピカル（ライチ）・柑橘・パインのオーストラリア産高α酸品種。",
+  "Triskel":        "フローラル・シトラス・スパイスのフランス・アルザス産品種。ストリッセルシュパルターの後継。",
+  "Triumph":        "柑橘・フルーティ・フローラルのバランス型。センテニアルの兄弟品種として開発。",
+  "Vanguard":       "フローラル・ハーブ・スパイスのノーブル系。ハラタウの北アメリカ版的存在。",
+  "Veterans' Blend": "退役軍人支援のチャリティーブレンド。トロピカル・シトラス・ベリーの明るいアロマ。",
+  "Vista":          "トロピカル・シトラス・フローラルのバランス型。比較的新しいアメリカ品種。",
+  "Wai Iti (NZ Hops)": "レモン・ライム・ピーチのシトラス×ストーンフルーツ感。ニュージーランドの小さな宝。",
+  "Waimea":         "ライム・レモン・タンジェリンのシャープなシトラス感とパインが共存するNZ品種。",
+  "Wakatu (MacHops)": "柑橘・フローラル・スパイスのNZ品種。マックホップス社供給のワカトゥ。",
+  "Wakatu (NZ Hops)": "柑橘・フローラル・スパイスのNZ品種。NZホップス社供給のワカトゥ。",
+  "Warrior":        "ハーブ・パイン・柑橘の穏やかなアロマ。高α酸ビタリング品種として安定した人気。",
+  "Willamette":     "フローラル・ハーブ・スパイスの穏やかなアロマ。フグルのアメリカ版として長く愛用。",
+  "Yakima Gold":    "柑橘・スパイス・ハーブの穏やかなアロマ。ヤキマバレー産のクラシック品種。",
+  "Zappa":          "マンゴー・パッションフルーツ・スパイシーなトロピカル感。ロックの帝王の名を冠した個性派。",
+  "Zythos Blend":   "タンジェリン・柑橘・フローラルのブレンド。複数品種の良いとこ取りのブレンドホップ。"
+};
+
+var hops = [
+{name:"Ahtanum",v:[1,5,0,3,4,3]},{name:"Ales for ALS",v:[3,3,3,1,2,2]},
+{name:"Amarillo",v:[4,5,1,3,1,2]},{name:"Apollo",v:[0,4,0,0,3,4]},
+{name:"Aramis",v:[0,2,0,2,0,5]},{name:"Aurora",v:[1,3,0,3,1,3]},
+{name:"Azacca",v:[5,4,0,1,2,2]},{name:"Bobek",v:[0,3,0,4,3,3]},
+{name:"Bravo",v:[2,4,2,4,1,2]},{name:"Brewer's Gold",v:[0,0,4,0,0,2]},
+{name:"Cascade",v:[1,4,2,3,2,3]},{name:"Cashmere",v:[3,4,2,1,0,2]},
+{name:"Celeia",v:[0,2,0,4,1,4]},{name:"Centennial",v:[1,4,2,3,2,1]},
+{name:"Challenger",v:[1,1,1,2,1,4]},{name:"Chelan",v:[1,2,1,2,1,1]},
+{name:"Chinook",v:[1,3,1,1,4,3]},{name:"Citra",v:[4,5,3,1,1,1]},
+{name:"Cluster",v:[0,1,3,3,0,3]},{name:"Cluster Fugget",v:[1,2,1,1,1,3]},
+{name:"Columbia",v:[3,4,0,1,0,1]},{name:"Columbus",v:[0,2,0,1,1,5]},
+{name:"Comet",v:[1,3,1,1,1,2]},{name:"Cryo Pop Original Blend",v:[4,4,3,1,1,0]},
+{name:"Crystal",v:[1,2,1,3,1,3]},{name:"CTZ",v:[0,2,0,1,1,4]},
+{name:"Dolcita",v:[4,3,3,1,0,1]},{name:"East Kent Golding",v:[0,3,0,4,0,3]},
+{name:"Ekuanot",v:[4,4,2,1,0,2]},{name:"El Dorado",v:[5,2,3,1,1,1]},
+{name:"Elani",v:[4,4,1,1,1,1]},{name:"Endeavour",v:[0,4,4,1,0,3]},
+{name:"Ernest",v:[1,3,4,1,0,2]},{name:"Falconer's Flight 7Cs",v:[3,4,2,2,2,2]},
+{name:"Falconer's Flight Blend",v:[4,4,1,3,2,1]},{name:"First Gold",v:[1,4,2,3,0,3]},
+{name:"Fuggle",v:[0,1,1,1,0,4]},{name:"Galaxy",v:[4,4,2,0,1,1]},
+{name:"Galena",v:[2,4,3,0,1,3]},{name:"Glacier",v:[1,2,3,1,0,3]},
+{name:"Hallertau Blanc",v:[4,4,2,3,0,1]},{name:"Hallertauer Mittelfruher",v:[0,2,0,3,0,4]},
+{name:"Hallertauer Tradition",v:[0,2,1,3,0,4]},{name:"HBC 472",v:[3,3,2,3,1,3]},
+{name:"HBC 630",v:[3,3,4,2,0,1]},{name:"HBC 638",v:[4,4,3,2,0,1]},
+{name:"HBC 682",v:[0,2,1,2,0,3]},{name:"Helga",v:[0,1,0,3,0,4]},
+{name:"Herkules",v:[1,3,1,1,3,3]},{name:"Hersbrucker Spat",v:[0,2,1,3,0,4]},
+{name:"Horizon",v:[0,2,0,3,1,3]},{name:"Huell Melon",v:[3,1,4,1,0,1]},
+{name:"Idaho 7",v:[4,4,2,1,3,2]},{name:"Idaho Gem",v:[3,3,4,2,0,2]},
+{name:"Jarrylo",v:[2,4,2,1,0,2]},{name:"Kazbek",v:[1,4,2,2,0,3]},
+{name:"Kohatu",v:[4,2,2,1,2,1]},{name:"Krush",v:[4,4,3,1,1,0]},
+{name:"Liberty",v:[0,2,0,3,0,3]},{name:"Loral",v:[1,3,2,4,0,2]},
+{name:"Magnum",v:[0,2,0,2,1,3]},{name:"Mandarina Bavaria",v:[2,5,1,2,0,1]},
+{name:"Millennium",v:[0,1,2,2,3,2]},{name:"Mosaic",v:[4,3,4,2,2,2]},
+{name:"Motueka",v:[2,5,1,2,0,2]},{name:"Motueka (MacHops)",v:[2,5,1,2,0,2]},
+{name:"Motueka (NZ Hops)",v:[2,5,1,2,0,2]},{name:"Moutere",v:[4,3,2,1,1,1]},
+{name:"Mt. Hood",v:[0,1,0,3,1,3]},{name:"Mt. Rainier",v:[1,2,1,2,2,2]},
+{name:"Nectaron",v:[5,4,3,0,0,0]},{name:"Nelson Sauvin",v:[3,2,4,2,0,1]},
+{name:"Nelson Sauvin (MacHops)",v:[3,2,4,2,0,1]},{name:"Nelson Sauvin (NZ Hops)",v:[3,2,4,2,0,1]},
+{name:"Newport",v:[0,2,0,0,2,3]},{name:"Northdown",v:[0,1,2,2,2,3]},
+{name:"Northern Brewer",v:[0,1,0,1,2,4]},{name:"Nugget",v:[1,2,1,1,2,4]},
+{name:"Olympic",v:[0,2,0,0,2,3]},{name:"Opal",v:[1,2,2,3,2,3]},
+{name:"Pacific Crest Blend",v:[0,1,0,2,2,4]},{name:"Pacific Gem",v:[0,2,3,0,2,3]},
+{name:"Pacific Jade",v:[0,3,0,0,2,4]},{name:"Pacifica (MacHops)",v:[1,4,0,3,0,2]},
+{name:"Pacifica (NZ Hops)",v:[1,4,0,3,0,2]},{name:"Palisade",v:[1,2,3,2,0,2]},
+{name:"Pekko",v:[1,3,0,3,0,3]},{name:"Perle",v:[0,1,0,2,1,3]},
+{name:"Phoenix",v:[1,1,0,2,2,3]},{name:"Pilgrim",v:[0,1,2,2,2,3]},
+{name:"Pilot",v:[0,1,1,1,2,3]},{name:"Pink Boots Blend",v:[3,4,3,2,1,1]},
+{name:"Polaris",v:[2,2,0,1,3,4]},{name:"Premiant",v:[0,1,0,2,0,3]},
+{name:"Pride of Ringwood",v:[0,0,0,0,2,4]},{name:"Progress",v:[0,1,2,2,0,3]},
+{name:"Rakau",v:[2,2,3,1,2,1]},{name:"Rakau (MacHops)",v:[2,2,3,1,2,1]},
+{name:"Rakau (NZ Hops)",v:[2,2,3,1,2,1]},{name:"Riwaka",v:[3,5,1,1,0,1]},
+{name:"Saaz",v:[0,1,0,3,0,4]},{name:"Sabro",v:[4,4,3,1,2,2]},
+{name:"Santiam",v:[0,2,0,3,0,3]},{name:"Saphir",v:[1,3,1,3,0,2]},
+{name:"Savinjski Golding",v:[0,2,0,3,1,3]},{name:"Simcoe",v:[3,3,2,1,4,2]},
+{name:"Sladek",v:[0,1,0,2,0,3]},{name:"Sorachi Ace",v:[0,4,0,0,0,4]},
+{name:"Southern Cross (NZ Hops)",v:[2,4,1,1,2,2]},{name:"Sovereign",v:[0,1,2,3,0,3]},
+{name:"Spalter",v:[0,1,0,3,0,3]},{name:"Spalter Select",v:[0,1,0,3,0,3]},
+{name:"Sterling",v:[0,2,0,3,0,3]},{name:"Strata",v:[4,3,3,0,1,3]},
+{name:"Strisselspalter",v:[0,1,0,3,0,4]},{name:"Summer",v:[2,3,3,1,0,2]},
+{name:"Summit",v:[0,3,0,0,1,4]},{name:"Super Pride",v:[0,1,1,0,2,3]},
+{name:"Superdelic (NZ Hops)",v:[3,3,4,1,0,2]},{name:"Sussex Hop",v:[0,2,0,2,0,3]},
+{name:"Sylva",v:[0,1,0,3,1,3]},{name:"Tahoma",v:[0,3,0,1,2,2]},
+{name:"Talus",v:[2,4,3,3,3,2]},{name:"Tangier",v:[0,5,0,2,0,1]},
+{name:"Target",v:[0,1,1,1,2,4]},{name:"Tettnanger",v:[0,1,0,3,0,3]},
+{name:"Topaz",v:[2,3,1,0,2,2]},{name:"Triskel",v:[1,3,1,3,0,2]},
+{name:"Triumph",v:[1,3,2,2,2,1]},{name:"Vanguard",v:[0,1,0,2,1,4]},
+{name:"Veterans' Blend",v:[4,3,3,1,1,1]},{name:"Vista",v:[2,3,2,2,2,2]},
+{name:"Wai Iti (NZ Hops)",v:[2,3,3,2,0,1]},{name:"Waimea",v:[2,4,1,1,3,2]},
+{name:"Wakatu (MacHops)",v:[1,3,0,3,0,2]},{name:"Wakatu (NZ Hops)",v:[1,3,0,3,0,2]},
+{name:"Warrior",v:[0,2,0,1,3,2]},{name:"Willamette",v:[0,1,0,3,1,3]},
+{name:"Yakima Gold",v:[0,2,0,1,0,2]},{name:"Zappa",v:[5,4,1,0,2,2]},
+{name:"Zythos Blend",v:[2,4,1,2,2,1]}
+];
+hops.forEach(function(h,i){ h.color = pal[i % pal.length]; });
+
+var currentLetter = 'C'; // Citraがデフォルト選択されているためCから開始
+var sel = ['Citra'];
+
+function getLetters(){
+  var set = {};
+  hops.forEach(function(h){ set[h.name[0].toUpperCase()] = true; });
+  return Object.keys(set).sort();
+}
+
+function renderAlphaTabs(){
+  var letters = getLetters();
+  var nav = document.getElementById('alpha-tabs');
+  nav.innerHTML = '';
+  var all = document.createElement('button');
+  all.textContent = '\u2605';
+  all.className = 'alpha-tab' + (currentLetter === '\u2605' ? ' active' : '');
+  all.title = '選択中の品種';
+  all.addEventListener('click', function(){ currentLetter='\u2605'; renderAlphaTabs(); renderBtns(''); });
+  nav.appendChild(all);
+  letters.forEach(function(l){
+    var b = document.createElement('button');
+    b.textContent = l;
+    b.className = 'alpha-tab' + (currentLetter === l ? ' active' : '');
+    b.addEventListener('click', function(){ currentLetter=l; renderAlphaTabs(); renderBtns(''); });
+    nav.appendChild(b);
+  });
+}
+
+function renderBtns(filter){
+  var btnCont = document.getElementById('hop-buttons');
+  btnCont.innerHTML = '';
+  var visible = hops.filter(function(h){
+    if(filter) return h.name.toLowerCase().indexOf(filter.toLowerCase()) >= 0;
+    if(currentLetter === '\u2605') return sel.indexOf(h.name) >= 0;
+    return h.name[0].toUpperCase() === currentLetter;
+  });
+  visible.forEach(function(h){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = h.name;
+    b.dataset.name = h.name;
+    b.addEventListener('click', function(){
+      if(sel.indexOf(h.name) >= 0){
+        sel = sel.filter(function(n){ return n !== h.name; });
+      } else {
+        sel.push(h.name);
+      }
+      refreshBtns();
+      updateChart();
+      showHopDesc();
+    });
+    btnCont.appendChild(b);
+  });
+  refreshBtns();
+}
+
+function showHopDesc(){
+  var box = document.getElementById('hop-desc-box');
+  if(!box) return;
+  if(sel.length === 0){
+    box.innerHTML = '';
+    box.style.display = 'none';
+    return;
+  }
+  // 選択中の全ホップの説明を表示
+  var html = '';
+  sel.forEach(function(name){
+    var h = hops.find(function(x){ return x.name === name; });
+    var desc = hopDesc[name] || '';
+    if(!desc) return;
+    html += '<div class="hop-desc-item" style="border-left:3px solid '+h.color+'">'
+          + '<div class="hop-desc-name">'+name+'</div>'
+          + '<div class="hop-desc-text">'+desc+'</div>'
+          + '</div>';
+  });
+  if(html){
+    box.innerHTML = html;
+    box.style.display = 'block';
+  } else {
+    box.style.display = 'none';
+  }
+}
+
+function refreshBtns(){
+  document.querySelectorAll('#hop-buttons button').forEach(function(b){
+    var on = sel.indexOf(b.dataset.name) >= 0;
+    var h = hops.find(function(x){ return x.name === b.dataset.name; });
+    b.classList.toggle('active', on);
+    b.style.background = on ? h.color+'22' : '#fff';
+    b.style.borderColor = on ? h.color : '#ccc';
+  });
+}
+
+function buildDS(){
+  return sel.map(function(name){
+    var h = hops.find(function(x){ return x.name === name; });
+    return{
+      label: h.name,
+      data: h.v.map(function(x){ return x/5*100; }),
+      rawData: h.v,
+      borderColor: h.color,
+      backgroundColor: h.color+'33',
+      borderWidth: 2,
+      pointBackgroundColor: h.color,
+      pointRadius: 3
+    };
+  });
+}
+
+var ctx = document.getElementById('hopChart');
+var chart = new Chart(ctx, {
+  type: 'radar',
+  data: { labels: rlabels, datasets: buildDS() },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    scales: { r: { min:0, max:100, ticks:{display:false}, pointLabels:{font:{size:11}} } },
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: function(c){ return c.dataset.label+': '+c.dataset.rawData[c.dataIndex]+'/5'; } } }
+    }
+  }
+});
+
+function updateChart(){
+  chart.data.datasets = buildDS();
+  chart.update();
+  document.getElementById('legend').innerHTML = sel.map(function(name){
+    var h = hops.find(function(x){ return x.name === name; });
+    return '<span><span class="sw" style="background:'+h.color+'"></span>'+h.name+'</span>';
+  }).join('');
+}
+
+document.getElementById('srch').addEventListener('input', function(e){
+  renderBtns(e.target.value);
+});
+document.getElementById('clrBtn').addEventListener('click', function(){
+  sel = [];
+  updateChart();
+  refreshBtns();
+  var box = document.getElementById('hop-desc-box');
+  if(box) box.style.display = 'none';
+});
+
+renderAlphaTabs();
+renderBtns('');
+updateChart();
+showHopDesc();
+</script>
+<script>var products = [{"id": "b105-c16036", "name": "Texas Godzilla IPA", "brewery": "903 Brewers", "style": "IPA", "abv": "9.5%", "hops": ["Citra", "Nelson Sauvin"], "url": "https://www.antenna-america.com/products/b105-c16036", "added": "2026-06-21", "description": "テキサスホップから生まれた怪物、テキサス・ゴジラ。アルコール度数9.5%のこのウェストコーストIPAは、圧倒的なインパクトであなたの味覚を驚かせます。強烈な柑橘系アロマを持つシトラホップのエキスをたっぷり使用し、みずみずしいグレープフルーツ、鮮やかなライムの皮、トロピカルフルーツの風味を生み出します。松脂を思わせる長く続くフィニッシュが印象的。ホップ好きなら絶対に外せない一本。", "image": "https://www.antenna-america.com/cdn/shop/files/TexasGodzillaIPA.png?width=400", "source": "antenna"}, {"id": "b119-c12002", "name": "Hop Reach IPA", "brewery": "Allagash Brewing", "style": "IPA", "abv": "6.2%", "hops": ["Nugget", "Mosaic", "Idaho 7", "Cascade", "Citra", "Cashmere", "El Dorado"], "url": "https://www.antenna-america.com/products/b119-c12002", "added": "2026-06-21", "image": "https://www.antenna-america.com/cdn/shop/files/AllagashHopReach.jpg?width=400", "description": "太陽に向かって伸びるホップのように、柑橘とトロピカルの風味が満開に咲くAllagash初の定番IPA。パイナップル、グレープフルーツ、タンジェリン、パインのパノラマを精緻な苦みでまとめ上げた傑作。スタッフ全員の意見を反映して開発された、複雑さと飲みやすさの絶妙なバランスが魅力。ホップ：Nugget, Mosaic, Idaho 7, Cascade, Citra, Cashmere, El Dorado。", "source": "antenna"}, {"id": "b027-c16087a", "name": "Silver Fern IPA", "brewery": "Beachwood", "style": "West Coast IPA", "abv": "7.1%", "hops": ["Galaxy", "Nectaron", "Nelson Sauvin"], "url": "https://www.antenna-america.com/products/b027-c16087a", "added": "2026-06-21", "description": "ビーチウッド・ブルーイングによるウェストコーストIPAで、南半球産ホップ（ギャラクシー、ネクタロン、ネルソン・ソーヴィン）を主役に据えた一杯。鮮やかなトロピカルフルーツと柑橘のキャラクターが弾け、クリーンでドライなフィニッシュが心地よく続きます。", "image": "https://www.antenna-america.com/cdn/shop/files/SilverFernIPA.jpg?width=400", "source": "antenna"}, {"id": "b058-c12032", "name": "No Worries IPA", "brewery": "Belching Beaver", "style": "West Coast IPA", "abv": "6.2%", "hops": ["Strata", "Galaxy", "Mosaic", "Citra", "Amarillo"], "url": "https://www.antenna-america.com/products/b058-c12032", "added": "2026-06-21", "image": "https://www.antenna-america.com/cdn/shop/files/NoWorries12oz.png?width=400", "description": "王道なウェストコーストIPA感を残しつつ、新品種ホップで現代風にアレンジした傑作。StrataとGalaxy、Mosaic、Citra、Amarilloの5種のホップによる缶を開けた瞬間のダンク感とトロピカルフルーツのアロマ、そして大量ホップが与えるリッチな苦みが心地よいサンディエゴ発のウェストコーストIPA。", "source": "antenna"}, {"id": "b092-c12004a", "name": "RPM IPA", "brewery": "Boneyard Beer", "style": "IPA", "abv": "6.5%", "hops": [], "url": "https://www.antenna-america.com/en/products/b092-c12004a", "added": "2026-06-21", "image": "https://www.antenna-america.com/cdn/shop/files/RPM12oz.png?width=400", "description": "地元ベンド市で複数年連続No.1 IPAに選ばれたBoneyardの自信作。5種類のワシントン州産ホップとバランスの取れたモルト感が融合した、オレゴン発のクラシックなIPA。", "source": "antenna"}, {"id": "b092-c12001a", "name": "Hop Venom IIPA", "brewery": "Boneyard Beer", "style": "DIPA", "abv": "9%", "hops": ["Simcoe", "Centennial", "Chinook", "CTZ"], "url": "https://www.antenna-america.com/products/b092-c12001a", "added": "2026-06-21", "description": "ボーンヤード・ビアのホップ・ヴェノムDIPAは、毒蛇のごとく強烈なアロマがあなたの嗅覚を直撃します。大量のドライホップを投入しながらも嫌みな苦みを排除し、ホップへの渇望を満たしてくれる一杯。クラシックなウェストコーストスタイルの帝国IPA——どっしりとしたモルト感と、驚くほど絶妙なバランスを両立しています。", "image": "https://www.antenna-america.com/cdn/shop/files/HopVenomIIPA.jpg?width=400", "source": "antenna"}, {"id": "b092-c12002a", "name": "Incredible Pulp", "brewery": "Boneyard Beer", "style": "Pale Ale", "abv": "6%", "hops": ["Centennial", "Citra", "Mosaic"], "url": "https://www.antenna-america.com/en/products/b092-c12002a", "added": "2026-06-21", "image": "https://www.antenna-america.com/cdn/shop/files/IncrediblePulp.png?width=400", "description": "ブラッドオレンジを加えた二次発酵と柑橘系ホップのアロマが合わさる、強烈なフルーティさが楽しめるBoneyardのペールエール。オレンジジュースのようなジューシーさとホップの苦みが絶妙にバランス。", "source": "antenna"}, {"id": "b124-c12001", "name": "Insane Rush IPA", "brewery": "Bootstrap Brewing", "style": "IPA", "abv": "7.6%", "hops": [], "url": "https://www.antenna-america.com/products/b124-c12001", "added": "2026-06-21", "description": "コロラド州のブートストラップ・ブルーイングによる大胆でホップ全開のIPA。強烈なアロマと心地よい苦みのフィニッシュが特徴で、ホップを思いきり楽しみたい方にぴったりの一本です。", "image": "https://www.antenna-america.com/cdn/shop/files/InsaneRushIPA.jpg?width=400", "source": "antenna"}, {"id": "casa-lostatlast", "name": "Lost at Last West Coast IPA", "brewery": "Casa Agria", "style": "West Coast IPA", "abv": "7%", "hops": ["Citra", "Nelson Sauvin"], "url": "https://www.antenna-america.com/en/products/b088-c16036", "added": "2026-06-21", "description": "カリフォルニア、オジャイのCasa Agria Specialty AlesによるウェストコーストIPA。「道に迷った最後の旅」を表現した一本で、シトラとネルソン・ソーヴィンが生み出すジューシーな柑橘とトロピカルのアロマが広がる。", "image": "https://www.antenna-america.com/cdn/shop/files/LostAtLastWCIPA.jpg?width=400", "source": "antenna"}, {"id": "casa-summer", "name": "Summer in the Streets West Coast IPA", "brewery": "Casa Agria", "style": "West Coast IPA", "abv": "7%", "hops": [], "url": "https://www.antenna-america.com/en/products/b088-c16034", "added": "2026-06-21", "description": "Casa Agriaの夏をテーマにしたウェストコーストIPA。カリフォルニアの夏の通りを歩くような爽やかさと力強いホップキャラクターが特徴の一本。", "image": "https://www.antenna-america.com/cdn/shop/files/SummerInTheStreets.jpg?width=400", "source": "antenna"}, {"id": "b080-c12023", "name": "Chasin' Freshies", "brewery": "Deschutes", "style": "Fresh Hop IPA", "abv": "6%", "hops": ["El Dorado", "Zappa"], "url": "https://www.antenna-america.com/products/b080-c12023", "added": "2026-06-21", "description": "デシュートス・ブルワリーのフレッシュホップIPA。収穫したばかりのエル・ドラード・ホップを畑から直送で使用し、フレッシュホップだけが持つ生き生きとした香りを閉じ込めた季節限定の一本。年に一度だけお届けできる特別なビールです。", "image": "https://www.antenna-america.com/cdn/shop/files/ChasinFreshies.jpg?width=400", "source": "antenna"}, {"id": "b083-b12006", "name": "Citra Pale Ale", "brewery": "El Segundo", "style": "Pale Ale", "abv": "5.5%", "hops": ["Citra"], "url": "https://www.antenna-america.com/en/products/b083-b12006", "added": "2026-06-21", "description": "エル・セグンドのシトラシングルホップペールエール。シトラが持つグレープフルーツ、ライム、パッションフルーツのアロマを純粋に楽しめるシングルホップの傑作。ホップ品種の個性を学ぶのに最適な一本。", "image": "https://www.antenna-america.com/cdn/shop/products/ElSegundoCitraPaleAle.png?width=400", "source": "antenna"}, {"id": "elsegundo-hopplunge", "name": "Hop Plunge DIPA", "brewery": "El Segundo", "style": "DIPA", "abv": "8%", "hops": ["Simcoe", "Citra", "Centennial"], "url": "https://www.antenna-america.com/products/b083-c16026", "added": "2026-06-21", "description": "エル・セグンドのダブルIPA。シムコー、シトラ、センテニアルの3種のホップをプランジ(急落)するように大量投入した、8%の力強くもジューシーな一杯。", "image": "https://www.antenna-america.com/cdn/shop/files/HopPlungeDIPA.jpg?width=400", "source": "antenna"}, {"id": "elsegundo-hoptanker", "name": "Hop Tanker DIPA", "brewery": "El Segundo", "style": "DIPA", "abv": "8.1%", "hops": ["Nelson Sauvin", "Citra", "Simcoe", "Chinook"], "url": "https://www.antenna-america.com/products/b083-c16028", "added": "2026-06-21", "description": "エル・セグンドのホップタンカーDIPA。ネルソン・ソーヴィン、シトラ、シムコー、チヌークを使ったタンカー（タンクローリー）並みの積載量のホップが生み出す圧倒的なアロマ。", "image": "https://www.antenna-america.com/cdn/shop/files/HopTankerDIPA.jpg?width=400", "source": "antenna"}, {"id": "b112-c16023a", "name": "Dictator Marlon DDH QIPA", "brewery": "Evil Twin Brewing", "style": "DIPA", "abv": "12%", "hops": ["Citra", "Riwaka"], "url": "https://www.antenna-america.com/en/products/b112-c16023a", "added": "2026-06-21", "description": "イービルツインの独裁者シリーズQIPA。シトラとリワカを使ったトリプルドライホップのクアドラプルIPA。12%という高アルコールながら、危険なほど飲みやすいジューシーな怪作。", "image": "https://www.antenna-america.com/cdn/shop/files/DictatorMarlon.png?width=400", "source": "antenna"}, {"id": "eviltwin-ivoted", "name": "I Voted Today DDH Pale Ale", "brewery": "Evil Twin Brewing", "style": "Pale Ale", "abv": "5%", "hops": ["Citra", "Mosaic"], "url": "https://www.antenna-america.com/products/b112-c16024a", "added": "2026-06-21", "description": "イービルツインの「今日は投票してきた」ペールエール。シトラとモザイクを使った市民の権利を称える一本。柑橘とトロピカルのアロマが広がる飲みやすいDDHペールエール。", "image": "https://www.antenna-america.com/cdn/shop/files/IVotedTodayPaleAle.jpg?width=400", "source": "antenna"}, {"id": "b112-c16004a", "name": "General Marlon DDH QIPA", "brewery": "Evil Twin Brewing", "style": "DIPA", "abv": "12%", "hops": ["Riwaka", "Rakau", "Nelson Sauvin"], "url": "https://www.antenna-america.com/en/products/b112-c16004a", "added": "2026-06-21", "description": "イービルツインの将軍シリーズQIPA。リワカ、ラカウ、ネルソン・ソーヴィンというニュージーランド産ホップ三銃士が生み出す、白ワインとトロピカルフルーツが溢れる傑作。", "image": "https://www.antenna-america.com/cdn/shop/files/GeneralMarlon.png?width=400", "source": "antenna"}, {"id": "b047-c12102", "name": "Hopnosis IPA", "brewery": "Firestone Walker", "style": "IPA", "abv": "-", "hops": ["Simcoe", "Talus", "Callista", "Mosaic", "Idaho 7", "El Dorado", "Cashmere", "Nelson Sauvin (NZ Hops)", "Riwaka"], "url": "https://www.antenna-america.com/products/b047-c12102", "added": "2026-06-21", "description": "ファイアーストーン・ウォーカーのホップノーシスIPA。「ホップ催眠術」の名の通り、あなたをホップのトランス状態に誘う一杯。ファイアーストーンらしいクリーンでプレシジョンな醸造技術が光る。", "image": "https://www.antenna-america.com/cdn/shop/products/Hopnosis.png?width=400", "source": "antenna"}, {"id": "fw-unionjack", "name": "Union Jack IPA", "brewery": "Firestone Walker", "style": "IPA", "abv": "7%", "hops": ["Magnum", "Cascade", "Centennial", "Amarillo", "Citra", "Chinook", "Simcoe"], "url": "https://www.antenna-america.com/products/b047-c12003", "added": "2026-06-21", "description": "ファイアーストーン・ウォーカーの定番IPA、ユニオン・ジャック。7%のアルコールとバランスの取れた苦みが特徴のウェストコーストIPA。20年以上愛され続けるカリフォルニアの名作。", "image": "https://www.antenna-america.com/cdn/shop/files/UnionJackIPA.jpg?width=400", "source": "antenna"}, {"id": "b082-c12006", "name": "Dipper DIPA", "brewery": "Fort Point", "style": "DIPA / Imperial", "abv": "-", "hops": ["Cashmere", "Simcoe", "Waimea"], "url": "https://www.antenna-america.com/products/b082-c12006", "added": "2026-06-21", "description": "フォートポイント・ビアのインペリアル・ダブルIPA。カシミア、シムコー、ワイメアの3種のホップを使用し、豊かなトロピカルフルーツと柑橘のアロマをクリーンな苦みでバランスよくまとめた一杯です。", "image": "https://www.antenna-america.com/cdn/shop/files/DipperDIPA.jpg?width=400", "source": "antenna"}, {"id": "b089-c19001", "name": "Harpoon IPA", "brewery": "Harpoon", "style": "IPA", "abv": "6%", "hops": ["Apollo", "Chinook", "Cascade"], "url": "https://www.antenna-america.com/products/b089-c19001", "added": "2026-06-21", "description": "1993年にボストンで生まれたハープーン初のIPA。英国スタイルのIPAをベースに、個性的なアメリカ産ホップで仕上げたすっきりと爽やかな一杯。柑橘系のフレーバーと絶妙なバランスが特徴で、ハープーン・ブルワリーの原点とも言えるビールです。", "image": "https://www.antenna-america.com/cdn/shop/files/HarpoonIPA.png?width=400", "source": "antenna"}, {"id": "b111-c12001", "name": "Hop Island IPA", "brewery": "Honolulu Beerworks", "style": "IPA", "abv": "-", "hops": ["Amarillo", "Citra", "Mosaic"], "url": "https://www.antenna-america.com/products/b111-c12001", "added": "2026-06-21", "description": "ハワイのホノルル・ビアワークスが醸造するIPAで、アマリロ、シトラ、モザイクの3種のホップを使用。トロピカルフルーツ、マンゴー、ストーンフルーツが炸裂する、アイランドの精神にぴったりの一本です。", "image": "https://www.antenna-america.com/cdn/shop/files/HopIslandIPA.jpg?width=400", "source": "antenna"}, {"id": "b065-c12017", "name": "Hop Dab IPA", "brewery": "Indeed Brewing", "style": "IPA", "abv": "7.2%", "hops": ["Mosaic", "Simcoe"], "url": "https://www.antenna-america.com/products/b065-c12017", "added": "2026-06-21", "description": "インディード・ブルーイングのホップ・ダブIPA。モザイクとシムコーでドライホップし、ベリー、トロピカルフルーツ、松の木を思わせる爽快なアロマとクリーンな苦みのフィニッシュが楽しめます。", "image": "https://www.antenna-america.com/cdn/shop/files/HopDabIPA.jpg?width=400", "source": "antenna"}, {"id": "karl-boatshoes", "name": "Boat Shoes Hazy IPA", "brewery": "Karl Strauss", "style": "Hazy IPA", "abv": "7.2%", "hops": ["Pacifica", "Simcoe", "Mosaic", "Pekko", "Galaxy"], "url": "https://www.antenna-america.com/products/b029-c12030", "added": "2026-06-21", "description": "カール・シュトラウスのボート・シューズヘイジーIPA。ラフなビーチスタイルにインスパイアされた、7.2%のジューシーなヘイジーIPA。サンディエゴの海辺でくつろぐような一本。", "image": "https://www.antenna-america.com/cdn/shop/files/BoatShoesHazyIPA.jpg?width=400", "source": "antenna"}, {"id": "karl-aurora", "name": "Aurora Hoppyalis IPA", "brewery": "Karl Strauss", "style": "San Diego-Style IPA", "abv": "7%", "hops": ["Simcoe", "Mosaic", "Amarillo", "Citra"], "url": "https://www.antenna-america.com/products/b029-c12022", "added": "2026-06-21", "description": "カール・シュトラウスのオーロラ・ホッピアリスIPA。オーロラ（夜明け）の光のように輝くサンディエゴスタイルのIPA。明るく爽やかな柑橘とホップのアロマが広がる一杯。", "image": "https://www.antenna-america.com/cdn/shop/files/AuroraHoppyalisIPA.jpg?width=400", "source": "antenna"}, {"id": "b095-c16027", "name": "Quietly Judging DIPA", "brewery": "LA Ale Works", "style": "DIPA", "abv": "-", "hops": ["Citra", "Mosaic", "El Dorado"], "url": "https://www.antenna-america.com/products/b095-c16027", "added": "2026-06-21", "description": "LAエール・ワークスのクワイエットリー・ジャッジングDIPA。シトラ、モザイク、エル・ドラードを組み合わせたダブルIPAで、トロピカルフルーツ、柑橘、ストーンフルーツのジューシーな爆発を堪能できます。", "image": "https://www.antenna-america.com/cdn/shop/files/QuietlyJudgingDIPA.jpg?width=400", "source": "antenna"}, {"id": "pizzaport-everyday", "name": "Everyday Enjoyment IPA", "brewery": "Pizza Port", "style": "IPA", "abv": "7%", "hops": ["Cascade", "Strata", "Chinook"], "url": "", "added": "2026-06-21", "description": "カリフォルニアの老舗ピザポートのエブリデイIPA。その名の通り毎日飲みたいバランスのとれたIPA。カスケード、ストラタ、チヌークの3種ホップが生み出す爽やかな苦みとフルーティなアロマ。", "image": "https://www.antenna-america.com/cdn/shop/files/EverydayEnjoymentIPA.jpg?width=400", "source": "antenna"}, {"id": "revision-dipa", "name": "Revision DIPA", "brewery": "Revision Brewing", "style": "Double IPA", "abv": "8%", "hops": ["Simcoe", "Mosaic"], "url": "https://www.antenna-america.com/products/b055-c12013", "added": "2026-06-21", "description": "Revision BrewingのスタンダードDIPA。ホップへの情熱で知られるリノのRevisionが真剣に向き合ったダブルIPA。クリーンなモルトのバックボーンにホップアロマが炸裂する一本。", "image": "https://www.antenna-america.com/cdn/shop/files/RevisionDIPA.jpg?width=400", "source": "antenna"}, {"id": "revision-artcar", "name": "Art Car Hazy IPA", "brewery": "Revision Brewing", "style": "Hazy IPA", "abv": "6.4%", "hops": ["Motueka", "Mosaic", "Cashmere"], "url": "", "added": "2026-06-21", "description": "Revision BrewingのアートカーヘイジーIPA。自由な発想のアート作品のように、モツエカ、モザイク、カシミアの多彩なホップブレンドが一枚のキャンバスに描かれた一杯。", "image": "https://www.antenna-america.com/cdn/shop/files/ArtCarHazyIPA.jpg?width=400", "source": "antenna"}, {"id": "revision-invitation", "name": "Invitation to Party Hazy DIPA", "brewery": "Revision Brewing", "style": "NE-Style Hazy Double IPA", "abv": "8.5%", "hops": [], "url": "", "added": "2026-06-21", "description": "Revision BrewingのパーティーへのインビテーションヘイジーDIPA。「パーティーへのご招待」の名の通り、8.5%のトロピカルフルーツが爆発するお祭り騒ぎのダブルIPA。", "image": "https://www.antenna-america.com/cdn/shop/files/InvitationToPartyDIPA.jpg?width=400", "source": "antenna"}, {"id": "societe-bff", "name": "Best Friends Forever IPA", "brewery": "Societe Brewing", "style": "IPA", "abv": "7.3%", "hops": [], "url": "https://www.antenna-america.com/products/b073-c16037", "added": "2026-06-21", "description": "ソシエテ・ブルーイングの「ベスト・フレンズ・フォーエバー」IPA。親友のように飲み飽きない、7.3%のクリーンでバランスのとれたウェストコーストIPA。サンディエゴ発の実力派ブリュワリーの定番。", "image": "https://www.antenna-america.com/cdn/shop/files/BestFriendsForeverIPA.jpg?width=400", "source": "antenna"}, {"id": "societe-highlyskilled", "name": "Highly Skilled West Coast IPA", "brewery": "Societe Brewing", "style": "West Coast IPA", "abv": "7.8%", "hops": [], "url": "", "added": "2026-06-21", "description": "ソシエテ・ブルーイングの「高度な技術」ウェストコーストIPA。名前の通り高い醸造技術が光るクリーンでドライ、ホップの個性を最大限に引き出した7.8%のウェストコーストIPA。", "image": "https://www.antenna-america.com/cdn/shop/files/HighlySkilledWCIPA.jpg?width=400", "source": "antenna"}, {"id": "stone-ipa", "name": "Stone IPA", "brewery": "Stone Brewing", "style": "India Pale Ale", "abv": "6.9%", "hops": ["Magnum", "Chinook", "Centennial", "Azacca", "Calypso", "Ella", "Vic Secret"], "url": "https://www.antenna-america.com/products/b010-c12011", "added": "2026-06-21", "description": "1997年から醸造されるストーン・ブルーイングの看板IPA。カリフォルニアクラフトビール革命を牽引した伝説の一本。トロピカルフルーツ、シトラス、パインの強烈なアロマと力強い苦みが特徴の6.9%ウェストコーストIPA。", "image": "https://www.antenna-america.com/cdn/shop/files/StoneIPA.jpg?width=400", "source": "antenna"}, {"id": "stone-ruination", "name": "Stone Ruination IPA", "brewery": "Stone Brewing", "style": "IPA", "abv": "-", "hops": ["Magnum", "Chinook", "Centennial"], "url": "https://www.antenna-america.com/products/b010-c12185a", "added": "2026-06-21", "description": "ストーン・ブルーイングの「廃墟」IPA。「舌を廃墟にするほど強烈」というコンセプト通り、圧倒的なホップの苦みとアロマで知られる伝説的なダブルIPA。ホップ好きへの挑戦状。", "image": "https://www.antenna-america.com/cdn/shop/files/StoneRuinationIPA.jpg?width=400", "source": "antenna"}, {"id": "b053-c16006", "name": "THC IPA", "brewery": "The Hop Concept", "style": "IPA", "abv": "-", "hops": ["Mosaic", "Idaho 7"], "url": "https://www.antenna-america.com/products/b053-c16006", "added": "2026-06-21", "description": "ミカンの皮、レモン、熟したグレープフルーツの味わい。The Hop Conceptを代表するIPAシリーズ「THC IPA」。Port Brewingの醸造スタッフが世界各国の新しく実験的なホップを使って醸造する、2ヶ月ごとにリリースされる個性派IPAです。", "image": "https://www.antenna-america.com/cdn/shop/files/THCIPA.jpg?width=400", "source": "antenna"}, {"id": "topa-chiefpeak", "name": "Chief Peak IPA", "brewery": "Topa Topa", "style": "IPA", "abv": "7%", "hops": [], "url": "https://www.antenna-america.com/products/b071-c12001", "added": "2026-06-21", "description": "トパトパ・ブルーイングのチーフ・ピークIPA。ベンチュラカウンティの最高峰、チーフ・ピークにちなんだ一本。7%のクリーンでドライなウェストコーストIPAで、地元の山の雄大さを表現。", "image": "https://www.antenna-america.com/cdn/shop/files/ChiefPeakIPA.jpg?width=400", "source": "antenna"}, {"id": "topa-spectro", "name": "Spectro Hazy IPA", "brewery": "Topa Topa", "style": "Hazy IPA", "abv": "6.3%", "hops": [], "url": "https://www.antenna-america.com/products/b071-c12004", "added": "2026-06-21", "description": "トパトパのスペクトロヘイジーIPA。光のスペクトルのように多彩なホップキャラクターが広がる6.3%のヘイジーIPA。トロピカルフルーツと柑橘が霞の中に溶け込む一杯。", "image": "https://www.antenna-america.com/cdn/shop/files/SpectroHazyIPA.jpg?width=400", "source": "antenna"}, {"id": "b071-c12m01-03", "name": "Talus IPA", "brewery": "Topa Topa", "style": "IPA", "abv": "6.5%", "hops": ["Talus"], "url": "https://www.antenna-america.com/products/b071-c12m01-03", "added": "2026-06-21", "description": "トパ・トパ・ブルーイングによるタラスIPA。グレープフルーツ、フローラル、ストーンフルーツ、松脂のキャラクターで知られる最新鋭アメリカ産ホップ「タラス」を主役に据えた一本。注目の新品種ホップをシングルホップでじっくり味わえます。", "image": "https://www.antenna-america.com/cdn/shop/files/TalusIPA.jpg?width=400", "source": "antenna"}, {"id": "topa-huckster", "name": "Huckster DIPA", "brewery": "Topa Topa", "style": "DIPA / Imperial", "abv": "8.8%", "hops": [], "url": "https://www.antenna-america.com/products/b071-c19036", "added": "2026-06-21", "description": "トパトパのハックスターDIPA。「詐欺師」の名を持つ8.8%の強烈なダブルIPA。ホップの香りに騙されて次の一杯、また次の一杯と手が伸びてしまう危険な一本。", "image": "https://www.antenna-america.com/cdn/shop/files/HucksterDIPA.jpg?width=400", "source": "antenna"}, {"id": "tg-kingsue", "name": "King Sue", "brewery": "Toppling Goliath", "style": "Hazy DIPA", "abv": "7.8%", "hops": ["Citra"], "url": "https://www.antenna-america.com/products/b085-c16002", "added": "2026-06-21", "description": "トップリング・ゴリアスの「キング・スー」ヘイジーDIPA。シトラをほぼシングルホップで使用した7.8%のダブルIPA。シトラが持つグレープフルーツ、ライム、トロピカルの全ポテンシャルを引き出した、アイオワ発の傑作。", "image": "https://www.antenna-america.com/cdn/shop/files/KingSue.jpg?width=400", "source": "antenna"}, {"id": "tg-radiant", "name": "Radiant Haze", "brewery": "Toppling Goliath", "style": "Hazy IPA", "abv": "7%", "hops": ["Citra", "Mosaic", "Strata"], "url": "https://www.antenna-america.com/products/b085-c16024", "added": "2026-06-21", "description": "トップリング・ゴリアスのレイディアント・ヘイズIPA。「輝く霞」の名の通り、シトラとモザイクが生み出す眩しいトロピカルフルーツのアロマに包まれた7%のヘイジーIPA。", "image": "https://www.antenna-america.com/cdn/shop/files/RadiantHaze.jpg?width=400", "source": "antenna"}, {"id": "tg-pompeii", "name": "Pompeii", "brewery": "Toppling Goliath", "style": "IPA", "abv": "6.3%", "hops": ["Mosaic"], "url": "https://www.antenna-america.com/products/b085-c16003", "added": "2026-06-21", "description": "トップリング・ゴリアスのポンペイIPA。古代ローマの名都市のようにどっしりとした存在感を持つ6.3%のモザイクシングルホップIPA。モザイクが持つトロピカル、ベリー、アーシーな複雑さを存分に楽しめる。", "image": "https://www.antenna-america.com/cdn/shop/files/Pompeii.jpg?width=400", "source": "antenna"}, {"id": "trademark-mist", "name": "Mist Opportunity Hazy IPA", "brewery": "Trademark Brewing", "style": "Hazy IPA", "abv": "6.8%", "hops": ["El Dorado", "Azacca", "Cashmere", "Idaho Gem"], "url": "https://www.antenna-america.com/products/b097-c16018", "added": "2026-06-21", "description": "トレードマーク・ブルーイングの「ミスト・オポチュニティ（霧のチャンス）」ヘイジーIPA。霞の中に隠れた機会を掴むように、6.8%の柔らかくジューシーなトロピカルフルーツのアロマが広がる一杯。", "image": "https://www.antenna-america.com/cdn/shop/files/MistOpportunityHazyIPA.jpg?width=400", "source": "antenna"}, {"id": "trademark-timely", "name": "Timely Approach WC IPA", "brewery": "Trademark Brewing", "style": "West Coast IPA", "abv": "6.8%", "hops": ["Columbus", "Amarillo", "El Dorado"], "url": "https://www.antenna-america.com/products/b097-c16016", "added": "2026-06-21", "description": "トレードマーク・ブルーイングの「タイムリー・アプローチ」ウェストコーストIPA。絶妙なタイミングでアマリロとエル・ドラードのホップが爆発する6.8%のウェストコーストIPA。コロンバスも加わりパンチのある苦みも楽しめる。", "image": "https://www.antenna-america.com/cdn/shop/files/TimelyApproachWCIPA.jpg?width=400", "source": "antenna"}, {"id": "trademark-brunch", "name": "Let's Brunch Hazy IPA", "brewery": "Trademark Brewing", "style": "Hazy IPA", "abv": "6.8%", "hops": ["Citra", "Mandarina Bavaria", "Comet"], "url": "https://www.antenna-america.com/products/b097-c16011", "added": "2026-06-21", "description": "トレードマーク・ブルーイングの「レッツ・ブランチ」ヘイジーIPA。ブランチにぴったりのシトラ、マンダリナ・ババリア、コメットの組み合わせ。シトラの柑橘感にマンダリナのオレンジが重なり、コメットのフルーティさが後追いする爽快な6.8%。", "image": "https://www.antenna-america.com/cdn/shop/files/LetsBrunchHazyIPA.jpg?width=400", "source": "antenna"}, {"id": "b109-c16021a", "name": "Cellarmaker Brewing Timeland WC IPA", "brewery": "Cellarmaker Brewing", "style": "West Coast IPA", "abv": "-", "hops": ["Mosaic", "Citra", "Idaho 7"], "url": "https://www.antenna-america.com/en/products/b109-c16021a", "added": "2026-06-27", "description": "セラーメーカーの醸造家たちは毎年アメリカ太平洋岸北西部へ赴き、最高品質のホップを厳選します。時間が止まるような静寂の中で一粒一粒のアロマを確かめ、今年選ばれたのはモザイク、シトラ、アイダホ7の三種。このトリオが生み出す圧倒的なダンクさ、爽やかな柑橘、鋭い松の香り、トロピカルなグアバの酸味——時間が止まった場所から生まれたビールです。", "image": "https://www.antenna-america.com/cdn/shop/files/TimelandWCIPA.png?width=400", "source": "antenna"}, {"id": "b109-c16029a", "name": "Cellarmaker Brewing Sound and Fury WC IPA", "brewery": "Cellarmaker Brewing", "style": "West Coast IPA", "abv": "-", "hops": ["Mosaic"], "url": "https://www.antenna-america.com/en/products/b109-c16029a", "added": "2026-06-27", "description": "アウトロー・カントリーアーティストから着想を得たパッショネートなウェストコーストIPA。セラーメーカーが目指したのは、ウェストコーストIPAの頂点——激しくホッピーでありながら、驚くほど飲みやすいビールです。", "image": "https://www.antenna-america.com/cdn/shop/files/SoundandFuryWCIPA.jpg?width=400", "source": "antenna"}, {"id": "b109-c16011a", "name": "Cellarmaker Brewing Coffee and Cigarettes", "brewery": "Cellarmaker Brewing", "style": "Stout / Porter", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b109-c16011a", "added": "2026-06-27", "description": "セラーメーカーのシグネチャーダークビール「コーヒー＆シガレッツ」。イギリス産モルトをベースに少量のドイツ産スモークモルトを加え、サイトグラス・コーヒーのコーヒー豆をたっぷり使用。ローストしたダークチョコレートと豊かなコーヒーの香りが口の中でゆっくりと広がる、完成度の高い一杯です。", "image": "https://www.antenna-america.com/cdn/shop/files/CoffeeandCigarettes_2.png?width=400", "source": "antenna"}, {"id": "b109-c16003a", "name": "Cellarmaker Brewing 10 Forty", "brewery": "Cellarmaker Brewing", "style": "Lager / Pilsner", "abv": "-", "hops": ["Tettnanger", "Hallertauer Mittelfruher"], "url": "https://www.antenna-america.com/en/products/b109-c16003a", "added": "2026-06-27", "description": "セラーメーカーが手がけるクリスプでクリーンなラガー「10フォーティ」。サンフランシスコというクラフトビール激戦区で、常に新しいフレーバーへの挑戦を続けるセラーメーカーのクラフトマンシップが詰まった一本です。", "image": "https://www.antenna-america.com/cdn/shop/files/10Forty_fd2eb9f2-1d83-4e1d-973d-006322b58c50.jpg?width=400", "source": "antenna"}, {"id": "b114-c16004", "name": "Embolden Beer Co Shogun - Midnight in Tokyo Matcha IPA", "brewery": "Embolden Beer Co", "style": "Hazy IPA", "abv": "-", "hops": ["Citra", "Mosaic", "Cascade"], "url": "https://www.antenna-america.com/en/products/b114-c16004", "added": "2026-06-27", "description": "東京の真夜中をテーマにした抹茶ヘイジーIPA。抹茶を使用した独創的な一杯で、日本への愛情を持つサンディエゴのエンボールデン・ビア・カンパニーが、革新と伝統を融合させた個性派クラフトビールです。", "image": "https://www.antenna-america.com/cdn/shop/files/Shogun-MidnightinTokyoMatchaIPA.png?width=400", "source": "antenna"}, {"id": "b114-c16014", "name": "Embolden Beer Co Shogun - Dawn in Ube Hazy IPA", "brewery": "Embolden Beer Co", "style": "Hazy IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/products/b114-c16014", "added": "2026-06-27", "image": "https://www.antenna-america.com/cdn/shop/files/Shogun-DawninUbeHazyIPA.png?width=400", "description": "宇多湖の夜明けをテーマにした抹茶ヘイジーIPAシリーズ第2弾。San DiegoのCafe Maikoとのコラボで生まれた、抹茶の清涼感と柑橘・マンゴーのホップキャラクターが融合した個性派クラフトビール。", "source": "antenna"}, {"id": "b114-broken-record", "name": "Embolden Beer Co Broken Record West Coast IPA", "brewery": "Embolden Beer Co", "style": "West Coast IPA", "abv": "-", "hops": ["Nelson Sauvin (NZ Hops)", "Mosaic"], "url": "https://www.antenna-america.com/en/collections/embolden-beer-co", "added": "2026-06-27", "description": "エンボールデン・ビア・カンパニーのウェストコーストIPA。ネルソン・ソーヴィンとモザイクをホップに使用し、白ワインを思わせるトロピカルフルーツのキャラクターをクリスプなウェストコーストIPAのボディに乗せた一本。日本をテーマにしたサンディエゴ発のクラフトブランドによる逸品です。", "image": "https://www.antenna-america.com/cdn/shop/files/BrokenRecordWCIPA.jpg?width=400", "source": "antenna"}, {"id": "b116-c16010", "name": "8 bit Brewing Midnight Specter Hazy Triple IPA", "brewery": "8 bit Brewing", "style": "DIPA", "abv": "-", "hops": ["Citra", "Nelson Sauvin (NZ Hops)", "Nectaron"], "url": "https://www.antenna-america.com/en/products/b116-c16010", "added": "2026-06-27", "description": "8ビット・ブルーイングのヘイジー・トリプルIPA「ミッドナイト・スペクター」。シトラ、ネルソン・ソーヴィン、ネクタロンを使ったパワフルなトリプルIPAで、パッションフルーツ、柑橘、トロピカルフルーツが重なり合う危険なほど飲みやすい一杯。80年代レトロゲームにインスパイアされたラベルデザインも必見です。", "image": "https://www.antenna-america.com/cdn/shop/files/MidnightSpecter.jpg?width=400", "source": "antenna"}, {"id": "b116-c16008", "name": "8 bit Brewing True Brewmance WC IPA", "brewery": "8 bit Brewing", "style": "West Coast IPA", "abv": "-", "hops": ["Mosaic", "Simcoe"], "url": "https://www.antenna-america.com/en/products/b116-c16008", "added": "2026-06-27", "description": "8ビット・ブルーイングのウェストコーストIPA「トゥルー・ブリューマンス」。モザイクとシムコーで醸造したクラシックなスタイルで、松の木、ベリー、柑橘のキャラクターが際立つクリーンでドライな仕上がり。レトロゲームデザインのラベルが映えるホップ好きのための一本です。", "image": "https://www.antenna-america.com/cdn/shop/files/TrueBrewmance.jpg?width=400", "source": "antenna"}, {"id": "b070-c12001", "name": "Harland West Coast IPA", "brewery": "Harland", "style": "West Coast IPA", "abv": "-", "hops": ["Citra", "Mosaic"], "url": "https://www.antenna-america.com/en/products/b070-c12001", "added": "2026-06-27", "image": "https://www.antenna-america.com/cdn/shop/files/HarlandWCIPA.jpg?width=400", "description": "ベルモント・パークを臨むHarland BrewingのウェストコーストIPA。サンディエゴの太陽を浴びたゴールデンカラーに、クリーンでドライなウェストコーストIPAの美学が光る一本。", "source": "antenna"}, {"id": "b070-c16002", "name": "Harland Hazy IPA", "brewery": "Harland", "style": "Hazy IPA", "abv": "-", "hops": ["Citra", "Mosaic", "Southern Cross"], "url": "https://www.antenna-america.com/en/products/b070-c16002", "added": "2026-06-27", "image": "https://www.antenna-america.com/cdn/shop/files/HarlandHazyIPA.jpg?width=400", "description": "HarlandのヘイジーIPA。柔らかくジューシーなトロピカルフルーツの霞に包まれた、飲みやすくも奥深いニューウェーブIPA。", "source": "antenna"}, {"id": "faction-b001", "name": "Faction Brewing Mosaic Pale Ale", "brewery": "Faction Brewing", "style": "Pale Ale", "abv": "-", "hops": ["Mosaic"], "url": "https://www.antenna-america.com/en/collections/faction-brewing", "added": "2026-06-27", "image": "https://www.antenna-america.com/cdn/shop/files/FactionMosaicPaleAle.jpg?width=400", "description": "オークランドのFaction Brewingによるモザイクシングルホップペールエール。モザイクが持つトロピカル・ベリー・アーシーな複雑さを存分に引き出した一本。", "source": "antenna"}, {"id": "faction-b002", "name": "Faction Brewing West Coast IPA", "brewery": "Faction Brewing", "style": "West Coast IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/collections/faction-brewing", "added": "2026-06-27", "image": "https://www.antenna-america.com/cdn/shop/files/FactionWCIPA.jpg?width=400", "description": "Faction BrewingのウェストコーストIPA。オークランド生まれの、クリーンでドライ、力強いホップキャラクターが特徴の一杯。", "source": "antenna"}, {"id": "pure-project-b001", "name": "Pure Project Tropical Haze IPA", "brewery": "Pure Project", "style": "Hazy IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/collections/pure-project", "added": "2026-06-27", "image": "https://www.antenna-america.com/cdn/shop/files/PureProjectTropicalHaze.jpg?width=400", "description": "サンディエゴのPure ProjectによるトロピカルヘイジーIPA。「純粋なビール作り」への情熱から生まれた、トロピカルフルーツあふれるジューシーな一杯。", "source": "antenna"}, {"id": "cerebral-b001", "name": "Cerebral Brewing IPA", "brewery": "Cerebral Brewing", "style": "IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/collections/cerebral-brewing", "added": "2026-06-27", "image": "https://www.antenna-america.com/cdn/shop/files/CerebralIPA.jpg?width=400", "description": "コロラドのCerebral Brewingによる知的でアート的なIPA。複雑で思慮深いホップキャラクターとアーティスティックなラベルが特徴。", "source": "antenna"}, {"id": "unsung-b001", "name": "Unsung Brewing IPA", "brewery": "Unsung Brewing", "style": "IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/collections/unsung-brewing", "added": "2026-06-27", "image": "https://www.antenna-america.com/cdn/shop/files/UnsungIPA.jpg?width=400", "description": "カリフォルニアのUnsung BrewingによるIPA。「称えられないヒーロー」の名の通り、確かな実力を持つブリュワリーの渾身の一本。", "source": "antenna"}, {"id": "b-east-brother-001", "name": "East Brother Beer West Coast IPA", "brewery": "East Brother Beer", "style": "West Coast IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/collections/east-brother-beer", "added": "2026-06-27", "image": "https://www.antenna-america.com/cdn/shop/files/EastBrotherWCIPA.jpg?width=400", "description": "サンフランシスコ湾を臨むEast Brother Beer CoのウェストコーストIPA。兄弟の絆のように固く結ばれたホップとモルトのハーモニーが楽しめるベイエリア発の傑作。", "source": "antenna"}, {"id": "shred-b001", "name": "Shred Beer Company IPA", "brewery": "Shred Beer Company", "style": "IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/collections/shred-beer-company", "added": "2026-06-27", "image": "https://www.antenna-america.com/cdn/shop/files/ShredBeerIPA.jpg?width=400", "description": "スノーボード・スケートボードカルチャーにインスパイアされたShred Beer CompanyのIPA。アグレッシブでホップ全開な個性派クラフトビール。", "source": "antenna"}, {"id": "b095-c16054", "name": "LA Ale Works Hotel Hazeway Juicy DIPA", "brewery": "LA Ale Works", "style": "Hazy DIPA", "abv": "-", "hops": ["Nelson Sauvin (NZ Hops)", "Galaxy", "Enigma"], "url": "https://www.antenna-america.com/en/products/b095-c16054", "image": "https://www.antenna-america.com/cdn/shop/files/HotelHazewayJuicyDIPA_2.jpg?width=400", "description": "「Hotel Hazeway」へようこそ、一年中いつでもビールが楽しめる最高の場所へ。ネルソン、ギャラクシー、エニグマホップを使用し、ピーチ、パッションフルーツ、白ブドウ、レッドカラントを思わせるホッピーなアロマが広がるジューシーなDIPAです。", "added": "2026-06-30", "source": "antenna"}, {"id": "b095-c16035a", "name": "LA Ale Works Blue Vibes 2 West Coast IPA", "brewery": "LA Ale Works", "style": "West Coast IPA", "abv": "-", "hops": ["Galaxy", "Mosaic", "Simcoe"], "url": "https://www.antenna-america.com/en/products/b095-c16035a", "image": "https://www.antenna-america.com/cdn/shop/files/BlueVibes2WCIPA.jpg?width=400", "description": "LAの青い野球チームが快進撃を続ける2024年プレーオフを祝うBlue Vibesの第2弾。ギャラクシー、モザイク、シムコーの掛け合わさった旨味を堪能しながら、ワールドシリーズ優勝を目指す気分で飲みたいウェストコーストIPAです。", "added": "2026-06-30", "source": "antenna"}, {"id": "b055-c16022", "name": "Revision Hops In A Can Triple IPA", "brewery": "Revision Brewing", "style": "Hazy Triple IPA", "abv": "-", "hops": ["Citra", "Simcoe", "Amarillo", "Mosaic"], "url": "https://www.antenna-america.com/en/products/b055-c16022", "image": "https://www.antenna-america.com/cdn/shop/files/HopsInACanTripleIPA.jpg?width=400", "description": "シトラ、シムコー、アマリロ、モザイクの4種のホップから生まれる松の木と甘い柑橘のアロマ。グレープフルーツを前面に、オレンジ・タンジェリンのニュアンスも漂うヘイジー・トリプルIPA。強いアルコール感がありながらもドライなフィニッシュで、不思議なほど飲みやすい。", "added": "2026-06-30", "source": "antenna"}, {"id": "b055-c16024", "name": "Revision Smoke & Mirrors Hazy IPA", "brewery": "Revision Brewing", "style": "Hazy IPA", "abv": "8%", "hops": ["Citra", "Mosaic", "Amarillo"], "url": "https://www.antenna-america.com/en/products/b055-c16024", "image": "https://www.antenna-america.com/cdn/shop/files/SmokeAndMirrorsHazyIPA.jpg?width=400", "description": "シトラ、モザイク、アマリロの完璧なトリオが生み出す傑作。タンジェリン、オレンジの皮、トロピカルなパパイヤとメロンのジューシーなアロマ。樹脂感のあるダンクさが余韻に残り、ミディアムボディでドライなフィニッシュ。8%とは思えない飲みやすさが魅力のヘイジーIPA。", "added": "2026-06-30", "source": "antenna"}, {"id": "b060-c16040", "name": "Smog City Watt Strike IPA", "brewery": "Smog City", "style": "IPA", "abv": "6.1%", "hops": ["El Dorado", "Simcoe", "Chinook"], "url": "https://www.antenna-america.com/en/products/b060-c16040", "image": "https://www.antenna-america.com/cdn/shop/files/WattStrikeIPA.jpg?width=400", "description": "60日ごとにホップの組み合わせを変える実験的IPAシリーズの最新作。エル・ドラード、シムコー、チヌークを使用し、キウイ、フルーティなチューインガム、柑橘、プラムの風味にほのかなパインのニュアンスを持つ。アルコール6.1%とほどよい度数で、毎日飲みたい一本。", "added": "2026-06-30", "source": "antenna"}, {"id": "b060-c16091", "name": "Smog City Thunder Egg Hazy IPA", "brewery": "Smog City", "style": "Hazy IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b060-c16091", "image": "https://www.antenna-america.com/cdn/shop/files/ThunderEggHazyIPA.jpg?width=400", "description": "ホップ由来の強烈なトロピカルフルーツと柑橘感、そして穏やかな苦み。パイナップル、ココナッツ、ライチ、オレンジブロッサム、レモンのようなニュアンスが感じられるスモッグシティのヘイジーIPA。", "added": "2026-06-30", "source": "antenna"}, {"id": "b060-c16112", "name": "Smog City Back to Sea WC IPA", "brewery": "Smog City", "style": "West Coast IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b060-c16112", "image": "https://www.antenna-america.com/cdn/shop/files/BacktoSeaWCIPA.jpg?width=400", "description": "骨格のあるクリアな味わいを目指したクラシックなウェストコーストIPA。グレープフルーツの皮や白桃を中心に、ほのかなトロピカル感と常緑樹のニュアンス。Marine Mammal Care Centerとのコラボにより、海洋哺乳類の保護・リハビリ活動を支援するビールです。", "added": "2026-06-30", "source": "antenna"}, {"id": "b060-c16026", "name": "Smog City Weather Machine IPA", "brewery": "Smog City", "style": "IPA", "abv": "-", "hops": ["Ekuanot", "Mosaic", "Centennial"], "url": "https://www.antenna-america.com/en/products/b060-c16026", "image": "https://www.antenna-america.com/cdn/shop/files/WeatherMachineIPA.jpg?width=400", "description": "60日ごとにホップの組み合わせを変えるSmog DaysシリーズのIPA。今回はエクアノット、モザイク、センテニアルの3種を使用した一本です。", "added": "2026-06-30", "source": "antenna"}, {"id": "b060-c16042", "name": "Smog City Fire Tornado Hazy IPA", "brewery": "Smog City", "style": "Hazy IPA", "abv": "-", "hops": ["Zamba", "Citra", "Cascade"], "url": "https://www.antenna-america.com/en/products/b060-c16042", "image": "https://www.antenna-america.com/cdn/shop/files/FireTornadoHazyIPA.jpg?width=400", "description": "2ヶ月ごとにホップレシピを入れ替えて醸造するSmog Cityの人気IPAシリーズから。厳選されたホップのブレンドでマンゴー、パイナップル、ライチ、タンジェリンのフルーティな風味を楽しめる、苦みが低めでバランスの取れたヘイジーIPA。幅広い方に楽しんでいただけます。", "added": "2026-06-30", "source": "antenna"}, {"id": "hb-nelson-motueka", "name": "Hop Butcher For The World IPA (Nelson Sauvin / Motueka)", "brewery": "Hop Butcher For The World", "style": "IPA", "abv": "6.75%", "hops": ["Nelson Sauvin", "Motueka"], "url": "https://www.antenna-america.com/en/collections/hop-butcher-for-the-world", "image": "https://www.antenna-america.com/cdn/shop/files/HopButcherNelsonMotueka.jpg?width=400", "description": "シカゴのホップフォワードブリュワリー「Hop Butcher For The World」。カール・サンドバーグの詩「Chicago」からその名をとり、ホップの個性を最大限に引き出したIPAを次々とリリース。ネルソン・ソーヴィンとモツエカを使ったこの一本は、白ワインを思わせるゴーズベリーとシトラスの絶品アロマが広がります。", "added": "2026-06-30", "source": "antenna"}, {"id": "hb-simcoe-strata", "name": "Hop Butcher For The World IPA (Simcoe / Strata / Centennial)", "brewery": "Hop Butcher For The World", "style": "IPA", "abv": "7.0%", "hops": ["Simcoe", "Strata", "Centennial", "Crystal"], "url": "https://www.antenna-america.com/en/collections/hop-butcher-for-the-world", "image": "https://www.antenna-america.com/cdn/shop/files/HopButcherSimcoeStrata.jpg?width=400", "description": "Mikerphone Brewingとのコラボレーションで生まれたIPA。シムコー、ストラタ、センテニアル、クリスタルホップを組み合わせた芳醇なアロマが特徴。Hop ButcherのすべてのラベルはシカゴアーティストのDan Grzecaによるアートワークで彩られています。", "added": "2026-06-30", "source": "antenna"}, {"id": "hb-waimea-peacharine", "name": "Hop Butcher For The World DIPA (Waimea / Peacharine)", "brewery": "Hop Butcher For The World", "style": "DIPA", "abv": "8.0%", "hops": ["Waimea", "Peacharine"], "url": "https://www.antenna-america.com/en/collections/hop-butcher-for-the-world", "image": "https://www.antenna-america.com/cdn/shop/files/HopButcherWaimeaPeacharine.jpg?width=400", "description": "ワイメアとPeacharineホップを使った8% DIPA。Hop Butcherが誇るジューシーでトロピカルな二重の爆発をご堪能ください。", "added": "2026-06-30", "source": "antenna"}, {"id": "hb-citra-vic-secret", "name": "Hop Butcher For The World Cold IPA (Citra / Vic Secret)", "brewery": "Hop Butcher For The World", "style": "Cold IPA", "abv": "6.0%", "hops": ["Citra", "Vic Secret"], "url": "https://www.antenna-america.com/en/collections/hop-butcher-for-the-world", "image": "https://www.antenna-america.com/cdn/shop/files/HopButcherCitraVicSecret.jpg?width=400", "description": "シトラとVic SecretホップによるコールドIPA。クリスプでクリーンな飲み口に、シトラの鮮やかな柑橘とVic Secretのパイン・パッションフルーツ感が合わさった一本。6%と飲みやすい度数でグイグイいける。", "added": "2026-06-30", "source": "antenna"}, {"id": "b041-c12018a", "name": "Sierra Nevada Celebration IPA", "brewery": "Sierra Nevada", "style": "IPA", "abv": "6.8%", "hops": ["Centennial", "Cascade"], "url": "https://www.antenna-america.com/en/products/b041-c12018a", "image": "https://www.antenna-america.com/cdn/shop/files/SierraNevadaCelebration.jpg?width=400", "description": "シエラネバダが毎年冬にリリースするホリデーシーズンの定番IPA。センテニアルとカスケードのフレッシュホップを使い、アメリカのクラフトビール文化を半世紀以上牽引してきた伝説のブリュワリーが贈る、力強い苦みと柑橘の香りが魅力のウェストコーストスタイルIPAです。", "added": "2026-06-30", "source": "antenna"}, {"id": "b041-c12093", "name": "Sierra Nevada Dankful IPA", "brewery": "Sierra Nevada", "style": "IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b041-c12093", "image": "https://www.antenna-america.com/cdn/shop/files/SierraNevadaDankful.jpg?width=400", "description": "シエラネバダが誇るダンクフルIPA。松の木と柑橘の力強いアロマが特徴のウェストコーストスタイル。アメリカのIPA文化を築いたシエラネバダが自信を持って送り出す「ダンク感全開」の一杯です。", "added": "2026-06-30", "source": "antenna"}, {"id": "b041-c12070", "name": "Sierra Nevada Hazy Little Thing", "brewery": "Sierra Nevada", "style": "Hazy IPA", "abv": "6.7%", "hops": ["Citra", "El Dorado", "Magnum", "Mosaic", "Simcoe"], "url": "https://www.antenna-america.com/en/products/b041-c12070", "image": "https://www.antenna-america.com/cdn/shop/files/HazyLittleThing_3.png?width=400", "description": "ヘイジーIPAを代表する超人気商品。黄金色に濁った液体から、ジューシーなトロピカルフルーツ、桃、柑橘のフレーバーが溢れ出します。タンクから直接味わうブルワリー体験をそのまま缶に詰め込んだ無濾過IPA。シトラ、エル・ドラード、モザイク、シムコーなど5種のホップが生み出すスムースでクリーミーな口当たりは、まるでフルーツジュース。", "added": "2026-07-03", "source": "antenna"}, {"id": "b041-c12001", "name": "Sierra Nevada Pale Ale", "brewery": "Sierra Nevada", "style": "Pale Ale", "abv": "5.6%", "hops": ["Cascade"], "url": "https://www.antenna-america.com/en/products/b041-c12001", "image": "https://www.antenna-america.com/cdn/shop/files/PaleAle_2_d9ed796d-044c-44cb-8205-0c72ecb57513.png?width=400", "description": "全ての始まり。永遠の名作。全米No.1ペールエール。1980年から醸造され続ける伝説のビール。カスケードホップのパイン、グレープフルーツ、柑橘の香りがクラフトビール革命を巻き起こした歴史的一本。美しいアンバーカラーに、フローラルで柑橘豊かなホップアロマと温かみのあるモルトの風味が完璧なバランス。", "added": "2026-07-03", "source": "antenna"}, {"id": "b041-c16026", "name": "Sierra Nevada Barrel Aged Narwhal", "brewery": "Sierra Nevada", "style": "Barrel Aged Stout", "abv": "11.9%", "hops": ["Challenger", "Magnum"], "url": "https://www.antenna-america.com/en/products/b041-c16026", "image": "https://www.antenna-america.com/cdn/shop/products/Narwhal16oz.png?width=400", "description": "ケンタッキーのバーボン樽で8ヶ月熟成したインペリアル・スタウト。Willet、Heaven Hill、Jim Beamのバーボン樽が生み出す、濃厚なチョコレート、コーヒー、バニラ、ボーボンのフレーバーとシルキーな飲み口。北極の深海に生息する謎多き生物「一角鯨」にインスパイアされた、海面下1000mの深みを持つ限定ビール。", "added": "2026-07-03", "source": "antenna"}, {"id": "b055-c16008", "name": "Revision Social Fermentation", "brewery": "Revision Brewing", "style": "Hazy IPA", "abv": "-", "hops": ["Citra", "Mosaic", "Amarillo", "Galaxy", "Vic Secret"], "url": "https://www.antenna-america.com/en/products/b055-c16008", "image": "https://www.antenna-america.com/cdn/shop/files/SocialFermentation.jpg?width=400", "description": "シトラ、モザイク、アマリロ、ギャラクシー、Vic Secretの5種のホップを使ったヘイジーIPA。濁った黄色の液色に白い泡、マンゴーや柑橘のアロマ。グレープフルーツも感じられる甘味の後にスッキリとした苦みが残る、ソーシャルな場面にぴったりの一杯。", "added": "2026-07-03", "source": "antenna"}, {"id": "b055-c16036", "name": "Revision Reno as Fuck", "brewery": "Revision Brewing", "style": "Hazy DIPA", "abv": "8.4%", "hops": [], "url": "https://www.antenna-america.com/en/products/b055-c16036", "image": "https://www.antenna-america.com/cdn/shop/files/RenoAsFuck.jpg?width=400", "description": "リノ（ネバダ州）への愛を込めたRevisionのヘイジーDIPA。地元を象徴するパッショネートな一本で、Revisionがあるリノのクラフトビールシーンへのオマージュ。リノ・アズ・ファックというストレートなネーミングが示す通り、妥協なくホップを詰め込んだ力強い一杯です。", "added": "2026-07-03", "source": "antenna"}, {"id": "b055-c16013", "name": "Revision Spiritual Gangster", "brewery": "Revision Brewing", "style": "Hazy IPA", "abv": "-", "hops": ["Citra", "Mosaic"], "url": "https://www.antenna-america.com/en/products/b055-c16013", "image": "https://www.antenna-america.com/cdn/shop/files/SpiritualGangster.jpg?width=400", "description": "シトラとモザイクをダブルドライホップしたRevisionのヘイジーIPA。トロピカルフルーツと柑橘の爆発的なアロマが特徴。「Spiritual Gangster」の名が示すように、スピリチュアルでいてストリートな個性派IPA。", "added": "2026-07-03", "source": "antenna"}, {"id": "b060-c12001b", "name": "Smog City Amarilla Gorilla IPA", "brewery": "Smog City", "style": "IPA", "abv": "-", "hops": ["Amarillo"], "url": "https://www.antenna-america.com/en/products/b060-c12001b", "image": "https://www.antenna-america.com/cdn/shop/files/AmarillaGorillaIPA.jpg?width=400", "description": "アマリロホップをシングルホップで使用したSmog CityのIPA。アマリロが持つ華やかなオレンジ・グレープフルーツ・フローラルのアロマを存分に引き出した、ホップ品種を学ぶのにも最適な一本。", "added": "2026-07-03", "source": "antenna"}, {"id": "b095-c16027a", "name": "LA Ale Works Lunar Kitten Hazy IPA", "brewery": "LA Ale Works", "style": "Hazy IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b095-c16027a", "image": "https://www.antenna-america.com/cdn/shop/files/LunarKittenHazyIPA.jpg?width=400", "description": "LAエール・ワークスのムーンライトをテーマにしたヘイジーIPA「Lunar Kitten」。夜空に浮かぶ月のような柔らかく丸みのある口当たりと、ジューシーなトロピカルフルーツのアロマが特徴的な癒し系の一杯。", "added": "2026-07-03", "source": "antenna"}, {"id": "b095-c16016", "name": "LA Ale Works El Lay Pale Ale", "brewery": "LA Ale Works", "style": "Pale Ale", "abv": "-", "hops": ["Citra", "Mosaic", "Wakatu"], "url": "https://www.antenna-america.com/en/products/b095-c16016", "image": "https://www.antenna-america.com/cdn/shop/files/ElLayPaleAle.jpg?width=400", "description": "「El Lay」はLAの発音をもじった愛称。LAエール・ワークスがLAへの愛を込めたペールエール。飲みやすくフルーティで日常的に楽しめるLAらしい一杯。", "added": "2026-07-03", "source": "antenna"}, {"id": "b095-c16041", "name": "LA Ale Works Chromatic Juicy DIPA", "brewery": "LA Ale Works", "style": "Hazy DIPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b095-c16041", "image": "https://www.antenna-america.com/cdn/shop/files/ChromaticJuicyDIPA.jpg?width=400", "description": "LAエール・ワークスのジューシーDIPA「Chromatic」。カラフルな色彩をテーマにした缶デザインと、層を重ねるように押し寄せるトロピカルフルーツの豊かなアロマが魅力のダブルIPA。", "added": "2026-07-03", "source": "antenna"}, {"id": "b114-c16018", "name": "Embolden Beer Co Brave the Haze Hazy DIPA", "brewery": "Embolden Beer Co", "style": "Hazy DIPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b114-c16018", "image": "https://www.antenna-america.com/cdn/shop/files/BravetheHazeHazyDIPA.jpg?width=400", "description": "エンボールデン・ビア・カンパニーのヘイジーDIPA「Brave the Haze」。霞（ヘイズ）を勇敢に突き進むような力強さと、ジューシーで厚みのあるトロピカルフルーツのアロマが溢れ出す一杯。日本文化へのリスペクトを持つサンディエゴ発のブリュワリーならではの個性。", "added": "2026-07-03", "source": "antenna"}, {"id": "b055-c16042", "name": "Revision The Bird (Faction Brewing Collab)", "brewery": "Revision Brewing", "style": "West Coast IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b055-c16042", "image": "https://www.antenna-america.com/cdn/shop/files/TheBirdRevisionFaction.jpg?width=400", "description": "RevisionとFaction BrewingのコラボレーションによるウェストコーストIPA「The Bird」。二つの実力派ブリュワリーが力を合わせた特別な一本。クリーンでドライ、力強いホップキャラクターが特徴のWC IPAです。", "added": "2026-07-03", "source": "antenna"}, {"id": "topa-sunburst", "name": "Topa Topa Sunburst White Ale", "brewery": "Topa Topa", "style": "Wheat Ale", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/collections/topa-topa", "image": "https://www.antenna-america.com/cdn/shop/files/SunburstWhiteAle.jpg?width=400", "description": "トパトパ・ブルーイングのサンバースト・ホワイトエール。太陽の光を浴びるような爽やかで軽やかな口当たりのウィートエール。柑橘とスパイスのニュアンスが心地よく広がる、暑い日にぴったりの一本です。", "added": "2026-07-03", "source": "antenna"}, {"id": "b055-c16030", "name": "Revision Emerald Bay IPA", "brewery": "Revision Brewing", "style": "IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b055-c16030", "image": "https://www.antenna-america.com/cdn/shop/files/EmeraldBayIPA.jpg?width=400", "description": "タホ湖のエメラルドベイに着想を得たRevisionのIPA。透き通るような清涼感とホップの爽やかなアロマが美しく融合した一本。リノの大自然が感じられるクリーンなウェストコーストスタイルのIPAです。", "added": "2026-07-03", "source": "antenna"}, {"id": "rc-thunderstud-pkg", "name": "Thunder Stud", "brewery": "Resident Culture", "style": "IPA", "abv": "-", "hops": ["Citra", "Galaxy"], "url": "https://southbound.jp/products/rc-thunderstud-pkg", "image": "https://southbound.jp/cdn/shop/files/ThunderStud1800x1440.jpg?width=400", "description": "ノースカロライナのResident Cultureが贈るIPA。重厚なホップキャラクターと力強いアロマが雷のような衝撃をもたらす一本。", "source": "southbound", "added": "2026-07-04"}, {"id": "rc-wearebecausewewere-pkg", "name": "We Are Because We Were", "brewery": "Resident Culture", "style": "IPA", "abv": "-", "hops": ["El Dorado", "Citra", "Idaho 7", "Chinook"], "url": "https://southbound.jp/products/rc-wearebecausewewere-pkg", "image": "https://southbound.jp/cdn/shop/files/WeAreBecauseWeWere1800x1440.jpg?width=400", "description": "Resident Cultureのアイデンティティを体現するIPA。過去から受け継がれた醸造の知恵と情熱が詰まった一本。", "source": "southbound", "added": "2026-07-04"}, {"id": "rc-skullsizedkingdom-pkg", "name": "Skull Sized Kingdom", "brewery": "Resident Culture", "style": "IPA", "abv": "-", "hops": [], "url": "https://southbound.jp/products/rc-skullsizedkingdom-pkg", "image": "https://southbound.jp/cdn/shop/files/RC-skullsizedkingdom_glamour-1382x1728.jpg?width=400", "description": "Resident Cultureの個性派IPA。頭蓋骨サイズの王国というユニークな名前が示す通り、ホップの世界に没頭させてくれる強烈な一本。", "source": "southbound", "added": "2026-07-04"}, {"id": "rc-twistedmetal-pkg", "name": "Twisted Metal 2.0", "brewery": "Resident Culture", "style": "IPA", "abv": "-", "hops": ["Galaxy", "Citra", "Simcoe", "Amarillo"], "url": "https://southbound.jp/products/rc-twistedmetal-pkg", "image": "https://southbound.jp/cdn/shop/files/TwistedMetal1800x1440_cd976f0a-319c-4c06-9b2f-9ec4dcadd496.jpg?width=400", "description": "90年代のカルトゲーム「Twisted Metal」にインスパイアされたResident CultureのIPA第2弾。歪んだ金属のようにひねりのある複雑なホップキャラクターが魅力。", "source": "southbound", "added": "2026-07-04"}, {"id": "ur-fromcaliforniawithlove-pkg", "name": "From California With Love", "brewery": "Urban Roots", "style": "IPA", "abv": "-", "hops": ["Mosaic", "Strata", "Mosaic Cryo", "Mosaic Incognito"], "url": "https://southbound.jp/products/ur-fromcaliforniawithlove-pkg", "image": "https://southbound.jp/cdn/shop/files/UR-product-fromcaliforniawithlove_can-1440x1800.jpg?width=400", "description": "カリフォルニアからの愛を込めたUrban RootsのウェストコーストIPA。サクラメント発のブリュワリーが贈る、太陽と柑橘の香り溢れる一本。", "source": "southbound", "added": "2026-07-04"}, {"id": "hi-coolernights-pkg", "name": "Cooler Nights", "brewery": "Hi-Wire Brewing", "style": "IPA", "abv": "-", "hops": [], "url": "https://southbound.jp/products/hi-coolernights-pkg", "image": "https://southbound.jp/cdn/shop/files/HI-product-coolernights_can-1440x1800.png?width=400", "description": "ノースカロライナのHi-Wire BrewingによるIPA。涼しい夜に飲みたいクリーンでドライな飲み口が特徴。", "source": "southbound", "added": "2026-07-04"}, {"id": "rc-discobaby-pkg", "name": "Disco Baby", "brewery": "Resident Culture", "style": "IPA", "abv": "-", "hops": [], "url": "https://southbound.jp/products/rc-discobaby-pkg", "image": "https://southbound.jp/cdn/shop/files/RC-discobaby_can-1440x1800.jpg?width=400", "description": "ディスコをテーマにしたResident CultureのジューシーIPA。キラキラとしたトロピカルフルーツのアロマがフロアを沸かせます。", "source": "southbound", "added": "2026-07-04"}, {"id": "hi-lopitchhazyipa-pkg", "name": "Lo-Pitch Hazy IPA", "brewery": "Hi-Wire Brewing", "style": "Hazy IPA", "abv": "-", "hops": [], "url": "https://southbound.jp/products/hi-lopitchhazyipa-pkg", "image": "https://southbound.jp/cdn/shop/files/HI_product_lopitch-glamour_1440x1800_82350a56-207e-4e4c-8b36-e974c9cff83d.jpg?width=400", "description": "Hi-Wire BrewingのヘイジーIPA。低音のグルーヴのように滑らかで豊かなトロピカルフルーツのアロマが広がる一本。", "source": "southbound", "added": "2026-07-04"}, {"id": "hw-cosmicsheepmullet-pkg", "name": "Cosmic Sheep Mullet", "brewery": "Hardywood Park", "style": "IPA", "abv": "-", "hops": ["Mosaic", "Simcoe"], "url": "https://southbound.jp/products/hw-cosmicsheepmullet-pkg", "image": "https://southbound.jp/cdn/shop/files/HW_product_cosmicsheepmullet-can_1400x1800_a45c60a3-2dc5-46e8-9959-6b39e5a7b443.jpg?width=400", "description": "バージニアのHardywood Parkによる宇宙的なIPA。コズミック・シープ・マレット（宇宙の羊のマレット）という奇抜な名前の通り、意表をつく個性的なホップフレーバーが楽しめます。", "source": "southbound", "added": "2026-07-04"}, {"id": "hw-greatreturn-pkg", "name": "Great Return", "brewery": "Hardywood Park", "style": "IPA", "abv": "-", "hops": ["Apollo", "Cascade", "Centennial", "Columbus", "Simcoe"], "url": "https://southbound.jp/products/hw-greatreturn-pkg", "image": "https://southbound.jp/cdn/shop/files/HW_product_greatreturn12oz-can_1440x1856_ace194b3-43e9-462c-adc7-5e0553395f93.jpg?width=400", "description": "Hardywood Parkの「Great Return（偉大な帰還）」IPA。バージニアの自然に根ざした醸造哲学から生まれたホップ香る一本。", "source": "southbound", "added": "2026-07-04"}, {"id": "hw-tropication-pkg", "name": "Tropication", "brewery": "Hardywood Park", "style": "IPA", "abv": "-", "hops": ["Citra", "Mosaic"], "url": "https://southbound.jp/products/hw-tropication-pkg", "image": "https://southbound.jp/cdn/shop/files/HW_product_tropication12oz-can_1440x1856_68f03abc-e52e-499d-985f-69ea5ecf86ea.jpg?width=400", "description": "Hardywood Parkのトロピカル系IPA。マンゴー、パインアップル、パッションフルーツを思わせるトロピカルフルーツのアロマが爆発する夏向けの一本。", "source": "southbound", "added": "2026-07-04"}, {"id": "jk-beerleaguekickball-pkg", "name": "Beer League Kickball", "brewery": "Jester King", "style": "Belgian Pale Ale", "abv": "-", "hops": ["Perle", "Hallertauer Mittelfruher", "Tettnanger"], "url": "https://southbound.jp/products/jk-beerleaguekickball-pkg", "image": "https://southbound.jp/cdn/shop/products/JK_product_beerleaguekickball-glamour_1060x1365_75470274-725e-4204-9770-f353464af4bb.jpg?width=400", "description": "テキサスの伝説的ブリュワリーJester Kingによるベルジャンペールエール。ファームハウス酵母と野生酵母が醸し出すユニークなキャラクターが特徴。", "source": "southbound", "added": "2026-07-04"}, {"id": "sa-westly-pkg", "name": "Westly", "brewery": "Sante Adairius", "style": "Saison", "abv": "-", "hops": [], "url": "https://southbound.jp/products/sa-westly-pkg", "image": "https://southbound.jp/cdn/shop/files/SA-product-westly_glamour-1440x1800.jpg?width=400", "description": "カリフォルニアのSante Adairiusによるバレルエイジド・セゾン。木樽熟成と野生酵母が生み出す複雑なファームハウスフレーバーが絶品。", "source": "southbound", "added": "2026-07-04"}, {"id": "sa-twelve-pkg", "name": "Twelve", "brewery": "Sante Adairius", "style": "Saison", "abv": "-", "hops": [], "url": "https://southbound.jp/products/sa-twelve-pkg", "image": "https://southbound.jp/cdn/shop/files/SA-product-twelve_glamour-1334x1667.jpg?width=400", "description": "Sante AdairiusのNo.12ブレンド。12の木樽からブレンドされた複雑で深みのあるサワーセゾン。", "source": "southbound", "added": "2026-07-04"}, {"id": "sa-kyrroyale-pkg", "name": "Kyr Royale", "brewery": "Sante Adairius", "style": "Saison", "abv": "-", "hops": [], "url": "https://southbound.jp/products/sa-kyrroyale-pkg", "image": "https://southbound.jp/cdn/shop/files/SA-product-kyrroyale_glamour-1334x1667.jpg?width=400", "description": "Sante Adairiusのフルーツ入りセゾン。黒スグリを使ったエレガントなサワーファームハウスエール。", "source": "southbound", "added": "2026-07-04"}, {"id": "sa-saisonbernice-pkg", "name": "Saison Bernice", "brewery": "Sante Adairius", "style": "Saison", "abv": "-", "hops": [], "url": "https://southbound.jp/products/sa-saisonbernice-pkg", "image": "https://southbound.jp/cdn/shop/files/SA-product-saisonbernice_btl-1440x1800.jpg?width=400", "description": "Sante Adairiusのフラッグシップ・セゾン。カリフォルニア産の野生酵母で醸された軽やかで複雑な味わい。", "source": "southbound", "added": "2026-07-04"}, {"id": "rc-goldeneternity-pkg", "name": "Golden Eternity", "brewery": "Resident Culture", "style": "Sour", "abv": "-", "hops": [], "url": "https://southbound.jp/products/rc-goldeneternity-pkg", "image": "https://southbound.jp/cdn/shop/files/RC-goldeneternity_can-963x1204.jpg?width=400", "description": "Resident Cultureのケトルサワー。黄金色の液体にフルーティな酸味が心地よく広がる一本。", "source": "southbound", "added": "2026-07-04"}, {"id": "sa-cask200-pkg", "name": "Cask 200", "brewery": "Sante Adairius", "style": "Sour", "abv": "-", "hops": [], "url": "https://southbound.jp/products/sa-cask200-pkg", "image": "https://southbound.jp/cdn/shop/files/SA_product_cask200-glamour_1440x1856_cafa90c4-4fb4-420d-adc2-9488f990809d.jpg?width=400", "description": "Sante Adairiusの200番目の樽を記念したブレンド。複数の木樽から丁寧にブレンドされた傑作ブレンデッドサワーエール。", "source": "southbound", "added": "2026-07-04"}, {"id": "sa-minordissent-pkg", "name": "Minor Dissent", "brewery": "Sante Adairius", "style": "Sour", "abv": "-", "hops": [], "url": "https://southbound.jp/products/sa-minordissent-pkg", "image": "https://southbound.jp/cdn/shop/files/SA_product_minordissent-glamour_1440x1856_255dc7ff-65bc-4cbe-8ede-3a0b76275e10.jpg?width=400", "description": "Sante Adairiusのバレルエイジドサワー。異議を唱えるような個性的でちょっと意地悪な酸味が魅力の一本。", "source": "southbound", "added": "2026-07-04"}, {"id": "sa-summersapling-pkg", "name": "Summer Sapling", "brewery": "Sante Adairius", "style": "Sour", "abv": "-", "hops": [], "url": "https://southbound.jp/products/sa-summersapling-pkg", "image": "https://southbound.jp/cdn/shop/files/SA_product_summersapling-glamour_1440x1856_2c1ae8b6-c283-4635-8ba5-21e87ea2a13a.jpg?width=400", "description": "夏の若木をテーマにしたSante Adairiusのフルーツサワー。桃やアプリコットの爽やかな酸味が夏にぴったり。", "source": "southbound", "added": "2026-07-04"}, {"id": "sa-chasingwindmills-pkg", "name": "Chasing Windmills", "brewery": "Sante Adairius", "style": "Sour", "abv": "-", "hops": [], "url": "https://southbound.jp/products/sa-chasingwindmills-pkg", "image": "https://southbound.jp/cdn/shop/files/SA_product_chasingwindmills-glamour_1440x1856_7bec6ce9-a21f-453a-bd2d-9723fbb53c94.jpg?width=400", "description": "風車を追いかけるようなロマンティックなネーミングのSante AdairiusサワーエールHops。", "source": "southbound", "added": "2026-07-04"}, {"id": "jo-perpetum-pkg", "name": "Perpetum", "brewery": "Jackie O's", "style": "Sour", "abv": "-", "hops": ["Saaz"], "url": "https://southbound.jp/products/jo-perpetum-pkg", "image": "https://southbound.jp/cdn/shop/products/JO_product_perpetum-glamour_1118x1440_a8ff939f-3371-4012-b3a8-17e2468f61ce.jpg?width=400", "description": "オハイオのJackie O'sによるバレルエイジドサワー「永続」。木樽で熟成されたフルーティで複雑な味わい。", "source": "southbound", "added": "2026-07-04"}, {"id": "jo-flamestitch-pkg", "name": "Flamestitch", "brewery": "Jackie O's", "style": "Sour", "abv": "-", "hops": [], "url": "https://southbound.jp/products/jo-flamestitch-pkg", "image": "https://southbound.jp/cdn/shop/products/JO_product_flamestitch-glamour_776x1000_ab29d11f-0200-45bc-8921-cf1427c19bc6.jpg?width=400", "description": "Jackie O'sの炎の縫い目を思わせるサワーエール。複雑なフルーティな酸味とバレルのニュアンスが特徴。", "source": "southbound", "added": "2026-07-04"}, {"id": "jo-familyreunion-pkg", "name": "Family Reunion", "brewery": "Jackie O's", "style": "Sour", "abv": "-", "hops": [], "url": "https://southbound.jp/products/jo-familyreunion-pkg", "image": "https://southbound.jp/cdn/shop/files/JO_product_familyreunion-btl_776x1000_9b8bfc6a-60d8-4d33-9d47-93fd733f91e4.jpg?width=400", "description": "Jackie O'sのファミリー・リユニオン。家族の再会のような温かみと複雑さを持つバレルエイジドサワー。", "source": "southbound", "added": "2026-07-04"}, {"id": "jo-brightshine-pkg", "name": "Brightshine", "brewery": "Jackie O's", "style": "Sour", "abv": "-", "hops": [], "url": "https://southbound.jp/products/jo-brightshine-pkg", "image": "https://southbound.jp/cdn/shop/files/JO_product_brightshine-btl_776x1000_d6d8ae29-9f2e-41e9-9758-e26d826b7633.jpg?width=400", "description": "輝く光をテーマにしたJackie O'sのサワーエール。明るく爽やかな酸味とフルーティなキャラクターが特徴。", "source": "southbound", "added": "2026-07-04"}, {"id": "jk-queensorder-pkg", "name": "Queen's Order", "brewery": "Jester King", "style": "Sour", "abv": "-", "hops": ["Perle"], "url": "https://southbound.jp/products/jk-queensorder-pkg", "image": "https://southbound.jp/cdn/shop/products/JK_product_queensorder-glamour_1005x1296_3b6e0883-bd38-4828-af4d-777ad33e7e59.jpg?width=400", "description": "テキサスJester Kingの女王の命令。野生酵母と木樽熟成が生み出す、複雑でエレガントなファームハウスサワー。", "source": "southbound", "added": "2026-07-04"}, {"id": "jk-eezypeel-pkg", "name": "EEZY PEEL*", "brewery": "Jester King", "style": "Sour", "abv": "-", "hops": ["Golding"], "url": "https://southbound.jp/products/jk-eezypeel-pkg", "image": "https://southbound.jp/cdn/shop/products/JK_product_eezypeel-glamour_1440x1856_33cfb6cc-bc9e-4e77-9128-3704e044b247.jpg?width=400", "description": "Jester Kingの柑橘系サワーエール。剥きやすい柑橘の皮をイメージした爽やかな酸味と柑橘のアロマが広がる。", "source": "southbound", "added": "2026-07-04"}, {"id": "jk-hibernaldichotomous-pkg", "name": "Hibernal Dichotomous", "brewery": "Jester King", "style": "Sour", "abv": "-", "hops": [], "url": "https://southbound.jp/products/jk-hibernaldichotomous-pkg", "image": "https://southbound.jp/cdn/shop/products/JK_product_hibernaldichotomous-glamour_744x959_fad358db-c718-4706-b4bf-4ced0c19072c.jpg?width=400", "description": "冬の二分法というタイトルのJester King作。冬の厳しさと温かみという相反する性質を一本の中に表現したバレルエイジドサワー。", "source": "southbound", "added": "2026-07-04"}, {"id": "hw-peachtripel-pkg", "name": "Peach Tripel", "brewery": "Hardywood Park", "style": "Belgian Tripel", "abv": "-", "hops": [], "url": "https://southbound.jp/products/hw-peachtripel-pkg", "image": "https://southbound.jp/cdn/shop/files/HW_product_peachtripel-glamour_1365x1760_63536bbb-7fce-4f33-a7d2-44668102f913.jpg?width=400", "description": "バージニアのHardywood Parkが誇る傑作ビール。桃を加えたベルギースタイルのトリプルで、甘熟した桃の香りとベルジャン酵母の複雑なフルーティさが絶妙にマッチ。夏にぴったりの特別な一本。", "source": "southbound", "added": "2026-07-04"}, {"id": "rc-halfaslonely-pkg", "name": "Half As Lonely", "brewery": "Resident Culture", "style": "IPA", "abv": "-", "hops": [], "url": "https://southbound.jp/products/rc-halfaslonely-pkg", "image": "https://southbound.jp/cdn/shop/files/RC-halfaslonely_can-800x1000.jpg?width=400", "description": "Resident Cultureの「半分だけ孤独」。孤独の半分をホップで埋めてくれる、ジューシーでアロマティックなIPA。", "source": "southbound", "added": "2026-07-04"}, {"id": "jk-audiopalette-pkg", "name": "Audio Palette", "brewery": "Jester King", "style": "Sour", "abv": "-", "hops": ["Idaho 7", "Mandarina Bavaria", "Huell Melon", "Cashmere"], "url": "https://southbound.jp/products/jk-audiopalette-pkg", "image": "https://southbound.jp/cdn/shop/products/JK_product_audiopalette-glamour_1396x1800_0b02340c-8592-4765-bbd7-1dca3cf7469e.jpg?width=400", "description": "音楽のパレットをテーマにしたJester Kingのサワーエール。多彩な酸味と複雑な野生酵母のキャラクターが音楽のように重なり合う。", "source": "southbound", "added": "2026-07-04"}, {"id": "b125-c16016", "name": "Cerebral Brewing Direct Current WC IPA", "brewery": "Cerebral Brewing", "style": "West Coast IPA", "abv": "6.6%", "hops": ["Citra", "Mosaic", "Tangier"], "url": "https://www.antenna-america.com/products/b125-c16016", "image": "https://www.antenna-america.com/cdn/shop/files/DirectCurrentWCIPA.png?width=400", "description": "レモンのラクロワ（アメリカで大人気のフレーバー炭酸水）、柚子の皮、フレッシュなタンジェリンを思わせる爽やかな風味。シトラ、モザイク、そして注目の新品種タンジアーの3種のホップを使用したコロラド州デンバー発のウェストコーストIPA。", "added": "2026-07-14", "source": "antenna"}, {"id": "b121-c16017", "name": "Ambitious Ales Friends in High Places Hazy IPA", "brewery": "Ambitious Ales", "style": "Hazy IPA", "abv": "6.8%", "hops": ["Citra", "Mosaic", "Tangier"], "url": "https://www.antenna-america.com/en/products/b121-c16017", "image": "https://www.antenna-america.com/cdn/shop/files/FriendsinHighPlacesHazyIPA.jpg?width=400", "description": "シトラ、モザイク、そして注目の新品種タンジアーを使ったヘイジーIPA。タンジェリン、ライム、マンゴー、パッションフルーツの鮮やかなアロマが広がる。Ambitious Alesはコロラド州ブルームフィールド発のマイクロブリュワリー。", "source": "antenna", "added": "2026-07-25"}, {"id": "b121-c16016", "name": "Ambitious Ales Soccer Pants WC IPA", "brewery": "Ambitious Ales", "style": "West Coast IPA", "abv": "6.5%", "hops": ["Strata", "Mosaic", "Krush"], "url": "https://www.antenna-america.com/en/products/b121-c16016", "image": "https://www.antenna-america.com/cdn/shop/files/SoccerPantsWCIPA.jpg?width=400", "description": "ストラタ、モザイク、クラッシュの3種のホップによるウェストコーストIPA。パッションフルーツ、ストロベリー、パイン、アーシーなフレーバーが複雑に絡み合うコロラド発の傑作。", "source": "antenna", "added": "2026-07-25"}, {"id": "b121-c16006", "name": "Ambitious Ales Gravel Rash DIPA", "brewery": "Ambitious Ales", "style": "DIPA", "abv": "8.2%", "hops": ["Citra", "Mosaic", "El Dorado", "Nelson Sauvin (NZ Hops)"], "url": "https://www.antenna-america.com/en/products/b121-c16006", "image": "https://www.antenna-america.com/cdn/shop/files/GravelRashDIPA.jpg?width=400", "description": "シトラ、モザイク、エル・ドラード、ネルソン・ソーヴィンを組み合わせたダブルIPA。砂利で擦りむいたような刺激的なホップの苦みと、熟したトロピカルフルーツのジューシーさが同居する8.2%の一本。", "source": "antenna", "added": "2026-07-25"}, {"id": "b121-c16013", "name": "Ambitious Ales Hazy Speedboat Hazy IPA", "brewery": "Ambitious Ales", "style": "Hazy IPA", "abv": "6.2%", "hops": ["Citra", "Mosaic", "Galaxy"], "url": "https://www.antenna-america.com/en/products/b121-c16013", "image": "https://www.antenna-america.com/cdn/shop/files/HazySpeedboatHazyIPA.jpg?width=400", "description": "シトラ、モザイク、ギャラクシーで醸すヘイジーIPA。スピードボートで水面を切るように爽快なトロピカルフルーツと柑橘のアロマが駆け抜ける一杯。", "source": "antenna", "added": "2026-07-25"}, {"id": "b078-c16020", "name": "Foam Brewers Tasman Sun DH Pilsner", "brewery": "Foam Brewers", "style": "Lager / Pilsner", "abv": "4.2%", "hops": ["Nelson Sauvin (NZ Hops)", "Motueka", "Rakau (NZ Hops)", "Hallertau Blanc", "Hallertauer Mittelfruher"], "url": "https://www.antenna-america.com/en/products/b078-c16020", "image": "https://www.antenna-america.com/cdn/shop/files/TasmanSunDHPilsner_2.jpg?width=400", "description": "ハラタウ・ブランとハラタウ・ミッテルフリューでケトルホッピング後、NZのFreestyle Hop Farm社ブレンドホップ「The Bruce」（ネルソン・ソーヴィン、モツエカ、ラカウ）でドライホップ。繊細なシトラス、トロピカルフルーツ、蜂蜜を思わせる甘い香りが広がるバーモント発のNZスタイルDHピルスナー。名前はニュージーランドのアベル・タスマン沿岸トレッキングの絶景に由来。", "source": "antenna", "added": "2026-07-25"}, {"id": "b078-c16015", "name": "Foam Brewers Sea Legs Hazy IPA", "brewery": "Foam Brewers", "style": "Hazy IPA", "abv": "6.5%", "hops": ["Citra", "Galaxy", "Mosaic"], "url": "https://www.antenna-america.com/en/products/b078-c16015", "image": "https://www.antenna-america.com/cdn/shop/files/SeaLegsHazyIPA.jpg?width=400", "description": "バーモント州バーリントンのFoam BrewersによるヘイジーIPA。「シーレッグス（船乗りの安定した足取り）」の名の通り、揺れる船上でも安心して飲めるバランスの良いトロピカルフルーツのアロマが魅力。", "source": "antenna", "added": "2026-07-25"}, {"id": "b078-c16007", "name": "Foam Brewers Beelzebub Barrel Aged Imperial Stout", "brewery": "Foam Brewers", "style": "Stout / Porter", "abv": "13.5%", "hops": [], "url": "https://www.antenna-america.com/en/products/b078-c16007", "image": "https://www.antenna-america.com/cdn/shop/files/BeelzebubBarrelAgedImperialStout.jpg?width=400", "description": "バーボン樽で熟成した13.5%の超リッチなインペリアル・スタウト。悪魔ベルゼブブの名を冠した、チョコレート、コーヒー、バニラ、バーボンが複雑に絡み合う逸品。Foam Brewersの年に一度のスペシャルリリース。", "source": "antenna", "added": "2026-07-25"}, {"id": "b122-c16005", "name": "Paperback Brewing Quiet Hours Hazy IPA", "brewery": "Paperback Brewing", "style": "Hazy IPA", "abv": "6.8%", "hops": ["Citra", "Mosaic", "El Dorado"], "url": "https://www.antenna-america.com/en/products/b122-c16005", "image": "https://www.antenna-america.com/cdn/shop/files/QuietHoursHazyIPA.jpg?width=400", "description": "「静かな時間」をテーマにしたカリフォルニア発Paperbackのヘイジーイ。シトラ、モザイク、エル・ドラードが生み出すマンゴー、桃、パイナップルのアロマに包まれた、本を読みながらゆっくり楽しむのにぴったりな一杯。", "source": "antenna", "added": "2026-07-25"}, {"id": "b122-c16010", "name": "Paperback Brewing Night Drive WC IPA", "brewery": "Paperback Brewing", "style": "West Coast IPA", "abv": "7.0%", "hops": ["Simcoe", "Centennial", "Chinook"], "url": "https://www.antenna-america.com/en/products/b122-c16010", "image": "https://www.antenna-america.com/cdn/shop/files/NightDriveWCIPA.jpg?width=400", "description": "深夜のドライブにインスパイアされたPaperbackのウェストコーストIPA。シムコー、センテニアル、チヌークが織りなすパイン、グレープフルーツ、樹脂のクラシックなウェストコーストアロマ。", "source": "antenna", "added": "2026-07-25"}, {"id": "wh-spellbinder-pkg", "name": "Wren House Spellbinder IPA", "brewery": "Wren House Brewing", "style": "IPA", "abv": "6.9%", "hops": ["Citra", "Mosaic", "Simcoe"], "url": "https://southbound.jp/products/wh-spellbinder-pkg", "image": "https://southbound.jp/cdn/shop/files/WH-spellbinder_can-1440x1800.jpg?width=400", "description": "アリゾナ州フェニックスのWren House Brewingによる「スペルバインダー（魔法使い）」IPA。シトラ、モザイク、シムコーの魔法のトリオが生み出す、グレープフルーツ、トロピカルフルーツ、パインの強烈なアロマに魅了される一本。", "source": "southbound", "added": "2026-07-25"}, {"id": "ur-playgroundtactics-pkg", "name": "Urban Roots Playground Tactics WC IPA", "brewery": "Urban Roots", "style": "West Coast IPA", "abv": "6.5%", "hops": ["Citra", "Simcoe", "Centennial"], "url": "https://southbound.jp/products/ur-playgroundtactics-pkg", "image": "https://southbound.jp/cdn/shop/files/UR-playgroundtactics_can-1440x1800.jpg?width=400", "description": "サクラメントのUrban Rootsによる「プレイグラウンド・タクティクス」WC IPA。子供のころの遊び場のような自由でエネルギッシュな発想から生まれた、シトラ、シムコー、センテニアルのクリーンでドライなウェストコーストIPA。", "source": "southbound", "added": "2026-07-25"}, {"id": "rc-sothey-say-pkg", "name": "Resident Culture So They Say Hazy IPA", "brewery": "Resident Culture", "style": "Hazy IPA", "abv": "7.0%", "hops": ["Citra", "Galaxy", "Mosaic"], "url": "https://southbound.jp/products/rc-sotheysay-pkg", "image": "https://southbound.jp/cdn/shop/files/RC-sotheysay_can-1440x1800.jpg?width=400", "description": "「So They Say（そう言われてるけど）」というユニークなタイトルのResident CultureヘイジーIPA。シトラ、ギャラクシー、モザイクのトリオがジューシーなトロピカルフルーツと柑橘のアロマを放つ一杯。", "source": "southbound", "added": "2026-07-25"}, {"id": "hi-pacificipa-pkg", "name": "Hi-Wire Brewing Pacific IPA", "brewery": "Hi-Wire Brewing", "style": "IPA", "abv": "6.2%", "hops": ["Mosaic", "Ekuanot", "Riwaka"], "url": "https://southbound.jp/products/hi-pacificipa-pkg", "image": "https://southbound.jp/cdn/shop/files/HI-pacificipa_can-1440x1800.jpg?width=400", "description": "Hi-Wire Brewingの太平洋をテーマにしたIPA。モザイク、エクアノット、リワカという南半球・太平洋産ホップを組み合わせ、トロピカルフルーツとシトラスの波に乗るような爽快な一杯。", "source": "southbound", "added": "2026-07-25"}, {"id": "rc-diceareloaded-pkg", "name": "Resident Culture The Dice Are Loaded Hazy DIPA", "brewery": "Resident Culture", "style": "Hazy DIPA", "abv": "8.2%", "hops": ["Citra", "Mosaic", "Galaxy", "Nelson Sauvin (NZ Hops)"], "url": "https://southbound.jp/products/rc-diceareloaded-pkg", "image": "https://southbound.jp/cdn/shop/files/RC-diceareloaded_can-1440x1800.jpg?width=400", "description": "「サイコロはイカサマだ」というタイトルのResident CultureヘイジーDIPA。シトラ、モザイク、ギャラクシー、ネルソン・ソーヴィンの4種のホップで8.2%の強力な一本。勝負をかけたような大胆なホップ構成が魅力。", "source": "southbound", "added": "2026-07-25"}, {"id": "jk-apalegreenhorse-pkg", "name": "Jester King A Pale Green Horse", "brewery": "Jester King", "style": "Sour", "abv": "3.8%", "hops": [], "url": "https://southbound.jp/products/jk-apalegreenhorse-pkg", "image": "https://southbound.jp/cdn/shop/files/JK-apalegreenhorse_btl-1440x1800.jpg?width=400", "description": "ヨハネの黙示録の「青白い馬」をモチーフにしたJester Kingのファームハウスサワーエール。テキサスの野生酵母と木樽熟成が生み出す、複雑で神秘的な味わいの一本。", "source": "southbound", "added": "2026-07-25"}, {"id": "sa-thetraveler-pkg", "name": "Sante Adairius The Traveler", "brewery": "Sante Adairius", "style": "Sour", "abv": "6.5%", "hops": [], "url": "https://southbound.jp/products/sa-thetraveler-pkg", "image": "https://southbound.jp/cdn/shop/files/SA-thetraveler_btl-1440x1800.jpg?width=400", "description": "旅人をテーマにしたSante Adairiusのバレルエイジドサワー。多くの木樽を旅するように複数の樽からブレンドされた複雑な味わいが特徴。カリフォルニアの陽光を浴びた果実の酸味が旅情を誘う。", "source": "southbound", "added": "2026-07-25"}, {"id": "b047-c12060", "name": "Firestone Walker Mind Haze", "brewery": "Firestone Walker", "style": "Hazy IPA", "abv": "6.7%", "hops": ["Cashmere", "Mandarina Bavaria", "El Dorado", "Idaho 7", "Azacca", "Mosaic"], "url": "https://www.antenna-america.com/en/products/b047-c12060", "image": "https://www.antenna-america.com/cdn/shop/files/MindHaze202402.png?width=400", "description": "ファイアーストーン・ウォーカー初のヘイジーIPA。カシミア、マンダリナ・ババリア、エル・ドラード、アイダホ7、アザッカ、モザイクの6種のホップが生み出す柑橘・グラッシー・パイン樹脂のアロマが溢れ出す傑作。ブリュワーマスターのマットがドイツのヴァイツェンボックに触発されて生み出した、ジューシーでリフレッシングな一杯。", "source": "antenna", "added": "2026-08-03"}, {"id": "b002-c16008", "name": "North Coast Old Rasputin", "brewery": "North Coast", "style": "Stout / Porter", "abv": "9%", "hops": [], "url": "https://www.antenna-america.com/products/b002-c16008", "image": "https://www.antenna-america.com/cdn/shop/products/OldRasputinCab.png?width=400", "description": "18世紀にロシア女帝エカチェリーナ2世に献上するために醸造されたインペリアル・スタウトに由来する伝説的な一本。ラム酒のようなアロマ、どっしりとしたボディ、ダークチョコレートのような濃厚で深みある味わい。数多の受賞歴を誇り「アメリカンビールの頂点」と絶賛されるロシアン・インペリアル・スタウト。ラベルにはロシア語で「真の友は一朝一夕には生まれない」と刻まれている。", "source": "antenna", "added": "2026-08-03"}, {"id": "b080-c12001", "name": "Deschutes Fresh Haze IPA", "brewery": "Deschutes", "style": "Hazy IPA", "abv": "6.5%", "hops": ["Cashmere", "Mandarina Bavaria", "Amarillo"], "url": "https://www.antenna-america.com/products/b080-c12001", "image": "https://www.antenna-america.com/cdn/shop/files/FreshHazeIPA.jpg?width=400", "description": "オレンジのような柑橘系の果汁感たっぷりの味わいと柔らかなモルトのボディが特徴的なヘイジーIPA。カシミア、マンダリナ・ババリア、アマリロホップ由来の柑橘やトロピカルフルーツの味わいが刺激的。デシュートスらしいクリーンな醸造技術が光る一杯。", "source": "antenna", "added": "2026-08-03"}, {"id": "b080-c12002", "name": "Deschutes Fresh Squeezed IPA", "brewery": "Deschutes", "style": "IPA", "abv": "6.4%", "hops": ["Citra", "Mosaic"], "url": "https://www.antenna-america.com/en/products/b080-c12002", "image": "https://www.antenna-america.com/cdn/shop/files/FreshSqueezedIPA.jpg?width=400", "description": "まるでシトラとモザイクのホップをそのまま絞り込んだような、ジューシーな柑橘とグレープフルーツの味わい。フルーツを一切使わずに、ホップだけでフルーツジュースのような爽快な風味を実現したデシュートスの最高傑作。デシュートスのベストセラービール。", "source": "antenna", "added": "2026-08-03"}, {"id": "b047-c12022", "name": "Firestone Walker Union Jack IPA", "brewery": "Firestone Walker", "style": "IPA", "abv": "7%", "hops": ["Simcoe", "Centennial", "Chinook", "Cascade", "Citra"], "url": "https://www.antenna-america.com/en/products/b047-c12022", "image": "https://www.antenna-america.com/cdn/shop/files/UnionJackIPA_2.png?width=400", "description": "20年以上愛され続けるファイアーストーン・ウォーカーの定番IPA。シムコー、センテニアル、チヌーク、カスケード、シトラの5種のホップが生み出すグレープフルーツ、パイン、熱帯果実の力強いアロマ。「ユニオン・ジャック（英国旗）」の名はイギリスのIPAスタイルへのリスペクトを示す。", "source": "antenna", "added": "2026-08-03"}, {"id": "b047-c12010", "name": "Firestone Walker Pivo Hoppy Pils", "brewery": "Firestone Walker", "style": "Lager / Pilsner", "abv": "5.3%", "hops": ["Saphir", "Sterling", "Hallertauer Mittelfruher"], "url": "https://www.antenna-america.com/en/products/b047-c12010", "image": "https://www.antenna-america.com/cdn/shop/files/PivoHoppyPils.png?width=400", "description": "チェコ語で「ビール」を意味する「Pivo」の名を冠したホッピーなピルスナー。サファイア、スターリング、ハラタウ・ミッテルフリューのクラシックなドイツ系ホップを使用し、クリーンでクリスプ、上品なホップアロマとドライなフィニッシュが特徴。", "source": "antenna", "added": "2026-08-03"}, {"id": "b047-c12034", "name": "Firestone Walker DBA", "brewery": "Firestone Walker", "style": "Pale Ale", "abv": "5%", "hops": ["East Kent Golding", "Fuggle"], "url": "https://www.antenna-america.com/en/products/b047-c12034", "image": "https://www.antenna-america.com/cdn/shop/files/DBA.png?width=400", "description": "「ダブル・バレル・エール」の略。ファイアーストーン・ウォーカーのシグネチャー製法であるオーク樽発酵で醸したイギリス風ペールエール。イースト・ケント・ゴールディング、フグルというイギリス伝統ホップを使用し、キャラメル・バニラ・モルトの温かみあるアロマが広がる。", "source": "antenna", "added": "2026-08-03"}, {"id": "b047-c12081", "name": "Firestone Walker Easy Jack", "brewery": "Firestone Walker", "style": "IPA", "abv": "4.5%", "hops": ["Mosaic", "Mandarina Bavaria", "Centennial"], "url": "https://www.antenna-america.com/en/products/b047-c12081", "image": "https://www.antenna-america.com/cdn/shop/files/EasyJack.png?width=400", "description": "「Easy Jack（楽なジャック）」の名の通り、軽快で飲みやすいセッションIPA。モザイク、マンダリナ・ババリア、センテニアルのトロピカルかつ柑橘のアロマをたっぷり詰め込みながら、アルコール4.5%と低めで何杯でも飲みたくなる危険な一杯。", "source": "antenna", "added": "2026-08-03"}, {"id": "b047-c12064", "name": "Firestone Walker Firestone IPA", "brewery": "Firestone Walker", "style": "IPA", "abv": "6.5%", "hops": ["Cascade", "Centennial", "Chinook", "Citra"], "url": "https://www.antenna-america.com/en/products/b047-c12064", "image": "https://www.antenna-america.com/cdn/shop/files/FirestoneIPA.png?width=400", "description": "ファイアーストーン・ウォーカーの名を冠したシグネチャーIPA。カスケード、センテニアル、チヌーク、シトラをバランスよく使い、グレープフルーツ、パイン、フローラルのクラシックなウェストコーストアロマが広がる6.5%の安定感ある一本。", "source": "antenna", "added": "2026-08-03"}, {"id": "b081-c12001", "name": "Founders KBS", "brewery": "Founders", "style": "Stout / Porter", "abv": "12.2%", "hops": [], "url": "https://www.antenna-america.com/en/products/b081-c12001", "image": "https://www.antenna-america.com/cdn/shop/files/FoundersKBS.jpg?width=400", "description": "「Kentucky Breakfast Stout」の略。バーボン樽でゆっくり熟成させたインペリアル・スタウト。コーヒーとチョコレートのリッチなアロマにバニラとバーボンの甘みが溶け合う12.2%の傑作。年に一度だけリリースされるFoundersの最高傑作として世界中のビールファンに絶賛される限定品。", "source": "antenna", "added": "2026-08-03"}, {"id": "b002-c16014", "name": "North Coast Brother Thelonious", "brewery": "North Coast", "style": "Other", "abv": "9.4%", "hops": [], "url": "https://www.antenna-america.com/en/products/b002-c16014", "image": "https://www.antenna-america.com/cdn/shop/files/BrotherThelonious.jpg?width=400", "description": "ジャズの巨人セロニアス・モンクへのオマージュとして醸されたベルギー・スタイルのアビィ・エール。ダークフルーツ、スパイス、温かみのあるモルトが複雑に絡み合う9.4%の深みある一本。売上の一部はThe Thelonious Monk InstituteのJazz教育プログラムに寄付される。", "source": "antenna", "added": "2026-08-03"}, {"id": "b080-c12016", "name": "Deschutes Mirror Pond Pale Ale", "brewery": "Deschutes", "style": "Pale Ale", "abv": "5%", "hops": ["Cascade"], "url": "https://www.antenna-america.com/en/products/b080-c12016", "image": "https://www.antenna-america.com/cdn/shop/files/MirrorPondPaleAle.jpg?width=400", "description": "オレゴン州ベンドのデシュートス・ブリュワリーを象徴するペールエール。カスケードホップが生み出す柑橘とフローラルの穏やかなアロマと、バランスのとれたモルトのボディ。「鏡のように澄んだ池」の名が示すようにクリーンで透明感のある味わい。", "source": "antenna", "added": "2026-08-03"}, {"id": "b080-c12022", "name": "Deschutes Black Butte Porter", "brewery": "Deschutes", "style": "Stout / Porter", "abv": "5.2%", "hops": [], "url": "https://www.antenna-america.com/en/products/b080-c12022", "image": "https://www.antenna-america.com/cdn/shop/files/BlackButtePorter.jpg?width=400", "description": "アメリカで最も愛されるポーターのひとつ。オレゴン州の火山「ブラック・ビュート」にちなんだデシュートスのシグネチャー・ポーター。チョコレート、コーヒー、ロースト麦芽の豊かなアロマと、滑らかでミディアムボディの飲みやすさが1988年から変わらぬ人気を誇る。", "source": "antenna", "added": "2026-08-03"}, {"id": "b080-c12020", "name": "Deschutes King Crispy", "brewery": "Deschutes", "style": "Lager / Pilsner", "abv": "4.5%", "hops": ["Cascade", "Centennial"], "url": "https://www.antenna-america.com/en/products/b080-c12020", "image": "https://www.antenna-america.com/cdn/shop/files/KingCrispy.jpg?width=400", "description": "「クリスピーの王様」の名を冠したデシュートスのライトラガー。カスケードとセンテニアルでほのかなホップ感を加えた、シャープでクリスプな飲み口が特徴。日本の料理にも合う万能な低アルコールラガー。", "source": "antenna", "added": "2026-08-03"}, {"id": "b031-c12001", "name": "Pizza Port Ponto Session IPA", "brewery": "Pizza Port", "style": "IPA", "abv": "4.8%", "hops": ["Cascade", "Centennial", "Citra"], "url": "https://www.antenna-america.com/en/products/b031-c12001", "image": "https://www.antenna-america.com/cdn/shop/files/PontoSessionIPA.jpg?width=400", "description": "サンディエゴの老舗ピザポートのセッションIPA。ポント（Ponto）はオーシャンサイドのビーチを指す地元の愛称。カスケード、センテニアル、シトラのホップが生み出す爽やかな柑橘アロマと、4.8%の軽快な飲みやすさが真夏のビーチにぴったりな一本。", "source": "antenna", "added": "2026-08-03"}, {"id": "b031-c12016", "name": "Pizza Port Chronic Amber Ale", "brewery": "Pizza Port", "style": "Amber", "abv": "4.9%", "hops": ["Centennial", "Cascade"], "url": "https://www.antenna-america.com/en/products/b031-c12016", "image": "https://www.antenna-america.com/cdn/shop/files/ChronicAmberAle.jpg?width=400", "description": "ピザポートのロングセラー・アンバーエール。センテニアルとカスケードのバランスのとれたホップアロマと、キャラメルモルトの温かみある甘みが絶妙に融合。「Chronic（慢性的）」の名が示すように、飲み続けてしまう危険なほど親しみやすい味わい。", "source": "antenna", "added": "2026-08-03"}, {"id": "b044-c16010", "name": "Sierra Nevada Hoptimum", "brewery": "Sierra Nevada", "style": "DIPA", "abv": "10.4%", "hops": ["Simcoe", "Citra", "Centennial", "Chinook"], "url": "https://www.antenna-america.com/en/products/b044-c16010", "image": "https://www.antenna-america.com/cdn/shop/files/Hoptimum.jpg?width=400", "description": "「ホップの最適解」を意味するホプティマム。シムコー、シトラ、センテニアル、チヌークを大量投入した10.4%のダブルIPA。シエラネバダがホップへの情熱を全力で注いだ一本で、オレンジ・グレープフルーツ・パインのトライフェクタが炸裂する。", "source": "antenna", "added": "2026-08-03"}, {"id": "b044-c12027", "name": "Harland Japanese Lager", "brewery": "Harland", "style": "Lager / Pilsner", "abv": "4.7%", "hops": ["Sorachi Ace"], "url": "https://www.antenna-america.com/en/products/b044-c12027", "image": "https://www.antenna-america.com/cdn/shop/files/HarlandJapaneseLager.jpg?width=400", "description": "日本へのリスペクトを込めてHarland Brewingが醸したジャパニーズ・ラガー。日本産のソラチ・エースホップを使用し、レモン・ディル・コリアンダーのユニークなアロマが漂うクリスプでドライな一本。すっきりとした飲み口と日本料理との相性は抜群。", "source": "antenna", "added": "2026-08-03"}, {"id": "b039-c12012", "name": "Karl Strauss Red Trolley Ale", "brewery": "Karl Strauss", "style": "Amber", "abv": "5.8%", "hops": ["Centennial", "Cascade"], "url": "https://www.antenna-america.com/en/products/b039-c12012", "image": "https://www.antenna-america.com/cdn/shop/files/RedTrolleyAle.jpg?width=400", "description": "サンディエゴの路面電車（トロリー）にちなんだカール・シュトラウスのシグネチャー・アンバーエール。センテニアルとカスケードのバランスよいホップ感と、カラメルモルト由来のリッチな甘みが調和。30年以上愛されるSDクラフトビールの象徴的な一本。", "source": "antenna", "added": "2026-08-03"}, {"id": "b123-c12001", "name": "Paperback Capiche?", "brewery": "Paperback Brewing", "style": "Lager / Pilsner", "abv": "4.5%", "hops": ["Saphir", "Hallertau Blanc"], "url": "https://www.antenna-america.com/en/products/b123-c12001", "image": "https://www.antenna-america.com/cdn/shop/files/PaperbackCapiche.jpg?width=400", "description": "イタリア語で「わかった？」を意味する「Capiche?」。Paperback Brewingのクリスプなラガーにサファイアとハラタウ・ブランのドイツ系ホップを使用。エレガントな柑橘とフローラルのアロマと、スムースでドライなフィニッシュが特徴の4.5%の飲みやすい一本。", "source": "antenna", "added": "2026-08-03"}, {"id": "tc-clevergirl-pkg", "name": "Triple Crossing Clever Girl IPA", "brewery": "Triple Crossing Brewing", "style": "Hazy IPA", "abv": "6.0%", "hops": ["Citra", "Mosaic"], "url": "https://southbound.jp/products/tc-clevergirl-pkg", "image": "https://southbound.jp/cdn/shop/files/TC-clevergirl_can-1440x1800.jpg?width=400", "description": "驚くほどライトボディで、ソフトながらもドライなアメリカンIPA。トロピカルシトラス、ダークベリー、グレープフルーツの果皮、オレンジ風味の松の香りが印象的。厳選されたシトラとモザイクを使用。BeerAdvocateスコア92点、Untappdでも絶賛されるバージニア州リッチモンドの名作。", "source": "southbound", "added": "2026-08-05"}, {"id": "sa-happilyso-pkg", "name": "Sante Adairius Happily So", "brewery": "Sante Adairius", "style": "Hazy IPA", "abv": "6.4%", "hops": ["Citra", "Centennial", "Motueka"], "url": "https://southbound.jp/products/sa-happilyso-pkg", "image": "https://southbound.jp/cdn/shop/files/SA-happilyso_can-1440x1800.jpg?width=400", "description": "Sante Adairiusがサワー・ファームハウス以外のスタイルで醸した珍しいヘイジーIPA。シトラ、センテニアル、モツエカの組み合わせによるジューシーなトロピカルと柑橘のアロマ。ファームハウスで培った発酵技術がIPAにも光る一本。", "source": "southbound", "added": "2026-08-05"}, {"id": "sa-reasonablereasons-pkg", "name": "Resident Culture Reasonable Reasons", "brewery": "Resident Culture", "style": "Hazy IPA", "abv": "6.3%", "hops": ["Strata", "Citra", "Mosaic"], "url": "https://southbound.jp/products/sa-reasonablereasons-pkg", "image": "https://southbound.jp/cdn/shop/files/RC-reasonablereasons_can-1440x1800.jpg?width=400", "description": "「合理的な理由」というタイトルのResident CultureヘイジーIPA。ストラタ、シトラ、モザイクのトリオが生み出すパッションフルーツ、グレープフルーツ、ストロベリーの複雑なアロマ。飲む合理的な理由はこの一杯にある。", "source": "southbound", "added": "2026-08-05"}, {"id": "so-partlycloudy-pkg", "name": "Solace Brewing Partly Cloudy DDH Hazy IPA", "brewery": "Solace Brewing", "style": "Hazy IPA", "abv": "7.5%", "hops": ["El Dorado", "Citra"], "url": "https://southbound.jp/products/so-partlycloudy-pkg", "image": "https://southbound.jp/cdn/shop/files/SO-partlycloudy_can-1440x1800.jpg?width=400", "description": "Solace BrewingのフラッグシップヘイジーIPA。「少し曇り」の名の通り、霞がかったゴールデンカラーにエル・ドラードとシトラのジューシーなトロピカルフルーツのアロマが広がる。ダブルドライホップで香りをさらに引き出した7.5%の力強い一杯。", "source": "southbound", "added": "2026-08-05"}, {"id": "wb-rrmosaicoatcream-pkg", "name": "Westbrook Rinse/Repeat (Mosaic Oat Cream)", "brewery": "Westbrook Brewing", "style": "Hazy IPA", "abv": "6.5%", "hops": ["Mosaic"], "url": "https://southbound.jp/products/wb-rrmosaicoatcream-pkg", "image": "https://southbound.jp/cdn/shop/files/WB-rrmosaicoatcream_can-1440x1800.jpg?width=400", "description": "毎回ホップを変えるWestbrookのリンス/リピートシリーズ。今回はモザイクをダブルドライホップした「オーツ麦クリーム」バッチ。たっぷりのオーツ麦と少量の乳糖が加わり、クリーミーで柑橘感あふれるまろやかな口当たり。", "source": "southbound", "added": "2026-08-05"}, {"id": "na-thediceareloaded-pkg", "name": "Narrow Gauge The Dice Are Loaded Hazy DIPA", "brewery": "Narrow Gauge Brewing", "style": "Hazy DIPA", "abv": "8.2%", "hops": ["Mosaic"], "url": "https://southbound.jp/products/na-thediceareloaded-pkg", "image": "https://southbound.jp/cdn/shop/files/NA-thediceareloaded_can-1440x1800.jpg?width=400", "description": "「サイコロは仕込まれている」ミズーリ州セントルイスのNarrow Gauge BrewingによるヘイジーダブルIPA。モザイクペレット・クライオ・インコグニートの3形態のモザイクホップを使用した、モザイク尽くしの集大成ビール。ブルーベリー、タンジェリン、トロピカルが多層的に押し寄せる。", "source": "southbound", "added": "2026-08-05"}, {"id": "wh-spellbinder-2026-pkg", "name": "Wren House Spellbinder Hazy IPA", "brewery": "Wren House Brewing", "style": "Hazy IPA", "abv": "6.9%", "hops": ["Citra", "Galaxy", "Mosaic"], "url": "https://southbound.jp/products/wh-spellbinder-pkg", "image": "https://southbound.jp/cdn/shop/files/WH-spellbinder_can-1440x1800.jpg?width=400", "description": "2020年GABF金賞、2023年ヨーロピアンビアスター金賞を受賞し、世界最高のヘイジーIPAの一つとして君臨。北米産ピルスナーモルト、クリーミーなオーツ麦、小麦をベースに米国・豪州産ホップを使用。シトラス、タンジェリン、ピーチのフレーバーとジューシーなフィニッシュが魅力のベンチマーク的ヘイジーIPA。", "source": "southbound", "added": "2026-08-05"}, {"id": "b060-b12001", "name": "Smog City IPA", "brewery": "Smog City", "style": "West Coast IPA", "abv": "-", "hops": ["Centennial", "Cascade", "Chinook"], "url": "https://www.antenna-america.com/en/products/b060-b12001", "image": "https://www.antenna-america.com/cdn/shop/files/SmogCityIPA.jpg?width=400", "description": "Smog Cityのシグネチャー・ウェストコーストIPA。LAのスモッグを名に冠したブリュワリーが誇るクリーンでドライ、力強いホップキャラクターの定番IPA。", "source": "antenna", "added": "2026-08-10"}, {"id": "stone-delicious", "name": "Stone Delicious IPA", "brewery": "Stone Brewing", "style": "IPA", "abv": "7.7%", "hops": ["Lemondrop", "El Dorado"], "url": "https://www.antenna-america.com/en/products/b010-c12059", "image": "https://www.antenna-america.com/cdn/shop/files/StoneDeliciousIPA.jpg?width=400", "description": "レモンドロップとエル・ドラードホップが生み出すスパイシーなレモンピール・柑橘のアロマが印象的な低グルテンIPA。White Labs製の特殊酵素でグルテンを除去しながら通常のIPAと同じ力強いホップフレーバーを実現。", "source": "antenna", "added": "2026-08-10"}, {"id": "elsegundo-mayberry", "name": "El Segundo Mayberry IPA", "brewery": "El Segundo", "style": "West Coast IPA", "abv": "-", "hops": ["Mosaic"], "url": "https://www.antenna-america.com/en/products/b083-c16002", "image": "https://www.antenna-america.com/cdn/shop/files/MayberryIPA.jpg?width=400", "description": "エル・セグンドを代表するクラシックなウェストコーストIPA。モザイクホップが中心のグラッシーでベリーのアロマが特徴。「海辺のメイベリー」と呼ばれるエル・セグンドでゆっくり楽しむために生まれたビール。", "source": "antenna", "added": "2026-08-10"}, {"id": "stone-ipa-568", "name": "Stone IPA (568ml)", "brewery": "Stone Brewing", "style": "IPA", "abv": "6.9%", "hops": ["Chinook", "Columbus", "Centennial"], "url": "https://www.antenna-america.com/en/products/b010-c12001a", "image": "https://www.antenna-america.com/cdn/shop/files/StoneIPA568.jpg?width=400", "description": "1997年からのロングセラー、ストーンIPAの568ml缶。チヌーク、コロンバス、センテニアルによるグレープフルーツ・パイン・樹脂の力強いアロマ。カスケードを使わないユニークなWC IPA。", "source": "antenna", "added": "2026-08-10"}, {"id": "elsegundo-brokenskull", "name": "El Segundo Broken Skull IPA", "brewery": "El Segundo", "style": "IPA", "abv": "-", "hops": ["Citra", "Cascade", "Chinook"], "url": "https://www.antenna-america.com/en/products/b083-c16001", "image": "https://www.antenna-america.com/cdn/shop/files/BrokenSkullIPA.jpg?width=400", "description": "元プロレスラーのスティーブ・オースティンとのコラボIPA。シトラ、カスケード、チヌークが生み出すフルーティで柑橘系のフレーバーと絶妙なバランス。引退後にブリュワリーを作る夢を持っていたオースティンとEl Segundoの縁が生んだコラボ作。", "source": "antenna", "added": "2026-08-10"}, {"id": "tg-ddhkingsue", "name": "Toppling Goliath DDH King Sue", "brewery": "Toppling Goliath", "style": "DIPA", "abv": "-", "hops": ["Citra"], "url": "https://www.antenna-america.com/en/products/b056-c16006", "image": "https://www.antenna-america.com/cdn/shop/files/DDHKingSue.jpg?width=400", "description": "キング・スーをダブルドライホップした究極版。シトラのグレープフルーツ・ライム・トロピカルのアロマがさらに倍増。DDHがいかにホップアロマを引き出すかを体感できる一本。", "source": "antenna", "added": "2026-08-10"}, {"id": "topa-dostopas", "name": "Topa Topa Dos Topas Lager", "brewery": "Topa Topa", "style": "Lager / Pilsner", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b071-c12001a", "image": "https://www.antenna-america.com/cdn/shop/files/DosTopasLager.jpg?width=400", "description": "「二つのトパ（山頂）」を意味するトパトパのラガー。ベンチュラカウンティの双子の山にちなんだ、クリーンでクリスプなメキシカン・スタイルのラガー。", "source": "antenna", "added": "2026-08-10"}, {"id": "smogcity-littlebopils", "name": "Smog City Little Bo Pils", "brewery": "Smog City", "style": "Lager / Pilsner", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b060-c12003", "image": "https://www.antenna-america.com/cdn/shop/files/LittleBoPils.jpg?width=400", "description": "「リトル・ボー」の名を冠したSmog Cityのクリスプなピルスナー。ドイツ系ホップの穏やかな苦みとクリーンなモルトが調和するセッショナブルな一本。", "source": "antenna", "added": "2026-08-10"}, {"id": "stone-delicious-hazy", "name": "Stone Delicious Hazy IPA", "brewery": "Stone Brewing", "style": "Hazy IPA", "abv": "-", "hops": ["El Dorado", "Mosaic"], "url": "https://www.antenna-america.com/en/products/b010-c12060", "image": "https://www.antenna-america.com/cdn/shop/files/StoneDeliciousHazyIPA.jpg?width=400", "description": "ストーン・デリシャスIPAのヘイジー版。エル・ドラードとモザイクを使い、低グルテンながらトロピカルフルーツと柑橘のジューシーなアロマが広がる。", "source": "antenna", "added": "2026-08-10"}, {"id": "c015-c16002", "name": "Coronado Super Fruit Hard Cider", "brewery": "Coronado", "style": "Cider", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/c015-c16002", "image": "https://www.antenna-america.com/cdn/shop/files/SuperFruitHardCider.png?width=400", "description": "コロナド・ブルーイングによるスーパーフルーツ・ハードサイダー。カリフォルニアのフレッシュなフルーツをふんだんに使った甘酸っぱいサイダー。ビールが苦手な方にも楽しんでいただける爽快な一本。", "source": "antenna", "added": "2026-08-13"}, {"id": "c015-c16001", "name": "Coronado Nice&Dry Hard Cider", "brewery": "Coronado", "style": "Cider", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/c015-c16001", "image": "https://www.antenna-america.com/cdn/shop/files/Nice_DryHardCider.png?width=400", "description": "コロナドのナイス＆ドライ・ハードサイダー。その名の通りすっきりとドライな飲み口が特徴のサイダー。甘すぎず爽やかなフィニッシュで、食事にも合わせやすい万能な一本。", "source": "antenna", "added": "2026-08-13"}, {"id": "b055-c16151", "name": "Revision Single Track Theory WC IPA", "brewery": "Revision Brewing", "style": "West Coast IPA", "abv": "-", "hops": ["Citra", "Mosaic", "Simcoe"], "url": "https://www.antenna-america.com/en/products/b055-c16151", "image": "https://www.antenna-america.com/cdn/shop/files/SingleTrackTheory.png?width=400", "description": "シングルトラック（山道）をひたすら走るような一途な集中力で醸されたRevisionのウェストコーストIPA。シトラ、モザイク、シムコーが生み出すパイン・グレープフルーツ・柑橘のクリーンなアロマ。ドライでキレのあるフィニッシュが心地よい。", "source": "antenna", "added": "2026-08-13"}, {"id": "b055-c16150", "name": "Revision Ridgeline Glow Hazy IPA", "brewery": "Revision Brewing", "style": "Hazy IPA", "abv": "-", "hops": ["Citra", "Galaxy", "El Dorado"], "url": "https://www.antenna-america.com/en/products/b055-c16150", "image": "https://www.antenna-america.com/cdn/shop/files/RidgelineGlow.png?width=400", "description": "山の尾根に輝くアルペングロー（山岳残照）をテーマにしたRevisionのヘイジーIPA。シトラ、ギャラクシー、エル・ドラードが生み出すトロピカルフルーツと柑橘の輝くようなアロマ。夕暮れの山頂で飲みたくなる美しい一杯。", "source": "antenna", "added": "2026-08-13"}, {"id": "b015-c16007", "name": "Coronado Crocodile Rock IPA", "brewery": "Coronado", "style": "IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b015-c16007", "image": "https://www.antenna-america.com/cdn/shop/files/CrocodileRockIPA.png?width=400", "description": "コロナドのクロコダイル・ロックIPA。岩場のワニのような力強くも洗練されたウェストコーストIPAスタイル。サンディエゴの海岸沿いにあるコロナドが醸す、クリーンでドライなホップキャラクターが特徴。", "source": "antenna", "added": "2026-08-13"}, {"id": "b015-c16006", "name": "Coronado Big Weekend DIPA", "brewery": "Coronado", "style": "DIPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b015-c16006", "image": "https://www.antenna-america.com/cdn/shop/files/BigWeekendDIPA.png?width=400", "description": "「大きな週末」の名を冠したコロナドのダブルIPA。週末の解放感をそのままビールに閉じ込めたような、豊かなホップアロマとしっかりとしたモルトボディが印象的な一本。", "source": "antenna", "added": "2026-08-13"}, {"id": "b015-c16005", "name": "Coronado Aloha Warrior IPA", "brewery": "Coronado", "style": "IPA", "abv": "-", "hops": ["Simcoe", "Chinook", "Columbus Cryo"], "url": "https://www.antenna-america.com/en/products/b015-c16005", "image": "https://www.antenna-america.com/cdn/shop/files/AlohaWarriorIPA.png?width=400", "description": "「アロハ・ウォリアー」の名を冠したコロナドのIPA。ハワイの精神（アロハ）と戦士の力強さを兼ね備えた、フルーティでホッピーな一杯。", "source": "antenna", "added": "2026-08-13"}, {"id": "b015-c16004", "name": "Coronado Nado Premium Lager", "brewery": "Coronado", "style": "Lager / Pilsner", "abv": "-", "hops": ["Hallertauer Mittelfruher"], "url": "https://www.antenna-america.com/en/products/b015-c16004", "image": "https://www.antenna-america.com/cdn/shop/files/NadoPremiumLager.png?width=400", "description": "「ナド（竜巻）」の名を冠したコロナドのプレミアム・ラガー。竜巻のように一気に飲み干したくなるクリスプでクリーンなラガー。コロナドらしいカリフォルニア・スタイルの爽快感。", "source": "antenna", "added": "2026-08-13"}, {"id": "b015-c16003", "name": "Coronado Orange Avenue Wit", "brewery": "Coronado", "style": "Wheat Ale", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b015-c16003", "image": "https://www.antenna-america.com/cdn/shop/files/OrangeAvenue.png?width=400", "description": "コロナドを代表するウィットビール。オレンジアベニューはコロナド島のメインストリートで、その名の通りオレンジ、コリアンダー、ライトスパイスの爽やかなアロマが漂う。夏のビーチに最適なセッショナブルな一本。", "source": "antenna", "added": "2026-08-13"}, {"id": "b015-c16002", "name": "Coronado Hazy Weekend Hazy IPA", "brewery": "Coronado", "style": "Hazy IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b015-c16002", "image": "https://www.antenna-america.com/cdn/shop/files/HazyWeekendHazyIPA.png?width=400", "description": "「ヘイジーな週末」をテーマにしたコロナドのヘイジーIPA。霞がかった週末の朝のようなソフトでジューシーなトロピカルフルーツのアロマ。のんびりリラックスしながら飲みたい一本。", "source": "antenna", "added": "2026-08-13"}, {"id": "b015-c12001", "name": "Coronado Weekend Vibes IPA", "brewery": "Coronado", "style": "IPA", "abv": "-", "hops": [], "url": "https://www.antenna-america.com/en/products/b015-c12001", "image": "https://www.antenna-america.com/cdn/shop/files/WeekendVibesIPA_4.png?width=400", "description": "コロナドのウィークエンド・ヴァイブスIPA。週末のバイブスをそのままビールに表現した、軽やかでフルーティなセッションIPA。コロナド島でくつろぐ週末の気分を味わえる定番作。", "source": "antenna", "added": "2026-08-13"}, {"id": "b041-c12125", "name": "Sierra Nevada Rye Torpedo IPA", "brewery": "Sierra Nevada", "style": "IPA", "abv": "-", "hops": ["Torpedo Hop", "Centennial", "Chinook"], "url": "https://www.antenna-america.com/en/products/b041-c12125", "image": "https://www.antenna-america.com/cdn/shop/files/RyeTorpedoIPA.png?width=400", "description": "シエラネバダのトルピードIPAのライ麦バリアント。独自のトルピード・ドライホップ装置で生み出す強烈なホップアロマに、ライ麦が加えるスパイシーでアーシーなニュアンスが融合。クラシックなウェストコーストIPAをライ麦でひねりを加えた意欲作。", "source": "antenna", "added": "2026-08-13"}, {"id": "b041-c12115", "name": "Sierra Nevada Peachy Little Thing", "brewery": "Sierra Nevada", "style": "Hazy IPA", "abv": "-", "hops": ["Citra", "Mosaic"], "url": "https://www.antenna-america.com/en/products/b041-c12115", "image": "https://www.antenna-america.com/cdn/shop/files/PeachyLittleThing_2.png?width=400", "description": "ヘイジー・リトル・シングの桃バージョン。カリフォルニア産の桃をたっぷり加え、シトラとモザイクのトロピカルアロマに桃の甘い香りが重なる夏限定のヘイジーIPA。缶を開けた瞬間から桃畑にいるような幸福感が広がる。", "source": "antenna", "added": "2026-08-13"}, {"id": "b041-c12112", "name": "Sierra Nevada Rad Little Thing", "brewery": "Sierra Nevada", "style": "Hazy IPA", "abv": "-", "hops": ["Citra", "Mosaic", "Galaxy"], "url": "https://www.antenna-america.com/en/products/b041-c12112", "image": "https://www.antenna-america.com/cdn/shop/files/RadLittleThing.png?width=400", "description": "「ラッド（最高にクールな）リトル・シング」。ヘイジー・リトル・シングシリーズのX版で、シトラ、モザイク、ギャラクシーの3種のホップを組み合わせ、よりエキサイティングなトロピカルアロマを実現した一本。", "source": "antenna", "added": "2026-08-13"}, {"id": "b041-c12109", "name": "Sierra Nevada Cosmic Little Thing", "brewery": "Sierra Nevada", "style": "Hazy DIPA", "abv": "-", "hops": ["Citra", "Mosaic", "Simcoe", "Galaxy"], "url": "https://www.antenna-america.com/en/products/b041-c12109", "image": "https://www.antenna-america.com/cdn/shop/files/CosmicLittleThing.png?width=400", "description": "「コズミック（宇宙的な）リトル・シング」。ヘイジー・リトル・シングシリーズのダブルIPA版。シトラ、モザイク、シムコー、ギャラクシーの4種を使い、宇宙規模のトロピカルフルーツ・柑橘のアロマが銀河を飛び回る一本。", "source": "antenna", "added": "2026-08-13"}, {"id": "b041-c12100", "name": "Sierra Nevada Atomic Torpedo", "brewery": "Sierra Nevada", "style": "DIPA", "abv": "-", "hops": ["Simcoe", "Citra", "Centennial"], "url": "https://www.antenna-america.com/en/products/b041-c12100", "image": "https://www.antenna-america.com/cdn/shop/files/AtomicTorpedo202312oz.png?width=400", "description": "トルピードIPAのダブル版「アトミック・トルピード」。シムコー、シトラ、センテニアルを独自のトルピード・ドライホップ装置で処理し、原子爆発のような強烈なホップアロマを実現。シエラネバダの醸造技術の粋を凝縮した力作DIPA。", "source": "antenna", "added": "2026-08-13"}, {"id": "b055-c16037", "name": "Revision Disco Ninja", "brewery": "Revision Brewing", "style": "Hazy IPA", "abv": "-", "hops": ["Citra", "Mosaic", "Galaxy"], "url": "https://www.antenna-america.com/en/products/b055-c16037", "image": "https://www.antenna-america.com/cdn/shop/products/DiscoNinja_1.png?width=400", "description": "ディスコとニンジャという異色の組み合わせ。1970年代のディスコの輝きと忍者の静寂が融合したRevisionのヘイジーIPA。シトラ、モザイク、ギャラクシーのトロピカル・柑橘のアロマがフロアを席巻。", "source": "antenna", "added": "2026-08-13"}, {"id": "b055-c12013", "name": "Revision DIPA", "brewery": "Revision Brewing", "style": "DIPA", "abv": "-", "hops": ["Citra", "Simcoe", "Mosaic"], "url": "https://www.antenna-america.com/en/products/b055-c12013", "image": "https://www.antenna-america.com/cdn/shop/files/DIPA_2.png?width=400", "description": "Revisionの看板DIPA。シトラ、シムコー、モザイクの力強いトリオが生み出す、ジューシーで果実感溢れるダブルIPA。リノのクラフトビールシーンを牽引するRevisionの真骨頂。", "source": "antenna", "added": "2026-08-13"}, {"id": "b055-c12006", "name": "Revision IPA", "brewery": "Revision Brewing", "style": "IPA", "abv": "-", "hops": ["Cascade", "Centennial", "Chinook", "Citra"], "url": "https://www.antenna-america.com/en/products/b055-c12006", "image": "https://www.antenna-america.com/cdn/shop/products/5e688c79-6584-406b-b3f6-35d7fd5ad003_72ae79ea-4597-4f30-bed6-ad412a78b2dc.jpg?width=400", "description": "RevisionのシグネチャーウェストコーストIPA。カスケード、センテニアル、チヌーク、シトラのクラシックなアメリカン4種ホップを使い、グレープフルーツ・パイン・フローラルの力強いアロマとバランスの取れた苦みが魅力。", "source": "antenna", "added": "2026-08-13"}];</script>
+<script>// ===== PRODUCTS TAB =====
+
+function isRecent(d){ return d && (new Date()-new Date(d))/864e5 <= 7; }
+function sgroup(s){
+  if(/dipa|double|imperial|triple|quad/i.test(s)) return 'DIPA';
+  if(/hazy|ne-style|northeast/i.test(s)) return 'IPA';
+  if(/ipa|india/i.test(s)) return 'IPA';
+  if(/pale ale|belgian pale/i.test(s)) return 'Pale Ale';
+  if(/saison|farmhouse/i.test(s)) return 'Sour';
+  if(/sour|lambic|gose|berliner/i.test(s)) return 'Sour';
+  if(/lager|pilsner/i.test(s)) return 'Lager';
+  if(/stout|porter/i.test(s)) return 'Stout';
+  return 'Other';
+}
+
+function escHtml(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ブルワリーフィルタを動的生成
+function buildBreweryFilter(){
+  var sel = document.getElementById('bfil');
+  if(!sel) return;
+  var breweries = [...new Set(products.map(function(p){ return p.brewery; }))].sort();
+  breweries.forEach(function(b){
+    var o = document.createElement('option');
+    o.value = b;
+    o.textContent = b;
+    sel.appendChild(o);
+  });
+}
+
+var cameFromProduct = false;
+
+function renderProds(){
+  var s = document.getElementById('psrch').value.toLowerCase();
+  var sf = document.getElementById('sfil').value;
+  var shopf = document.getElementById('shopfil').value;
+  var bf = document.getElementById('bfil').value;
+  var list = document.getElementById('prod-list');
+  list.innerHTML = '';
+  var f = products.filter(function(p){
+    var ms = p.name.toLowerCase().indexOf(s) >= 0 || p.brewery.toLowerCase().indexOf(s) >= 0;
+    var mst = !sf || sgroup(p.style) === sf;
+    var mshop = !shopf ||
+      (shopf === 'southbound' && p.source === 'southbound') ||
+      (shopf === 'antenna' && p.source !== 'southbound');
+    var mbrew = !bf || p.brewery === bf;
+    return ms && mst && mshop && mbrew;
+  });
+  document.getElementById('prod-count').textContent = f.length + '件表示（全' + products.length + '件）';
+
+  f.forEach(function(p){
+    var row = document.createElement('div');
+    row.className = 'prod-row';
+    row.addEventListener('click', function(){ openModal(p); });
+
+    var newB = isRecent(p.added) ? '<span class="new-badge">NEW</span>' : '';
+    var shopB = p.source === 'southbound'
+      ? '<span class="shop-badge">Southbound</span>'
+      : '';
+    var hopStr = p.hops && p.hops.length > 0 ? p.hops.join(' / ') : '';
+
+    var imgHtml = '';
+    if(p.image){
+      imgHtml = '<img class="prod-row-img" src="' + escHtml(p.image) + '" alt="' + escHtml(p.name) + '" loading="lazy" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'">'
+              + '<div class="prod-row-img-placeholder" style="display:none">🍺</div>';
+    } else {
+      imgHtml = '<div class="prod-row-img-placeholder">🍺</div>';
+    }
+
+    row.innerHTML =
+      imgHtml
+      + '<div class="prod-row-left">'
+        + '<div class="prod-row-name">' + escHtml(p.name) + (newB ? '&nbsp;' + newB : '') + shopB + '</div>'
+        + '<div class="prod-row-brewery">' + escHtml(p.brewery) + '</div>'
+        + '<div class="prod-row-sub">'
+          + '<span class="sbadge">' + escHtml(p.style) + '</span>'
+          + ((p.abv && p.abv !== '-') ? '<span class="abv-text">' + escHtml(p.abv) + '</span>' : '')
+        + '</div>'
+      + '</div>'
+      + '<div class="prod-row-right">'
+        + (hopStr ? '<div class="prod-hop-list">' + escHtml(hopStr) + '</div>' : '<div class="prod-hop-none">−</div>')
+        + '<div class="prod-row-arrow">\u203a</div>'
+      + '</div>';
+
+    list.appendChild(row);
+  });
+}
+
+function openModal(p){
+  var mImgWrap = document.getElementById('m-img-wrap');
+  if(p.image){
+    mImgWrap.innerHTML = '<img class="m-img" src="' + escHtml(p.image) + '" alt="' + escHtml(p.name) + '" onerror="this.parentNode.innerHTML=\'\'">';
+    mImgWrap.style.display = '';
+  } else {
+    mImgWrap.innerHTML = '';
+    mImgWrap.style.display = 'none';
+  }
+
+  document.getElementById('m-title').textContent = p.name;
+  document.getElementById('m-brewery').textContent = p.brewery;
+  document.getElementById('m-style').textContent = p.style || '\u2212';
+  document.getElementById('m-abv').textContent = (p.abv && p.abv !== '-') ? p.abv : '不明';
+
+  var mdesc = document.getElementById('m-desc-sec');
+  if(p.description){
+    document.getElementById('m-desc').textContent = p.description;
+    mdesc.style.display = '';
+  } else {
+    mdesc.style.display = 'none';
+  }
+
+  var mh = document.getElementById('m-hops');
+  mh.innerHTML = '';
+  if(p.hops && p.hops.length > 0){
+    var tags = document.createElement('div');
+    tags.className = 'm-hops';
+    p.hops.forEach(function(h){
+      var sp = document.createElement('span');
+      sp.className = 'm-hop';
+      sp.textContent = h;
+      sp.addEventListener('click', function(){ hopFilter(h); });
+      tags.appendChild(sp);
+    });
+    mh.appendChild(tags);
+  } else {
+    mh.innerHTML = '<div class="m-nohop">ホップ情報は非公開です</div>';
+  }
+
+  var acts = document.getElementById('m-actions');
+  acts.innerHTML = '';
+
+  var ch = (p.hops||[]).filter(function(h){ return hops.find(function(x){ return x.name === h; }); });
+  if(ch.length > 0){
+    var cb = document.createElement('button');
+    cb.className = 'm-btn-chart';
+    cb.textContent = '📊 アロマチャートで比較';
+    cb.addEventListener('click', function(){
+      document.getElementById('modal').classList.remove('open');
+      cameFromProduct = true;
+      sel = ch;
+      updateChart();
+      renderBtns('');
+      showHopDesc();
+      var radarBtn = document.querySelector('.tab-nav button');
+      switchTab('t1', radarBtn);
+      showBackToProducts();
+    });
+    acts.appendChild(cb);
+  }
+
+  if(p.url && p.url.indexOf('/collections/') === -1){
+    var lb = document.createElement('a');
+    lb.className = 'm-btn-link';
+    lb.href = p.url;
+    lb.target = '_blank';
+    lb.rel = 'noopener noreferrer';
+    lb.textContent = p.source === 'southbound'
+      ? '🛒 Southboundの商品ページへ'
+      : '🛒 Antenna Americaの商品ページへ';
+    acts.appendChild(lb);
+  }
+
+  document.getElementById('modal').classList.add('open');
+}
+
+function showBackToProducts(){
+  var existing = document.getElementById('back-to-products-btn');
+  if(existing) return;
+  var btn = document.createElement('button');
+  btn.id = 'back-to-products-btn';
+  btn.className = 'back-to-products-btn';
+  btn.innerHTML = '\u2190 商品一覧に戻る';
+  btn.addEventListener('click', function(){
+    cameFromProduct = false;
+    btn.remove();
+    var prodBtn = document.querySelectorAll('.tab-nav button')[1];
+    switchTab('t2', prodBtn);
+  });
+  var t1 = document.getElementById('t1');
+  var chartWrap = t1.querySelector('.chart-wrap');
+  t1.insertBefore(btn, chartWrap);
+}
+
+function hopFilter(h){
+  document.getElementById('modal').classList.remove('open');
+  document.getElementById('psrch').value = h;
+  document.getElementById('sfil').value = '';
+  document.getElementById('shopfil').value = '';
+  document.getElementById('bfil').value = '';
+  renderProds();
+}
+
+function closeModal(e){
+  if(e.target === document.getElementById('modal')){
+    document.getElementById('modal').classList.remove('open');
+  }
+}
+
+document.getElementById('psrch').addEventListener('input', renderProds);
+document.getElementById('sfil').addEventListener('change', renderProds);
+document.getElementById('shopfil').addEventListener('change', renderProds);
+document.getElementById('bfil').addEventListener('change', renderProds);
+
+buildBreweryFilter();
+renderProds();
+</script>
+</body>
+</html>

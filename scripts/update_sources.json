@@ -1,0 +1,43 @@
+{
+  "sources": [
+    {
+      "name": "Antenna America",
+      "base_url": "https://www.antenna-america.com",
+      "source_key": "antenna",
+      "collection_pages": [
+        "https://www.antenna-america.com/collections/all?pf_st_zai_ku_noyou_wu=true&filter.v.availability=1"
+      ],
+      "notes": "在庫ありフィルタで全商品を一括取得。Shopify構造のため /products/{handle}.json でも取得可能。"
+    },
+    {
+      "name": "Southbound",
+      "base_url": "https://southbound.jp",
+      "source_key": "southbound",
+      "collection_pages": [
+        "https://southbound.jp/collections/beverages/ipa",
+        "https://southbound.jp/collections/beverages/hazy-ipa",
+        "https://southbound.jp/collections/beverages/pale-ale",
+        "https://southbound.jp/collections/beverages/saison",
+        "https://southbound.jp/collections/beverages/sour",
+        "https://southbound.jp/collections/beverages/stout",
+        "https://southbound.jp/collections/beverages/lager",
+        "https://southbound.jp/collections/beverages/wheat",
+        "https://southbound.jp/collections/beverages/amber",
+        "https://southbound.jp/collections/beverages/belgian",
+        "https://southbound.jp/collections/beverages/porter",
+        "https://southbound.jp/collections/beverages/barleywine",
+        "https://southbound.jp/collections/beverages"
+      ],
+      "notes": "スタイル別ページを全て巡回。売り切れ商品は /collections/beverages のトップで確認。"
+    }
+  ],
+  "update_rules": [
+    "既存商品（同一id）は削除しない",
+    "新商品には必ず image / description / hops / abv を取得してから追記",
+    "説明文は日本語で登録（英語の場合は翻訳）",
+    "画像URLはog:imageから取得（?width=400を付与）",
+    "ホップはアロマチャートに未収録のものがあれば hops_tab.js にも追加",
+    "source フィールドで antenna / southbound を区別",
+    "last_updated を更新日に設定"
+  ]
+}
