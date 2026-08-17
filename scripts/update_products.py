@@ -43,8 +43,13 @@ BREWERY_ALIASES = {
     "harlandbrewing": "Harland",
     "harlandbrewingco": "Harland",
     "harlandbrewingcompany": "Harland",
+    "revision": "Revision Brewing",
     "revisionbrewingcompany": "Revision Brewing",
     "revisionbrewery": "Revision Brewing",
+    "boneyard": "Boneyard Beer",
+    "hiwire": "Hi-Wire Brewing",
+    "paperback": "Paperback Brewing",
+    "stone": "Stone Brewing",
 }
 
 
