@@ -463,22 +463,6 @@
       "source": "antenna"
     },
     {
-      "id": "revision-dipa",
-      "name": "Revision DIPA",
-      "brewery": "Revision Brewing",
-      "style": "Double IPA",
-      "abv": "8%",
-      "hops": [
-        "Simcoe",
-        "Mosaic"
-      ],
-      "url": "https://www.antenna-america.com/products/b055-c12013",
-      "added": "2026-06-21",
-      "description": "Revision BrewingのスタンダードDIPA。ホップへの情熱で知られるリノのRevisionが真剣に向き合ったダブルIPA。クリーンなモルトのバックボーンにホップアロマが炸裂する一本。",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/DIPA_2.png?width=400",
-      "source": "antenna"
-    },
-    {
       "id": "revision-artcar",
       "name": "Art Car Hazy IPA",
       "brewery": "Revision Brewing",
@@ -535,27 +519,6 @@
       "source": "antenna"
     },
     {
-      "id": "stone-ipa",
-      "name": "Stone IPA",
-      "brewery": "Stone Brewing",
-      "style": "India Pale Ale",
-      "abv": "6.9%",
-      "hops": [
-        "Magnum",
-        "Chinook",
-        "Centennial",
-        "Azacca",
-        "Calypso",
-        "Ella",
-        "Vic Secret"
-      ],
-      "url": "https://www.antenna-america.com/products/b010-c12011",
-      "added": "2026-06-21",
-      "description": "1997年から醸造されるストーン・ブルーイングの看板IPA。カリフォルニアクラフトビール革命を牽引した伝説の一本。トロピカルフルーツ、シトラス、パインの強烈なアロマと力強い苦みが特徴の6.9%ウェストコーストIPA。",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/IPA_1a8ce2c1-b47b-4d67-acd5-8427fdcce057.jpg?width=400",
-      "source": "antenna"
-    },
-    {
       "id": "stone-ruination",
       "name": "Stone Ruination IPA",
       "brewery": "Stone Brewing",
@@ -589,19 +552,6 @@
       "source": "antenna"
     },
     {
-      "id": "topa-chiefpeak",
-      "name": "Chief Peak IPA",
-      "brewery": "Topa Topa",
-      "style": "IPA",
-      "abv": "7%",
-      "hops": [],
-      "url": "https://www.antenna-america.com/products/b071-c12001",
-      "added": "2026-06-21",
-      "description": "トパトパ・ブルーイングのチーフ・ピークIPA。ベンチュラカウンティの最高峰、チーフ・ピークにちなんだ一本。7%のクリーンでドライなウェストコーストIPAで、地元の山の雄大さを表現。",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/5e71d03e-907c-45ab-8954-0578fd5ad003_76006a6b-5194-495e-b292-920fe8fe1335.jpg?width=400",
-      "source": "antenna"
-    },
-    {
       "id": "topa-spectro",
       "name": "Spectro Hazy IPA",
       "brewery": "Topa Topa",
@@ -627,34 +577,6 @@
       "added": "2026-06-21",
       "description": "トパ・トパ・ブルーイングによるタラスIPA。グレープフルーツ、フローラル、ストーンフルーツ、松脂のキャラクターで知られる最新鋭アメリカ産ホップ「タラス」を主役に据えた一本。注目の新品種ホップをシングルホップでじっくり味わえます。",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/TalusIPA_2.png?width=400",
-      "source": "antenna"
-    },
-    {
-      "id": "topa-huckster",
-      "name": "Huckster DIPA",
-      "brewery": "Topa Topa",
-      "style": "DIPA / Imperial",
-      "abv": "8.8%",
-      "hops": [],
-      "url": "https://www.antenna-america.com/products/b071-c19036",
-      "added": "2026-06-21",
-      "description": "トパトパのハックスターDIPA。「詐欺師」の名を持つ8.8%の強烈なダブルIPA。ホップの香りに騙されて次の一杯、また次の一杯と手が伸びてしまう危険な一本。",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/HucksterDIPA_3a87a935-e63d-4c30-8722-a0ccf4d68928.png?width=400",
-      "source": "antenna"
-    },
-    {
-      "id": "tg-kingsue",
-      "name": "King Sue",
-      "brewery": "Toppling Goliath",
-      "style": "Hazy DIPA",
-      "abv": "7.8%",
-      "hops": [
-        "Citra"
-      ],
-      "url": "https://www.antenna-america.com/products/b085-c16002",
-      "added": "2026-06-21",
-      "description": "トップリング・ゴリアスの「キング・スー」ヘイジーDIPA。シトラをほぼシングルホップで使用した7.8%のダブルIPA。シトラが持つグレープフルーツ、ライム、トロピカルの全ポテンシャルを引き出した、アイオワ発の傑作。",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/4_07c06425-d35d-4d61-ac9d-ad32f54f1c7a.png?width=400",
       "source": "antenna"
     },
     {
@@ -722,23 +644,6 @@
       "added": "2026-06-21",
       "description": "トレードマーク・ブルーイングの「タイムリー・アプローチ」ウェストコーストIPA。絶妙なタイミングでアマリロとエル・ドラードのホップが爆発する6.8%のウェストコーストIPA。コロンバスも加わりパンチのある苦みも楽しめる。",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/TimelyApproachWCIPA.png?width=400",
-      "source": "antenna"
-    },
-    {
-      "id": "trademark-brunch",
-      "name": "Let's Brunch Hazy IPA",
-      "brewery": "Trademark Brewing",
-      "style": "Hazy IPA",
-      "abv": "6.8%",
-      "hops": [
-        "Citra",
-        "Mandarina Bavaria",
-        "Comet"
-      ],
-      "url": "https://www.antenna-america.com/products/b097-c16011",
-      "added": "2026-06-21",
-      "description": "トレードマーク・ブルーイングの「レッツ・ブランチ」ヘイジーIPA。ブランチにぴったりのシトラ、マンダリナ・ババリア、コメットの組み合わせ。シトラの柑橘感にマンダリナのオレンジが重なり、コメットのフルーティさが後追いする爽快な6.8%。",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Let_sBrunchHazyIPA.png?width=400",
       "source": "antenna"
     },
     {
@@ -2077,12 +1982,12 @@
       "id": "wh-spellbinder-pkg",
       "name": "Wren House Spellbinder IPA",
       "brewery": "Wren House Brewing",
-      "style": "IPA",
+      "style": "Hazy IPA",
       "abv": "6.9%",
       "hops": [
         "Citra",
-        "Mosaic",
-        "Simcoe"
+        "Galaxy",
+        "Mosaic"
       ],
       "url": "https://southbound.jp/products/wh-spellbinder-pkg",
       "image": "https://southbound.jp/cdn/shop/files/WH-spellbinder_can-1440x1800.jpg?width=400",
@@ -2603,23 +2508,6 @@
       "added": "2026-08-05"
     },
     {
-      "id": "wh-spellbinder-2026-pkg",
-      "name": "Wren House Spellbinder Hazy IPA",
-      "brewery": "Wren House Brewing",
-      "style": "Hazy IPA",
-      "abv": "6.9%",
-      "hops": [
-        "Citra",
-        "Galaxy",
-        "Mosaic"
-      ],
-      "url": "https://southbound.jp/products/wh-spellbinder-pkg",
-      "image": "https://southbound.jp/cdn/shop/files/WH-spellbinder_can-1440x1800.jpg?width=400",
-      "description": "2020年GABF金賞、2023年ヨーロピアンビアスター金賞を受賞し、世界最高のヘイジーIPAの一つとして君臨。北米産ピルスナーモルト、クリーミーなオーツ麦、小麦をベースに米国・豪州産ホップを使用。シトラス、タンジェリン、ピーチのフレーバーとジューシーなフィニッシュが魅力のベンチマーク的ヘイジーIPA。",
-      "source": "southbound",
-      "added": "2026-08-05"
-    },
-    {
       "id": "b060-b12001",
       "name": "Smog City IPA",
       "brewery": "Smog City",
@@ -2633,37 +2521,6 @@
       "url": "https://www.antenna-america.com/en/products/b060-b12001",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/5d145710-5e80-4993-b4ca-521f0a0001a1_a8428c8a-53d6-434c-9f74-f02075f4871b.jpg?width=400",
       "description": "Smog Cityのシグネチャー・ウェストコーストIPA。LAのスモッグを名に冠したブリュワリーが誇るクリーンでドライ、力強いホップキャラクターの定番IPA。",
-      "source": "antenna",
-      "added": "2026-08-10"
-    },
-    {
-      "id": "stone-delicious",
-      "name": "Stone Delicious IPA",
-      "brewery": "Stone Brewing",
-      "style": "IPA",
-      "abv": "7.7%",
-      "hops": [
-        "Lemondrop",
-        "El Dorado"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b010-c12059",
-      "image": "https://www.antenna-america.com/cdn/shop/files/StoneDeliciousIPA.jpg?width=400",
-      "description": "レモンドロップとエル・ドラードホップが生み出すスパイシーなレモンピール・柑橘のアロマが印象的な低グルテンIPA。White Labs製の特殊酵素でグルテンを除去しながら通常のIPAと同じ力強いホップフレーバーを実現。",
-      "source": "antenna",
-      "added": "2026-08-10"
-    },
-    {
-      "id": "elsegundo-mayberry",
-      "name": "El Segundo Mayberry IPA",
-      "brewery": "El Segundo",
-      "style": "West Coast IPA",
-      "abv": "-",
-      "hops": [
-        "Mosaic"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b083-c16002",
-      "image": "https://www.antenna-america.com/cdn/shop/files/MayberryIPA.jpg?width=400",
-      "description": "エル・セグンドを代表するクラシックなウェストコーストIPA。モザイクホップが中心のグラッシーでベリーのアロマが特徴。「海辺のメイベリー」と呼ばれるエル・セグンドでゆっくり楽しむために生まれたビール。",
       "source": "antenna",
       "added": "2026-08-10"
     },
@@ -3022,7 +2879,7 @@
       "name": "Revision DIPA",
       "brewery": "Revision Brewing",
       "style": "DIPA",
-      "abv": "-",
+      "abv": "8%",
       "hops": [
         "Citra",
         "Simcoe",
@@ -3032,7 +2889,7 @@
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/DIPA_2.png?width=400",
       "description": "Revisionの看板DIPA。シトラ、シムコー、モザイクの力強いトリオが生み出す、ジューシーで果実感溢れるダブルIPA。リノのクラフトビールシーンを牽引するRevisionの真骨頂。",
       "source": "antenna",
-      "added": "2026-08-13"
+      "added": "2026-06-21"
     },
     {
       "id": "b055-c12006",
@@ -3305,7 +3162,7 @@
         "Comet"
       ],
       "url": "https://www.antenna-america.com/products/b097-c16011",
-      "added": "2026-08-17",
+      "added": "2026-06-21",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Let_sBrunchHazyIPA.png?width=400",
       "description": "Citra、Mandarina Bavaria、Cometホップを使用したHazy IPA。地元ロサンゼルスのファッションブランドChez Gagneがデザインした缶ラベル",
       "source": "antenna"
@@ -3540,7 +3397,7 @@
       "abv": "8.8%",
       "hops": [],
       "url": "https://www.antenna-america.com/products/b071-c19036",
-      "added": "2026-08-17",
+      "added": "2026-06-21",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/HucksterDIPA_3a87a935-e63d-4c30-8722-a0ccf4d68928.png?width=400",
       "description": "Topa Topaが何年か前に試したレシピを磨き上げて完成させた渾身のDouble IPA。まるでマンゴー、白ワイン、洋梨のような風味と巧妙に隠された高いアルコール度数。",
       "source": "antenna"
@@ -3617,7 +3474,7 @@
         "Citra"
       ],
       "url": "https://www.antenna-america.com/products/b085-c16002",
-      "added": "2026-08-17",
+      "added": "2026-06-21",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/4_07c06425-d35d-4d61-ac9d-ad32f54f1c7a.png?width=400",
       "description": "Pseudo Sue Pale Ale同様、100%Citraホップを使用したHazy Double IPA。ホップ由来のマンゴー、オレンジ、パイナップルのような果汁感たっぷりな味わいに加え、フルボディで濃厚なコクがあります。飲み込んだ後も余韻が続き、まさにキングと呼ぶに相応しい強烈なフレーバー！",
       "source": "antenna"
@@ -3666,7 +3523,7 @@
         "Chinook"
       ],
       "url": "https://www.antenna-america.com/products/b083-c16002",
-      "added": "2026-08-17",
+      "added": "2026-08-10",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/MayberryIPA2025_2.png?width=400",
       "description": "El Segundoを代表する王道なWest Coast IPA。Mosaicホップ中心のグラッシーかつベリー感のある主張。Mayberryとは1960年代のテレビ番組の舞台であった楽園のような架空の町のこと。「海沿いのMayberry」と例えられるEl Segundoでゆったりと飲むのにぴったりのビール。",
       "source": "antenna"
@@ -3692,7 +3549,7 @@
       "abv": "7%",
       "hops": [],
       "url": "https://www.antenna-america.com/products/b071-c12001",
-      "added": "2026-08-17",
+      "added": "2026-06-21",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/5e71d03e-907c-45ab-8954-0578fd5ad003_76006a6b-5194-495e-b292-920fe8fe1335.jpg?width=400",
       "description": "潅木地から林を抜けると次第に高地になっていき、そしてついに到達したチーフピーク（頂上）。 そんなロケーションで飲むことを想像して造られたIPA。一口飲むと、まず松のようなアロマホップを感じる。 パッションフルーツ、オレンジ、グーズベリーのトロピカルアロマがすぐあと追って現れる。ボディはミディアムでクリスプで飲みやすい一杯。",
       "source": "antenna"
@@ -3710,7 +3567,7 @@
         "El Dorado"
       ],
       "url": "https://www.antenna-america.com/products/b010-c12059",
-      "added": "2026-08-17",
+      "added": "2026-08-10",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/DeliciousIPA.png?width=400",
       "description": "Stoneの代名詞とも言えるIPAスタイルのビール。彼らが何故ホップとIPAスタイルの探求をし続けるのか、その理由はこのビールを飲めば分かる。新種のホップであるLemondropを中心に、レモン風味が特徴的なワシントン州産のEl Doradoホップでドライホッピングを施したことでしっかりとしたレモン、シトラスといった風味が感じられる仕上がり。そしてこのIPAの他とは違うユニークな点、それは低グルテンであるということ。もちろんStoneにとって初めての試みである。醸造の過程において生成されるグルテンを取り除き、低グルテンであることにより、これまでStoneの造ってきたIPAやクラフトビール自体を楽しむことが出来なかった人々がStoneの作るしっかりとした味わいのビールを楽しめるようになったと言う訳である。原材料は通常のビールと全く同じものを使用し、長年Stoneへ酵母を供給しているWhite Labsの特別な酵素を用いることで、低グルテンでありながら通常のIPAと同様にしっかりとホップの効いたこのビールが実現した。深い黄金色。レモンの皮を思わせるスパイシーさ、土のようなアーシーさとハーバルでシトラスなホップアロマが軽くローストされたモルトのアロマとバランスよく香る。ホップのフレイバーが舌の上で弾け、スターバーストキャンディーのレモン味のようなレモンフレイバーが支配的。ミディアムボディーのクリスピーな口当たり、フィニッシュはモルト由来のイエローロリポップキャンディーやほんのりとしたバニラ風味を感じ、ビターでドライ。ほぼ全ての人々に安心して楽しんでもらえる、素晴らしい味わいの素晴らしいビール。",
       "source": "antenna"
@@ -4123,10 +3980,11 @@
         "Centennial",
         "Azacca",
         "Calypso",
-        "Ella & Vic Secret"
+        "Ella",
+        "Vic Secret"
       ],
       "url": "https://www.antenna-america.com/products/b010-c12011",
-      "added": "2026-08-17",
+      "added": "2026-06-21",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/IPA_1a8ce2c1-b47b-4d67-acd5-8427fdcce057.jpg?width=400",
       "description": "まずはStoneの実力をこのIPAから。始まりは1997年8月、Stoneの1周年を祝うビールとして醸造された。ホップはMagnum、Chinook、Centennialをはじめ7種類を惜しげもなく大量投入。2週間のドライホッピングで一体感を持たせながらも階層的にホップの香味を溶け込ませた。Stoneの共同創業者であり最初のブリューマスターでもあったSteve Wagnerが初めてStone IPAを醸造した時、彼はまだ知る由もなかった。英国の由緒正しいペールエールというスタイルにホップを大量投入した実験的なスタイルのビールが、ここまでの熱狂的人気を獲得することを。今でこそ「IPA」のアルファベット3文字はビールファンの間で認知されているが、Stone IPAがクラフトビールシーンに登場した1997年当時はIPAの文字に対して疑問符を浮かべる人々がほとんどだった。知名度もなく、飲んだ人々に不快な味わいと受け取られていた苦みを持つこのビールが、時を経た現在では人々が飛び付くビールとなり、冷蔵庫に常備されるビールとなったのだ。Steve WagnerがStone Brewing Co.の礎となるビールを生み出した父のような存在であるように、Stone IPAはその後のStoneで醸造される“ホップを前面に押し出したビール”をインスパイアし続けてきた母のような存在だ。Stone IPAが無ければStone Ruination IPAも、Stone Cali-Belgique IPAも、フレッシュなビールを楽しむというムーブメントの先駆けとなったStone Enjoy By IPAも決して生まれることは無かっただろう。Stone IPAとは数多くのホッピーなビールを世に送り出してきた歴史的なビールなのである。白色のヘッドと美しい黄金色。はっきりと感じられるレモンの皮、フルーティーシリアルやシトラス、松のようなホップアロマ。軽めのモルトボディに力強いシトラスフレイバーが感じられる味わい。ホップの苦味、モルトの味わいの完璧なバランスが美しい。クリーンな苦味が舌に残り続ける余韻。Stoneチームにとっても一番のお気に入りの一つであるという。ホップの醸し出すアロマやフレイバーを十二分に楽しめる、王道ウェスト・コーストスタイルIPA。",
       "source": "antenna"
