@@ -1744,7 +1744,7 @@
       "style": "Sour",
       "abv": "-",
       "hops": [
-        "Golding"
+        "East Kent Golding"
       ],
       "url": "https://southbound.jp/products/jk-eezypeel-pkg",
       "image": "https://cdn.shopify.com/s/files/1/0269/3677/0662/products/JK_product_eezypeel-glamour_1440x1856_33cfb6cc-bc9e-4e77-9128-3704e044b247.jpg?width=400",
@@ -3047,7 +3047,7 @@
       "style": "Hazy IPA",
       "abv": "7.2%",
       "hops": [
-        "Crush",
+        "Krush",
         "Aurora",
         "Aurora Cryo",
         "Erebus"
@@ -3081,7 +3081,7 @@
       "abv": "7.2%",
       "hops": [
         "Mosaic",
-        "Crush"
+        "Krush"
       ],
       "url": "https://www.antenna-america.com/products/b127-c16007",
       "added": "2026-08-17",
@@ -3128,7 +3128,7 @@
       "abv": "6.5%",
       "hops": [
         "Citra",
-        "Crush",
+        "Krush",
         "Cashmere"
       ],
       "url": "https://www.antenna-america.com/products/b093-c16041",
@@ -3306,11 +3306,11 @@
       "abv": "7.2%",
       "hops": [
         "Mosaic Dynaboost",
-        "Cristal",
+        "Crystal",
         "Mosaic Cryo",
-        "Equanot",
+        "Ekuanot",
         "Citra",
-        "Crush"
+        "Krush"
       ],
       "url": "https://www.antenna-america.com/products/b071-c12052",
       "added": "2026-08-17",
@@ -3486,7 +3486,7 @@
       "style": "Czech Style Pilsner",
       "abv": "4.4%",
       "hops": [
-        "Czech Saaz"
+        "Saaz"
       ],
       "url": "https://www.antenna-america.com/products/b060-c16003",
       "added": "2026-08-17",
@@ -3584,7 +3584,8 @@
         "Centennial",
         "Azacca",
         "Calypso",
-        "Ella & Vic Secret"
+        "Ella",
+        "Vic Secret"
       ],
       "url": "https://www.antenna-america.com/products/b010-c19011",
       "added": "2026-08-17",
@@ -3659,7 +3660,7 @@
       "style": "Hazy IPA",
       "abv": "4.5%",
       "hops": [
-        "Crush"
+        "Krush"
       ],
       "url": "https://www.antenna-america.com/products/b131-c12006",
       "added": "2026-08-17",
@@ -3702,7 +3703,7 @@
       "style": "Pilsner",
       "abv": "4.5%",
       "hops": [
-        "Hallertau",
+        "Hallertauer Mittelfruher",
         "Tettnanger"
       ],
       "url": "https://www.antenna-america.com/products/b002-c12005",
@@ -4501,7 +4502,7 @@
       "abv": "5.0%",
       "hops": [
         "Lorien",
-        "HBC1134"
+        "HBC 1134"
       ],
       "url": "https://southbound.jp/products/rc-reluctantrolemodel-pkg",
       "added": "2026-08-17",
@@ -4529,7 +4530,7 @@
       "style": "German-Style Pilsner",
       "abv": "5.2%",
       "hops": [
-        "Hallertau",
+        "Hallertauer Mittelfruher",
         "Perle",
         "Tettnanger"
       ],
@@ -5200,7 +5201,7 @@
       "style": "Sour Ale Refermented on Apricots and Conditioned on Vanilla Beans",
       "abv": "6.6%",
       "hops": [
-        "Czech Saaz"
+        "Saaz"
       ],
       "url": "https://southbound.jp/products/jo-apricotvanillaperpetum-pkg",
       "added": "2026-08-17",
@@ -5721,7 +5722,7 @@
       "style": "Strong Wheat Wine With Honey (Bourbon Barrel-Aged)",
       "abv": "13.1%",
       "hops": [
-        "Hallertau",
+        "Hallertauer Mittelfruher",
         "Willamette"
       ],
       "url": "https://southbound.jp/products/jo-woodyahoney-pkg",
