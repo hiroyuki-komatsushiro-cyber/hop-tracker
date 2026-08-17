@@ -255,6 +255,16 @@ var hops = [
 ];
 hops.forEach(function(h,i){ h.color = pal[i % pal.length]; });
 
+// 収録品種数の表示（ビルド時の固定文字列ではなく実際のhops配列の長さから表示）
+document.addEventListener('DOMContentLoaded', function(){
+  ['hop-total-count','hop-total-count2'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.textContent = hops.length;
+  });
+  var progressEl = document.getElementById('hop-progress-count');
+  if(progressEl) progressEl.textContent = hops.length;
+});
+
 var currentLetter = 'C'; // Citraがデフォルト選択されているためCから開始
 var sel = ['Citra'];
 

@@ -123,8 +123,8 @@ HTML_TEMPLATE = """\
 <div class="panels">
 
 <div id="t1" class="tab-panel active">
-  <h2>ホップ アロマ特性 比較チャート（全133品種）</h2>
-  <div class="progress">収録品種: 133/133 <div class="pbar"><div class="pbar-fill" style="width:100%"></div></div></div>
+  <h2>ホップ アロマ特性 比較チャート（全<span id="hop-total-count">-</span>品種）</h2>
+  <div class="progress">収録品種: <span id="hop-progress-count">-</span>/<span id="hop-total-count2">-</span> <div class="pbar"><div class="pbar-fill" style="width:100%"></div></div></div>
   <div class="srch-row">
     <input type="text" id="srch" placeholder="品種名で検索...">
     <button id="clrBtn" type="button">クリア</button>
