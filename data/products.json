@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-17",
+  "last_updated": "2026-08-19",
   "source_url": "https://www.antenna-america.com/collections/all?pf_st_zai_ku_noyou_wu=true&filter.v.availability=1",
   "products": [
     {
@@ -5808,6 +5808,22 @@
       "image": "https://cdn.shopify.com/s/files/1/0269/3677/0662/products/JK_product_vernaldichotomous-glamour_1396x1800_737fabef-5f4f-4e94-b91d-de4e44d8cd53.jpg?width=400",
       "description": "ヴァーナルダイカトマスは、テキサス中部の春にインスパイアされたファーム・ハウスエールです。この年のバッチのレシピは非常にシンプルです。オーク樽で熟成させたファーム・ハウスエールをブレンドし、煎茶を加えて再発酵させました。アーシーで瑞々しい香りと花の芳香が漂う春の季節の美しさを、ファウーム・ハウスエールで表現しました。彼らの他のダイコトマスビールと同様、このビールも名称の由来となったシーズンに醸造されるため、発売されるのは季節が変わってからです。2022年版のバーナル・ダイコトマスは、ドライな口当たりで柔らかい酸味があり、煎茶との再発酵の芳しいアロマが特徴です。無濾過で自然熟成。",
       "source": "southbound"
+    },
+    {
+      "id": "b010-c12204",
+      "name": "Stone Pilsner",
+      "brewery": "Stone Brewing",
+      "style": "Pilsner",
+      "abv": "4.7%",
+      "hops": [
+        "Cashmere",
+        "Vista"
+      ],
+      "url": "https://www.antenna-america.com/products/b010-c12204",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/StonePilsner.png?width=400",
+      "description": "もともと「ピルスナー」というビールスタイルは、ドイツから移住した人々によってアメリカにもたらされました。その後、数多くの醸造家たちの工夫と、ホップ農家のたゆまぬ努力により、アメリカならではの独自の進化を遂げ、現在でも多くの方々に親しまれているスタイルです。カシミアとヴィスタホップによるメロン、クラッカー、花、ハーブのようなアロマ。口に含むとパンやトウモロコシのチップスを思わせる味わいと微かなオレンジ、洋梨、スイカ。ボディはライトでフィニッシュまでクリスプな、飲み飽きないピルスナーです。",
+      "source": "antenna"
     }
   ]
 }
