@@ -5824,6 +5824,294 @@
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/StonePilsner.png?width=400",
       "description": "もともと「ピルスナー」というビールスタイルは、ドイツから移住した人々によってアメリカにもたらされました。その後、数多くの醸造家たちの工夫と、ホップ農家のたゆまぬ努力により、アメリカならではの独自の進化を遂げ、現在でも多くの方々に親しまれているスタイルです。カシミアとヴィスタホップによるメロン、クラッカー、花、ハーブのようなアロマ。口に含むとパンやトウモロコシのチップスを思わせる味わいと微かなオレンジ、洋梨、スイカ。ボディはライトでフィニッシュまでクリスプな、飲み飽きないピルスナーです。",
       "source": "antenna"
+    },
+    {
+      "id": "b133-c16011",
+      "name": "GALACTRON Fruited Sour",
+      "brewery": "Unsung Brewing",
+      "style": "Fruited Sour",
+      "abv": "6%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b133-c16011",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/GALACTRONFruitedSour_2.png?width=400",
+      "description": "オーガニックのマンゴーピューレとパッションフルーツピューレを大量に使用。2種類の果実を組み合わせることで、サワーらしい酸味をほどよく和らげ、トロピカルフルーツの濃厚でジューシーな味わいを引き立てています。",
+      "source": "antenna"
+    },
+    {
+      "id": "b133-c16010",
+      "name": "THE OUTCAST DDH Hazy IPA",
+      "brewery": "Unsung Brewing",
+      "style": "DDH Hazy IPA",
+      "abv": "7%",
+      "hops": [
+        "Nelson Sauvin",
+        "Nectaron"
+      ],
+      "url": "https://www.antenna-america.com/products/b133-c16010",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/THEOUTCASTDDHHazyIPA_2.png?width=400",
+      "description": "ネルソンとネクタロンホップを贅沢に使用し、ダブルドライホップで仕上げたヘイジーIPA。ピーチやグーズベリー、パッションフルーツを思わせる華やかな果実味が、なめらかなボディいっぱいに広がります。ジューシーで鮮やかなホップアロマと、やわらかな口当たりが調和した、エネルギッシュな味わいを楽しめる一本です。バックストーリー幼い頃から周囲に理解されることなく、「問題児」「怒りっぽい」「手に負えない」と決めつけられてきたAiden。しかし、その胸の内で渦巻いていた“嵐”は、文字どおり大地を揺るがす力を秘めていました。厳しい規律で知られるグループホームで、ある日、職員に乱暴につかまれたことをきっかけに、彼の中で何かが決定的に崩壊します。抑え込まれていた怒りが解き放たれると同時に建物は激しく揺れ、梁はきしみ、大地は裂けました。その瞬間、Aidenは悟ります。世界は、自分が大きく揺さぶられた時、そして自ら世界を揺さぶった時にしか、その存在に気づかないのだと。",
+      "source": "antenna"
+    },
+    {
+      "id": "b133-c16009",
+      "name": "SHATTERSPIKE DDH WC IPA",
+      "brewery": "Unsung Brewing",
+      "style": "DDH West Coast IPA",
+      "abv": "7.2%",
+      "hops": [
+        "Citra",
+        "Mosaic"
+      ],
+      "url": "https://www.antenna-america.com/products/b133-c16009",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SHATTERSPIKEDDHWCIPA_2.png?width=400",
+      "description": "最高の組み合わせのひとつであるシトラとモザイクを採用し、ホップの魅力が炸裂するウエストコーストIPAを造り上げました。ダブルドライホッピングにより、ピーチ、モクレン（マグノリア）、シトラスを思わせる豊かなアロマとフレーバーオイルを最大限に引き出しています。バックストーリー「惑星ケプラー186fを追放された異星人SHATTERSPIKEは、地球に取り残され、生き延びることだけを目的に彷徨っている。ヤマアラシとケラトプスを掛け合わせたような特徴を持ち、標的に突き刺さった後に爆発する棘を発射する能力を備える。生存には隕石に含まれる微量元素が不可欠で、この単純な生き物は常にそれを探し求めている。Goodnight Industriesは、その鉱物の最大埋蔵地の採掘権を保有しており、それを利用してSHATTERSPIKEを傭兵として働かせている。」",
+      "source": "antenna"
+    },
+    {
+      "id": "b133-c16008",
+      "name": "RED VESPA Italian Red Lager",
+      "brewery": "Unsung Brewing",
+      "style": "Italian Red Lager",
+      "abv": "5%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b133-c16008",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/REDVESPAItalianRedLager_2.png?width=400",
+      "description": "2025 World Beer Cup 銀賞受賞！このレッドビールは、深いアンバーとダークビールの中間に位置するような美しい色合いが特徴です。カラレッドモルトとカラアンバーモルトの使用により、鮮やかなルビーレッドの輝きを放ちます。ベースモルトには、イタリアで栽培されるエラクレア種を使用。秋まき・春まきの両方に対応できる、いわゆる「ファカルタティブ品種」として知られています。地中海スタイルのダークラガーらしく、きめ細かく豊かな泡立ちも魅力。香りにはブドウ、キャラメル、トフィーが感じられ、ほのかにカモミールのニュアンスも漂います。口に含むと、それらの風味がさらに広がり、穏やかな甘みと苦味が絶妙なバランスを演出します。フィニッシュはドライで、やさしいアルコールの温もりが心地よく残る一杯です。",
+      "source": "antenna"
+    },
+    {
+      "id": "b098-c16058",
+      "name": "Faction Hefe",
+      "brewery": "Faction Brewing",
+      "style": "Wheat",
+      "abv": "5.2%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b098-c16058",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/FactionHefe.png?width=400",
+      "description": "伝統的なドイツスタイルで醸造したクラシックなウィートビール。時代を問わず愛され続けるスタイルならではの、親しみやすく爽やかな味わいと優れた飲みやすさが魅力です。ゆったりとした午後のひとときや仲間との語らい、もう一杯楽しみたくなるようなシーンにぴったりの一本です。",
+      "source": "antenna"
+    },
+    {
+      "id": "b044-c16099",
+      "name": "Adventureland Peach Pop",
+      "brewery": "Almanac",
+      "style": "Fruit",
+      "abv": "5.5%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b044-c16099",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/AdventurelandPeachPop.png?width=400",
+      "description": "すごろくや遊園地のような遊び心あふれる世界観をテーマにした「Adventureland」シリーズ最新作。ジューシーなピーチの風味があふれ、夏の日に食べるピーチアイスキャンディを思わせるどこか懐かしい味わいが楽しめます。ビアガーデンで過ごすような開放感と、まるでバケーション気分を味わえるような明るく爽やかな仕上がり。ひと口飲めば、夏の日差しや遊園地のようなワクワク感を感じさせる、フルーティーなピーチの魅力が詰まった一本です。",
+      "source": "antenna"
+    },
+    {
+      "id": "b133-c16007",
+      "name": "METAPLEX DDH WC IPA",
+      "brewery": "Unsung Brewing",
+      "style": "IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Mosaic"
+      ],
+      "url": "https://www.antenna-america.com/products/b133-c16007",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Metaplex_2.png?width=400",
+      "description": "私たちにとっての“聖杯”とも言えるウエストコーストIPA。モザイクホップのみを使用し、パイナップルのようなアロマを引き出しつつ、フローラル、パパイヤ、そして柑橘畑を思わせる豊かなフレーバーが口いっぱいに広がります。とはいえ、優れたIPAに欠かせないのはバランス。食事の味わいを損なうことなく、しっかりと引き立てながら楽しめる一杯に仕上げています。バックストーリー「ソウルで孤児として育ったチェ・ジユンは、僧侶たちに引き取られ、古代武術の修行を積んだ。その才能はやがて広まり、偏見に満ちた大師範の耳にも届くが、彼女は追放されてしまう。山中をさまよう中、毒蛇に噛まれるも奇跡的に生還。その神経毒によってDNAが変異し、超人的なスピードと分身能力を手に入れた。目隠しをハンデとして身に着けたままソウルへ戻った彼女は、富める者から奪い、貧しい者、特に母親や子どもたちを支える存在となった。」",
+      "source": "antenna"
+    },
+    {
+      "id": "b133-c16005",
+      "name": "CARINA DDH Hazy DIPA",
+      "brewery": "Unsung Brewing",
+      "style": "DDH Hazy DIPA",
+      "abv": "8.5%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b133-c16005",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/CARINADDHHazyDIPA.jpg?width=400",
+      "description": "Unsungの醸造チームがホップ農家でハンドセレクトしたホップを惜しみなく使っており、Unsungの中で最も人気のあるビールの内の一つがこのCARINA。このビールは、カリフォルニア州アナハイムのディズニーランドにおいて、売上・販売量ともに過去7年間トップセラーとなっています。ボディ設計と丁寧なマッシング技術により、高アルコール度数でありながら、アルコール感を感じさせない仕上がりです。ビール名は「カリーナ星雲（NGC3372）」に由来します。カリーナ星雲は、全天で最大級の散光星雲のひとつで、その広大な領域には、天の川銀河で最も光度が高いとされる恒星WR25が存在します。オリオン星雲よりも大きく明るいにもかかわらず、南天に位置するためあまり知られていない、まさに“Unsung”な星雲です。",
+      "source": "antenna"
+    },
+    {
+      "id": "b133-c16001",
+      "name": "LUMINO Mexican Lager",
+      "brewery": "Unsung Brewing",
+      "style": "Mexican Lager",
+      "abv": "4.8%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b133-c16001",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/LUMINOMexicanLager.jpg?width=400",
+      "description": "Unsungが誇るクラシックなメキシカンラガー。トウモロコシとピルスナーモルトを絶妙なバランスで使用し、軽快な味わいに仕上げました。スポーツ観戦のお供にもぴったり！仲間と集まって気軽に何杯でも楽しめる飲みやすさが魅力です。2018年のGreat American Beer Festivalにて銅賞を受賞。BACKSTORY若き日の投手ヴァレンティーノ・フェルナンデスは、誰にも止められない存在でした。しかし、けがは避けられず、人生は続き、少年時代の夢は次第に遠のいていきます。それから数年後、彼は無防備な歩行者に向かって暴走する車を目撃します。考える間もなく、フェルナンデスはワインドアップを開始。掌には燃え上がる野球ボールが現れました。その一球はまばゆい閃光とともに炸裂し、暴走車のハンドルを打ち抜いて大惨事を回避します。その日、ルミノが誕生しました。再びマウンドに立ち、助けを必要とする人々へ渾身の速球を届けるために。",
+      "source": "antenna"
+    },
+    {
+      "id": "b044-c16097",
+      "name": "Adventureland Pils",
+      "brewery": "Almanac",
+      "style": "Pilsner",
+      "abv": "4.9%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b044-c16097",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/AdventurelandPils.png?width=400",
+      "description": "カリフォルニア州アラメダにあるAlmanacの醸造所をすごろくゲームから着想を得たマップに仕立て、クリスプで飲みやすいピルスナーのラベルデザインに落とし込みました。踊り、飲み、笑い、ピザを味わい、隣人や仲間と肩を並べて過ごす場所へと誘う一杯です。",
+      "source": "antenna"
+    },
+    {
+      "id": "b044-c16090",
+      "name": "Hugs Hefeweizen",
+      "brewery": "Almanac",
+      "style": "Hefeweizen",
+      "abv": "5%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b044-c16090",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Hugs_2.png?width=400",
+      "description": "季節限定で醸造したヘフェヴァイツェンの反響が大きすぎたため定番商品化したのがこちら。小麦のふくよかな味わいと酵母によるバナナやクローブ感が特徴的な正統派白ビール。",
+      "source": "antenna"
+    },
+    {
+      "id": "b098-c16023",
+      "name": "1970's Lager",
+      "brewery": "Faction Brewing",
+      "style": "Lager",
+      "abv": "3.9%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b098-c16023",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/1970_sLager-BLK.png?width=400",
+      "description": "正直、低いアルコール度数のビールをなめてました・・・\rFactionの定番商品であるこの1970's Lager。毎回ブリュワリーからオファーされつつも、その度数とコンセプトを理由に発注しませんでした。その発注担当が6月に現地で飲んだ際に心を動かされたビール。透き通るような色味と穏やかなアロマ、そして軽くも綺麗なモルトとホップの味わい。こういうラガーなかなかありません。2022年GABF金賞受賞にも納得。",
+      "source": "antenna"
+    },
+    {
+      "id": "b098-c16021",
+      "name": "Hella Strata",
+      "brewery": "Faction Brewing",
+      "style": "Helles",
+      "abv": "4.7%",
+      "hops": [
+        "Strata"
+      ],
+      "url": "https://www.antenna-america.com/products/b098-c16021",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/HellaStrataBlack.png?width=400",
+      "description": "ボディが軽く綺麗な味わいのビールを大得意とするFactionが手掛けるへレスビール。近代的な品種Strataを組み合わせているのがFaction流。",
+      "source": "antenna"
+    },
+    {
+      "id": "b044-c16075",
+      "name": "Barrel-aged Fruit Punch Sournova",
+      "brewery": "Almanac",
+      "style": "Barrel Aged Sour Ale",
+      "abv": "5.8%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b044-c16075",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Barrel-aged_Fruit_Punch_Sournova_6.1.png?width=400",
+      "description": "ネクタリン、ピーチ、ハイビスカス、バニラを大量に投入しミックスカルチャー酵母で発酵。仕上げにオーク樽で熟成させ、まるでフルーツポンチのようなジューシーで爽快な酸味",
+      "source": "antenna"
+    },
+    {
+      "id": "b098-c16013",
+      "name": "Faction Pilsner",
+      "brewery": "Faction Brewing",
+      "style": "Pilsner",
+      "abv": "4.8%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b098-c16013",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/FactionPilsBlack.png?width=400",
+      "description": "軽めなボディのビールを作るのを得意とするFactionが手掛けるドイツスタイルの伝統的なピルスナー",
+      "source": "antenna"
+    },
+    {
+      "id": "b098-c16012",
+      "name": "Summer IPA",
+      "brewery": "Faction Brewing",
+      "style": "IPA",
+      "abv": "6.6%",
+      "hops": [
+        "Citra",
+        "Nelson Sauvin",
+        "Riwaka"
+      ],
+      "url": "https://www.antenna-america.com/products/b098-c16012",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SummerIPABlack.png?width=400",
+      "description": "Factionの一番人気。春、夏、秋、冬にレシピを変えながら醸造。シトラ、ネルソン、リワカホップを使い度数を若干抑えたドリンカビリティー高めのIPA",
+      "source": "antenna"
+    },
+    {
+      "id": "b044-c16069",
+      "name": "Big Love Hazy DIPA",
+      "brewery": "Almanac",
+      "style": "Hazy Double IPA",
+      "abv": "9%",
+      "hops": [
+        "Mosaic",
+        "Centennial",
+        "Citra"
+      ],
+      "url": "https://www.antenna-america.com/products/b044-c16069",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/BigLoveHazyDIPA.png?width=400",
+      "description": "大人気Love Hazyをパワーアップさせた Hazy Double IPA。Mosaic、Centennial、Citraを使用し、完熟マンゴー、ココナッツ、そして爽やかな柑橘フレーバーに満足感たっぷりな飲み口。",
+      "source": "antenna"
+    },
+    {
+      "id": "b098-c16002",
+      "name": "Penske File",
+      "brewery": "Faction Brewing",
+      "style": "West Coast Pale Ale",
+      "abv": "5.8%",
+      "hops": [
+        "Mosaic",
+        "Ekuanot"
+      ],
+      "url": "https://www.antenna-america.com/products/b098-c16002",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/PenskeFile-BLK.png?width=400",
+      "description": "ホップの名産地であるワシントン州ヤキマから入手したMosaicとEkuanotホップを使いドライホッピングしたWest Coast Pale Ale。木苺、ピーチ、メロン、ライム、パパイヤのような味わいと軽く張りのあるボディ、そして控えめの苦味が特徴的です。シーフード、タコス、グリル料理のペアリングに是非。このPenske Fileは2018年にGreat American Beer Festivalの International-Style Pale Ale部門にて銅賞を獲得しています。全米から800以上のブリュワリーと3,800以上のビールが出場するこの大会でメダルを受賞したことは非常に名誉あることです。",
+      "source": "antenna"
+    },
+    {
+      "id": "b098-c16003",
+      "name": "Faction Pale",
+      "brewery": "Faction Brewing",
+      "style": "West Coast Pale Ale",
+      "abv": "5.4%",
+      "hops": [
+        "Mosaic",
+        "Columbus"
+      ],
+      "url": "https://www.antenna-america.com/products/b098-c16003",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/FactionPaleBlack.png?width=400",
+      "description": "Faction IPA に次いで二番目に人気なのがこのWest Coast Pale Ale。Mosaic、Apollo、Columbusホップを贅沢に使用",
+      "source": "antenna"
+    },
+    {
+      "id": "b044-c16031",
+      "name": "LOVE Hazy IPA",
+      "brewery": "Almanac",
+      "style": "Hazy IPA",
+      "abv": "6.1%",
+      "hops": [
+        "Mosaic",
+        "Citra",
+        "Sabro"
+      ],
+      "url": "https://www.antenna-america.com/products/b044-c16031",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/LoveHazy2023Green.png?width=400",
+      "description": "ホップキャラクターが弾け出す、ホッピートロピカルなHazy IPA。Mosaic、Citra、Sabroホップを使用してダブルドライホッピングで仕上げた事により、非常にダンクで柔らかな口当たりのビールが出来上がった。トロピカルフルーツの味わいとホップのダンクさが飲み手を夢中にさせる。　トロピカルフルーツアロマ、シトラスアロマ、フローラルアロマ、そして大地を思わせるホップアロマがグラスからあふれ出し、ほのかに香るビスケットのようなモルトの甘い香りがバランスを取る。香りの特徴がそのまま味わいへと続き、広がるホップフレーバーと微かなモルトの甘さがやみつきになる味わい。ボディはミドルで、柔らかでスムースな口当たり。シンプルさに技術が光るHazy IPA。",
+      "source": "antenna"
     }
   ]
 }
