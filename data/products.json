@@ -6115,6 +6115,247 @@
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/LoveHazy2023Green.png?width=400",
       "description": "ホップキャラクターが弾け出す、ホッピートロピカルなHazy IPA。Mosaic、Citra、Sabroホップを使用してダブルドライホッピングで仕上げた事により、非常にダンクで柔らかな口当たりのビールが出来上がった。トロピカルフルーツの味わいとホップのダンクさが飲み手を夢中にさせる。　トロピカルフルーツアロマ、シトラスアロマ、フローラルアロマ、そして大地を思わせるホップアロマがグラスからあふれ出し、ほのかに香るビスケットのようなモルトの甘い香りがバランスを取る。香りの特徴がそのまま味わいへと続き、広がるホップフレーバーと微かなモルトの甘さがやみつきになる味わい。ボディはミドルで、柔らかでスムースな口当たり。シンプルさに技術が光るHazy IPA。",
       "source": "antenna"
+    },
+    {
+      "id": "b073-c16051",
+      "name": "The Labyrinth",
+      "brewery": "Societe",
+      "style": "IPA",
+      "abv": "7.3%",
+      "hops": [
+        "Chinook",
+        "Chinook CGX",
+        "Tangier",
+        "El Dorado",
+        "Comet"
+      ],
+      "url": "https://www.antenna-america.com/products/b073-c16051",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/TheLabyrinth.png?width=400",
+      "description": "Societeが四半期ごとに展開する新作IPAシリーズの一つとして誕生したウエストコーストIPA。チヌーク、チヌーク・CGX、タンジアー、エルドラド、コメットホップを使用し、華やかで奥行きのあるホップキャラクターを楽しめます。グラスに注ぐと、スイートシトラスやパパイヤ、マンゴーを思わせる豊かなアロマが広がり、さらにデイジーを連想させるほのかなフローラルなニュアンスが彩りを添えます。口に含むと、ネーブルオレンジやピーチ、パッションフルーツの果実味に、ほのかな松のような樹脂感と穏やかな苦味が重なり、バランスの取れた味わいに仕上がっています。力強いアロマと美しい泡立ち、無濾過ならではのクリアな外観を備えながら、従来のIPAとはひと味違う新たなホップ表現を追求した一本です。トロピカルで、幻想的で、ひねりの効いた世界へラビリンスのさらに奥深くへと足を踏み入れよう。そこは、トロピカルな仕掛けとホップが織りなす歪んだ次元。複雑に入り組んだこのウエストコーストIPAの迷宮では、奇妙な階段も、脳を揺さぶるポータルも、重力を忘れさせる一口も、あなたをさらに深みへと誘っていきます。気をつけろ――迷い込め。",
+      "source": "antenna"
+    },
+    {
+      "id": "b068-c16050",
+      "name": "Relax West Coast IPA",
+      "brewery": "Offshoot",
+      "style": "West Coast IPA",
+      "abv": "7.1%",
+      "hops": [
+        "Simcoe",
+        "Mosaic",
+        "Strata",
+        "Amarillo"
+      ],
+      "url": "https://www.antenna-america.com/products/b068-c16050",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/RelaxWCIPA.png?width=400",
+      "description": "いつでも気軽に楽しめるクリーンでクリスプなウエストコーストIPA。モザイク、ストラータ、シムコー、アマリロホップを使用し、パッションフルーツを思わせるトロピカルな果実味に、グレープフルーツの皮や松の爽やかなホップキャラクターが広がります。Offshootの看板商品「Relax Hazy IPA」の名前と世界観を受け継ぎながら、すっきりとした飲み口と心地よい苦味、そしてホップの魅力を昇華させた一本です。",
+      "source": "antenna"
+    },
+    {
+      "id": "b068-c16049",
+      "name": "Relax Anniversary DDH Hazy DIPA",
+      "brewery": "Offshoot",
+      "style": "DDH Hazy DIPA",
+      "abv": "8%",
+      "hops": [
+        "Citra Cryo",
+        "Mosaic Cryo",
+        "Cashmere",
+        "Vera"
+      ],
+      "url": "https://www.antenna-america.com/products/b068-c16049",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/RelaxAnniversaryDDHHazyDIPA.png?width=400",
+      "description": "Offshootの創業9周年を記念して醸造されたアニバーサリーIPA。ブリュワリーで大人気のIPA「Relax」をベースにダブルドライホップを施すことで、さらに豊かなアロマと奥行きのあるホップキャラクターを引き出しました。シトラ・クライオ、モザイク・クライオ、カシミア、ヴェラホップを贅沢に使用し、トロピカルベリーや完熟ピーチ、甘やかな松を思わせる華やかな風味が広がります。なめらかな口当たりと、より存在感を増したホップの魅力が楽しめる、9周年を祝う特別な一本です。",
+      "source": "antenna"
+    },
+    {
+      "id": "b041-c16123",
+      "name": "West Ghost West Coast IPA",
+      "brewery": "Sierra Nevada",
+      "style": "West Coast IPA",
+      "abv": "7.2%",
+      "hops": [
+        "Amarillo",
+        "Citra",
+        "Idaho 7",
+        "Magnum"
+      ],
+      "url": "https://www.antenna-america.com/products/b041-c16123",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/WestGhostIPA.png?width=400",
+      "description": "クラシックなウエストコーストIPAの現代的な再解釈。アグレッシブなホップ、控えめなモルト、そしてスッと幽霊のように消えていくクリーンなフィニッシュが特徴です。アマリロ、シトラ、アイダホ7、マグナムホップを使用。",
+      "source": "antenna"
+    },
+    {
+      "id": "b037-c16201",
+      "name": "Modern Times West Coast IPA",
+      "brewery": "Modern Times",
+      "style": "West Coast IPA",
+      "abv": "6.8%",
+      "hops": [
+        "Citra",
+        "Mosaic"
+      ],
+      "url": "https://www.antenna-america.com/products/b037-c16201",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/WestCoastIPA_b154a453-c337-44d7-b7ff-b6c55b424b73.png?width=400",
+      "description": "このウェストコーストIPAは、クラフトビールの聖地サンディエゴ発の大胆でホップ感あふれる一杯です。シトラとモザイクホップをブレンドし、明るくアロマティックな風味を実現。黄金色に輝くこのIPAは、ドライで爽快、南カリフォルニアの陽気な一日にぴったりのビールです。",
+      "source": "antenna"
+    },
+    {
+      "id": "b037-c12203",
+      "name": "Parlay Lite Hazy IPA",
+      "brewery": "Modern Times",
+      "style": "Hazy IPA",
+      "abv": "4.5%",
+      "hops": [
+        "Cascade",
+        "Amarillo",
+        "Citra",
+        "Chinook"
+      ],
+      "url": "https://www.antenna-america.com/products/b037-c12203",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/ParlayHazyIPA.png?width=400",
+      "description": "スムーズな一口が次の一口を自然に誘う飲み心地が魅力の一杯。カスケード、アマリロ、シトラホップがもたらす明るい柑橘系とやわらかなトロピカルノートが味わいの軸となり、チヌークのパイニーなニュアンスが全体を引き締めます。ふくよかで濁りのあるボディに、控えめな苦味がバランスよく調和。明るくなめらかで、もう一杯と手が伸びる仕上がりです。",
+      "source": "antenna"
+    },
+    {
+      "id": "b068-c16047",
+      "name": "Relax Mango Hazy",
+      "brewery": "Offshoot",
+      "style": "Hazy IPA",
+      "abv": "6.8%",
+      "hops": [
+        "Centennial",
+        "Citra"
+      ],
+      "url": "https://www.antenna-america.com/products/b068-c16047",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/RelaxMangoHazy.png?width=400",
+      "description": "Offshootを代表する人気定番商品Relaxに新フレーバーが登場。センテニアルとシトラホップ由来のトロピカルフルーツや柑橘感と、副原料として投入したマンゴーの甘みが合わさり、口の中はまるで常夏のパラダイス！ペアリングフードにおすすめなのはパイナップルソースでグレーズドしたグリルチキン、海老のマリネサラダ、トロピカルフルーツの盛り合わせ。",
+      "source": "antenna"
+    },
+    {
+      "id": "b036-c16130",
+      "name": "Enticing Boysenberry",
+      "brewery": "The Bruery",
+      "style": "Sour blonde ale",
+      "abv": "5.1%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b036-c16130",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/EnticingBoysenberry_202503.png?width=400",
+      "description": "ボイセンベリーを使ったサワーブロンドエール。深い紫色で甘酸っぱいボイセンベリーはビタミン、ミネラル、ポリフェノールをはじめ、様々な栄養成分を豊富に含むスーパーフードとして知られています。キイチゴの甘酸っぱさにジャムやバニラのようなアクセントが感じられる。ペアリングフードにはフライドチキン、マッシュポテト、蒸かしたトウモロコシ、ボイセンベリーパイを是非。",
+      "source": "antenna"
+    },
+    {
+      "id": "b036-c16128",
+      "name": "Ruekeller: Pilsener",
+      "brewery": "The Bruery",
+      "style": "Pilsener-style Lager",
+      "abv": "5.8%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b036-c16128",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/RuekellerPilsener.png?width=400",
+      "description": "原材料と製法にとことんこだわり、The Brueryチームの知識と経験を総動員して開発した伝統的なピルスナースタイルラガー。ノーブルホップによるフローラルで爽快なアロマに香ばしいパンのようなニュアンス、存在感がありつつも心地良い苦み、そしてクリスプでドライなフィニッシュ。ペアリングにはグリルシュリンプ、ローストチキン、シーザーサラダなどをどうぞ。",
+      "source": "antenna"
+    },
+    {
+      "id": "b068-c16042",
+      "name": "Viaje",
+      "brewery": "Offshoot",
+      "style": "Baja-style Lager",
+      "abv": "4.7%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b068-c16042",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Viaje2024_3.jpg?width=400",
+      "description": "カリフォルニア州の海岸線を南下すると到着するメキシコのバハ・カリフォルニア半島。そこで飲まれるラガーを再現しており、モルトのクラッカーのような軽めの風味にホップのハーブ、スパイス、柑橘類といった爽やかなアクセントが加わっています。",
+      "source": "antenna"
+    },
+    {
+      "id": "b073-c12029",
+      "name": "The Pugilist",
+      "brewery": "Societe",
+      "style": "Irish Dry Stout",
+      "abv": "4.8%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b073-c12029",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/15_ThePugilist.png?width=400",
+      "description": "ローストモルトの香ばしいダークチョコレートのような味わいと滑らかな飲み口が特徴。甘みと度数は控えめなため、一杯目でもスルスルと楽しめるタイプのスタウト。World Beer Cup銀賞に輝いた人気商品です。",
+      "source": "antenna"
+    },
+    {
+      "id": "b073-c12014",
+      "name": "Bulbous Flowers",
+      "brewery": "Societe",
+      "style": "Hazy IPA",
+      "abv": "7%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b073-c12014",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/BulbousFlowers_4.png?width=400",
+      "description": "ホップ由来の鮮やかで華やかなアロマを「色とりどりに咲き誇る球根の花」に例え名付けられたビール。口当たりはまるで空に浮かぶ雲のように柔らかく、桃や柑橘、パイナップル、オレンジのような味わいと穏やかな苦みが特徴。",
+      "source": "antenna"
+    },
+    {
+      "id": "b073-c12003",
+      "name": "The Coachman",
+      "brewery": "Societe",
+      "style": "Session IPA",
+      "abv": "4.9%",
+      "hops": [
+        "Mosaic",
+        "Simcoe",
+        "Saaz",
+        "Cascade"
+      ],
+      "url": "https://www.antenna-america.com/products/b073-c12003",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/5ea7872f-b324-4bc0-906f-6fe5fd5ad003_24214cd0-676b-498b-83b1-f489cdd42df0.jpg?width=400",
+      "description": "Societe のOut WestシリーズのセッションIPA。アウトウェスト・シリーズは、ホップが生み出すさまざまな香りと風味をショーケースし、ホップの可能性を探求するシリーズ。アルコール度数は控えめながら、濃縮されたホップの存在感が際立つ。クリスプでクリーン、レモンの皮のような控えめな苦みといつまでも続くホッピーな味わい。2015年と2018年のGreat American Beer Festival 、Session India Pale Ale部門で金賞受賞。",
+      "source": "antenna"
+    },
+    {
+      "id": "b073-c12001",
+      "name": "The Pupil",
+      "brewery": "Societe",
+      "style": "San Diego IPA",
+      "abv": "7.5%",
+      "hops": [
+        "Nelson Sauvin",
+        "Citra",
+        "Centennial"
+      ],
+      "url": "https://www.antenna-america.com/products/b073-c12001",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/5f0421dd-0fc0-45dc-9d72-6d6f0a00010b_f75edcad-5a13-4e29-8223-f0512eab90d2.png?width=400",
+      "description": "Societe のOut WestシリーズのIPA。アウトウェスト・シリーズは、ホップが生み出すさまざまな香りと風味をショーケースし、ホップの可能性を探求するシリーズ。グアバやマンゴーなど南国果実を連想させるアロマと味わい。スムーズなミディアムボディで心地よいドライな口当たり。ファンも多いこのマイルドな苦みのIPAは、創業当時からのラインアップでSocieteのフラッグシップともいえる。ビール名のPupilとは生徒や学生の意味。Societeいわく、このIPAを飲むと学生時代を思い出し、懐かしい味わいを求めて地元のお店に行きたくなる。2014年Great American Beer Festival、IPA部門　銅賞受賞",
+      "source": "antenna"
+    },
+    {
+      "id": "b037-c16026",
+      "name": "Orderville",
+      "brewery": "Modern Times",
+      "style": "Hazy IPA",
+      "abv": "7.2%",
+      "hops": [
+        "Mosaic",
+        "Simcoe",
+        "Ekuanot",
+        "Sultana"
+      ],
+      "url": "https://www.antenna-america.com/products/b037-c16026",
+      "added": "2026-08-19",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/Orderville_1.png?width=400",
+      "description": "Modern Timesの定番IPA。Mosaicホップ、そしてdank（注1）なニュアンス溢れるいくつかのホップを投入して醸造されるのがこの“Orderville”。ホップのフルーティーなキャラクターが前面に押し出されているだけでなく、何とも形容し難い独特なホップアロマが飲み手の体の中を駆け抜ける。西海岸ではあまり見られないタイプのイングリッシュ酵母を使用しており、ウエスト・コーストスタイルのIPAとは一線を画す酵母由来のフルーティーさが表現された作品。　名称の“Orderville”とは、アメリカ西部ユタ州にある町の名前。1875年、“自然ないし自然的なものを人間的価値の規準とする”人々の集まりが、United Order（注2）の生き方を実現するために設立された町であった。このコミュニティーの人々は全員が同一賃金で労働し、全員が同じ食事をとり、平等主義を実現することでユートピア（理想郷）の完成を目指していた。もともと限定醸造のウェットホップIPAがOrdervilleと呼ばれていたが、Modern Timesがこの名前を気に入ったためこの定番IPAにOrdervilleと名付けたとのこと。　グラスに注ぐとく霞みがかった黄金色に真っ白なヘッドが乗る。アロマはベリー、ピーチ、ストーンフルーツ、パイナップル、パパイヤ、メロン、そしてたっぷりのdank（注1）なニュアンス。味わいはジューシーなトロピカルフルーツが弾け、クラッカーに似たドライなモルトをバックボーンに松の苦みが舌を刺激する。フィニッシュはホップのスパイシーさと青々しい苦みが長く残る。　その濁った見た目から“New England Style IPA”や“Vermont Style IPA” などと呼ばれる東海岸スタイルIPAと思われがちだが、味わい自体はウエスト・コーストスタイル寄りであるため、誤認識しないようご注意。独創的なハイブリッドビールを生み出すModern Timesならではの、さしずめ東西折衷といったところか。注1) ビールの香り・味わい表現の1つで、マリファナのような独特なニュアンスのことを表す注2) キリスト教における集団主義および共産主義的な思想。資産や持ち物は特定の人に帰属せず、あくまで自発的にシェアされていた。一個人や一家族に有り余るほどの資産は教会を通じてより不幸なものに分け与えられた",
+      "source": "antenna"
     }
   ]
 }
