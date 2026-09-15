@@ -4,40 +4,23 @@
       "name": "Antenna America",
       "base_url": "https://www.antenna-america.com",
       "source_key": "antenna",
-      "collection_pages": [
-        "https://www.antenna-america.com/collections/all?pf_st_zai_ku_noyou_wu=true&filter.v.availability=1"
-      ],
-      "notes": "在庫ありフィルタで全商品を一括取得。Shopify構造のため /products/{handle}.json でも取得可能。"
+      "notes": "products.jsonフィード(全ページ)を巡回し、在庫あり(variants[].available)かつ除外カテゴリ(Merchandise/Cheese/Food/Liquor/Mix/Pickles/RTD/Non Alcohol)に該当しない商品のみ対象にする。"
     },
     {
       "name": "Southbound",
       "base_url": "https://southbound.jp",
       "source_key": "southbound",
-      "collection_pages": [
-        "https://southbound.jp/collections/beverages/ipa",
-        "https://southbound.jp/collections/beverages/hazy-ipa",
-        "https://southbound.jp/collections/beverages/pale-ale",
-        "https://southbound.jp/collections/beverages/saison",
-        "https://southbound.jp/collections/beverages/sour",
-        "https://southbound.jp/collections/beverages/stout",
-        "https://southbound.jp/collections/beverages/lager",
-        "https://southbound.jp/collections/beverages/wheat",
-        "https://southbound.jp/collections/beverages/amber",
-        "https://southbound.jp/collections/beverages/belgian",
-        "https://southbound.jp/collections/beverages/porter",
-        "https://southbound.jp/collections/beverages/barleywine",
-        "https://southbound.jp/collections/beverages"
-      ],
-      "notes": "スタイル別ページを全て巡回。売り切れ商品は /collections/beverages のトップで確認。"
+      "notes": "products.jsonフィード(全ページ)を巡回し、product_typeがBeer/Cider/Meadの在庫あり商品のみ対象にする。"
     }
   ],
   "update_rules": [
     "既存商品（同一id）は削除しない",
-    "新商品には必ず image / description / hops / abv を取得してから追記",
-    "説明文は日本語で登録（英語の場合は翻訳）",
-    "画像URLはog:imageから取得（?width=400を付与）",
-    "ホップはアロマチャートに未収録のものがあれば hops_tab.js にも追加",
+    "新商品には必ず image / description / hops / abv を取得してから追記。ページ自体が非開示の項目(特にhops)は空のままでよい、推測で埋めない",
+    "説明文は日本語で登録（products.jsonのbody_htmlに既に日本語の紹介文が含まれているため、通常は追加の翻訳処理は不要）",
+    "画像URLはproducts.jsonのimages[0].srcから取得（?width=400を付与）",
+    "ホップはアロマチャートに未収録のものがあれば hops_tab.js にも追加（実在の情報源で裏付けが取れたものだけ。取れなければ追加せず last_run_summary.json の hops_needing_aroma_review に残す）",
     "source フィールドで antenna / southbound を区別",
-    "last_updated を更新日に設定"
+    "last_updated を更新日に設定",
+    "2026-09: コレクションページのHTMLスクレイピング方式は廃止。各サイト公開のproducts.jsonフィードを直接使う(誤検出が無く、個別ページの再取得も不要なため)"
   ]
 }

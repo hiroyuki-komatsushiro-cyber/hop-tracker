@@ -2,17 +2,27 @@
 新商品自動検出・追記スクリプト (Antenna America + Southbound)
 
 毎週実行され、以下を行う:
-1. update_sources.json に登録された各サイトのコレクションページ(在庫あり商品一覧)を巡回
-2. 商品リンクを抽出
-3. data/products.json に存在しないIDのみ、個別ページを取得
-4. Claude APIでホップ・ABV・スタイル・日本語説明文を抽出、og:imageから画像URLを取得
-5. products.json に追記(既存データは一切削除しない)
-6. 変更があればコミット用に差分をログ出力
+1. 各サイトが公開しているShopify標準の products.json フィード(全ページ)を取得
+2. 在庫あり(variants[].available)かつビール/サイダー/ミードに該当する商品を判定
+3. data/products.json に存在しないIDのみ、body_htmlから構造化データを直接抽出して追記
+4. products.json に追記(既存データは一切削除しない)
+5. 変更があればコミット用に差分をログ出力
 
-2026-08: Southbound巡回 + image/description抽出に対応(README_MIGRATION.mdの仕様に追従)。
-それまでは Antenna America のみ・hops/style/abv/brewery/name しか取得していなかった。
+2026-09: コレクションページのHTMLを正規表現でスクレイピングする旧方式(2026-08導入)を
+全面刷新。旧方式は一覧ページに埋め込まれた無関係な文字列(画像ファイル名の一部やJSデータ内の
+文字列)を商品ハンドルと誤認識し、実在しないURLを大量に「新商品候補」として検出する不具合が
+あった(2026-09-15の実行ログで確認: UUID文字列や既存商品名の断片を誤ってハンドル扱い)。
+
+products.jsonフィードは商品ページと全く同じ構造化スペック(body_html内の<li>ABV:...</li>等)を
+含んでおり、かつ在庫状況(variants[].available)も直接返すため、この誤検出が原理的に起こらない。
+個々の商品ページを再取得する必要も無くなった(一覧取得の時点で全項目が揃っている)。
+
+これに伴いANTHROPIC_API_KEYは必須ではなくなった。設定されていれば、構造化スペック欄が
+「ホップ:-」になっている商品について、説明文中にホップ品種名が埋もれていないかの追加チェックに
+のみ使う(未設定でも収集・追記の本体機能は問題なく動作する)。
 """
 
+import html
 import json
 import os
 import re
@@ -23,7 +33,10 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
-import anthropic
+try:
+    import anthropic
+except ImportError:
+    anthropic = None
 
 ROOT = Path(__file__).parent.parent
 DATA_PATH = ROOT / "data" / "products.json"
@@ -33,6 +46,12 @@ USER_AGENT = "Mozilla/5.0 (compatible; HopTrackerBot/1.0; +https://github.com/)"
 
 CLAUDE_MODEL = "claude-sonnet-4-6"
 REQUEST_DELAY = 1.2  # seconds between requests - be polite to small retail sites, do not lower this
+
+# Antenna Americaの商品でビール/サイダー/ミード以外(グッズ・チーズ・食品・酒類以外)を除外
+ANTENNA_EXCLUDE_VENDORS = {"Merchandise", "Cheese", "Food&sauce", "Food", "Liquor", "Mix", "Pickles"}
+ANTENNA_EXCLUDE_TAGS = {"RTD", "Non Alcohol", "Food", "Food & Sauces"}
+# Southboundはproduct_typeがそのままカテゴリ(Beer/Cider/Mead/Accessories/Apparel/Set)
+SOUTHBOUND_INCLUDE_TYPES = {"Beer", "Cider", "Mead"}
 
 # 既知のブリュワリー名の表記ゆれ正規化(README_MIGRATION.md「更新ルール」より)。
 # キーは小文字・空白除去したゆれ表記、値はデータセットで使う正式表記。
@@ -52,14 +71,56 @@ BREWERY_ALIASES = {
     "stone": "Stone Brewing",
 }
 
+# ホップ名の表記ゆれ・タイプミス・商標記号・略記の正規化(過去のデータ補完作業で判明したもの)。
+# 新しいゆれを見つけたらここに追記する。
+HOP_NAME_FIXES = {
+    "East Kent Goldings": "East Kent Golding",
+    "Golding": "East Kent Golding",
+    "Tettnang": "Tettnanger",
+    "NUGGET": "Nugget",
+    "WILLAMETTE": "Willamette",
+    "Nelson": "Nelson Sauvin",
+    "Southern Cross": "Southern Cross (NZ Hops)",
+    "Wakatu": "Wakatu (NZ Hops)",
+    "Pacifica": "Pacifica (NZ Hops)",
+    "Cristal": "Crystal",
+    "Czech Saaz": "Saaz",
+    "Equanot": "Ekuanot",
+    "Hallertau": "Hallertauer Mittelfruher",
+    "Hallertau Mittelfruh": "Hallertauer Mittelfruher",
+    "Crush": "Krush",  # 実在するホップ品種名では無く、Krush(HBC 586)の誤記とほぼ断定できる
+    "HBC 586": "Krush",
+    "Mosic": "Mosaic",  # Antenna America側の表記ミスを確認済み
+}
+
 
 def normalize_brewery(name: str) -> str:
-    key = re.sub(r"[^a-z0-9]", "", name.lower())
+    key = re.sub(r"[^a-z0-9]", "", (name or "").lower())
     return BREWERY_ALIASES.get(key, name)
 
 
+def normalize_hop(name: str) -> str:
+    name = name.replace("®", "").replace("™", "").strip()
+    return HOP_NAME_FIXES.get(name, name)
+
+
+def split_hops(raw: str) -> list[str]:
+    """ホップ欄の区切り文字は「, 」の他に「、」「and」「&」「・(bullet)」があり得る。"""
+    if raw.strip() in ("", "-"):
+        return []
+    raw = raw.replace("&amp;", "&")
+    parts = re.split(r",|、|\s+and\s+|&|•", raw)
+    return [normalize_hop(p.strip()) for p in parts if p.strip() and normalize_hop(p.strip())]
+
+
+def strip_tags(t: str) -> str:
+    t = re.sub(r"<br\s*/?>", "\n", t, flags=re.I)
+    t = re.sub(r"<[^>]+>", "", t)
+    return html.unescape(t).strip()
+
+
 def fetch_url(url: str, timeout: int = 20) -> str:
-    """Fetch a URL's HTML content as text."""
+    """Fetch a URL's content as text."""
     req = Request(url, headers={"User-Agent": USER_AGENT})
     try:
         with urlopen(req, timeout=timeout) as resp:
@@ -70,22 +131,162 @@ def fetch_url(url: str, timeout: int = 20) -> str:
         return ""
 
 
-def extract_product_links(html: str) -> list[str]:
-    """Pull unique /products/<handle> URLs from a collection page."""
-    handles = set(re.findall(r'/products/([a-zA-Z0-9\-]+)', html))
-    return sorted(handles)
+def fetch_catalog(base_url: str) -> list[dict]:
+    """サイトの公開Shopify products.json フィードを全ページ取得する(在庫問わず全件)。"""
+    products: list[dict] = []
+    page = 1
+    while True:
+        url = f"{base_url}/products.json?limit=250&page={page}"
+        raw = fetch_url(url)
+        time.sleep(REQUEST_DELAY)
+        if not raw:
+            break
+        try:
+            batch = json.loads(raw).get("products", [])
+        except json.JSONDecodeError:
+            print(f"  [warn] could not parse JSON from {url}", file=sys.stderr)
+            break
+        if not batch:
+            break
+        products.extend(batch)
+        if len(batch) < 250:
+            break
+        page += 1
+    return products
 
 
-def extract_og_image(html: str) -> str:
-    m = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', html, re.I)
-    if not m:
-        return ""
-    url = m.group(1)
-    if url.startswith("//"):
-        url = "https:" + url
-    # 統一サイズを付与(既存の慣習に合わせて幅400px)
-    url = re.sub(r"\?.*$", "", url)
-    return url + "?width=400"
+def in_stock(p: dict) -> bool:
+    return any(v.get("available") for v in p.get("variants", []))
+
+
+def antenna_spec_fields(body_html: str) -> dict:
+    """<li>ラベル：値</li> 形式のスペック欄(ABV/ホップ/ブリュワリー/スタイル等)を辞書化する。"""
+    fields = {}
+    for li in re.findall(r"<li>(.*?)</li>", body_html, re.S):
+        line = strip_tags(li)
+        m = re.match(r"^([^：:]+)[：:]\s*(.*)$", line)
+        if m:
+            fields[m.group(1).strip()] = m.group(2).strip()
+    return fields
+
+
+def parse_antenna_product(p: dict, source_key: str, base_url: str) -> dict:
+    body = p.get("body_html", "")
+    fields = antenna_spec_fields(body)
+
+    brewery = normalize_brewery(fields.get("ブリュワリー") or p.get("product_type") or "")
+    style = fields.get("スタイル") or p.get("vendor") or ""
+    abv = fields.get("ABV") or "-"
+    hops = split_hops(fields.get("ホップ") or "")
+
+    # 商品名: タイトルから "/日本語名" と "(NNNml)" とブリュワリー名の重複プレフィックスを除去
+    title = p["title"]
+    name = title.split(" / ")[0].strip()
+    name = re.sub(r"\s*\(\d+\s*ml\).*$", "", name).strip()
+    if brewery and name.startswith(brewery):
+        name = name[len(brewery):].strip()
+    elif p.get("product_type") and name.startswith(p["product_type"]):
+        name = name[len(p["product_type"]):].strip()
+
+    # 説明文: <ul>スペック欄より前のマーケティング文(既に日本語)をそのまま使う
+    desc_html = re.split(r"<ul>", body)[0]
+    desc_html = re.sub(r"<h2[^>]*>.*?</h2>", "", desc_html, flags=re.S)
+    description = strip_tags(desc_html).replace("\n", "").strip()
+
+    image = ""
+    if p.get("images"):
+        src = re.sub(r"\?.*$", "", p["images"][0]["src"])
+        image = src + "?width=400"
+
+    return {
+        "id": p["handle"],
+        "name": name,
+        "brewery": brewery,
+        "style": style,
+        "abv": abv,
+        "hops": hops,
+        "url": f"{base_url}/products/{p['handle']}",
+        "image": image,
+        "description": description,
+        "source": source_key,
+    }
+
+
+def parse_southbound_product(p: dict, base_url: str, source_key: str) -> dict:
+    body = p.get("body_html", "")
+    paras = [strip_tags(x) for x in re.findall(r"<p>(.*?)</p>", body, re.S)]
+
+    style, style_jp = "", ""
+    abv = "-"
+    hops: list[str] = []
+    jp_desc_parts = []
+    for i, para in enumerate(paras):
+        if i == 0:
+            lines = [l.strip() for l in para.split("\n") if l.strip()]
+            style = lines[-1] if lines else ""
+            style_jp = lines[0] if lines else ""
+            continue
+        m_abv = re.search(r"ABV:\s*([\d.]+%)", para)
+        if m_abv:
+            abv = m_abv.group(1)
+        m_hops = re.search(r"Hops:\s*([^\n]+)", para)
+        if m_hops:
+            hops = split_hops(m_hops.group(1))
+        if m_abv or m_hops or re.match(r"^(麦芽|副原料|Malt|Adjuncts|賞味期限|Best By)", para):
+            continue
+        non_ascii = sum(1 for ch in para if ord(ch) > 127)
+        if non_ascii > len(para) * 0.2:
+            jp_desc_parts.append(para)
+
+    brewery = normalize_brewery(p.get("vendor") or "")
+    # マーケティング文が無い商品(発売直後など)は、既に具体的なスタイル名(JP)を代替として使う
+    description = " ".join(jp_desc_parts).strip() or style_jp
+
+    image = ""
+    if p.get("images"):
+        src = re.sub(r"\?.*$", "", p["images"][0]["src"])
+        image = src + "?width=400"
+
+    return {
+        "id": p["handle"],
+        "name": p["title"].strip(),
+        "brewery": brewery,
+        "style": style,
+        "abv": abv,
+        "hops": hops,
+        "url": f"{base_url}/products/{p['handle']}",
+        "image": image,
+        "description": description,
+        "source": source_key,
+    }
+
+
+def recheck_description_for_hops(client, product: dict) -> list[str]:
+    """[オプション機能] 構造化スペック欄が「-」でも、説明文中にホップ品種名が明記されている
+    場合がある。ANTHROPIC_API_KEYが設定されている場合のみ実行し、失敗しても本体の収集処理には
+    一切影響しない(例外はここで握りつぶす)。"""
+    prompt = f"""次のクラフトビール商品の説明文に、使用ホップ品種が明記されていないか確認してください。
+商品名: {product['name']} / ブリュワリー: {product['brewery']} / スタイル: {product['style']}
+説明文: {product['description']}
+
+説明文中に具体的なホップ品種名(カタカナ・英語いずれも可)が書かれていれば、英語の標準的な品種名の
+JSON配列として返してください(例: ["Citra", "Mosaic"])。無ければ空配列 [] を返してください。
+一般的な推測でホップ名を補完することは絶対にしないでください。出力はJSON配列のみとし、
+説明やマークダウンの```は付けないでください。"""
+    try:
+        resp = client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=200,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        text = "".join(block.text for block in resp.content if block.type == "text").strip()
+        text = re.sub(r"^```json\s*|\s*```$", "", text)
+        hops = json.loads(text)
+        if isinstance(hops, list):
+            return [normalize_hop(h) for h in hops if isinstance(h, str) and h.strip()]
+    except Exception as e:
+        print(f"  [info] description hop recheck skipped for {product['id']}: {e}", file=sys.stderr)
+    return []
 
 
 def load_existing_data() -> dict:
@@ -103,135 +304,74 @@ def load_sources() -> list[dict]:
         return json.load(f)["sources"]
 
 
-def existing_ids(data: dict) -> set[str]:
-    return {p["id"] for p in data["products"]}
-
-
 def known_hop_names() -> set[str]:
     """Parse scripts/hops_tab.js's `hops` array for variety names already in the aroma chart."""
     text = HOPS_TAB_JS_PATH.read_text(encoding="utf-8")
     return set(re.findall(r'\{name:"([^"]+)"', text))
 
 
-def analyze_product_with_claude(client: anthropic.Anthropic, handle: str, html: str) -> dict | None:
-    """Ask Claude to extract structured product info + a Japanese description from a raw product page."""
-    # Trim HTML to keep token usage reasonable - keep main content area only
-    snippet = html[:15000]
+def main():
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    client = None
+    if api_key and anthropic:
+        try:
+            client = anthropic.Anthropic(api_key=api_key)
+        except Exception as e:
+            print(f"[info] ANTHROPIC_API_KEY is set but client init failed - "
+                  f"continuing without the optional description recheck: {e}", file=sys.stderr)
+    else:
+        print("[info] ANTHROPIC_API_KEY not set - running without the optional "
+              "description-based hop recheck (core collection is unaffected).", file=sys.stderr)
 
-    prompt = f"""以下はクラフトビール通販サイトの商品ページのHTMLです。
-この商品について、次のJSON形式で情報を抽出してください。情報が見つからない項目は空文字または空配列にしてください。
-出力はJSONのみとし、説明文やマークダウンの```は付けないでください。
+    sources = load_sources()
+    data = load_existing_data()
+    known_ids = {p["id"] for p in data["products"]}
+    known_hops = known_hop_names()
 
-{{
-  "name": "商品名(日本語表記があれば優先、なければ英語名)",
-  "brewery": "ブリュワリー名(英語表記のまま)",
-  "style": "ビアスタイル(例: IPA, DIPA, Pale Ale, Lager)",
-  "abv": "アルコール度数(例: 6.5%、不明なら-)",
-  "hops": ["使用ホップ品種を英語名でリスト化。ページに明記が無ければ空配列(推測で埋めない)"],
-  "description": "日本語の商品紹介文を100〜150文字程度で。ページ内の説明が英語なら日本語に翻訳・要約する。ホップの風味や特徴に触れること"
-}}
+    added = []
+    unknown_hops_seen: set[str] = set()
 
-HTML:
-{snippet}
-"""
-
-    try:
-        resp = client.messages.create(
-            model=CLAUDE_MODEL,
-            max_tokens=800,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = "".join(block.text for block in resp.content if block.type == "text")
-        text = text.strip()
-        # Strip accidental code fences
-        text = re.sub(r"^```json\s*|\s*```$", "", text.strip())
-        parsed = json.loads(text)
-        return parsed
-    except Exception as e:
-        print(f"  [warn] Claude parse failed for {handle}: {e}", file=sys.stderr)
-        return None
-
-
-def collect_new_handles(sources: list[dict], known_ids: set[str]) -> list[tuple[str, str, str]]:
-    """Return list of (handle, base_url, source_key) for products not yet in data, deduped across sources."""
-    seen_handles: dict[str, tuple[str, str]] = {}  # handle -> (base_url, source_key)
+    print(f"[{date.today()}] Scanning {len(sources)} source site(s) via their products.json feed...")
     for source in sources:
         base_url = source["base_url"]
         source_key = source["source_key"]
-        for page_url in source["collection_pages"]:
-            print(f"[{source['name']}] fetching {page_url} ...")
-            html = fetch_url(page_url)
-            time.sleep(REQUEST_DELAY)
-            if not html:
-                print(f"  [warn] could not fetch collection page. Site may block bots (robots.txt),"
-                      f" or the page moved.", file=sys.stderr)
+        print(f"[{source['name']}] fetching full catalog feed...")
+        catalog = fetch_catalog(base_url)
+        print(f"  {len(catalog)} total products in feed.")
+
+        for p in catalog:
+            handle = p["handle"]
+            if handle in known_ids:
                 continue
-            handles = extract_product_links(html)
-            print(f"  found {len(handles)} product handles.")
-            for h in handles:
-                if h not in seen_handles:
-                    seen_handles[h] = (base_url, source_key)
+            if not in_stock(p):
+                continue
 
-    new_handles = [
-        (h, base_url, source_key)
-        for h, (base_url, source_key) in seen_handles.items()
-        if h not in known_ids
-    ]
-    return new_handles
+            if source_key == "antenna":
+                if p.get("vendor") in ANTENNA_EXCLUDE_VENDORS:
+                    continue
+                if set(p.get("tags", [])) & ANTENNA_EXCLUDE_TAGS:
+                    continue
+                if not p.get("product_type"):
+                    continue
+                record = parse_antenna_product(p, source_key, base_url)
+            else:
+                if p.get("product_type") not in SOUTHBOUND_INCLUDE_TYPES:
+                    continue
+                record = parse_southbound_product(p, base_url, source_key)
 
+            if not record.get("hops") and client:
+                extra_hops = recheck_description_for_hops(client, record)
+                if extra_hops:
+                    record["hops"] = extra_hops
 
-def main():
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        print("ERROR: ANTHROPIC_API_KEY environment variable not set.", file=sys.stderr)
-        sys.exit(1)
+            for h in record["hops"]:
+                if h not in known_hops:
+                    unknown_hops_seen.add(h)
 
-    client = anthropic.Anthropic(api_key=api_key)
-    sources = load_sources()
-
-    data = load_existing_data()
-    known_ids = existing_ids(data)
-    known_hops = known_hop_names()
-
-    print(f"[{date.today()}] Scanning {len(sources)} source site(s) for product listings...")
-    new_handles = collect_new_handles(sources, known_ids)
-    print(f"\n{len(new_handles)} potentially new products to check across all sources.")
-
-    added = []
-    unknown_hops_seen = set()
-    for handle, base_url, source_key in new_handles:
-        url = f"{base_url}/products/{handle}"
-        print(f"  Fetching {url} ...")
-        html = fetch_url(url)
-        time.sleep(REQUEST_DELAY)
-        if not html:
-            continue
-
-        info = analyze_product_with_claude(client, handle, html)
-        if not info or not info.get("name"):
-            print(f"  [skip] could not extract info for {handle}")
-            continue
-
-        hops = info.get("hops", []) or []
-        for h in hops:
-            if h not in known_hops:
-                unknown_hops_seen.add(h)
-
-        new_product = {
-            "id": handle,
-            "name": info.get("name", ""),
-            "brewery": normalize_brewery(info.get("brewery", "")),
-            "style": info.get("style", ""),
-            "abv": info.get("abv", "-"),
-            "hops": hops,
-            "url": url,
-            "added": str(date.today()),
-            "image": extract_og_image(html),
-            "description": info.get("description", ""),
-            "source": source_key,
-        }
-        data["products"].append(new_product)
-        added.append(new_product)
+            record["added"] = str(date.today())
+            data["products"].append(record)
+            added.append(record)
+            known_ids.add(handle)
 
     data["last_updated"] = str(date.today())
     save_data(data)
