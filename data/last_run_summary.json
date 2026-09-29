@@ -1,5 +1,508 @@
 {
-  "date": "2026-09-22",
-  "new_products": [],
-  "hops_needing_aroma_review": []
+  "date": "2026-09-29",
+  "new_products": [
+    {
+      "id": "set-32-sep-28",
+      "name": "IPA 6本セット【9/28発売】",
+      "brewery": "Pizza Port",
+      "style": "MIX",
+      "abv": "-",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/set-32-sep-28",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/IPA_75375236-ebca-4b95-9707-236f3e4b721f.jpg?width=400",
+      "description": "商品名：Pizza Port Swami's IPA (473ml) / スワミズ アイピーエー商品説明：ホップの爽やかなシトラス感と苦味が心地よいロングセラー。スッキリと飲みやすく後味はドライで、まさに南カリフォルニアの海辺にマッチしたIPA!スタイル：American IPAABV：6.8%IBU：72入数：2商品名：Pizza Port Ponto Session IPA (473ml) / ポント セッション アイピーエー商品説明：これぞサンディエゴと言わんばかりのライトボディかつ華やかなホップのアロマで飲み手を魅了。グイグイと飲めてしまうセッションタイプのIPAスタイル：Sessionable IPAABV：4.5%IBU：50入数：2商品名：Pizza Port Beach Crossing IPA (473ml) / ビーチクロッシング商品説明：文旦や柿、グレープフルーツを思わせる風味から、レモンやオレンジ、パパイヤの皮へと移り変わる。ニュアンスの変化やホップキャラクターが楽しめる、軽快で爽やかな仕上がり。スタイル：IPAABV：7%IBU：入数：2",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "firestone-walker-mind-haze-setof6bottles",
+      "name": "Mind Haze 3種6本セット",
+      "brewery": "Firestone Walker",
+      "style": "MIX",
+      "abv": "-",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/firestone-walker-mind-haze-setof6bottles",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Firestone_mindhazeset.png?width=400",
+      "description": "商品名：Firestone Walker Mind Haze (355ml) / マインド ヘイズ商品説明：ホップ由来の柑橘、草、松脂のような香りが溢れ出す。ジューシーでありながらもすっきりとした飲み心地のHazy IPAスタイル：Hazy IPAABV：6.2%IBU：40入数：2商品名：Firestone Walker Mind Haze Cosmic Crusher (355ml) / マインド ヘイズ コスミッククラッシャー商品説明：Mind Hazeを強烈に魔改造したJuicy Imperial IPA。パイナップルやマンゴーのような鮮烈な味わいと抜群の飲みごたえは森羅万象をも打ち砕く。スタイル：Juicy Imperial IPAABV：9.5%IBU：25入数：2商品名：Firestone Walker Galaxy Bender Hazy DIPA (355ml) / ギャラクシーベンダー商品説明：ギャラクシー、シトラ、クラッシュホップを使用したヘイジーな一本。濃厚なヘイズ感とピーチやプラムを思わせる豊かな果実味を楽しみながら、ゆっくりと時間をかけて味わいたくなる、遊び心あふれる仕上がりです。スタイル：Hazy DIPAABV：8.5%IBU：--入数：2",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "c119-c12001",
+      "name": "Allagash Rose Cider",
+      "brewery": "Allagash Brewing Company",
+      "style": "Hard Cider",
+      "abv": "6%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/c119-c12001",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Allagash_Rose_Cider.png?width=400",
+      "description": "美しい淡い赤みを帯びた色合いが印象的なサイダー。キリッとした爽快感と絶妙なバランス、すっきりとドライな後味が魅力です。果樹園に沈む夕日の心地よいひとときを思わせるような、爽やかで軽やかな味わいに仕上がっています。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b119-c16005",
+      "name": "North Sky",
+      "brewery": "Allagash Brewing Company",
+      "style": "Stout",
+      "abv": "7.5%",
+      "hops": [
+        "Northern Brewer",
+        "Cascade"
+      ],
+      "url": "https://www.antenna-america.com/products/b119-c16005",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/NorthSky16oz_2.png?width=400",
+      "description": "冬の星空のように澄んだ夜を思わせるこのシルキーなベルギースタイルのスタウトは、フルーティーさとローストモルトの香ばしさが絶妙なバランスで同居しています。焚き火を囲んで過ごす夜からインスピレーションを得たNorth Skyは、その見た目とは裏腹に軽快でドリンカブルな一杯に仕上がっています。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b098-c16062",
+      "name": "Faction Coup d' Etat WC Strong Pale (Grains of Wrathコラボ)",
+      "brewery": "Faction Brewing",
+      "style": "West Coast Strong Pale Ale",
+      "abv": "6%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b098-c16062",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Coupd_EtatWCStrongPale.png?width=400",
+      "description": "ワシントン州にある人気ブリュワリーGrains of Wrathとのコラボレーションで醸造したWest Coast Strong Pale Ale。通常のペールエールよりもややしっかりとしたボディと、力強いホップキャラクターを備えたウェストコーストらしさ全開の一本です。クラッシュ・クライオ、リワカ、ストラータ、カスケードホップを使用し、ピルスナーモルト、二条大麦、フレークドオーツを組み合わせています。豊かなホップの存在感と飲み応えをお楽しみください。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b098-c16060",
+      "name": "Gasser IPA",
+      "brewery": "Faction Brewing",
+      "style": "West Coast IPA",
+      "abv": "6.9%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b098-c16060",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/GasserIPA.png?width=400",
+      "description": "ネルソン・ソーヴィンホップにファンタズムをブレンドしたスーパーソーヴィン、ネルソン、シトラ、モザイクホップを使用。ラベルに描かれたマシンに負けないパワフルなホップキャラクターを備えた、個性あふれる一本です。Gasser IPAは、アメリカの1960年代のサイケデリック・カルチャーを象徴する伝説的なアーティストStanley Mouse氏とのコラボレーションで誕生しました。ラベルアートは、同氏の作品にも通じる1950年代のホットロッドカルチャーへのオマージュとなっています。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b093-c16054",
+      "name": "Bomb Diggity WC IPA",
+      "brewery": "Paperback Brewing",
+      "style": "West Coast IPA",
+      "abv": "6.8%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b093-c16054",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/BombDiggityWCIPA_3.png?width=400",
+      "description": "オレゴン州ウィラメットバレーに位置する歴史あるホップ農家Crosby Hops産の自社栽培コメットホップを中心に、エルドラドとアザッカを組み合わせたウエストコーストIPA。キャンディーのようなパイナップル、オレンジクリームソーダ、メロン、濃厚なシトラスを思わせるジューシーな風味が広がります。コメットホップ由来のグレープフルーツやハーバルなニュアンスがアクセントとなり、モダンで果実味豊かなホップキャラクターをバランスよく引き締めています。名前は90年代を思わせながらも、ホップの魅力は現代的でフレッシュな仕上がりです。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b093-c16053",
+      "name": "Death of a Salesman TDH NZ Pale Ale",
+      "brewery": "Paperback Brewing",
+      "style": "TDH New Zealand Pale Ale",
+      "abv": "5.2%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b093-c16053",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/DeathofaSalesmanNZIPA_2_fe23a789-142c-40db-b8f6-24bb4cde5fc2.png?width=400",
+      "description": "トリプルドライホップを施し、ニュージーランド産ホップの魅力を存分に引き出したニュージーランドスタイル・ペールエール。熟したパッションフルーツ、グレープフルーツの皮、ホワイトピーチ、フレッシュライムを思わせる華やかなアロマが広がります。リワカ由来の力強いトロピカルフルーツ、モウテレの樹脂を思わせるシトラスや松、ネルソン・ソーヴィンの特徴的なグーズベリーや白ワインのようなニュアンスが重なり、複雑で鮮やかなホップキャラクターを形成。控えめなモルトの風味とクリスプでドライな後味がホップの個性を際立たせ、爽快で飲み進めやすい仕上がりです。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b093-c16052",
+      "name": "6 Years of Mischief Hazy IPA",
+      "brewery": "Paperback Brewing",
+      "style": "Hazy IPA",
+      "abv": "6.6%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b093-c16052",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/6YearsofMischief.png?width=400",
+      "description": "「6 Years of Mischief（6年にわたる悪ふざけ）」は、Paperbackの6周年とこの6年間のやんちゃな歩みを祝うために醸造された、ジューシーなHazy IPA。シトラ、ネルソン、カシミアの3種のホップを使用し、力強く華やかなアロマと豊かなホップフレーバーを引き出しています。シトラ由来の鮮やかなシトラスやトロピカルフルーツに、ネルソンの白ブドウやグーズベリー、カシミアのやわらかなメロンやピーチ、ほのかなレモンライムのニュアンスが重なります。丸みのあるなめらかな口当たりと穏やかな苦味、やわらかな後味で、驚くほどスムーズに飲み進められる一本です。ホップにまみれた6年間のカオスに乾杯、そしてこれからの楽しい時間に向けて――Cheers！",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b047-c12162",
+      "name": "Galaxy Bender Hazy DIPA",
+      "brewery": "Firestone Walker",
+      "style": "Hazy DIPA",
+      "abv": "8.5%",
+      "hops": [
+        "Galaxy",
+        "Citra",
+        "Krush"
+      ],
+      "url": "https://www.antenna-america.com/products/b047-c12162",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/GalaxyBenderDoubleHazyIPA.png?width=400",
+      "description": "ギャラクシー、シトラ、クラッシュホップを使用したヘイジーな一本。口に含むと、鮮烈で輝くようなフレーバーが広がり、その印象的な味わいが幾重にも押し寄せます。濃厚なヘイズ感とピーチやプラムを思わせる豊かな果実味を楽しみながら、ゆっくりと時間をかけて味わいたくなる、遊び心あふれる仕上がりです。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b080-c12090",
+      "name": "Patagonia Provisions Organic Lager",
+      "brewery": "Deschutes",
+      "style": "Organic Lager",
+      "abv": "4.7%",
+      "hops": [
+        "Organic Helios",
+        "Organic Adeena"
+      ],
+      "url": "https://www.antenna-america.com/products/b080-c12090",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/PatagoniaProvisionsOrganicLager.png?width=400",
+      "description": "アウトドア企業「パタゴニア」の食品部門、パタゴニア プロビジョンズとDeschutes Breweryが共同開発した、明るくクリスプで飲みやすさに優れたオーガニックラガー。オーガニックホップやオーガニック大麦、リジェネラティブ・オーガニック認証ライ麦、さらに、地下約3メートルまで根を伸ばす多年生穀物カーンザなど、選び抜いた原材料を使用しています。カーンザは、土壌を支えて侵食を防ぎ、健全な状態を保つことに役立つと考えられています。また、一年生穀物に比べて水やエネルギーの使用量を減らせる可能性があり、より多くの二酸化炭素を土壌中に閉じ込めるとされています。カーンザのナッツのような香ばしさに、軽やかさとキレが重なり、驚くほどの飲みやすさです。未来に乾杯！",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b095-c16046",
+      "name": "Steady Coastin' WC IPA",
+      "brewery": "Los Angeles Ale Works",
+      "style": "West Coast IPA",
+      "abv": "6.8%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b095-c16046",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SteadyCoastin_WCIPA_3_29a9759b-5d90-4191-8548-2e361059b867.jpg?width=400",
+      "description": "ベリーやルビーレッドグレープフルーツ、オレンジブロッサムを思わせる華やかな風味が広がります。レシピを一新し、マニリタ、センテニアル、ネクタロン、エルドラドの新たなホップとモルトの組み合わせが生み出す、フレッシュなホップキャラクターが魅力。週末に気軽に楽しみたくなる、爽やかで飲みやすい仕上がりです。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b095-c16043",
+      "name": "POGua Fresca",
+      "brewery": "Los Angeles Ale Works",
+      "style": "Fruited Wheat",
+      "abv": "5.5%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b095-c16043",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/POGuaFresca_2.png?width=400",
+      "description": "パッションフルーツ、オレンジ、グアバのフレーバーが広がり、ホップの穏やかな風味がトロピカルな味わいを引き立てます。ラテン文化で愛されるアグア・フレスカ*とPOG(パッションフルーツ、オレンジ、グアバ）を掛け合わせたネーミング。※「アグア・フレスカ（Agua fresca）」はスペイン語で「新鮮な水」という意味。中南米やアメリカの一部地域で親しまれている、フルーツや花、種子、穀物などを水にブレンドまたは浸して作る、ノンアルコールの清涼飲料。甘さを加えて冷やして楽しむのが一般的で、暑い季節にぴったりの爽やかドリンクです。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b119-c12010",
+      "name": "Allagash Lager",
+      "brewery": "Allagash Brewing Company",
+      "style": "Lager",
+      "abv": "5%",
+      "hops": [
+        "Nugget",
+        "Hallertau Mittelfrüh",
+        "Loral",
+        "Saaz"
+      ],
+      "url": "https://www.antenna-america.com/products/b119-c12010",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Lager.png?width=400",
+      "description": "クラシック・ピルスナーへのAllagashなりのアプローチをお楽しみください。深みと飲みやすさを両立させたこのラガーは、ニューイングランド産の麦芽を使用し、心地よいバランスと清涼感を実現しました。ゆったりと味わっても、軽やかに飲み進めても美味しい。日常に寄り添う一杯として、何度でも手に取りたくなるピルスナー。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b119-c12009",
+      "name": "Allagash Hazy IPA",
+      "brewery": "Allagash Brewing Company",
+      "style": "Hazy IPA",
+      "abv": "6.7%",
+      "hops": [
+        "Nugget",
+        "Chinook",
+        "Mosaic",
+        "Citra",
+        "Idaho 7",
+        "El Dorado"
+      ],
+      "url": "https://www.antenna-america.com/products/b119-c12009",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/HazyIPA.png?width=400",
+      "description": "まるでメイン州の鮮やかな夕焼けのように。このHazy IPAは、トロピカルでジューシーなホップの景色をたっぷりと詰め込みました。ひと息ついて、その瞬間をゆっくり味わうための一杯です。パイナップル、マンゴー、オレンジ、グレープフルーツ。グラスの中に広がるのは、果実の彩りと柔らかな余韻。飲むたびに、目の前に夕空が広がるような。まさに、メインの夕焼けをそのまま閉じ込めたような味わいです。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b098-c16043",
+      "name": "Medusa IPA",
+      "brewery": "Faction Brewing",
+      "style": "WC IPA",
+      "abv": "7%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b098-c16043",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/MedusaIPA.png?width=400",
+      "description": "モザイクとシトラホップをふんだんに使ったWest Coast IPA。ボディは軽めで、ホップの香りと味わいが綺麗に主張するバランスはさすがFaction。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b095-c16015",
+      "name": "Full Thrust DIPA",
+      "brewery": "Los Angeles Ale Works",
+      "style": "Double IPA",
+      "abv": "8.5%",
+      "hops": [
+        "Wakatu (NZ Hops)",
+        "Mosaic",
+        "Citra"
+      ],
+      "url": "https://www.antenna-america.com/products/b095-c16015",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/FullThrustDoubleIPA.png?width=400",
+      "description": "柑橘系の香りにフィニッシュには心地良い苦み。モザイクホップ由来の軽めなダンク感。クラシック寄りの王道なDouble IPA",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b095-c16009",
+      "name": "Dead Cowboy",
+      "brewery": "Los Angeles Ale Works",
+      "style": "Red Lager",
+      "abv": "5.5%",
+      "hops": [
+        "Magnum",
+        "Hallertauer Mittelfruher",
+        "Saaz"
+      ],
+      "url": "https://www.antenna-america.com/products/b095-c16009",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/DeadCowboy_1.png?width=400",
+      "description": "ドイツ産のレッドモルトと赤米を使ったアンバー色のラガー。ホップにはMagnum、Hallertau、Saazと王道品種をを使用。キャラメルのような香ばしい味わいと抜群のキレ",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b119-c12001",
+      "name": "Allagash White",
+      "brewery": "Allagash Brewing Company",
+      "style": "Belgian style Wheat",
+      "abv": "5.2%",
+      "hops": [
+        "Nugget",
+        "Crystal",
+        "Saaz"
+      ],
+      "url": "https://www.antenna-america.com/products/b119-c12001",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/AllagashWhite.jpg?width=400",
+      "description": "世界で最も受賞回数の多いベルジャンスタイルウィートエールがこのAllagash White。オーツ麦、小麦麦芽、小麦を使い醸造され、色味は白濁した黄色。コリアンダーとキュラソーオレンジピールを副原料として使用しており、複雑でありつつもフルーティーで爽やかな味わい。仕上げは缶内二次発酵を行っており、時間が経過しても高い品質とフレッシュさが楽しめる名作。酵母や麦芽のタンパク質が缶底に沈殿しているため、開栓する前に缶を優しくひっくり返してください。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b119-b12004",
+      "name": "Curieux",
+      "brewery": "Allagash Brewing Company",
+      "style": "Barrel-aged Golden Ale",
+      "abv": "10.2%",
+      "hops": [
+        "Nugget",
+        "Hallertauer Mittelfruher"
+      ],
+      "url": "https://www.antenna-america.com/products/b119-b12004",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Curieux.jpg?width=400",
+      "description": "ベルギースタイルのゴールデンエールであるトリプルをバーボン樽で約7週間熟成させた後、そこにフレッシュなトリプルを一部ブレンドすることで風味を調整。バニラ、キャラメル、オーク、そしてバーボンのようなほのかな香りを持つ独特の風味に仕上がります。2004年に初めて醸造されたこのCurieuxは、Allagashで最も人気のある樽熟成ビールとして今でも愛され続けています。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b119-b12003",
+      "name": "Tripel",
+      "brewery": "Allagash Brewing Company",
+      "style": "Golden Ale",
+      "abv": "9%",
+      "hops": [
+        "Nugget",
+        "Hallertauer Mittelfruher"
+      ],
+      "url": "https://www.antenna-america.com/products/b119-b12003",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Tripel.jpg?width=400",
+      "description": "Great American Beer FestivalやWorld Beer Cupにて合計7つのメダル受賞を誇るベルギースタイルのGolden Ale。酵母由来のパッションフルーツやハチミツのような風味が豊かに広がります。シンプルなレシピから生まれるこのビールは、驚くほど多種多様で高貴なフレーバー、そしてさわやかでドライな後口。何世紀も前にベルギーの修道院で始まった伝統的なビールスタイルを完璧に再現しています。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b095-c16032",
+      "name": "Westward Blonde",
+      "brewery": "Los Angeles Ale Works",
+      "style": "Blonde Ale",
+      "abv": "4.9%",
+      "hops": [
+        "Perle",
+        "Mittelfruh"
+      ],
+      "url": "https://www.antenna-america.com/products/b095-c16032",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/WestwardBlonde.png?width=400",
+      "description": "クリーンでライト、苦みは控えめで美しいフローラルな香りが漂うブロンドエール。ホップにはドイツのパールとミッテルフリューを使用。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b093-c16033",
+      "name": "Beer of Champions Lite Lager",
+      "brewery": "Paperback Brewing",
+      "style": "Lager",
+      "abv": "4.3%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b093-c16033",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/BeerofChampionsLiteLager.png?width=400",
+      "description": "こいつぁアメフトの試合観戦にも、庭の芝刈りにも、どんな時にでもサイコーな雑味のない綺麗なラガーさ。毎日を懸命にエンジョイして過ごす、まさに君のようなチャンピオンのためのビールだ！",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b047-c12112",
+      "name": "Mind Haze Cosmic Crusher",
+      "brewery": "Firestone Walker",
+      "style": "Juicy Imperial IPA",
+      "abv": "9.5%",
+      "hops": [
+        "Galaxy",
+        "Strata",
+        "Callista",
+        "Melon",
+        "Simcoe"
+      ],
+      "url": "https://www.antenna-america.com/products/b047-c12112",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/MindHazeCosmicCrusher.png?width=400",
+      "description": "Mind Hazeを強烈に魔改造したJuicy Imperial IPA。パイナップルやマンゴーのような鮮烈な味わいと抜群の飲みごたえは森羅万象をも打ち砕く。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b095-c16013",
+      "name": "Palmera Pils",
+      "brewery": "Los Angeles Ale Works",
+      "style": "Pilsner",
+      "abv": "5.6%",
+      "hops": [
+        "Hallertauer Mittelfruher",
+        "Saaz",
+        "Magnum"
+      ],
+      "url": "https://www.antenna-america.com/products/b095-c16013",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/PalmeraPils2.png?width=400",
+      "description": "すっきりとライトでビスケットのようなモルトの風味。隠し味に使っているジャスミン米やホップによる清涼感あふれるアロマ！",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b095-c16001",
+      "name": "Lunar Kitten",
+      "brewery": "Los Angeles Ale Works",
+      "style": "WC IPA",
+      "abv": "7.5%",
+      "hops": [
+        "Simcoe"
+      ],
+      "url": "https://www.antenna-america.com/products/b095-c16001",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/LunarKitten.png?width=400",
+      "description": "Los Angeles Aleworksの人気ビールシリーズ、Kitten（子猫）シリーズの先駆けとなったのがこのLunar Kitten。ブリュワリーに住み着き、モルトの守り神として皆に愛されるハチワレ猫のScrappyちゃんがラベルに描かれています。\rPilsner、Maris Otter、Rye maltで構成された安定したモルトベースに、Simcoeホップ一種類による柑橘の皮や松のような味わいが楽しめる一杯。非常にバランスが取れていてドリンカブルなため、初めてLA Aleworksのビールを飲む方にお勧めです！",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "b055-c16152",
+      "name": "Lupulin Riot WC IPA",
+      "brewery": "Revision Brewing",
+      "style": "West Coast IPA",
+      "abv": "6%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b055-c16152",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/LupulinRiotWCIPA.png?width=400",
+      "description": "シムコー、モザイク、ストラータ、コロンバスを使用した、ホップの個性を前面に押し出したWest Coast IPA。松を思わせる樹脂感とシトラスの鮮烈なアロマに、力強い苦味が重なります。無濾過ならではの濃厚なホップ感と、ダイレクトな味わいが楽しめる、妥協のないホッピーな一本です。",
+      "source": "antenna",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "ur-10degrees-pkg",
+      "name": "10º Czech Lager",
+      "brewery": "Urban Roots",
+      "style": "Czech-Style Lager",
+      "abv": "3.9%",
+      "hops": [
+        "Saaz"
+      ],
+      "url": "https://southbound.jp/products/ur-10degrees-pkg",
+      "image": "https://cdn.shopify.com/s/files/1/0269/3677/0662/files/UR-product-10degreesnew_can-1440x1800.jpg?width=400",
+      "description": "チェコスタイルラガーの10デグリーズは、プラハ郊外で製造されたボヘミアン・ピルスナー麦芽を使用し、クラシックで伝統的なホップのフレーバーとアロマを誇る100％チェコ産のザーツ・ホップでホッピングしています。",
+      "source": "southbound",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "ur-ezpzdryhoppedpils-pkg",
+      "name": "EZPZ",
+      "brewery": "Urban Roots",
+      "style": "Dry Hopped Pilsner",
+      "abv": "5.0%",
+      "hops": [
+        "Saphir"
+      ],
+      "url": "https://southbound.jp/products/ur-ezpzdryhoppedpils-pkg",
+      "image": "https://cdn.shopify.com/s/files/1/0269/3677/0662/files/UR-ezpz_can-1440x1800.jpg?width=400",
+      "description": "EZPZは100％ドイツ産麦芽と伝統的なドイツ・ラガー酵母で醸造され、サフィールホップでドライホップされているピルスナー。爽やかでキレがあり、飲みごたえのあるビールですが、スモークした肉ともよく合います。苦味を恐れる必要はありません！苦味のおかげですっきりとしたキレのある仕上がりになります。",
+      "source": "southbound",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "jk-daswunderkind-pkg",
+      "name": "Das Wunderkind!",
+      "brewery": "Jester King",
+      "style": "Saison Blended with Wild Ale",
+      "abv": "5.0%",
+      "hops": [],
+      "url": "https://southbound.jp/products/jk-daswunderkind-pkg",
+      "image": "https://cdn.shopify.com/s/files/1/0269/3677/0662/products/JK_product_daswunderkind-glamour_1060x1365_5ebc9060-e8d3-46b4-b20a-5f71c37347f5.jpg?width=400",
+      "description": "ジェスターキングが作っている中でも最も歴史を持つビールの1つであり、バレルエイジのワイルドビールのブレンドを取り入れた最初のビールでもあります。2021年の11月、彼らは瑞々しく新鮮でホップ感溢れるファームハウスエールを醸造しており、その過程で樽熟成させたワイルドビールをブレンドさせ、更にエルドラード、モトゥエカ、メリディアン、そしてシムコーといったフレッシュなホップでドライホップを加えました。その後8ヵ月をかけ自然熟成させ、ビールを限界までねばねばとした粘着質な状態にします。自然熟成させたビールはトロピカルな爽やかさがあり、キリッとした酸味とグアバやパッションフルーツのしっかりとしたフレーバーやアロマが感じられます。熟成させる長さや圧力、そして自然の野生酵母を絶妙に組み合わせることで、ドライホップの際立つフレーバーを最大限に引き出すことができ、彼らのイチオシのファームハウスエールが生まれます。",
+      "source": "southbound",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "ur-rightrighthazyipa-pkg",
+      "name": "Right Right",
+      "brewery": "Urban Roots",
+      "style": "Hazy IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Sabro",
+        "Citra",
+        "El Dorado",
+        "Amarillo"
+      ],
+      "url": "https://southbound.jp/products/ur-rightrighthazyipa-pkg",
+      "image": "https://cdn.shopify.com/s/files/1/0269/3677/0662/files/UR-product-rightright_can2-1440x1800.jpg?width=400",
+      "description": "ヘイジーIPAのライトライトは、モルトとオーツの組み合わせで始まり、トロピカルでジューシーなフレーバーを出すために数種類のホップを投入しています。エルドラードとシトラを主役とし、その他のホップコンビネーションを変化させながら、強烈なトロピカル・フレーバーが感じられる絶妙な組み合わせを追求している実験的なシリーズです。",
+      "source": "southbound",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "jk-bieredecoupage-pkg",
+      "name": "Biere de Coupage",
+      "brewery": "Jester King",
+      "style": "Blended Farmhouse Ale",
+      "abv": "6.3%",
+      "hops": [],
+      "url": "https://southbound.jp/products/jk-bieredecoupage-pkg",
+      "image": "https://cdn.shopify.com/s/files/1/0269/3677/0662/products/JK_product_bieredecoupage-glamour_720x928_401ff032-c567-450a-9f6d-495ba8db2b7d.jpg?width=400",
+      "description": "ビエール・ド・クパージュは、SPONともっと新しいファームハウスエールをブレンディングした上で、オーガニックなファグルとパールのホップでドライホップしているエールです。ファームハウスエールに使用する混合培養酵母は、気に入った古いエールともっと新しいエールとブレンドすることで開発された経緯があります。新しいビールの味や香りに良い影響を与えるだけでなく、液体中に生きている微生物の成長を良い方向へ導くことが目的でした。",
+      "source": "southbound",
+      "added": "2026-09-29"
+    },
+    {
+      "id": "ur-likeridingabikewcipa-pkg",
+      "name": "Like Riding A Bike",
+      "brewery": "Urban Roots",
+      "style": "West Coast IPA",
+      "abv": "6.2%",
+      "hops": [
+        "Simcoe",
+        "Mosaic"
+      ],
+      "url": "https://southbound.jp/products/ur-likeridingabikewcipa-pkg",
+      "image": "https://cdn.shopify.com/s/files/1/0269/3677/0662/files/UR-product-likeridingabike_can2-1440x1800.jpg?width=400",
+      "description": "ライク・ライディング・ア・バイクは、シトラスとダンクネスをたっぷり含んだウェストコーストIPA。シムコーとモザイクを使用し、軽いボディとクリーンな苦味が特徴。",
+      "source": "southbound",
+      "added": "2026-09-29"
+    }
+  ],
+  "hops_needing_aroma_review": [
+    "Hallertau Mittelfrüh",
+    "Melon",
+    "Mittelfruh",
+    "Organic Adeena",
+    "Organic Helios"
+  ]
 }
