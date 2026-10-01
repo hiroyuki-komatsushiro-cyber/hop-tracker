@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-01",
+  "last_updated": "2026-10-02",
   "products": [
     {
       "id": "b105-c16036",
@@ -303,7 +303,7 @@
       "source": "antenna"
     },
     {
-      "id": "fw-unionjack",
+      "id": "b047-c12003",
       "name": "Union Jack IPA",
       "brewery": "Firestone Walker",
       "style": "IPA",
@@ -462,7 +462,7 @@
       "source": "antenna"
     },
     {
-      "id": "revision-artcar",
+      "id": "b055-c16118",
       "name": "Art Car Hazy IPA",
       "brewery": "Revision Brewing",
       "style": "Hazy IPA",
@@ -472,7 +472,7 @@
         "Mosaic",
         "Cashmere"
       ],
-      "url": "",
+      "url": "https://www.antenna-america.com/products/b055-c16118",
       "added": "2026-06-21",
       "description": "Revision BrewingのアートカーヘイジーIPA。自由な発想のアート作品のように、モツエカ、モザイク、カシミアの多彩なホップブレンドが一枚のキャンバスに描かれた一杯。",
       "image": "https://www.antenna-america.com/cdn/shop/files/ArtCarHazyIPA.jpg?width=400",
@@ -746,16 +746,16 @@
       "source": "antenna"
     },
     {
-      "id": "b114-broken-record",
+      "id": "b114-c16001",
       "name": "Embolden Beer Co Broken Record West Coast IPA",
       "brewery": "Embolden Beer Co",
       "style": "West Coast IPA",
-      "abv": "-",
+      "abv": "6.8%",
       "hops": [
         "Nelson Sauvin (NZ Hops)",
         "Mosaic"
       ],
-      "url": "https://www.antenna-america.com/en/collections/embolden-beer-co",
+      "url": "https://www.antenna-america.com/products/b114-c16001",
       "added": "2026-06-27",
       "description": "エンボールデン・ビア・カンパニーのウェストコーストIPA。ネルソン・ソーヴィンとモザイクをホップに使用し、白ワインを思わせるトロピカルフルーツのキャラクターをクリスプなウェストコーストIPAのボディに乗せた一本。日本をテーマにしたサンディエゴ発のクラフトブランドによる逸品です。",
       "image": "https://www.antenna-america.com/cdn/shop/files/BrokenRecordWCIPA.jpg?width=400",
@@ -938,17 +938,17 @@
       "source": "antenna"
     },
     {
-      "id": "b095-c16035a",
+      "id": "b095-c16035",
       "name": "LA Ale Works Blue Vibes 2 West Coast IPA",
       "brewery": "LA Ale Works",
       "style": "West Coast IPA",
-      "abv": "-",
+      "abv": "7%",
       "hops": [
         "Galaxy",
         "Mosaic",
         "Simcoe"
       ],
-      "url": "https://www.antenna-america.com/en/products/b095-c16035a",
+      "url": "https://www.antenna-america.com/products/b095-c16035",
       "image": "https://www.antenna-america.com/cdn/shop/files/BlueVibes2WCIPA.jpg?width=400",
       "description": "LAの青い野球チームが快進撃を続ける2024年プレーオフを祝うBlue Vibesの第2弾。ギャラクシー、モザイク、シムコーの掛け合わさった旨味を堪能しながら、ワールドシリーズ優勝を目指す気分で飲みたいウェストコーストIPAです。",
       "added": "2026-06-30",
@@ -1275,19 +1275,6 @@
       "source": "antenna"
     },
     {
-      "id": "b095-c16027a",
-      "name": "LA Ale Works Lunar Kitten Hazy IPA",
-      "brewery": "LA Ale Works",
-      "style": "Hazy IPA",
-      "abv": "-",
-      "hops": [],
-      "url": "https://www.antenna-america.com/en/products/b095-c16027a",
-      "image": "https://www.antenna-america.com/cdn/shop/files/LunarKittenHazyIPA.jpg?width=400",
-      "description": "LAエール・ワークスのムーンライトをテーマにしたヘイジーIPA「Lunar Kitten」。夜空に浮かぶ月のような柔らかく丸みのある口当たりと、ジューシーなトロピカルフルーツのアロマが特徴的な癒し系の一杯。",
-      "added": "2026-07-03",
-      "source": "antenna"
-    },
-    {
       "id": "b095-c16016",
       "name": "LA Ale Works El Lay Pale Ale",
       "brewery": "LA Ale Works",
@@ -1331,13 +1318,17 @@
       "source": "antenna"
     },
     {
-      "id": "b055-c16042",
+      "id": "b055-c16098",
       "name": "Revision The Bird (Faction Brewing Collab)",
       "brewery": "Revision Brewing",
       "style": "West Coast IPA",
-      "abv": "-",
-      "hops": [],
-      "url": "https://www.antenna-america.com/en/products/b055-c16042",
+      "abv": "6.6%",
+      "hops": [
+        "Krush",
+        "Mosaic",
+        "Mosaic Cryo"
+      ],
+      "url": "https://www.antenna-america.com/products/b055-c16098",
       "image": "https://www.antenna-america.com/cdn/shop/files/TheBirdRevisionFaction.jpg?width=400",
       "description": "RevisionとFaction BrewingのコラボレーションによるウェストコーストIPA「The Bird」。二つの実力派ブリュワリーが力を合わせた特別な一本。クリーンでドライ、力強いホップキャラクターが特徴のWC IPAです。",
       "added": "2026-07-03",
@@ -2155,42 +2146,6 @@
       "added": "2026-08-03"
     },
     {
-      "id": "b047-c12022",
-      "name": "Firestone Walker Union Jack IPA",
-      "brewery": "Firestone Walker",
-      "style": "IPA",
-      "abv": "7%",
-      "hops": [
-        "Simcoe",
-        "Centennial",
-        "Chinook",
-        "Cascade",
-        "Citra"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b047-c12022",
-      "image": "https://www.antenna-america.com/cdn/shop/files/UnionJackIPA_2.png?width=400",
-      "description": "20年以上愛され続けるファイアーストーン・ウォーカーの定番IPA。シムコー、センテニアル、チヌーク、カスケード、シトラの5種のホップが生み出すグレープフルーツ、パイン、熱帯果実の力強いアロマ。「ユニオン・ジャック（英国旗）」の名はイギリスのIPAスタイルへのリスペクトを示す。",
-      "source": "antenna",
-      "added": "2026-08-03"
-    },
-    {
-      "id": "b047-c12010",
-      "name": "Firestone Walker Pivo Hoppy Pils",
-      "brewery": "Firestone Walker",
-      "style": "Lager / Pilsner",
-      "abv": "5.3%",
-      "hops": [
-        "Saphir",
-        "Sterling",
-        "Hallertauer Mittelfruher"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b047-c12010",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/NitroMerlin_20220630.png?width=400",
-      "description": "チェコ語で「ビール」を意味する「Pivo」の名を冠したホッピーなピルスナー。サファイア、スターリング、ハラタウ・ミッテルフリューのクラシックなドイツ系ホップを使用し、クリーンでクリスプ、上品なホップアロマとドライなフィニッシュが特徴。",
-      "source": "antenna",
-      "added": "2026-08-03"
-    },
-    {
       "id": "b047-c12034",
       "name": "Firestone Walker DBA",
       "brewery": "Firestone Walker",
@@ -2224,78 +2179,6 @@
       "added": "2026-08-03"
     },
     {
-      "id": "b047-c12064",
-      "name": "Firestone Walker Firestone IPA",
-      "brewery": "Firestone Walker",
-      "style": "IPA",
-      "abv": "6.5%",
-      "hops": [
-        "Cascade",
-        "Centennial",
-        "Chinook",
-        "Citra"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b047-c12064",
-      "image": "https://www.antenna-america.com/cdn/shop/files/FirestoneIPA.png?width=400",
-      "description": "ファイアーストーン・ウォーカーの名を冠したシグネチャーIPA。カスケード、センテニアル、チヌーク、シトラをバランスよく使い、グレープフルーツ、パイン、フローラルのクラシックなウェストコーストアロマが広がる6.5%の安定感ある一本。",
-      "source": "antenna",
-      "added": "2026-08-03"
-    },
-    {
-      "id": "b081-c12001",
-      "name": "Founders KBS",
-      "brewery": "Founders",
-      "style": "Stout / Porter",
-      "abv": "12.2%",
-      "hops": [],
-      "url": "https://www.antenna-america.com/en/products/b081-c12001",
-      "image": "https://www.antenna-america.com/cdn/shop/files/FoundersKBS.jpg?width=400",
-      "description": "「Kentucky Breakfast Stout」の略。バーボン樽でゆっくり熟成させたインペリアル・スタウト。コーヒーとチョコレートのリッチなアロマにバニラとバーボンの甘みが溶け合う12.2%の傑作。年に一度だけリリースされるFoundersの最高傑作として世界中のビールファンに絶賛される限定品。",
-      "source": "antenna",
-      "added": "2026-08-03"
-    },
-    {
-      "id": "b002-c16014",
-      "name": "North Coast Brother Thelonious",
-      "brewery": "North Coast",
-      "style": "Other",
-      "abv": "9.4%",
-      "hops": [],
-      "url": "https://www.antenna-america.com/en/products/b002-c16014",
-      "image": "https://www.antenna-america.com/cdn/shop/files/BrotherThelonious.jpg?width=400",
-      "description": "ジャズの巨人セロニアス・モンクへのオマージュとして醸されたベルギー・スタイルのアビィ・エール。ダークフルーツ、スパイス、温かみのあるモルトが複雑に絡み合う9.4%の深みある一本。売上の一部はThe Thelonious Monk InstituteのJazz教育プログラムに寄付される。",
-      "source": "antenna",
-      "added": "2026-08-03"
-    },
-    {
-      "id": "b080-c12016",
-      "name": "Deschutes Mirror Pond Pale Ale",
-      "brewery": "Deschutes",
-      "style": "Pale Ale",
-      "abv": "5%",
-      "hops": [
-        "Cascade"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b080-c12016",
-      "image": "https://www.antenna-america.com/cdn/shop/files/MirrorPondPaleAle.jpg?width=400",
-      "description": "オレゴン州ベンドのデシュートス・ブリュワリーを象徴するペールエール。カスケードホップが生み出す柑橘とフローラルの穏やかなアロマと、バランスのとれたモルトのボディ。「鏡のように澄んだ池」の名が示すようにクリーンで透明感のある味わい。",
-      "source": "antenna",
-      "added": "2026-08-03"
-    },
-    {
-      "id": "b080-c12022",
-      "name": "Deschutes Black Butte Porter",
-      "brewery": "Deschutes",
-      "style": "Stout / Porter",
-      "abv": "5.2%",
-      "hops": [],
-      "url": "https://www.antenna-america.com/en/products/b080-c12022",
-      "image": "https://www.antenna-america.com/cdn/shop/files/BlackButtePorter.jpg?width=400",
-      "description": "アメリカで最も愛されるポーターのひとつ。オレゴン州の火山「ブラック・ビュート」にちなんだデシュートスのシグネチャー・ポーター。チョコレート、コーヒー、ロースト麦芽の豊かなアロマと、滑らかでミディアムボディの飲みやすさが1988年から変わらぬ人気を誇る。",
-      "source": "antenna",
-      "added": "2026-08-03"
-    },
-    {
       "id": "b080-c12020",
       "name": "Deschutes King Crispy",
       "brewery": "Deschutes",
@@ -2308,88 +2191,6 @@
       "url": "https://www.antenna-america.com/en/products/b080-c12020",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/NeonDaydream2.png?width=400",
       "description": "「クリスピーの王様」の名を冠したデシュートスのライトラガー。カスケードとセンテニアルでほのかなホップ感を加えた、シャープでクリスプな飲み口が特徴。日本の料理にも合う万能な低アルコールラガー。",
-      "source": "antenna",
-      "added": "2026-08-03"
-    },
-    {
-      "id": "b031-c12001",
-      "name": "Pizza Port Ponto Session IPA",
-      "brewery": "Pizza Port",
-      "style": "IPA",
-      "abv": "4.8%",
-      "hops": [
-        "Cascade",
-        "Centennial",
-        "Citra"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b031-c12001",
-      "image": "https://www.antenna-america.com/cdn/shop/files/PontoSessionIPA.jpg?width=400",
-      "description": "サンディエゴの老舗ピザポートのセッションIPA。ポント（Ponto）はオーシャンサイドのビーチを指す地元の愛称。カスケード、センテニアル、シトラのホップが生み出す爽やかな柑橘アロマと、4.8%の軽快な飲みやすさが真夏のビーチにぴったりな一本。",
-      "source": "antenna",
-      "added": "2026-08-03"
-    },
-    {
-      "id": "b031-c12016",
-      "name": "Pizza Port Chronic Amber Ale",
-      "brewery": "Pizza Port",
-      "style": "Amber",
-      "abv": "4.9%",
-      "hops": [
-        "Centennial",
-        "Cascade"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b031-c12016",
-      "image": "https://www.antenna-america.com/cdn/shop/files/ChronicAmberAle.jpg?width=400",
-      "description": "ピザポートのロングセラー・アンバーエール。センテニアルとカスケードのバランスのとれたホップアロマと、キャラメルモルトの温かみある甘みが絶妙に融合。「Chronic（慢性的）」の名が示すように、飲み続けてしまう危険なほど親しみやすい味わい。",
-      "source": "antenna",
-      "added": "2026-08-03"
-    },
-    {
-      "id": "b044-c16010",
-      "name": "Sierra Nevada Hoptimum",
-      "brewery": "Sierra Nevada",
-      "style": "DIPA",
-      "abv": "10.4%",
-      "hops": [
-        "Simcoe",
-        "Citra",
-        "Centennial",
-        "Chinook"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b044-c16010",
-      "image": "https://www.antenna-america.com/cdn/shop/files/Hoptimum.jpg?width=400",
-      "description": "「ホップの最適解」を意味するホプティマム。シムコー、シトラ、センテニアル、チヌークを大量投入した10.4%のダブルIPA。シエラネバダがホップへの情熱を全力で注いだ一本で、オレンジ・グレープフルーツ・パインのトライフェクタが炸裂する。",
-      "source": "antenna",
-      "added": "2026-08-03"
-    },
-    {
-      "id": "b044-c12027",
-      "name": "Harland Japanese Lager",
-      "brewery": "Harland",
-      "style": "Lager / Pilsner",
-      "abv": "4.7%",
-      "hops": [
-        "Sorachi Ace"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b044-c12027",
-      "image": "https://www.antenna-america.com/cdn/shop/files/HarlandJapaneseLager.jpg?width=400",
-      "description": "日本へのリスペクトを込めてHarland Brewingが醸したジャパニーズ・ラガー。日本産のソラチ・エースホップを使用し、レモン・ディル・コリアンダーのユニークなアロマが漂うクリスプでドライな一本。すっきりとした飲み口と日本料理との相性は抜群。",
-      "source": "antenna",
-      "added": "2026-08-03"
-    },
-    {
-      "id": "b039-c12012",
-      "name": "Karl Strauss Red Trolley Ale",
-      "brewery": "Karl Strauss",
-      "style": "Amber",
-      "abv": "5.8%",
-      "hops": [
-        "Centennial",
-        "Cascade"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b039-c12012",
-      "image": "https://www.antenna-america.com/cdn/shop/files/RedTrolleyAle.jpg?width=400",
-      "description": "サンディエゴの路面電車（トロリー）にちなんだカール・シュトラウスのシグネチャー・アンバーエール。センテニアルとカスケードのバランスよいホップ感と、カラメルモルト由来のリッチな甘みが調和。30年以上愛されるSDクラフトビールの象徴的な一本。",
       "source": "antenna",
       "added": "2026-08-03"
     },
@@ -2523,23 +2324,6 @@
       "added": "2026-08-10"
     },
     {
-      "id": "stone-ipa-568",
-      "name": "Stone IPA (568ml)",
-      "brewery": "Stone Brewing",
-      "style": "IPA",
-      "abv": "6.9%",
-      "hops": [
-        "Chinook",
-        "Columbus",
-        "Centennial"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b010-c12001a",
-      "image": "https://www.antenna-america.com/cdn/shop/files/StoneIPA568.jpg?width=400",
-      "description": "1997年からのロングセラー、ストーンIPAの568ml缶。チヌーク、コロンバス、センテニアルによるグレープフルーツ・パイン・樹脂の力強いアロマ。カスケードを使わないユニークなWC IPA。",
-      "source": "antenna",
-      "added": "2026-08-10"
-    },
-    {
       "id": "elsegundo-brokenskull",
       "name": "El Segundo Broken Skull IPA",
       "brewery": "El Segundo",
@@ -2553,63 +2337,6 @@
       "url": "https://www.antenna-america.com/en/products/b083-c16001",
       "image": "https://www.antenna-america.com/cdn/shop/files/BrokenSkullIPA.jpg?width=400",
       "description": "元プロレスラーのスティーブ・オースティンとのコラボIPA。シトラ、カスケード、チヌークが生み出すフルーティで柑橘系のフレーバーと絶妙なバランス。引退後にブリュワリーを作る夢を持っていたオースティンとEl Segundoの縁が生んだコラボ作。",
-      "source": "antenna",
-      "added": "2026-08-10"
-    },
-    {
-      "id": "tg-ddhkingsue",
-      "name": "Toppling Goliath DDH King Sue",
-      "brewery": "Toppling Goliath",
-      "style": "DIPA",
-      "abv": "-",
-      "hops": [
-        "Citra"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b056-c16006",
-      "image": "https://www.antenna-america.com/cdn/shop/files/DDHKingSue.jpg?width=400",
-      "description": "キング・スーをダブルドライホップした究極版。シトラのグレープフルーツ・ライム・トロピカルのアロマがさらに倍増。DDHがいかにホップアロマを引き出すかを体感できる一本。",
-      "source": "antenna",
-      "added": "2026-08-10"
-    },
-    {
-      "id": "topa-dostopas",
-      "name": "Topa Topa Dos Topas Lager",
-      "brewery": "Topa Topa",
-      "style": "Lager / Pilsner",
-      "abv": "-",
-      "hops": [],
-      "url": "https://www.antenna-america.com/en/products/b071-c12001a",
-      "image": "https://www.antenna-america.com/cdn/shop/files/DosTopasLager.jpg?width=400",
-      "description": "「二つのトパ（山頂）」を意味するトパトパのラガー。ベンチュラカウンティの双子の山にちなんだ、クリーンでクリスプなメキシカン・スタイルのラガー。",
-      "source": "antenna",
-      "added": "2026-08-10"
-    },
-    {
-      "id": "smogcity-littlebopils",
-      "name": "Smog City Little Bo Pils",
-      "brewery": "Smog City",
-      "style": "Lager / Pilsner",
-      "abv": "-",
-      "hops": [],
-      "url": "https://www.antenna-america.com/en/products/b060-c12003",
-      "image": "https://www.antenna-america.com/cdn/shop/files/LittleBoPils.jpg?width=400",
-      "description": "「リトル・ボー」の名を冠したSmog Cityのクリスプなピルスナー。ドイツ系ホップの穏やかな苦みとクリーンなモルトが調和するセッショナブルな一本。",
-      "source": "antenna",
-      "added": "2026-08-10"
-    },
-    {
-      "id": "stone-delicious-hazy",
-      "name": "Stone Delicious Hazy IPA",
-      "brewery": "Stone Brewing",
-      "style": "Hazy IPA",
-      "abv": "-",
-      "hops": [
-        "El Dorado",
-        "Mosaic"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b010-c12060",
-      "image": "https://www.antenna-america.com/cdn/shop/files/StoneDeliciousHazyIPA.jpg?width=400",
-      "description": "ストーン・デリシャスIPAのヘイジー版。エル・ドラードとモザイクを使い、低グルテンながらトロピカルフルーツと柑橘のジューシーなアロマが広がる。",
       "source": "antenna",
       "added": "2026-08-10"
     },

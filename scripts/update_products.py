@@ -91,6 +91,7 @@ HOP_NAME_FIXES = {
     "Crush": "Krush",  # 実在するホップ品種名では無く、Krush(HBC 586)の誤記とほぼ断定できる
     "HBC 586": "Krush",
     "Cryo HBC 586": "Krush Cryo",
+    "CRYO Mosaic": "Mosaic Cryo",  # Antenna America表記の語順違い(2026-10-02確認、Revision The Bird 473ml)
     "Mosic": "Mosaic",  # Antenna America側の表記ミスを確認済み
     "Melon": "Huell Melon",  # Antenna America表記は略記(2026-09-29確認、Firestone Walker Mind Haze系列)
     "Organic Helios": "Helios",  # "Organic"は栽培方法の修飾語で品種名自体はHelios(Hopsteiner)
