@@ -90,7 +90,13 @@ HOP_NAME_FIXES = {
     "Hallertau Mittelfruh": "Hallertauer Mittelfruher",
     "Crush": "Krush",  # 実在するホップ品種名では無く、Krush(HBC 586)の誤記とほぼ断定できる
     "HBC 586": "Krush",
+    "Cryo HBC 586": "Krush Cryo",
     "Mosic": "Mosaic",  # Antenna America側の表記ミスを確認済み
+    "Melon": "Huell Melon",  # Antenna America表記は略記(2026-09-29確認、Firestone Walker Mind Haze系列)
+    "Organic Helios": "Helios",  # "Organic"は栽培方法の修飾語で品種名自体はHelios(Hopsteiner)
+    "Organic Adeena": "Adeena",  # 同上、品種名自体はAdeena(Latitude 46/旧ADHA)
+    "Hallertau Mittelfrüh": "Hallertauer Mittelfruher",
+    "Mittelfruh": "Hallertauer Mittelfruher",
 }
 
 

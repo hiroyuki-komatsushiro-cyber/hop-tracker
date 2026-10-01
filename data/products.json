@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-29",
+  "last_updated": "2026-10-02",
   "products": [
     {
       "id": "b105-c16036",
@@ -445,7 +445,7 @@
       "source": "antenna"
     },
     {
-      "id": "pizzaport-everyday",
+      "id": "b024-c16212",
       "name": "Everyday Enjoyment IPA",
       "brewery": "Pizza Port",
       "style": "IPA",
@@ -455,7 +455,7 @@
         "Strata",
         "Chinook"
       ],
-      "url": "",
+      "url": "https://www.antenna-america.com/products/b024-c16212",
       "added": "2026-06-21",
       "description": "カリフォルニアの老舗ピザポートのエブリデイIPA。その名の通り毎日飲みたいバランスのとれたIPA。カスケード、ストラタ、チヌークの3種ホップが生み出す爽やかな苦みとフルーティなアロマ。",
       "image": "https://www.antenna-america.com/cdn/shop/files/EverydayEnjoymentIPA.jpg?width=400",
@@ -479,13 +479,16 @@
       "source": "antenna"
     },
     {
-      "id": "revision-invitation",
+      "id": "b055-c16049",
       "name": "Invitation to Party Hazy DIPA",
       "brewery": "Revision Brewing",
       "style": "NE-Style Hazy Double IPA",
       "abv": "8.5%",
-      "hops": [],
-      "url": "",
+      "hops": [
+        "Sabro",
+        "Vic Secret"
+      ],
+      "url": "https://www.antenna-america.com/products/b055-c16049",
       "added": "2026-06-21",
       "description": "Revision BrewingのパーティーへのインビテーションヘイジーDIPA。「パーティーへのご招待」の名の通り、8.5%のトロピカルフルーツが爆発するお祭り騒ぎのダブルIPA。",
       "image": "https://www.antenna-america.com/cdn/shop/files/InvitationToPartyDIPA.jpg?width=400",
@@ -505,13 +508,19 @@
       "source": "antenna"
     },
     {
-      "id": "societe-highlyskilled",
+      "id": "b073-c16034",
       "name": "Highly Skilled West Coast IPA",
       "brewery": "Societe Brewing",
       "style": "West Coast IPA",
       "abv": "7.8%",
-      "hops": [],
-      "url": "",
+      "hops": [
+        "Simcoe",
+        "El Dorado",
+        "Azacca",
+        "Krush Cryo",
+        "Citra"
+      ],
+      "url": "https://www.antenna-america.com/products/b073-c16034",
       "added": "2026-06-21",
       "description": "ソシエテ・ブルーイングの「高度な技術」ウェストコーストIPA。名前の通り高い醸造技術が光るクリーンでドライ、ホップの個性を最大限に引き出した7.8%のウェストコーストIPA。",
       "image": "https://www.antenna-america.com/cdn/shop/files/HighlySkilledWCIPA.jpg?width=400",
@@ -1235,31 +1244,31 @@
       "source": "antenna"
     },
     {
-      "id": "b055-c16013",
+      "id": "b055-c16069",
       "name": "Revision Spiritual Gangster",
       "brewery": "Revision Brewing",
       "style": "Hazy IPA",
-      "abv": "-",
+      "abv": "6.5%",
       "hops": [
         "Citra",
         "Mosaic"
       ],
-      "url": "https://www.antenna-america.com/en/products/b055-c16013",
+      "url": "https://www.antenna-america.com/products/b055-c16069",
       "image": "https://www.antenna-america.com/cdn/shop/files/SpiritualGangster.jpg?width=400",
       "description": "シトラとモザイクをダブルドライホップしたRevisionのヘイジーIPA。トロピカルフルーツと柑橘の爆発的なアロマが特徴。「Spiritual Gangster」の名が示すように、スピリチュアルでいてストリートな個性派IPA。",
       "added": "2026-07-03",
       "source": "antenna"
     },
     {
-      "id": "b060-c12001b",
+      "id": "b060-c16004",
       "name": "Smog City Amarilla Gorilla IPA",
       "brewery": "Smog City",
       "style": "IPA",
-      "abv": "-",
+      "abv": "7.4%",
       "hops": [
         "Amarillo"
       ],
-      "url": "https://www.antenna-america.com/en/products/b060-c12001b",
+      "url": "https://www.antenna-america.com/products/b060-c16004",
       "image": "https://www.antenna-america.com/cdn/shop/files/AmarillaGorillaIPA.jpg?width=400",
       "description": "アマリロホップをシングルホップで使用したSmog CityのIPA。アマリロが持つ華やかなオレンジ・グレープフルーツ・フローラルのアロマを存分に引き出した、ホップ品種を学ぶのにも最適な一本。",
       "added": "2026-07-03",
@@ -1331,19 +1340,6 @@
       "url": "https://www.antenna-america.com/en/products/b055-c16042",
       "image": "https://www.antenna-america.com/cdn/shop/files/TheBirdRevisionFaction.jpg?width=400",
       "description": "RevisionとFaction BrewingのコラボレーションによるウェストコーストIPA「The Bird」。二つの実力派ブリュワリーが力を合わせた特別な一本。クリーンでドライ、力強いホップキャラクターが特徴のWC IPAです。",
-      "added": "2026-07-03",
-      "source": "antenna"
-    },
-    {
-      "id": "topa-sunburst",
-      "name": "Topa Topa Sunburst White Ale",
-      "brewery": "Topa Topa",
-      "style": "Wheat Ale",
-      "abv": "-",
-      "hops": [],
-      "url": "https://www.antenna-america.com/en/collections/topa-topa",
-      "image": "https://www.antenna-america.com/cdn/shop/files/SunburstWhiteAle.jpg?width=400",
-      "description": "トパトパ・ブルーイングのサンバースト・ホワイトエール。太陽の光を浴びるような爽やかで軽やかな口当たりのウィートエール。柑橘とスパイスのニュアンスが心地よく広がる、暑い日にぴったりの一本です。",
       "added": "2026-07-03",
       "source": "antenna"
     },
@@ -6476,7 +6472,9 @@
       "brewery": "Harland",
       "style": "West Coast IPA",
       "abv": "7%",
-      "hops": [],
+      "hops": [
+        "Nelson Sauvin"
+      ],
       "url": "https://www.antenna-america.com/products/b070-c16010",
       "added": "2026-09-15",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Nelson_Nelson_2024.png?width=400",
@@ -6803,7 +6801,9 @@
       "brewery": "Beachwood",
       "style": "West Coast-Style India Pale Ale",
       "abv": "7.1%",
-      "hops": [],
+      "hops": [
+        "Mosaic"
+      ],
       "url": "https://www.antenna-america.com/products/b027-c16006",
       "added": "2026-09-15",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/Amalgamator.png?width=400",
@@ -7015,8 +7015,8 @@
       "style": "Organic Lager",
       "abv": "4.7%",
       "hops": [
-        "Organic Helios",
-        "Organic Adeena"
+        "Helios",
+        "Adeena"
       ],
       "url": "https://www.antenna-america.com/products/b080-c12090",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/PatagoniaProvisionsOrganicLager.png?width=400",
@@ -7058,7 +7058,7 @@
       "abv": "5%",
       "hops": [
         "Nugget",
-        "Hallertau Mittelfrüh",
+        "Hallertauer Mittelfruher",
         "Loral",
         "Saaz"
       ],
@@ -7192,7 +7192,7 @@
       "abv": "4.9%",
       "hops": [
         "Perle",
-        "Mittelfruh"
+        "Hallertauer Mittelfruher"
       ],
       "url": "https://www.antenna-america.com/products/b095-c16032",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/WestwardBlonde.png?width=400",
@@ -7223,7 +7223,7 @@
         "Galaxy",
         "Strata",
         "Callista",
-        "Melon",
+        "Huell Melon",
         "Simcoe"
       ],
       "url": "https://www.antenna-america.com/products/b047-c12112",
