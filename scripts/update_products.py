@@ -379,10 +379,25 @@ def main():
             added.append(record)
             known_ids.add(handle)
 
+    # HOP_NAME_FIXESは随時追記されるため、追記時点より前に収集した既存商品が
+    # 古い表記のまま残らないよう、毎回全商品に再正規化をかける(安全・決定的な処理のみ)。
+    renormalized = 0
+    for p in data["products"]:
+        old_hops = p.get("hops", [])
+        if not old_hops:
+            continue
+        new_hops = [normalize_hop(h) for h in old_hops]
+        if new_hops != old_hops:
+            p["hops"] = new_hops
+            renormalized += 1
+
     data["last_updated"] = str(date.today())
     save_data(data)
 
     print(f"\nDone. {len(added)} new products added. Total products: {len(data['products'])}.")
+    if renormalized:
+        print(f"Re-normalized hop names on {renormalized} existing product(s) "
+              f"(HOP_NAME_FIXES updated since they were first collected).")
     if added:
         print("\nNew products this run:")
         for p in added:

@@ -1,0 +1,42 @@
+name: Monthly Full Catalog Audit
+
+on:
+  schedule:
+    # Every 1st of the month at 09:00 JST (00:00 UTC)
+    - cron: '0 0 1 * *'
+  workflow_dispatch: {}   # allows manual "Run workflow" trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run full catalog audit
+        run: python scripts/audit_catalog.py
+
+      - name: Rebuild public HTML page
+        run: python scripts/build_html.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "hop-bot"
+          git config user.email "hop-bot@users.noreply.github.com"
+          git add data/products.json data/audit_review.json docs/index.html
+          git diff --cached --quiet || git commit -m "Monthly audit: $(date +'%Y-%m-%d')"
+          git push
+
+      - name: Show summary
+        run: cat data/audit_review.json

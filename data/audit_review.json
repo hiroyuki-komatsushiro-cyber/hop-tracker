@@ -1,0 +1,574 @@
+{
+  "date": "2026-10-02",
+  "auto_fixed": {
+    "renormalized_hops": [],
+    "backfilled_from_live_source": []
+  },
+  "needs_review": {
+    "duplicate_candidates": [
+      {
+        "a": "fw-unionjack",
+        "a_name": "Union Jack IPA",
+        "b": "b047-c12022",
+        "b_name": "Firestone Walker Union Jack IPA"
+      },
+      {
+        "a": "b070-c12001",
+        "a_name": "Harland West Coast IPA",
+        "b": "b070-c16047",
+        "b_name": "Harland West Coast IPA"
+      },
+      {
+        "a": "b047-c12010",
+        "a_name": "Firestone Walker Pivo Hoppy Pils",
+        "b": "b047-c12006",
+        "b_name": "Pivo Hoppy Pils"
+      },
+      {
+        "a": "b047-c12064",
+        "a_name": "Firestone Walker Firestone IPA",
+        "b": "b047-c12127",
+        "b_name": "Firestone IPA"
+      },
+      {
+        "a": "b002-c16014",
+        "a_name": "North Coast Brother Thelonious",
+        "b": "b002-b12013",
+        "b_name": "Brother Thelonious"
+      },
+      {
+        "a": "b080-c12016",
+        "a_name": "Deschutes Mirror Pond Pale Ale",
+        "b": "b080-c12004",
+        "b_name": "Mirror Pond Pale Ale"
+      },
+      {
+        "a": "b080-c12022",
+        "a_name": "Deschutes Black Butte Porter",
+        "b": "b080-c12017",
+        "b_name": "Black Butte Porter"
+      },
+      {
+        "a": "b031-c12001",
+        "a_name": "Pizza Port Ponto Session IPA",
+        "b": "b024-c16031",
+        "b_name": "Ponto Session IPA"
+      },
+      {
+        "a": "b031-c12016",
+        "a_name": "Pizza Port Chronic Amber Ale",
+        "b": "b024-c16032",
+        "b_name": "Chronic Amber Ale"
+      },
+      {
+        "a": "b044-c16010",
+        "a_name": "Sierra Nevada Hoptimum",
+        "b": "b041-b12009",
+        "b_name": "Hoptimum"
+      },
+      {
+        "a": "b044-c12027",
+        "a_name": "Harland Japanese Lager",
+        "b": "b070-c16009",
+        "b_name": "Japanese Lager"
+      },
+      {
+        "a": "b039-c12012",
+        "a_name": "Karl Strauss Red Trolley Ale",
+        "b": "b029-b12002",
+        "b_name": "Red Trolley Ale"
+      },
+      {
+        "a": "stone-ipa-568",
+        "a_name": "Stone IPA (568ml)",
+        "b": "b010-c19011",
+        "b_name": "Stone IPA"
+      },
+      {
+        "a": "stone-ipa-568",
+        "a_name": "Stone IPA (568ml)",
+        "b": "b010-c12011",
+        "b_name": "Stone IPA"
+      },
+      {
+        "a": "b010-c19011",
+        "a_name": "Stone IPA",
+        "b": "b010-c12011",
+        "b_name": "Stone IPA"
+      },
+      {
+        "a": "tg-ddhkingsue",
+        "a_name": "Toppling Goliath DDH King Sue",
+        "b": "b085-c16012",
+        "b_name": "DDH King Sue"
+      },
+      {
+        "a": "topa-dostopas",
+        "a_name": "Topa Topa Dos Topas Lager",
+        "b": "b071-c12003",
+        "b_name": "Dos Topas Lager"
+      },
+      {
+        "a": "smogcity-littlebopils",
+        "a_name": "Smog City Little Bo Pils",
+        "b": "b060-c16003",
+        "b_name": "Little Bo Pils"
+      },
+      {
+        "a": "stone-delicious-hazy",
+        "a_name": "Stone Delicious Hazy IPA",
+        "b": "b010-c12197",
+        "b_name": "Stone Delicious Hazy IPA"
+      },
+      {
+        "a": "b010-c19173",
+        "a_name": "Stone Hazy IPA",
+        "b": "b010-c12173",
+        "b_name": "Stone Hazy IPA"
+      },
+      {
+        "a": "b132-c16007",
+        "a_name": "Double Parked DIPA",
+        "b": "b132-c12007",
+        "b_name": "Double Parked DIPA"
+      },
+      {
+        "a": "b132-c16001",
+        "a_name": "Fluffy Hazy IPA",
+        "b": "b132-c12001",
+        "b_name": "Fluffy Hazy IPA"
+      },
+      {
+        "a": "b024-c12030",
+        "a_name": "Swami's IPA",
+        "b": "b024-c16030",
+        "b_name": "Swami's IPA"
+      }
+    ],
+    "stale_handle_candidates": [
+      {
+        "id": "casa-summer",
+        "name": "Summer in the Streets West Coast IPA",
+        "brewery": "Casa Agria",
+        "source": "antenna",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "b082-c12006",
+        "name": "Dipper DIPA",
+        "brewery": "Fort Point",
+        "source": "antenna",
+        "gaps": [
+          "abv"
+        ]
+      },
+      {
+        "id": "b111-c12001",
+        "name": "Hop Island IPA",
+        "brewery": "Honolulu Beerworks",
+        "source": "antenna",
+        "gaps": [
+          "abv"
+        ]
+      },
+      {
+        "id": "revision-artcar",
+        "name": "Art Car Hazy IPA",
+        "brewery": "Revision Brewing",
+        "source": "antenna",
+        "gaps": [
+          "url"
+        ]
+      },
+      {
+        "id": "b053-c16006",
+        "name": "THC IPA",
+        "brewery": "The Hop Concept",
+        "source": "antenna",
+        "gaps": [
+          "abv"
+        ]
+      },
+      {
+        "id": "b114-broken-record",
+        "name": "Embolden Beer Co Broken Record West Coast IPA",
+        "brewery": "Embolden Beer Co",
+        "source": "antenna",
+        "gaps": [
+          "abv"
+        ]
+      },
+      {
+        "id": "faction-b001",
+        "name": "Faction Brewing Mosaic Pale Ale",
+        "brewery": "Faction Brewing",
+        "source": "antenna",
+        "gaps": [
+          "abv"
+        ]
+      },
+      {
+        "id": "faction-b002",
+        "name": "Faction Brewing West Coast IPA",
+        "brewery": "Faction Brewing",
+        "source": "antenna",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "pure-project-b001",
+        "name": "Pure Project Tropical Haze IPA",
+        "brewery": "Pure Project",
+        "source": "antenna",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "cerebral-b001",
+        "name": "Cerebral Brewing IPA",
+        "brewery": "Cerebral Brewing",
+        "source": "antenna",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "unsung-b001",
+        "name": "Unsung Brewing IPA",
+        "brewery": "Unsung Brewing",
+        "source": "antenna",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "b-east-brother-001",
+        "name": "East Brother Beer West Coast IPA",
+        "brewery": "East Brother Beer",
+        "source": "antenna",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "shred-b001",
+        "name": "Shred Beer Company IPA",
+        "brewery": "Shred Beer Company",
+        "source": "antenna",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "b095-c16035a",
+        "name": "LA Ale Works Blue Vibes 2 West Coast IPA",
+        "brewery": "LA Ale Works",
+        "source": "antenna",
+        "gaps": [
+          "abv"
+        ]
+      },
+      {
+        "id": "b095-c16027a",
+        "name": "LA Ale Works Lunar Kitten Hazy IPA",
+        "brewery": "LA Ale Works",
+        "source": "antenna",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "b114-c16018",
+        "name": "Embolden Beer Co Brave the Haze Hazy DIPA",
+        "brewery": "Embolden Beer Co",
+        "source": "antenna",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "b055-c16042",
+        "name": "Revision The Bird (Faction Brewing Collab)",
+        "brewery": "Revision Brewing",
+        "source": "antenna",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "rc-skullsizedkingdom-pkg",
+        "name": "Skull Sized Kingdom",
+        "brewery": "Resident Culture",
+        "source": "southbound",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "hi-coolernights-pkg",
+        "name": "Cooler Nights",
+        "brewery": "Hi-Wire Brewing",
+        "source": "southbound",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "rc-discobaby-pkg",
+        "name": "Disco Baby",
+        "brewery": "Resident Culture",
+        "source": "southbound",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "hi-lopitchhazyipa-pkg",
+        "name": "Lo-Pitch Hazy IPA",
+        "brewery": "Hi-Wire Brewing",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "jo-flamestitch-pkg",
+        "name": "Flamestitch",
+        "brewery": "Jackie O's",
+        "source": "southbound",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "rc-halfaslonely-pkg",
+        "name": "Half As Lonely",
+        "brewery": "Resident Culture",
+        "source": "southbound",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "b078-c16007",
+        "name": "Foam Brewers Beelzebub Barrel Aged Imperial Stout",
+        "brewery": "Foam Brewers",
+        "source": "antenna",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "jk-apalegreenhorse-pkg",
+        "name": "Jester King A Pale Green Horse",
+        "brewery": "Jester King",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "sa-thetraveler-pkg",
+        "name": "Sante Adairius The Traveler",
+        "brewery": "Sante Adairius",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "b081-c12001",
+        "name": "Founders KBS",
+        "brewery": "Founders",
+        "source": "antenna",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "b002-c16014",
+        "name": "North Coast Brother Thelonious",
+        "brewery": "North Coast",
+        "source": "antenna",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "b080-c12022",
+        "name": "Deschutes Black Butte Porter",
+        "brewery": "Deschutes",
+        "source": "antenna",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "tg-ddhkingsue",
+        "name": "Toppling Goliath DDH King Sue",
+        "brewery": "Toppling Goliath",
+        "source": "antenna",
+        "gaps": [
+          "abv"
+        ]
+      },
+      {
+        "id": "topa-dostopas",
+        "name": "Topa Topa Dos Topas Lager",
+        "brewery": "Topa Topa",
+        "source": "antenna",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "smogcity-littlebopils",
+        "name": "Smog City Little Bo Pils",
+        "brewery": "Smog City",
+        "source": "antenna",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      },
+      {
+        "id": "stone-delicious-hazy",
+        "name": "Stone Delicious Hazy IPA",
+        "brewery": "Stone Brewing",
+        "source": "antenna",
+        "gaps": [
+          "abv"
+        ]
+      },
+      {
+        "id": "hi-hiwirelager-pkg",
+        "name": "Hi-Wire Lager",
+        "brewery": "Hi-Wire Brewing",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "rc-smokedsilence-pkg",
+        "name": "Smoked Silence",
+        "brewery": "Resident Culture",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "su-peanutbutterjellycrime-pkg",
+        "name": "Peanut Butter Jelly Crime",
+        "brewery": "Superstition",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "su-superstation-pkg",
+        "name": "Super Station",
+        "brewery": "Superstition",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "sa-eternaltruth-pkg",
+        "name": "Eternal Truth",
+        "brewery": "Sante Adairius",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "sa-sharedconcepts-pkg",
+        "name": "Shared Concepts",
+        "brewery": "Sante Adairius",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "sa-chapterverse-pkg",
+        "name": "Chapter & Verse",
+        "brewery": "Sante Adairius",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "hw-kyxmasmorningcan-pkg",
+        "name": "Kentucky Christmas Morning",
+        "brewery": "Hardywood Park",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "jo-returnflight-pkg",
+        "name": "Return Flight",
+        "brewery": "Jackie O's",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "jo-bigsnail-pkg",
+        "name": "Big Snail",
+        "brewery": "Jackie O's",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ]
+      },
+      {
+        "id": "oktoberfest6packs",
+        "name": "《オクトーバーフェスト！》 Pils （3本）・Oktoberfest 2026 （3本）",
+        "brewery": "MIX",
+        "source": "antenna",
+        "gaps": [
+          "hops",
+          "abv"
+        ]
+      }
+    ],
+    "hop_in_description_candidates": [
+      {
+        "id": "firestone-walker-mind-haze-setof6bottles",
+        "name": "Mind Haze 3種6本セット",
+        "found": [
+          "Galaxy"
+        ]
+      }
+    ],
+    "unknown_hop_names": {}
+  }
+}

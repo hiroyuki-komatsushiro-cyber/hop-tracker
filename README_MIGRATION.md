@@ -31,9 +31,8 @@ hop-automation/
 
 ## 自動更新のセットアップ
 
-1. https://console.anthropic.com でAPIキーを発行
-2. GitHubリポジトリの Settings → Secrets → Actions に `ANTHROPIC_API_KEY` を登録
-3. Actions タブ → `Weekly Antenna America Hop Product Update` → Run workflow で動作確認
+1. （任意）https://console.anthropic.com でAPIキーを発行し、GitHubリポジトリの Settings → Secrets → Actions に `ANTHROPIC_API_KEY` を登録。未設定でも収集本体は問題なく動作する(説明文からの追加ホップ抽出機能のみ使われない)
+2. Actions タブ → `Weekly Antenna America Hop Product Update`（毎週火曜9:00 JST）/ `Monthly Full Catalog Audit`（毎月1日9:00 JST）→ Run workflow で動作確認
 
 ## 手動でHTMLを再ビルドする方法
 
@@ -46,8 +45,11 @@ python3 scripts/build_html.py
 
 ## 巡回対象サイト
 
-- **Antenna America**: https://www.antenna-america.com/en/collections/new-arrivals
-- **Southbound**: 全スタイルページ（ipa / hazy-ipa / pale-ale / saison / sour / stout / lager / wheat / amber / belgian / porter）
+各サイトが公開しているShopify標準の `products.json` フィード(`{base_url}/products.json?limit=250&page=N`)を
+全ページ巡回する(2026-09〜。コレクションページのHTMLスクレイピングは誤検出が多く廃止済み、詳細は`scripts/update_sources.json`)。
+
+- **Antenna America**: https://www.antenna-america.com
+- **Southbound**: https://southbound.jp
 
 ## データの仕様（products.json）
 
@@ -69,9 +71,29 @@ python3 scripts/build_html.py
 
 - 既存商品（同一id）は絶対に削除しない
 - 新商品は必ず image / description（日本語）/ hops / abv を揃えてから追記。ページ自体がホップ品種を開示していない商品（スタウト・サワー・ラガー・サイダー等に多い）は空配列のままでよい——推測で埋めない
-- 画像URLはog:imageから取得（?width=400を付与）
-- ホップはアロマチャートに未収録のものがあれば hops_tab.js の hops配列と hopDesc オブジェクトにも追加。ただしアロマの0〜5スコアは感覚評価が必要なため自動生成せず、`data/last_run_summary.json`の`hops_needing_aroma_review`に溜まったものを人間(またはAIとユーザーの対話)でレビューしてから追加すること
-- ブルワリー名は名寄せ済み（LA Ale Works / Harland / Revision Brewing で統一）。`update_products.py`の`BREWERY_ALIASES`に既知のゆれを追記していく方式
-- ビルド後は可能なら `node --check` で構文チェック（ローカル環境にNode.jsが無い場合はPythonで`docs/index.html`内の`var products = [...]`をjson.loadsしてパース確認するだけでも良い）
-- 出力ファイル名は `docs/index.html` 固定（GitHub Pages公開用。旧仕様の`hop_aroma_chart_YYYYMMDD.html`は使用しない）
-- **2026-08-17時点の状態**: このリポジトリはまだGitHubに一度もpushされておらず、`.github/workflows/weekly-update.yml`の自動実行は稼働していない（ローカルフォルダのみ）。現在の195商品は過去のセッションで手動/対話的に集めたデータ。`update_products.py`は当時Antenna Americaのみ・image/description未取得の実装だったため、Southbound巡回＋image/description取得＋source記録に対応させ、`weekly-update.yml`にHTML自動再生成ステップを追加済み（実運用にはGitHubリポジトリ作成・ANTHROPIC_API_KEYのSecrets登録が必要、README.mdのセットアップ手順を参照）
+- 画像URLはproducts.jsonフィードの`images[0].src`から取得（?width=400を付与）
+- ホップはアロマチャートに未収録のものがあれば hops_tab.js の hops配列と hopDesc オブジェクトにも追加。ただしアロマの0〜5スコアは感覚評価が必要なため自動生成せず、実在確認(BeerMaverick/Hopsteiner/Yakima Chief等の一次情報源)を取った上で追加すること。`data/audit_review.json`の`needs_review.unknown_hop_names`に溜まったものがレビュー対象
+- ブルワリー名・ホップ名の表記ゆれは`update_products.py`の`BREWERY_ALIASES`/`HOP_NAME_FIXES`に追記していく方式。新しいゆれを見つけたら必ずそこに追記する(2箇所以上に同じ正規化ロジックを書き写さない)
+- 出力ファイル名は `docs/index.html` 固定（GitHub Pages公開用）
+
+## 月次監査（scripts/audit_catalog.py）
+
+週次の`update_products.py`は「新商品の検出」専用の軽量処理であり、以下は拾えない。これを毎月1日に
+`monthly-audit.yml`が自動実行して点検する(2026-10-02導入、きっかけは同日に発見した実例: Shopify側のURL変更で
+5商品のIDが無効化し、次週の週次実行が「新商品」と誤認して重複追加する一歩手前だった事象):
+
+- 商品の二重登録（ブリュワリー名+商品名の一致で検出）
+- 商品ページのURL/IDがサイト側のハンドル変更で無効化していないか
+- 説明文中にホップ品種名が埋もれていて構造化欄(hops)に未反映のもの
+- hops[]に使われているが hops_tab.js のアロマチャートに未収録の品種名
+
+このうち「表記ゆれの再正規化」と「IDが今も有効なハンドルに一致する商品の欠落フィールド補完」は
+機械的に安全なため自動適用される。それ以外（二重登録候補・ハンドル不整合候補・説明文からの
+ホップ抽出候補・未知の品種名）は**自動適用せず** `data/audit_review.json` に記録するだけに留める
+——いずれも「本当に同一商品か」「実在する品種名か」の判断にWeb検索や人間的判断が必要なため、
+誤った自動適用はデータ破損や品種の捏造になり得る。月1回、Claudeが`data/audit_review.json`を読んで
+Web検索で裏取りし、安全と確認できたものだけ反映する運用（スケジュール済みタスクとして設定済み）。
+
+- **2026-10-02時点の状態**: GitHub Pagesで公開中、週次(`weekly-update.yml`)・月次(`monthly-audit.yml`)とも
+  実運用で動作確認済み。商品492件・ホップ175品種。`ANTHROPIC_API_KEY`は登録されているが値が無効(401)の
+  ままだが、収集本体には影響しない(説明文からの追加ホップ抽出機能のみ使われない)
