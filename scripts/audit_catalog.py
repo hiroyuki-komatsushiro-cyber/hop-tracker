@@ -7,6 +7,9 @@
   - 商品が別IDで二重登録されていないか(ブリュワリー+商品名の近似一致)
   - 商品のURL/IDがサイト側のハンドル変更で実在しなくなっていないか
     (放置すると次回の週次実行が「新商品」と誤認して重複追加する)
+  - 商品のURL/IDは実在するが、Shopify側がそのハンドルを全く別の商品に再利用していないか
+    (2026-10-02の月次監査で実例を確認: 廃盤商品のハンドルが別の新商品に再利用されていた。
+    ブリュワリー名が一致しない場合は同一商品と断定せず補完もスキップする)
   - 説明文中にホップ品種名が埋もれていて構造化欄(hops)に未反映のもの
   - hops[]に使われているが scripts/hops_tab.js のアロマチャートに未収録の品種名
 
@@ -42,6 +45,27 @@ def handle_from_url(url: str) -> str:
     if not url:
         return ""
     return url.rstrip("/").split("/")[-1]
+
+
+BREWERY_STOPWORDS = {"brewing", "brewery", "company", "co", "the"}
+STYLE_STOPWORDS = {
+    "ipa", "dipa", "ale", "pils", "pilsner", "lager", "hazy", "juicy", "west", "coast",
+    "imperial", "double", "pale", "stout", "porter", "sour", "wheat", "amber", "blonde",
+}
+
+
+def word_tokens(name: str, extra_stopwords: set[str] = frozenset()) -> set[str]:
+    words = re.findall(r"[a-z0-9]+", (name or "").lower())
+    return {w for w in words if w not in extra_stopwords}
+
+
+def brewery_loosely_matches(a: str, b: str) -> bool:
+    """「Brewing」「Company」等の有無やLA/Los Angelesのような略記差で誤判定しないよう、
+    主要単語の共通集合があるかだけを見る(完全一致は厳しすぎることが実例で判明: 2026-10-02)。"""
+    ta, tb = word_tokens(a, BREWERY_STOPWORDS), word_tokens(b, BREWERY_STOPWORDS)
+    if not ta or not tb:
+        return True
+    return bool(ta & tb)
 
 
 def core_name_key(p: dict) -> str:
@@ -96,6 +120,7 @@ def main():
     renormalized = []
     backfilled = []
     stale_handle_candidates = []
+    handle_reassigned_candidates = []
     hop_in_description_candidates = []
     unknown_hop_names: dict[str, list[str]] = {}
 
@@ -116,6 +141,25 @@ def main():
             reparsed = (up.parse_antenna_product(raw, source, "https://www.antenna-america.com")
                         if source == "antenna" else
                         up.parse_southbound_product(raw, "https://southbound.jp", source))
+
+            # ハンドルが実在しても、同一商品とは限らない。Shopifyは商品削除後に同じ
+            # ハンドル(連番URL)を全く別の商品へ再利用することがある(2026-10-02の監査で
+            # 実例を確認: 旧Pivo Hoppy Pilsのハンドルが現在はNitro Merlinを指していた)。
+            # ブリュワリーも商品名も共通点が無い場合は同一商品と断定せず、補完を適用しない。
+            brewery_ok = brewery_loosely_matches(p.get("brewery"), reparsed.get("brewery"))
+            stored_name_tokens = word_tokens(p.get("name"), STYLE_STOPWORDS)
+            live_name_tokens = word_tokens(reparsed.get("name"), STYLE_STOPWORDS)
+            name_ok = (not stored_name_tokens or not live_name_tokens
+                       or bool(stored_name_tokens & live_name_tokens))
+            identity_ok = brewery_ok and name_ok
+
+            if not identity_ok:
+                handle_reassigned_candidates.append({
+                    "id": p["id"], "stored_name": p["name"], "stored_brewery": p.get("brewery"),
+                    "handle": handle, "live_name": reparsed.get("name"), "live_brewery": reparsed.get("brewery"),
+                })
+                continue
+
             changes = {}
             if not p.get("hops") and reparsed.get("hops"):
                 changes["hops"] = reparsed["hops"]
@@ -161,6 +205,7 @@ def main():
         "needs_review": {
             "duplicate_candidates": duplicate_candidates,
             "stale_handle_candidates": stale_handle_candidates,
+            "handle_reassigned_candidates": handle_reassigned_candidates,
             "hop_in_description_candidates": hop_in_description_candidates,
             "unknown_hop_names": dict(sorted(unknown_hop_names.items())),
         },
@@ -172,6 +217,7 @@ def main():
     print(f"needs review (see data/audit_review.json):")
     print(f"  - {len(duplicate_candidates)} possible duplicate record(s)")
     print(f"  - {len(stale_handle_candidates)} stale-handle candidate(s) (id/url no longer resolves live)")
+    print(f"  - {len(handle_reassigned_candidates)} handle-reassigned candidate(s) (handle now resolves to a different brewery)")
     print(f"  - {len(hop_in_description_candidates)} hop-in-description candidate(s)")
     print(f"  - {len(unknown_hop_names)} hop name(s) not yet in hops_tab.js's aroma chart")
 

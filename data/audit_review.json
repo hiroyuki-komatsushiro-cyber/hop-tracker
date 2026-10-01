@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-01",
+  "date": "2026-10-02",
   "auto_fixed": {
     "renormalized_hops": [],
     "backfilled_from_live_source": []
@@ -7,124 +7,22 @@
   "needs_review": {
     "duplicate_candidates": [
       {
-        "a": "fw-unionjack",
-        "a_name": "Union Jack IPA",
-        "b": "b047-c12022",
-        "b_name": "Firestone Walker Union Jack IPA"
-      },
-      {
         "a": "b070-c12001",
         "a_name": "Harland West Coast IPA",
         "b": "b070-c16047",
         "b_name": "Harland West Coast IPA"
       },
       {
-        "a": "b047-c12010",
-        "a_name": "Firestone Walker Pivo Hoppy Pils",
-        "b": "b047-c12006",
-        "b_name": "Pivo Hoppy Pils"
-      },
-      {
-        "a": "b047-c12064",
-        "a_name": "Firestone Walker Firestone IPA",
-        "b": "b047-c12127",
-        "b_name": "Firestone IPA"
-      },
-      {
-        "a": "b002-c16014",
-        "a_name": "North Coast Brother Thelonious",
-        "b": "b002-b12013",
-        "b_name": "Brother Thelonious"
-      },
-      {
-        "a": "b080-c12016",
-        "a_name": "Deschutes Mirror Pond Pale Ale",
-        "b": "b080-c12004",
-        "b_name": "Mirror Pond Pale Ale"
-      },
-      {
-        "a": "b080-c12022",
-        "a_name": "Deschutes Black Butte Porter",
-        "b": "b080-c12017",
-        "b_name": "Black Butte Porter"
-      },
-      {
-        "a": "b031-c12001",
-        "a_name": "Pizza Port Ponto Session IPA",
-        "b": "b024-c16031",
-        "b_name": "Ponto Session IPA"
-      },
-      {
-        "a": "b031-c12016",
-        "a_name": "Pizza Port Chronic Amber Ale",
-        "b": "b024-c16032",
-        "b_name": "Chronic Amber Ale"
-      },
-      {
-        "a": "b044-c16010",
-        "a_name": "Sierra Nevada Hoptimum",
-        "b": "b041-b12009",
-        "b_name": "Hoptimum"
-      },
-      {
-        "a": "b044-c12027",
-        "a_name": "Harland Japanese Lager",
-        "b": "b070-c16009",
-        "b_name": "Japanese Lager"
-      },
-      {
-        "a": "b039-c12012",
-        "a_name": "Karl Strauss Red Trolley Ale",
-        "b": "b029-b12002",
-        "b_name": "Red Trolley Ale"
-      },
-      {
-        "a": "stone-ipa-568",
-        "a_name": "Stone IPA (568ml)",
-        "b": "b010-c19011",
-        "b_name": "Stone IPA"
-      },
-      {
-        "a": "stone-ipa-568",
-        "a_name": "Stone IPA (568ml)",
-        "b": "b010-c12011",
-        "b_name": "Stone IPA"
+        "a": "b010-c19173",
+        "a_name": "Stone Hazy IPA",
+        "b": "b010-c12173",
+        "b_name": "Stone Hazy IPA"
       },
       {
         "a": "b010-c19011",
         "a_name": "Stone IPA",
         "b": "b010-c12011",
         "b_name": "Stone IPA"
-      },
-      {
-        "a": "tg-ddhkingsue",
-        "a_name": "Toppling Goliath DDH King Sue",
-        "b": "b085-c16012",
-        "b_name": "DDH King Sue"
-      },
-      {
-        "a": "topa-dostopas",
-        "a_name": "Topa Topa Dos Topas Lager",
-        "b": "b071-c12003",
-        "b_name": "Dos Topas Lager"
-      },
-      {
-        "a": "smogcity-littlebopils",
-        "a_name": "Smog City Little Bo Pils",
-        "b": "b060-c16003",
-        "b_name": "Little Bo Pils"
-      },
-      {
-        "a": "stone-delicious-hazy",
-        "a_name": "Stone Delicious Hazy IPA",
-        "b": "b010-c12197",
-        "b_name": "Stone Delicious Hazy IPA"
-      },
-      {
-        "a": "b010-c19173",
-        "a_name": "Stone Hazy IPA",
-        "b": "b010-c12173",
-        "b_name": "Stone Hazy IPA"
       },
       {
         "a": "b132-c16007",
@@ -174,27 +72,9 @@
         ]
       },
       {
-        "id": "revision-artcar",
-        "name": "Art Car Hazy IPA",
-        "brewery": "Revision Brewing",
-        "source": "antenna",
-        "gaps": [
-          "url"
-        ]
-      },
-      {
         "id": "b053-c16006",
         "name": "THC IPA",
         "brewery": "The Hop Concept",
-        "source": "antenna",
-        "gaps": [
-          "abv"
-        ]
-      },
-      {
-        "id": "b114-broken-record",
-        "name": "Embolden Beer Co Broken Record West Coast IPA",
-        "brewery": "Embolden Beer Co",
         "source": "antenna",
         "gaps": [
           "abv"
@@ -270,38 +150,9 @@
         ]
       },
       {
-        "id": "b095-c16035a",
-        "name": "LA Ale Works Blue Vibes 2 West Coast IPA",
-        "brewery": "LA Ale Works",
-        "source": "antenna",
-        "gaps": [
-          "abv"
-        ]
-      },
-      {
-        "id": "b095-c16027a",
-        "name": "LA Ale Works Lunar Kitten Hazy IPA",
-        "brewery": "LA Ale Works",
-        "source": "antenna",
-        "gaps": [
-          "hops",
-          "abv"
-        ]
-      },
-      {
         "id": "b114-c16018",
         "name": "Embolden Beer Co Brave the Haze Hazy DIPA",
         "brewery": "Embolden Beer Co",
-        "source": "antenna",
-        "gaps": [
-          "hops",
-          "abv"
-        ]
-      },
-      {
-        "id": "b055-c16042",
-        "name": "Revision The Bird (Faction Brewing Collab)",
-        "brewery": "Revision Brewing",
         "source": "antenna",
         "gaps": [
           "hops",
@@ -392,71 +243,6 @@
         "source": "southbound",
         "gaps": [
           "hops"
-        ]
-      },
-      {
-        "id": "b081-c12001",
-        "name": "Founders KBS",
-        "brewery": "Founders",
-        "source": "antenna",
-        "gaps": [
-          "hops"
-        ]
-      },
-      {
-        "id": "b002-c16014",
-        "name": "North Coast Brother Thelonious",
-        "brewery": "North Coast",
-        "source": "antenna",
-        "gaps": [
-          "hops"
-        ]
-      },
-      {
-        "id": "b080-c12022",
-        "name": "Deschutes Black Butte Porter",
-        "brewery": "Deschutes",
-        "source": "antenna",
-        "gaps": [
-          "hops"
-        ]
-      },
-      {
-        "id": "tg-ddhkingsue",
-        "name": "Toppling Goliath DDH King Sue",
-        "brewery": "Toppling Goliath",
-        "source": "antenna",
-        "gaps": [
-          "abv"
-        ]
-      },
-      {
-        "id": "topa-dostopas",
-        "name": "Topa Topa Dos Topas Lager",
-        "brewery": "Topa Topa",
-        "source": "antenna",
-        "gaps": [
-          "hops",
-          "abv"
-        ]
-      },
-      {
-        "id": "smogcity-littlebopils",
-        "name": "Smog City Little Bo Pils",
-        "brewery": "Smog City",
-        "source": "antenna",
-        "gaps": [
-          "hops",
-          "abv"
-        ]
-      },
-      {
-        "id": "stone-delicious-hazy",
-        "name": "Stone Delicious Hazy IPA",
-        "brewery": "Stone Brewing",
-        "source": "antenna",
-        "gaps": [
-          "abv"
         ]
       },
       {
@@ -558,6 +344,56 @@
           "hops",
           "abv"
         ]
+      }
+    ],
+    "handle_reassigned_candidates": [
+      {
+        "id": "b095-c16041",
+        "stored_name": "LA Ale Works Chromatic Juicy DIPA",
+        "stored_brewery": "LA Ale Works",
+        "handle": "b095-c16041",
+        "live_name": "Disco Bird Juicy IPA",
+        "live_brewery": "Los Angeles Ale Works"
+      },
+      {
+        "id": "b055-c16030",
+        "stored_name": "Revision Emerald Bay IPA",
+        "stored_brewery": "Revision Brewing",
+        "handle": "b055-c16030",
+        "live_name": "The Bruff",
+        "live_brewery": "Revision Brewing"
+      },
+      {
+        "id": "b121-c16017",
+        "stored_name": "Ambitious Ales Friends in High Places Hazy IPA",
+        "stored_brewery": "Ambitious Ales",
+        "handle": "b121-c16017",
+        "live_name": "Clothes from the Matrix WC IPA (8 Bitコラボ)",
+        "live_brewery": "Ambitious Ales"
+      },
+      {
+        "id": "b121-c16006",
+        "stored_name": "Ambitious Ales Gravel Rash DIPA",
+        "stored_brewery": "Ambitious Ales",
+        "handle": "b121-c16006",
+        "live_name": "Central Perk",
+        "live_brewery": "Ambitious Ales"
+      },
+      {
+        "id": "b121-c16013",
+        "stored_name": "Ambitious Ales Hazy Speedboat Hazy IPA",
+        "stored_brewery": "Ambitious Ales",
+        "handle": "b121-c16013",
+        "live_name": "Porch Rack Mexican Lager",
+        "live_brewery": "Ambitious Ales"
+      },
+      {
+        "id": "b080-c12020",
+        "stored_name": "Deschutes King Crispy",
+        "stored_brewery": "Deschutes",
+        "handle": "b080-c12020",
+        "live_name": "Neon Daydream",
+        "live_brewery": "Deschutes"
       }
     ],
     "hop_in_description_candidates": [
