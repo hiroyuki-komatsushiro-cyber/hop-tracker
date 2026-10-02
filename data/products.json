@@ -1292,15 +1292,18 @@
       "source": "antenna"
     },
     {
-      "id": "b095-c16041",
-      "name": "LA Ale Works Chromatic Juicy DIPA",
-      "brewery": "LA Ale Works",
-      "style": "Hazy DIPA",
-      "abv": "7%",
-      "hops": [],
-      "url": "https://www.antenna-america.com/en/products/b095-c16041",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/B095-C16041_DiscoBird.png?width=400",
-      "description": "LAエール・ワークスのジューシーDIPA「Chromatic」。カラフルな色彩をテーマにした缶デザインと、層を重ねるように押し寄せるトロピカルフルーツの豊かなアロマが魅力のダブルIPA。",
+      "id": "b095-c16002",
+      "name": "Chromatic Juicy DIPA",
+      "brewery": "Los Angeles Ale Works",
+      "style": "DIPA",
+      "abv": "8.5%",
+      "hops": [
+        "Galaxy",
+        "Nelson Sauvin"
+      ],
+      "url": "https://www.antenna-america.com/products/b095-c16002",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/Chromatic.png?width=400",
+      "description": "GalaxyとNelson Sauvinホップを使いトロピカルフルーツ、メロン、白ブドウのように果汁感たっぷりなJuicy Double IPA",
       "added": "2026-07-03",
       "source": "antenna"
     },
@@ -1335,18 +1338,20 @@
       "source": "antenna"
     },
     {
-      "id": "b055-c16030",
-      "name": "Revision Emerald Bay IPA",
+      "id": "b055-c16100",
+      "name": "Emerald Bay IPA",
       "brewery": "Revision Brewing",
       "style": "IPA",
-      "abv": "8%",
+      "abv": "6.4%",
       "hops": [
-        "Citra",
-        "Mosaic"
+        "Mosaic",
+        "Motueka",
+        "Cashmere",
+        "Citra"
       ],
-      "url": "https://www.antenna-america.com/en/products/b055-c16030",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/TheBruff.png?width=400",
-      "description": "タホ湖のエメラルドベイに着想を得たRevisionのIPA。透き通るような清涼感とホップの爽やかなアロマが美しく融合した一本。リノの大自然が感じられるクリーンなウェストコーストスタイルのIPAです。",
+      "url": "https://www.antenna-america.com/products/b055-c16100",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/EmeraldBay.png?width=400",
+      "description": "Revisionの本拠地Renoはネバダ州とカリフォルニア州の境目にあり、そのすぐ南には二つの州をまたがるLake Tahoeがあります。この巨大な湖はその透明度の高さから「エメラルドベイ」と呼ばれ、このエリアを代表する著名な観光エリアの一つです。Lake Tahoeのようにクリアなこの限定IPAはMosaic、Motueka、Cashmere、Citraホップを使っており、マンゴー、ライム、完熟オレンジ、そして僅かな松のような風味が楽しめます。",
       "added": "2026-07-03",
       "source": "antenna"
     },
@@ -1826,8 +1831,8 @@
         "Mosaic",
         "Tangier"
       ],
-      "url": "https://www.antenna-america.com/en/products/b121-c16017",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/ClothesFromTheMatrixWCIPA.png?width=400",
+      "url": "",
+      "image": "",
       "description": "シトラ、モザイク、そして注目の新品種タンジアーを使ったヘイジーIPA。タンジェリン、ライム、マンゴー、パッションフルーツの鮮やかなアロマが広がる。Ambitious Alesはコロラド州ブルームフィールド発のマイクロブリュワリー。",
       "source": "antenna",
       "added": "2026-07-25"
@@ -1861,8 +1866,8 @@
         "El Dorado",
         "Nelson Sauvin (NZ Hops)"
       ],
-      "url": "https://www.antenna-america.com/en/products/b121-c16006",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/CentralPerk_2.png?width=400",
+      "url": "",
+      "image": "",
       "description": "シトラ、モザイク、エル・ドラード、ネルソン・ソーヴィンを組み合わせたダブルIPA。砂利で擦りむいたような刺激的なホップの苦みと、熟したトロピカルフルーツのジューシーさが同居する8.2%の一本。",
       "source": "antenna",
       "added": "2026-07-25"
@@ -1878,8 +1883,8 @@
         "Mosaic",
         "Galaxy"
       ],
-      "url": "https://www.antenna-america.com/en/products/b121-c16013",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/PorchRack.jpg?width=400",
+      "url": "",
+      "image": "",
       "description": "シトラ、モザイク、ギャラクシーで醸すヘイジーIPA。スピードボートで水面を切るように爽快なトロピカルフルーツと柑橘のアロマが駆け抜ける一杯。",
       "source": "antenna",
       "added": "2026-07-25"
@@ -2179,18 +2184,15 @@
       "added": "2026-08-03"
     },
     {
-      "id": "b080-c12020",
-      "name": "Deschutes King Crispy",
+      "id": "b080-c12050",
+      "name": "King Crispy",
       "brewery": "Deschutes",
-      "style": "Lager / Pilsner",
-      "abv": "4.5%",
-      "hops": [
-        "Cascade",
-        "Centennial"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b080-c12020",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/NeonDaydream2.png?width=400",
-      "description": "「クリスピーの王様」の名を冠したデシュートスのライトラガー。カスケードとセンテニアルでほのかなホップ感を加えた、シャープでクリスプな飲み口が特徴。日本の料理にも合う万能な低アルコールラガー。",
+      "style": "Pilsner",
+      "abv": "4.8%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b080-c12050",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/KingCrispyPilsner.png?width=400",
+      "description": "軽い麦芽の香りが鼻を抜け、花やスパイスのようなホップの風味、そして後をひくような爽やかな飲み口。アメリカンピルスナーに求めるものすべてがこのビールに詰まっています。\rドイツの名門ビットブルガー社主催のポートランドで行われたピルスナーコンペで優勝したことをきっかけにDeschutesの定番商品になりました。",
       "source": "antenna",
       "added": "2026-08-03"
     },

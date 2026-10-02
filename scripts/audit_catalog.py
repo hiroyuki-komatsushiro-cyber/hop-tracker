@@ -104,6 +104,28 @@ def find_duplicate_candidates(products: list[dict]) -> list[dict]:
     return candidates
 
 
+def find_relocation_candidates(p: dict, catalog: list[dict], known_ids: set[str]) -> list[dict]:
+    """ハンドルが消えた/別商品に再利用された商品について、同じ銘柄が新しいハンドルで
+    再登録されていないかをライブカタログのタイトルから探す(提案のみ・自動適用しない)。
+    2026-10-02の監査で、再利用された6件中3件(Chromatic / Emerald Bay / King Crispy)が
+    別ハンドルで現存していたのを手作業の名前検索で発見したため、その手順を自動化した。
+    ブリュワリー名・スタイル語を除いた固有語がすべてタイトルに含まれるものだけを候補とする。
+    容量違い(355/473ml)で複数ヒットしうるので、ABV・容量の一致確認は人間/Claudeが行うこと。"""
+    core = word_tokens(p.get("name"), STYLE_STOPWORDS | BREWERY_STOPWORDS) - word_tokens(p.get("brewery"))
+    if not core:
+        return []
+    hits = []
+    for raw in catalog:
+        if raw["handle"] == handle_from_url(p.get("url", "")) or raw["handle"] in known_ids:
+            continue
+        # antennaはタイトル先頭に、southboundはvendor欄にブリュワリー名が入る
+        brewery_text = f"{raw.get('title', '')} {raw.get('vendor', '')}"
+        if core <= word_tokens(raw.get("title")) and brewery_loosely_matches(p.get("brewery"), brewery_text):
+            hits.append({"handle": raw["handle"], "title": raw.get("title"),
+                         "available": any(v.get("available") for v in raw.get("variants", []))})
+    return hits
+
+
 def main():
     with open(DATA_PATH, encoding="utf-8") as f:
         data = json.load(f)
@@ -116,6 +138,8 @@ def main():
     print(f"  antenna: {len(antenna_catalog)} / southbound: {len(southbound_catalog)}")
     antenna_by_handle = {p["handle"]: p for p in antenna_catalog}
     southbound_by_handle = {p["handle"]: p for p in southbound_catalog}
+    catalog_by_source = {"antenna": antenna_catalog, "southbound": southbound_catalog}
+    known_ids = {p["id"] for p in products}
 
     renormalized = []
     backfilled = []
@@ -157,6 +181,7 @@ def main():
                 handle_reassigned_candidates.append({
                     "id": p["id"], "stored_name": p["name"], "stored_brewery": p.get("brewery"),
                     "handle": handle, "live_name": reparsed.get("name"), "live_brewery": reparsed.get("brewery"),
+                    "relocation_candidates": find_relocation_candidates(p, catalog_by_source.get(source, []), known_ids),
                 })
                 continue
 
@@ -178,6 +203,7 @@ def main():
                 stale_handle_candidates.append({
                     "id": p["id"], "name": p["name"], "brewery": p.get("brewery"),
                     "source": source, "gaps": gaps,
+                    "relocation_candidates": find_relocation_candidates(p, catalog_by_source.get(source, []), known_ids),
                 })
 
         if not p.get("hops"):

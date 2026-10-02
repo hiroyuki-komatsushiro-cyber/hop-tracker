@@ -13,6 +13,12 @@
         "b_name": "Harland West Coast IPA"
       },
       {
+        "a": "b055-c16100",
+        "a_name": "Emerald Bay IPA",
+        "b": "b055-c12100",
+        "b_name": "Emerald Bay IPA"
+      },
+      {
         "a": "b010-c19173",
         "a_name": "Stone Hazy IPA",
         "b": "b010-c12173",
@@ -51,7 +57,8 @@
         "source": "antenna",
         "gaps": [
           "hops"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "b082-c12006",
@@ -60,7 +67,8 @@
         "source": "antenna",
         "gaps": [
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "b111-c12001",
@@ -69,7 +77,8 @@
         "source": "antenna",
         "gaps": [
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "b053-c16006",
@@ -78,7 +87,8 @@
         "source": "antenna",
         "gaps": [
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "faction-b001",
@@ -87,7 +97,8 @@
         "source": "antenna",
         "gaps": [
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "faction-b002",
@@ -97,7 +108,8 @@
         "gaps": [
           "hops",
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "pure-project-b001",
@@ -107,7 +119,8 @@
         "gaps": [
           "hops",
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "cerebral-b001",
@@ -117,7 +130,8 @@
         "gaps": [
           "hops",
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "unsung-b001",
@@ -127,7 +141,8 @@
         "gaps": [
           "hops",
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "b-east-brother-001",
@@ -137,7 +152,8 @@
         "gaps": [
           "hops",
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "shred-b001",
@@ -147,7 +163,8 @@
         "gaps": [
           "hops",
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "b114-c16018",
@@ -157,6 +174,18 @@
         "gaps": [
           "hops",
           "abv"
+        ],
+        "relocation_candidates": [
+          {
+            "handle": "b114-c16003",
+            "title": "Embolden Beer Co Brave the Haze Hazy DIPA (473ml) / ブレイブ ザ ヘイズ",
+            "available": false
+          },
+          {
+            "handle": "b114-c16003a",
+            "title": "Embolden Beer Co Brave the Haze Hazy DIPA (473ml) / ブレイブ ザ ヘイズ",
+            "available": false
+          }
         ]
       },
       {
@@ -167,7 +196,8 @@
         "gaps": [
           "hops",
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "hi-coolernights-pkg",
@@ -177,7 +207,8 @@
         "gaps": [
           "hops",
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "rc-discobaby-pkg",
@@ -187,7 +218,8 @@
         "gaps": [
           "hops",
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "hi-lopitchhazyipa-pkg",
@@ -196,7 +228,8 @@
         "source": "southbound",
         "gaps": [
           "hops"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "jo-flamestitch-pkg",
@@ -206,7 +239,8 @@
         "gaps": [
           "hops",
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "rc-halfaslonely-pkg",
@@ -216,7 +250,8 @@
         "gaps": [
           "hops",
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "b078-c16007",
@@ -225,7 +260,8 @@
         "source": "antenna",
         "gaps": [
           "hops"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "jk-apalegreenhorse-pkg",
@@ -234,7 +270,8 @@
         "source": "southbound",
         "gaps": [
           "hops"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "sa-thetraveler-pkg",
@@ -243,7 +280,8 @@
         "source": "southbound",
         "gaps": [
           "hops"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "hi-hiwirelager-pkg",
@@ -252,7 +290,8 @@
         "source": "southbound",
         "gaps": [
           "hops"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "rc-smokedsilence-pkg",
@@ -261,7 +300,8 @@
         "source": "southbound",
         "gaps": [
           "hops"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "su-peanutbutterjellycrime-pkg",
@@ -270,7 +310,8 @@
         "source": "southbound",
         "gaps": [
           "hops"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "su-superstation-pkg",
@@ -279,7 +320,8 @@
         "source": "southbound",
         "gaps": [
           "hops"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "sa-eternaltruth-pkg",
@@ -288,7 +330,8 @@
         "source": "southbound",
         "gaps": [
           "hops"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "sa-sharedconcepts-pkg",
@@ -297,7 +340,8 @@
         "source": "southbound",
         "gaps": [
           "hops"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "sa-chapterverse-pkg",
@@ -306,7 +350,8 @@
         "source": "southbound",
         "gaps": [
           "hops"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "hw-kyxmasmorningcan-pkg",
@@ -315,7 +360,8 @@
         "source": "southbound",
         "gaps": [
           "hops"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "jo-returnflight-pkg",
@@ -324,7 +370,8 @@
         "source": "southbound",
         "gaps": [
           "hops"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "jo-bigsnail-pkg",
@@ -333,7 +380,8 @@
         "source": "southbound",
         "gaps": [
           "hops"
-        ]
+        ],
+        "relocation_candidates": []
       },
       {
         "id": "oktoberfest6packs",
@@ -343,33 +391,19 @@
         "gaps": [
           "hops",
           "abv"
-        ]
+        ],
+        "relocation_candidates": []
       }
     ],
     "handle_reassigned_candidates": [
-      {
-        "id": "b095-c16041",
-        "stored_name": "LA Ale Works Chromatic Juicy DIPA",
-        "stored_brewery": "LA Ale Works",
-        "handle": "b095-c16041",
-        "live_name": "Disco Bird Juicy IPA",
-        "live_brewery": "Los Angeles Ale Works"
-      },
-      {
-        "id": "b055-c16030",
-        "stored_name": "Revision Emerald Bay IPA",
-        "stored_brewery": "Revision Brewing",
-        "handle": "b055-c16030",
-        "live_name": "The Bruff",
-        "live_brewery": "Revision Brewing"
-      },
       {
         "id": "b121-c16017",
         "stored_name": "Ambitious Ales Friends in High Places Hazy IPA",
         "stored_brewery": "Ambitious Ales",
         "handle": "b121-c16017",
         "live_name": "Clothes from the Matrix WC IPA (8 Bitコラボ)",
-        "live_brewery": "Ambitious Ales"
+        "live_brewery": "Ambitious Ales",
+        "relocation_candidates": []
       },
       {
         "id": "b121-c16006",
@@ -377,7 +411,8 @@
         "stored_brewery": "Ambitious Ales",
         "handle": "b121-c16006",
         "live_name": "Central Perk",
-        "live_brewery": "Ambitious Ales"
+        "live_brewery": "Ambitious Ales",
+        "relocation_candidates": []
       },
       {
         "id": "b121-c16013",
@@ -385,15 +420,8 @@
         "stored_brewery": "Ambitious Ales",
         "handle": "b121-c16013",
         "live_name": "Porch Rack Mexican Lager",
-        "live_brewery": "Ambitious Ales"
-      },
-      {
-        "id": "b080-c12020",
-        "stored_name": "Deschutes King Crispy",
-        "stored_brewery": "Deschutes",
-        "handle": "b080-c12020",
-        "live_name": "Neon Daydream",
-        "live_brewery": "Deschutes"
+        "live_brewery": "Ambitious Ales",
+        "relocation_candidates": []
       }
     ],
     "hop_in_description_candidates": [
