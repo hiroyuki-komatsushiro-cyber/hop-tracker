@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-02",
+  "date": "2026-10-06",
   "auto_fixed": {
     "renormalized_hops": [],
     "backfilled_from_live_source": []
@@ -17,6 +17,12 @@
         "a_name": "Emerald Bay IPA",
         "b": "b055-c12100",
         "b_name": "Emerald Bay IPA"
+      },
+      {
+        "a": "b047-c12081",
+        "a_name": "Firestone Walker Easy Jack",
+        "b": "b047-c12002",
+        "b_name": "Easy Jack"
       },
       {
         "a": "b010-c19173",
@@ -232,6 +238,16 @@
         "relocation_candidates": []
       },
       {
+        "id": "rc-goldeneternity-pkg",
+        "name": "Golden Eternity",
+        "brewery": "Resident Culture",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ],
+        "relocation_candidates": []
+      },
+      {
         "id": "jo-flamestitch-pkg",
         "name": "Flamestitch",
         "brewery": "Jackie O's",
@@ -277,6 +293,16 @@
         "id": "sa-thetraveler-pkg",
         "name": "Sante Adairius The Traveler",
         "brewery": "Sante Adairius",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ],
+        "relocation_candidates": []
+      },
+      {
+        "id": "hi-leisuretimelager-pkg",
+        "name": "Leisure Time Lager",
+        "brewery": "Hi-Wire Brewing",
         "source": "southbound",
         "gaps": [
           "hops"
@@ -334,16 +360,6 @@
         "relocation_candidates": []
       },
       {
-        "id": "sa-sharedconcepts-pkg",
-        "name": "Shared Concepts",
-        "brewery": "Sante Adairius",
-        "source": "southbound",
-        "gaps": [
-          "hops"
-        ],
-        "relocation_candidates": []
-      },
-      {
         "id": "sa-chapterverse-pkg",
         "name": "Chapter & Verse",
         "brewery": "Sante Adairius",
@@ -357,6 +373,16 @@
         "id": "hw-kyxmasmorningcan-pkg",
         "name": "Kentucky Christmas Morning",
         "brewery": "Hardywood Park",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ],
+        "relocation_candidates": []
+      },
+      {
+        "id": "jk-psychmetal-pkg",
+        "name": "Psych Metal",
+        "brewery": "Jester King",
         "source": "southbound",
         "gaps": [
           "hops"
@@ -430,6 +456,15 @@
         "name": "Mind Haze 3種6本セット",
         "found": [
           "Galaxy"
+        ]
+      },
+      {
+        "id": "deschutes4buttele-set",
+        "name": "《Patagoniaコラボ含む》 Deschutes Brewery 4本セット",
+        "found": [
+          "Amarillo",
+          "Mandarina Bavaria",
+          "Cashmere"
         ]
       }
     ],

@@ -41,31 +41,13 @@ REVIEW_PATH = ROOT / "data" / "audit_review.json"
 KNOWN_UNRESOLVED_HOPS = {"Brema", "Torpedo Hop", "X7"}
 
 
-def handle_from_url(url: str) -> str:
-    if not url:
-        return ""
-    return url.rstrip("/").split("/")[-1]
-
-
-BREWERY_STOPWORDS = {"brewing", "brewery", "company", "co", "the"}
-STYLE_STOPWORDS = {
-    "ipa", "dipa", "ale", "pils", "pilsner", "lager", "hazy", "juicy", "west", "coast",
-    "imperial", "double", "pale", "stout", "porter", "sour", "wheat", "amber", "blonde",
-}
-
-
-def word_tokens(name: str, extra_stopwords: set[str] = frozenset()) -> set[str]:
-    words = re.findall(r"[a-z0-9]+", (name or "").lower())
-    return {w for w in words if w not in extra_stopwords}
-
-
-def brewery_loosely_matches(a: str, b: str) -> bool:
-    """「Brewing」「Company」等の有無やLA/Los Angelesのような略記差で誤判定しないよう、
-    主要単語の共通集合があるかだけを見る(完全一致は厳しすぎることが実例で判明: 2026-10-02)。"""
-    ta, tb = word_tokens(a, BREWERY_STOPWORDS), word_tokens(b, BREWERY_STOPWORDS)
-    if not ta or not tb:
-        return True
-    return bool(ta & tb)
+# 「同一商品か」の判定ロジックは週次スクリプトと共通なので、update_products.pyの定義を使う
+# (2箇所に同じロジックを書き写さない)。
+handle_from_url = up.handle_from_url
+word_tokens = up.word_tokens
+brewery_loosely_matches = up.brewery_loosely_matches
+BREWERY_STOPWORDS = up.BREWERY_STOPWORDS
+STYLE_STOPWORDS = up.STYLE_STOPWORDS
 
 
 def core_name_key(p: dict) -> str:
@@ -170,14 +152,7 @@ def main():
             # ハンドル(連番URL)を全く別の商品へ再利用することがある(2026-10-02の監査で
             # 実例を確認: 旧Pivo Hoppy Pilsのハンドルが現在はNitro Merlinを指していた)。
             # ブリュワリーも商品名も共通点が無い場合は同一商品と断定せず、補完を適用しない。
-            brewery_ok = brewery_loosely_matches(p.get("brewery"), reparsed.get("brewery"))
-            stored_name_tokens = word_tokens(p.get("name"), STYLE_STOPWORDS)
-            live_name_tokens = word_tokens(reparsed.get("name"), STYLE_STOPWORDS)
-            name_ok = (not stored_name_tokens or not live_name_tokens
-                       or bool(stored_name_tokens & live_name_tokens))
-            identity_ok = brewery_ok and name_ok
-
-            if not identity_ok:
+            if not up.same_product(p, reparsed):
                 handle_reassigned_candidates.append({
                     "id": p["id"], "stored_name": p["name"], "stored_brewery": p.get("brewery"),
                     "handle": handle, "live_name": reparsed.get("name"), "live_brewery": reparsed.get("brewery"),

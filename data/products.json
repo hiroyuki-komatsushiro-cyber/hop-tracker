@@ -7270,58 +7270,6 @@
       "added": "2026-10-06"
     },
     {
-      "id": "r058-c12007",
-      "name": "Hard Seltzer Dragon Fruit Orange",
-      "brewery": "Belching Beaver",
-      "style": "Hard Seltzer",
-      "abv": "5.5%",
-      "hops": [],
-      "url": "https://www.antenna-america.com/products/r058-c12007",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/HardSeltzerDragonFruitOrange.png?width=400",
-      "description": "ドラゴンフルーツとオレンジを使ったすっきりとした甘みのハードセルツァー。余計な添加物を使わず本物のフルーツのみ使用。",
-      "source": "antenna",
-      "added": "2026-10-06"
-    },
-    {
-      "id": "r058-c12006",
-      "name": "Hard Seltzer Tropical Punch",
-      "brewery": "Belching Beaver",
-      "style": "Hard Seltzer",
-      "abv": "5.5%",
-      "hops": [],
-      "url": "https://www.antenna-america.com/products/r058-c12006",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/HardSeltzerTropicalPunch.png?width=400",
-      "description": "パイナップル、オレンジ、パッションフルーツを使ったフルーツパンチ味のハードセルツァー。余計な添加物を使わず本物のフルーツのみ使用。",
-      "source": "antenna",
-      "added": "2026-10-06"
-    },
-    {
-      "id": "r058-c12005",
-      "name": "Hard Seltzer Raspberry Lemonade",
-      "brewery": "Belching Beaver",
-      "style": "Hard Seltzer",
-      "abv": "5.5%",
-      "hops": [],
-      "url": "https://www.antenna-america.com/products/r058-c12005",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/HardSeltzerRaspberryLemonade.png?width=400",
-      "description": "ラズベリーとレモンと使用しフルーティーで爽快な酸味が楽しめるハードセルツァー。余計な添加物を使わず本物のフルーツのみ使用。",
-      "source": "antenna",
-      "added": "2026-10-06"
-    },
-    {
-      "id": "r058-c12004",
-      "name": "Hard Seltzer Passion fruit Guava",
-      "brewery": "Belching Beaver",
-      "style": "Hard Seltzer",
-      "abv": "5.5%",
-      "hops": [],
-      "url": "https://www.antenna-america.com/products/r058-c12004",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/HardSeltzerPassionfruitGuava.png?width=400",
-      "description": "パッションフルーツとグアバを使用した南国感満載のハードセルツァー。余計な添加物を使わず本物のフルーツのみ使用。",
-      "source": "antenna",
-      "added": "2026-10-06"
-    },
-    {
       "id": "b080-c12062",
       "name": "Tropical Fresh IPA",
       "brewery": "Deschutes",
@@ -7379,13 +7327,26 @@
       "style": "India Pale Ale",
       "abv": "4.2%",
       "hops": [
-        "Mandarina",
+        "Mandarina Bavaria",
         "Mosaic",
         "Citra"
       ],
       "url": "https://www.antenna-america.com/products/b047-c12002",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/EazyJack.png?width=400",
       "description": "溢れんばかりのシトラス、メロン、パッションフルーツアロマが特徴的。オレンジ、グレープフルーツ、パイナップル、メロン、青々しい草の複雑で芳醇なアロマはアルコール度数の低さを全く感じさせない。口に含むとやはりフルーティさに溢れタンジェリン、レモン、パッションフルーツとはっきりとした松の苦み。クラッカーのようなモルトの味わいがホップフレイバーを下支えする。フィニッシュは後を引かない苦み。程よいカーボネーションと非常にクリスピーな口当たり。ヘッドブリュワーのMattは次のように述べる。「IPAのミニチュア版のようなビールは造りたくなかった。IPAをセッショナブルにしようとしてモルトとホップの味わいを抑えてはただ当たり障りのないものになってしまう。味わい豊かなホップを使って、本物のIPAに求めるようなフルーティさを追求した結果がEasy Jackなんだ。」",
+      "source": "antenna",
+      "added": "2026-10-06"
+    },
+    {
+      "id": "b121-c16013-recycled1",
+      "name": "Porch Rack Mexican Lager",
+      "brewery": "Ambitious Ales",
+      "style": "Mexican Lager",
+      "abv": "4.4%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b121-c16013",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/PorchRack.jpg?width=400",
+      "description": "友人たちと過ごした、少し狭いけれどなぜか居心地の良かったあの玄関ポーチでの時間から着想を得た一杯。いつも大量のケースビールが積み上がり、笑い声が絶えなかった、そんな思い出が詰まっています。クリスプでモルティ、爽快な飲み口が魅力の喉越し抜群のビール。靴を脱いで足を投げ出し、ゆっくりくつろぎたいときの最高の相棒です。ビールを片手にポーチへ向かい、足を伸ばして、つま先の間を抜ける風を感じてみてください。そんな何気ない時間こそが、このビールにぴったりの楽しみ方です。",
       "source": "antenna",
       "added": "2026-10-06"
     }

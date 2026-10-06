@@ -17,6 +17,10 @@ products.jsonフィードは商品ページと全く同じ構造化スペック(
 含んでおり、かつ在庫状況(variants[].available)も直接返すため、この誤検出が原理的に起こらない。
 個々の商品ページを再取得する必要も無くなった(一覧取得の時点で全項目が揃っている)。
 
+2026-10: 「ハンドルが既知=既知商品」という判定をやめ、ブリュワリー・商品名も一致するか
+(same_product)を確認するようにした。Shopifyは廃盤商品のハンドルを別商品へ再利用することがあり、
+従来の判定だとその上に載った新商品を永久に取りこぼしていたため。
+
 これに伴いANTHROPIC_API_KEYは必須ではなくなった。設定されていれば、構造化スペック欄が
 「ホップ:-」になっている商品について、説明文中にホップ品種名が埋もれていないかの追加チェックに
 のみ使う(未設定でも収集・追記の本体機能は問題なく動作する)。
@@ -47,9 +51,14 @@ USER_AGENT = "Mozilla/5.0 (compatible; HopTrackerBot/1.0; +https://github.com/)"
 CLAUDE_MODEL = "claude-sonnet-4-6"
 REQUEST_DELAY = 1.2  # seconds between requests - be polite to small retail sites, do not lower this
 
-# Antenna Americaの商品でビール/サイダー/ミード以外(グッズ・チーズ・食品・酒類以外)を除外
-ANTENNA_EXCLUDE_VENDORS = {"Merchandise", "Cheese", "Food&sauce", "Food", "Liquor", "Mix", "Pickles"}
-ANTENNA_EXCLUDE_TAGS = {"RTD", "Non Alcohol", "Food", "Food & Sauces"}
+# Antenna Americaの商品でビール/サイダー/ミード以外(グッズ・チーズ・食品・RTD・ハードセルツァー等)を除外。
+# Antenna側ではvendorがスタイル名(ビールの場合)またはカテゴリ名(それ以外)になっている。
+# ハードセルツァーはvendor="Hard Seltzer"だがタグが付いていない個体もあるため、vendorとtagsの両方で判定する
+# (2026-10-06: Belching Beaverのセルツァー4件が除外されずに追加された実例)。
+ANTENNA_EXCLUDE_VENDORS = {"Merchandise", "Cheese", "Food&sauce", "Food", "Liquor", "Mix", "Pickles",
+                           "Hard Seltzer", "Hard Sparkling Tea"}
+ANTENNA_EXCLUDE_TAGS = {"RTD", "Non Alcohol", "Food", "Food & Sauces", "Hard Seltzer"}
+_EXCLUDE_TAGS_LOWER = {t.lower() for t in ANTENNA_EXCLUDE_TAGS}
 # Southboundはproduct_typeがそのままカテゴリ(Beer/Cider/Mead/Accessories/Apparel/Set)
 SOUTHBOUND_INCLUDE_TYPES = {"Beer", "Cider", "Mead"}
 
@@ -98,6 +107,7 @@ HOP_NAME_FIXES = {
     "Organic Adeena": "Adeena",  # 同上、品種名自体はAdeena(Latitude 46/旧ADHA)
     "Hallertau Mittelfrüh": "Hallertauer Mittelfruher",
     "Mittelfruh": "Hallertauer Mittelfruher",
+    "Mandarina": "Mandarina Bavaria",  # Antenna America表記は略記(2026-10-06確認、Firestone Walker Easy Jack)
 }
 
 
@@ -118,6 +128,49 @@ def split_hops(raw: str) -> list[str]:
     raw = raw.replace("&amp;", "&")
     parts = re.split(r",|、|\s+and\s+|&|•", raw)
     return [normalize_hop(p.strip()) for p in parts if p.strip() and normalize_hop(p.strip())]
+
+
+def handle_from_url(url: str) -> str:
+    return url.rstrip("/").split("/")[-1] if url else ""
+
+
+# 「同一商品か」の判定。週次の新商品検出(このファイル)と月次監査(audit_catalog.py)の両方が
+# 使うので、ロジックはここ1箇所にだけ置く。
+BREWERY_STOPWORDS = {"brewing", "brewery", "company", "co", "the"}
+STYLE_STOPWORDS = {
+    "ipa", "dipa", "ale", "pils", "pilsner", "lager", "hazy", "juicy", "west", "coast",
+    "imperial", "double", "pale", "stout", "porter", "sour", "wheat", "amber", "blonde",
+}
+
+
+def word_tokens(name, extra_stopwords=frozenset()) -> set[str]:
+    words = re.findall(r"[a-z0-9]+", (name or "").lower())
+    return {w for w in words if w not in extra_stopwords}
+
+
+def brewery_loosely_matches(a, b) -> bool:
+    """「Brewing」「Company」等の有無やLA/Los Angelesのような略記差で誤判定しないよう、
+    主要単語の共通集合があるかだけを見る(完全一致は厳しすぎることが実例で判明: 2026-10-02)。"""
+    ta, tb = word_tokens(a, BREWERY_STOPWORDS), word_tokens(b, BREWERY_STOPWORDS)
+    if not ta or not tb:
+        return True
+    return bool(ta & tb)
+
+
+def same_product(stored: dict, live: dict) -> bool:
+    """保存済みレコードと、ライブのフィード由来のレコードが同一商品か。
+    Shopifyは廃盤商品のハンドル(連番URL)を全く別の商品へ再利用することがある(2026-10-02/06に実例:
+    旧Pivo Hoppy Pilsのハンドルが別商品を指す、Ambitious Alesの旧商品のハンドルにPorch Rack
+    Mexican Lagerが載る等)ため、ハンドルの一致だけでは同一商品と判定できない。
+    ブリュワリーが緩く一致し、かつ(ブリュワリー名・スタイル語を除いた)商品名に共通語があれば
+    同一とみなす。名前が空など判定材料が無い場合は同一扱い(誤って重複追加するより安全側)。"""
+    if not brewery_loosely_matches(stored.get("brewery"), live.get("brewery")):
+        return False
+    brewery_words = word_tokens(stored.get("brewery")) | word_tokens(live.get("brewery"))
+    stop = STYLE_STOPWORDS | brewery_words
+    sn = word_tokens(stored.get("name"), stop)
+    ln = word_tokens(live.get("name"), stop)
+    return not sn or not ln or bool(sn & ln)
 
 
 def strip_tags(t: str) -> str:
@@ -333,9 +386,18 @@ def main():
     sources = load_sources()
     data = load_existing_data()
     known_ids = {p["id"] for p in data["products"]}
+    # ハンドル(商品URL末尾、無ければid) -> その名前を持つ既存レコード。
+    # Shopifyは廃盤商品のハンドルを別商品へ再利用するため、「ハンドルが既知」というだけで
+    # 既知商品と判定すると、再利用ハンドル上の新商品を永久に取りこぼす
+    # (2026-10-06: Ambitious Alesの在庫ありのPorch Rack Mexican Lagerが未登録だった実例)。
+    records_by_handle: dict[str, list[dict]] = {}
+    for rec in data["products"]:
+        for key in {handle_from_url(rec.get("url", "")) or rec["id"], rec["id"]}:
+            records_by_handle.setdefault(key, []).append(rec)
     known_hops = known_hop_names()
 
     added = []
+    recycled_handles: list[str] = []
     unknown_hops_seen: set[str] = set()
 
     print(f"[{date.today()}] Scanning {len(sources)} source site(s) via their products.json feed...")
@@ -348,15 +410,13 @@ def main():
 
         for p in catalog:
             handle = p["handle"]
-            if handle in known_ids:
-                continue
             if not in_stock(p):
                 continue
 
             if source_key == "antenna":
                 if p.get("vendor") in ANTENNA_EXCLUDE_VENDORS:
                     continue
-                if set(p.get("tags", [])) & ANTENNA_EXCLUDE_TAGS:
+                if {t.lower() for t in p.get("tags", [])} & _EXCLUDE_TAGS_LOWER:
                     continue
                 if not p.get("product_type"):
                     continue
@@ -365,6 +425,19 @@ def main():
                 if p.get("product_type") not in SOUTHBOUND_INCLUDE_TYPES:
                     continue
                 record = parse_southbound_product(p, base_url, source_key)
+
+            existing = records_by_handle.get(handle, [])
+            if any(same_product(r, record) for r in existing):
+                continue
+            if existing:
+                # 同じハンドルを別商品の旧レコードが使っている(=ハンドル再利用)。旧レコードには
+                # 一切触れず、新商品は衝突しない別IDで追加する(urlが本来のハンドルを保持するので、
+                # 次回以降は上の判定で既知として扱われ、重複追加されない)。
+                n = 1
+                while f"{handle}-recycled{n}" in known_ids:
+                    n += 1
+                record["id"] = f"{handle}-recycled{n}"
+                recycled_handles.append(handle)
 
             if not record.get("hops") and client:
                 extra_hops = recheck_description_for_hops(client, record)
@@ -378,7 +451,8 @@ def main():
             record["added"] = str(date.today())
             data["products"].append(record)
             added.append(record)
-            known_ids.add(handle)
+            known_ids.add(record["id"])
+            records_by_handle.setdefault(handle, []).append(record)
 
     # HOP_NAME_FIXESは随時追記されるため、追記時点より前に収集した既存商品が
     # 古い表記のまま残らないよう、毎回全商品に再正規化をかける(安全・決定的な処理のみ)。
@@ -399,6 +473,10 @@ def main():
     if renormalized:
         print(f"Re-normalized hop names on {renormalized} existing product(s) "
               f"(HOP_NAME_FIXES updated since they were first collected).")
+    if recycled_handles:
+        print(f"[note] {len(recycled_handles)} new product(s) sit on a handle previously used by a "
+              f"different product (Shopify recycled it); added under '<handle>-recycledN' ids: "
+              f"{', '.join(recycled_handles)}")
     if added:
         print("\nNew products this run:")
         for p in added:
@@ -416,6 +494,7 @@ def main():
             {
                 "date": str(date.today()),
                 "new_products": added,
+                "recycled_handles": recycled_handles,
                 "hops_needing_aroma_review": sorted(unknown_hops_seen),
             },
             f,

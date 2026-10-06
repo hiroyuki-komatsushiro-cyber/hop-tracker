@@ -74,6 +74,8 @@ python3 scripts/build_html.py
 - 画像URLはproducts.jsonフィードの`images[0].src`から取得（?width=400を付与）
 - ホップはアロマチャートに未収録のものがあれば hops_tab.js の hops配列と hopDesc オブジェクトにも追加。ただしアロマの0〜5スコアは感覚評価が必要なため自動生成せず、実在確認(BeerMaverick/Hopsteiner/Yakima Chief等の一次情報源)を取った上で追加すること。`data/audit_review.json`の`needs_review.unknown_hop_names`に溜まったものがレビュー対象
 - ブルワリー名・ホップ名の表記ゆれは`update_products.py`の`BREWERY_ALIASES`/`HOP_NAME_FIXES`に追記していく方式。新しいゆれを見つけたら必ずそこに追記する(2箇所以上に同じ正規化ロジックを書き写さない)
+- 週次の新商品検出は「ハンドルが既知か」ではなく「ハンドルが既知 **かつ** 同一商品か(`same_product`、ブリュワリー・商品名の一致)」で判定する。Shopifyは廃盤商品のハンドル(連番URL)を別商品へ再利用するため、ハンドルだけで判定すると再利用ハンドル上の新商品を永久に取りこぼす(2026-10-06にAmbitious AlesのPorch Rack Mexican Lagerで実害を確認)。再利用ハンドル上の新商品は `<handle>-recycledN` というidで追加され(旧レコードには触らない)、urlが本来のハンドルを保持する。idがハンドルと一致しない商品が存在するのは正常
+- Antenna Americaの非ビール商品(ハードセルツァー等)は`ANTENNA_EXCLUDE_VENDORS`/`ANTENNA_EXCLUDE_TAGS`で除外する。vendor欄がスタイル名(ビール)またはカテゴリ名(それ以外)になっているため、新しい非ビールカテゴリが混入したらここに追記する(2026-10-06にHard Seltzer 4件が混入して発覚)
 - 出力ファイル名は `docs/index.html` 固定（GitHub Pages公開用）
 
 ## 月次監査（scripts/audit_catalog.py）
