@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 DATA_PATH       = Path(__file__).parent.parent / "data" / "products.json"
+YCH_SPECS_PATH  = Path(__file__).parent.parent / "data" / "ych_specs.json"
 OUTPUT_PATH     = Path(__file__).parent.parent / "docs" / "index.html"
 SCRIPTS_DIR     = Path(__file__).parent
 HOPS_TAB_JS     = (SCRIPTS_DIR / "hops_tab.js").read_text(encoding="utf-8")
@@ -45,6 +46,20 @@ h2{font-size:16px;font-weight:700;margin-bottom:8px;}
 .hop-desc-item{background:#fff;border-radius:6px;padding:8px 10px;border-left:3px solid #639922;}
 .hop-desc-name{font-size:12px;font-weight:700;color:#2c2c2a;margin-bottom:2px;}
 .hop-desc-text{font-size:11px;color:#5f5e5a;line-height:1.6;}
+.hop-chem{margin-top:8px;padding-top:6px;border-top:1px dashed #e0ddd4;}
+.hop-chem-head{font-size:10px;font-weight:700;color:#888780;margin-bottom:3px;}
+.hop-chem-sum{font-size:11px;color:#2c2c2a;line-height:1.7;}
+.hop-chem-sum b{color:#5f5e5a;font-weight:600;margin-right:3px;}
+.hop-chem-sum small{font-size:10px;color:#888780;}
+.hop-chem details{margin-top:4px;}
+.hop-chem summary{font-size:11px;color:#639922;cursor:pointer;}
+.oil-row{display:flex;align-items:center;gap:6px;font-size:10px;margin-top:4px;}
+.oil-row .k{width:84px;flex-shrink:0;color:#5f5e5a;}
+.oil-row .bar{position:relative;flex:1;height:7px;background:#eceae3;border-radius:4px;overflow:hidden;}
+.oil-row .bar i{position:absolute;top:0;bottom:0;background:#639922;border-radius:4px;min-width:3px;}
+.oil-row .v{width:72px;text-align:right;color:#2c2c2a;flex-shrink:0;}
+.hop-chem-link{display:inline-block;margin-top:6px;font-size:11px;color:#1a4a7a;text-decoration:none;}
+.hop-chem-link:hover{text-decoration:underline;}
 .back-to-products-btn{width:100%;padding:9px;font-size:13px;font-weight:600;background:#f0f0ee;color:#2c2c2a;border:1px solid #ddd;border-radius:8px;cursor:pointer;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:4px;}
 .back-to-products-btn:active{background:#e5e3de;}
 
@@ -134,7 +149,7 @@ HTML_TEMPLATE = """\
   <div class="chart-wrap"><canvas id="hopChart"></canvas></div>
   <div id="legend"></div>
   <div class="hop-desc-box" id="hop-desc-box" style="display:none;"></div>
-  <p class="note">※ 頭文字タブで絞り込み、★は選択中の品種一覧。複数選択でレーダーチャートに重ねて比較できます。各アロマ軸は0〜5の強度の目安(BeerMaverick等のテイスティングノートに基づく)。</p>
+  <p class="note">※ 頭文字タブで絞り込み、★は選択中の品種一覧。複数選択でレーダーチャートに重ねて比較できます。各アロマ軸は0〜5の強度の目安(BeerMaverick等のテイスティングノートに基づく)。<br>※ 「成分」欄のα酸・β酸・総オイル・精油組成は、Yakima Chief Hops社が公開している典型値（複数年の収穫データに基づく範囲）です。実際のロット・収穫年によって変動します。リンク先に同社の官能評価（13分類のレーダーチャート）があります。成分データのない品種は、同社が扱っていない品種や他社製の加工品です。</p>
 </div>
 
 <div id="t2" class="tab-panel">
@@ -193,6 +208,7 @@ function switchTab(id,btn){{
   if(id==='t1' && typeof chart !== 'undefined') chart.resize();
 }}
 </script>
+<script>var hopYCH = {hop_ych_json};</script>
 <script>{hops_tab_js}</script>
 <script>var products = {products_json};</script>
 <script>{products_tab_js}</script>
@@ -204,9 +220,15 @@ def main():
     with open(DATA_PATH, "r", encoding="utf-8") as f:
         data = json.load(f)
 
+    # 成分データ(Yakima Chief公開の典型値)。無ければ空オブジェクト(成分欄は非表示になるだけ)
+    hop_ych = {}
+    if YCH_SPECS_PATH.exists():
+        hop_ych = json.loads(YCH_SPECS_PATH.read_text(encoding="utf-8")).get("specs", {})
+
     html = HTML_TEMPLATE.format(
         css             = CSS,
         last_updated    = data.get("last_updated", "-"),
+        hop_ych_json    = json.dumps(hop_ych, ensure_ascii=False, separators=(",", ":")),
         hops_tab_js     = HOPS_TAB_JS,
         products_json   = json.dumps(data["products"], ensure_ascii=False),
         products_tab_js = PRODUCTS_TAB_JS,

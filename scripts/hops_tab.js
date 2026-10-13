@@ -345,6 +345,47 @@ function renderBtns(filter){
   refreshBtns();
 }
 
+// ===== 成分データ(Yakima Chief Hops公開の典型値) =====
+// hopYCH[品種名] = {p:ページのパス, f:製品形態, a:α酸[下限,上限], co:コフムロン, b:β酸, o:総オイル, ou:オイル単位,
+//                    oil:精油組成8成分[[下限,上限]...], s:官能評価チャートの有無}。データはdata/ych_specs.json由来。
+var OIL_LABELS = ['β-ピネン','ミルセン','リナロール','カリオフィレン','ファルネセン','フムレン','ゲラニオール','その他'];
+var YCH_HOST = 'https://www.yakimachief.com';
+
+function chemNum(x){ return String(Math.round(x * 10) / 10); }
+function chemRange(r, suffix){
+  if(!r) return '';
+  return (r[0] === r[1] ? chemNum(r[0]) : chemNum(r[0]) + '–' + chemNum(r[1])) + (suffix || '');
+}
+
+function chemHtml(name){
+  var y = (typeof hopYCH !== 'undefined') ? hopYCH[name] : null;
+  if(!y) return '';
+  var sum = [];
+  if(y.a) sum.push('<b>α酸</b>' + chemRange(y.a, '%') + (y.co ? '<small>（コフムロン ' + chemRange(y.co, '%') + '）</small>' : ''));
+  if(y.b) sum.push('<b>β酸</b>' + chemRange(y.b, '%'));
+  if(y.o) sum.push('<b>総オイル</b>' + chemRange(y.o) + (y.ou === 'ml' ? ' ml/100g' : y.ou === 'vw' ? '% (v/w)' : ''));
+  var oil = '';
+  if(y.oil && y.oil.some(function(r){ return r; })){
+    var rows = '';
+    y.oil.forEach(function(r, i){
+      if(!r) return;
+      var w = Math.max(r[1] - r[0], 0);
+      rows += '<div class="oil-row"><span class="k">' + OIL_LABELS[i] + '</span>'
+            + '<span class="bar"><i style="left:' + Math.min(r[0], 100) + '%;width:' + w + '%"></i></span>'
+            + '<span class="v">' + chemRange(r, '%') + '</span></div>';
+    });
+    oil = '<details><summary>精油組成を見る（総オイル中の％）</summary>' + rows + '</details>';
+  }
+  var hasData = sum.length > 0 || oil !== '';
+  return '<div class="hop-chem">'
+       + (hasData ? '<div class="hop-chem-head">成分（Yakima Chief公開の典型値' + (y.f ? '・' + y.f : '') + '）</div>' : '')
+       + (sum.length ? '<div class="hop-chem-sum">' + sum.join(' ／ ') + '</div>' : '')
+       + oil
+       + '<a class="hop-chem-link" href="' + YCH_HOST + y.p + '" target="_blank" rel="noopener noreferrer">'
+       + 'Yakima Chiefで' + (y.s ? '官能評価（13分類）・' : '') + '詳細を見る ↗</a>'
+       + '</div>';
+}
+
 function showHopDesc(){
   var box = document.getElementById('hop-desc-box');
   if(!box) return;
@@ -362,6 +403,7 @@ function showHopDesc(){
     html += '<div class="hop-desc-item" style="border-left:3px solid '+h.color+'">'
           + '<div class="hop-desc-name">'+name+'</div>'
           + '<div class="hop-desc-text">'+desc+'</div>'
+          + chemHtml(name)
           + '</div>';
   });
   if(html){
