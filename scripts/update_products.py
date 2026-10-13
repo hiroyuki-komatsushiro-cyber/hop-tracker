@@ -117,7 +117,9 @@ def normalize_brewery(name: str) -> str:
 
 
 def normalize_hop(name: str) -> str:
-    name = name.replace("®", "").replace("™", "").strip()
+    # 商標記号を除き、カーリーアポストロフィ(’)をASCII(')に揃える(Antenna表記の"Falconer’s Flight"対策。
+    # アロマチャート側の名前はVeterans' Blend等と同じASCIIなので、揃えないと紐付かない)
+    name = name.replace("®", "").replace("™", "").replace("’", "'").strip()
     return HOP_NAME_FIXES.get(name, name)
 
 
