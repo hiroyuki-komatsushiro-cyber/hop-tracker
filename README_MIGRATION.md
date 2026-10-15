@@ -5,15 +5,15 @@
 ```
 hop-automation/
 ├── data/
-│   └── products.json          # 全195商品データ（画像・説明文・ホップ・ABV）
+│   └── products.json          # 全商品データ（824件、2026-10-16時点。画像・説明文・ホップ・ABV）
 ├── docs/
 │   └── index.html             # 公開用Webページ（GitHub Pages用）
 ├── scripts/
-│   ├── build_html.py          # products.json → index.html を生成するビルドスクリプト
-│   ├── hops_tab.js            # ホップアロマチャート（134品種・説明文付き）
+│   ├── build_html.py          # products.json → index.html を生成するビルドスクリプト（収集元の表示はupdate_sources.jsonから生成）
+│   ├── hops_tab.js            # ホップアロマチャート（208品種・説明文付き）
 │   ├── products_tab.js        # 製品成分表タブ（フィルタ・モーダル・戻る機能）
-│   ├── update_products.py     # Antenna America自動巡回スクリプト
-│   ├── update_sources.json    # 巡回対象サイト設定
+│   ├── update_products.py     # 全収集元の自動巡回スクリプト（収集先ごとの収集関数はCOLLECTORS）
+│   ├── update_sources.json    # 巡回対象サイトの一覧（ここに1件足すと週次で自動巡回される）
 │   └── hops_aroma_data.js     # ホップアロマデータ（旧バージョン・参考用）
 ├── .github/workflows/
 │   └── weekly-update.yml      # 毎週火曜9時(JST)自動実行ワークフロー
@@ -32,7 +32,7 @@ hop-automation/
 ## 自動更新のセットアップ
 
 1. （任意）https://console.anthropic.com でAPIキーを発行し、GitHubリポジトリの Settings → Secrets → Actions に `ANTHROPIC_API_KEY` を登録。未設定でも収集本体は問題なく動作する(説明文からの追加ホップ抽出機能のみ使われない)
-2. Actions タブ → `Weekly Antenna America Hop Product Update`（毎週火曜9:00 JST）/ `Monthly Full Catalog Audit`（毎月1日9:00 JST）→ Run workflow で動作確認
+2. Actions タブ → `Weekly Hop Product Update (all sources)`（毎週火曜9:00 JST。実際の開始はGitHub混雑で2〜4時間遅れることがある）/ `Monthly Full Catalog Audit`（毎月1日9:00 JST）→ Run workflow で動作確認
 
 ## 手動でHTMLを再ビルドする方法
 
@@ -45,8 +45,15 @@ python3 scripts/build_html.py
 
 ## 巡回対象サイト
 
-各サイトが公開しているShopify標準の `products.json` フィード(`{base_url}/products.json?limit=250&page=N`)を
-全ページ巡回する(2026-09〜。コレクションページのHTMLスクレイピングは誤検出が多く廃止済み、詳細は`scripts/update_sources.json`)。
+**巡回対象は `scripts/update_sources.json` の `sources` に載っている全サイト**で、週次ワークフロー(`weekly-update.yml`)が
+全てを順に巡回する。収集先を足すときはこのファイルに1件足すだけで、週次の定期巡回・月次監査・画面の絞り込み/バッジ/注記に
+自動で反映される(手順は下の「新しい収集先の追加チェックリスト」)。1つの収集先が失敗しても他の収集先の更新は止まらず、
+失敗は `data/last_run_summary.json` の `source_errors` に記録され、ワークフローは最後に失敗扱いになる(GitHubの通知メールで気づける)。
+`last_run_summary.json` の `sources` に、収集元ごとの結果(ok/error・追加件数)が毎回残る。
+
+Shopify系(Antenna America / Southbound)は、各サイトが公開しているShopify標準の `products.json` フィード
+(`{base_url}/products.json?limit=250&page=N`)を全ページ巡回する(2026-09〜。コレクションページのHTMLスクレイピングは
+誤検出が多く廃止済み)。ブルワリー公式サイト系(Vertere / West Coast Brewing)は `type` ごとの収集関数(`COLLECTORS`)で取る。
 
 - **Antenna America**: https://www.antenna-america.com
 - **Southbound**: https://southbound.jp
@@ -55,9 +62,53 @@ python3 scripts/build_html.py
   (ブルワリー自身の公開情報なのでホップが高い確率で取れる)。一覧はWP REST API(`/wp-json/wp/v2/brewlog`)、
   詳細は個別ページのHTMLを解析する(`update_products.py`の`collect_wp_brewlog`/`parse_vertere_page`)。
   通常の週次実行は最新30件を見て、**未登録の記事の個別ページだけ**取得する(小規模な醸造所のサイトなので負荷を最小に)。
-  初回の全件取り込みは環境変数 `VERTERE_BACKFILL=1`(このとき`added`は記事の公開日にして、取り込み直後に全件へNEWバッジが付くのを避ける)。
+  初回の全件取り込みは環境変数 `BACKFILL_SOURCES=vertere`(旧名 `VERTERE_BACKFILL=1` も有効。このとき`added`は記事の公開日にして、
+  取り込み直後に全件へNEWバッジが付くのを避ける)。
   idは `vertere-<記事ID>`、`source`は `vertere`。**在庫の概念が無い**ため、サイトに載っている銘柄は過去の醸造分も含めて全て対象
-  (他の2サイトのように「販売中のみ」ではない)。月次監査(`audit_catalog.py`)はShopify由来のレコードだけをライブ照合し、Vertereは対象外
+  (他の2サイトのように「販売中のみ」ではない)。月次監査(`audit_catalog.py`)はShopify由来のレコードだけをライブ照合し、
+  Vertereは「サイトにあって未登録の記事」を全記事のID一覧と照合する
+- **West Coast Brewing（静岡のブルワリー公式サイト）**: https://www.westcoastbrewing.jp/ourbeers/ （2026-10-16追加）。
+  `/ourbeers/` の一覧(新しい順に最新12銘柄。`/beer/` アーカイブの1ページ目と同じ内容)から、名前・「スタイル / ABV」・画像・
+  **「w/ …」の行(=ホップ。ユーザー指定)** を取り、未登録の銘柄だけ個別ページ(`/beer/<slug>/`)の日本語説明文を取得する
+  (`collect_wcb_list`/`parse_wcb_list`)。idは `westcoast-<slug>`、`source`は `westcoast`。
+  **「w/」の行にはホップ以外(副原料: Roasted Coconut / Rum / Vanilla Beans等)が載ることがある**ので、`HOP_NAME_FIXES`の
+  空文字マッピングで除外する(新しい副原料が出たら追記。月次監査の`unknown_hop_names`に出る)。「w/」行が無い銘柄(Seabreeze等)は
+  ホップ空のまま(推測で埋めない)。ブルワリー表記のゆれ("Nectar"=Westie Boisの個別ページ本文が「Nectaron」と明記)は
+  `HOP_NAME_FIXES`で寄せる。**一覧の「w/」行と個別ページ本文で食い違う例**: Campfire Storiesは「w/」行がCascade/Centennial/Columbusだが、
+  本文(10バッチ目)はChinookを挙げている。ユーザー指定どおり「w/」行を採用している。
+  **範囲は「`/ourbeers/`に載っている銘柄を毎週取り込み続ける」**(Antennaが「販売中の商品を取り込み続ける」のと同じ考え方)。
+  アーカイブの過去分(`/beer/page/N/`、2026-10-16時点で45ページ・約530銘柄)は未取り込みで、
+  取り込む場合は `BACKFILL_SOURCES=westcoast`(個別ページを約530回取得するため1.2秒間隔で10分以上かかる)。
+  `robots.txt`は`/wp/wp-admin/`以外を許可。小規模サイトなので1ページ/1.2秒以上の間隔を守る(`REQUEST_DELAY`)。
+  月次監査は先頭72銘柄(約半年分)を読み、「登録済みの最も古い銘柄より新しい位置にあるのに未登録」のものだけを取りこぼしとして報告する
+
+## 新しい収集先の追加チェックリスト
+
+「今後追加する収集先も同様に定期巡回する」ための手順。**登録した時点で週次の自動巡回の対象になる**(別途ワークフローを足す必要は無い)。
+
+1. **利用可否の確認**: `robots.txt`と利用規約を読み、巡回が禁止されていないことを確認する(WAFの429等を回避するなりすましはしない)。
+   小規模サイトは1ページ/1.2秒以上の間隔(`REQUEST_DELAY`)を守り、一覧+新規の個別ページだけに絞る
+2. **データの所在を確認**: Shopifyなら `{base_url}/products.json` があるか。無ければ、一覧/個別ページのHTMLかWP REST API(`/wp-json/wp/v2/...`)のどれで
+   名前・スタイル・ABV・ホップ・画像・説明が取れるかを実ページで確かめる。**ホップを書いている場所はサイトごとに違う**
+   (例: WCBは「w/」の行、Vertereは個別ページのHop欄、Antennaはスペック欄)ので、ユーザーに場所を確認する
+3. **`scripts/update_sources.json` に1件足す**: `name` / `base_url` / `source_key`(idの接頭辞、重複不可) / `kind`(`retailer`=販売中の商品 /
+   `brewery`=公式サイト掲載銘柄、見出しと注記の文言が変わる) / `ui`(`filter`=絞り込み名、`badge`/`badge_bg`/`badge_fg`=バッジ、`link`=詳細リンクの文言) / `notes`。
+   Shopifyなら`type`省略(ただしAntenna以外のShopifyは`parse_southbound_product`で解析し、除外条件は`update_products.py`の`main()`に足す)。
+   それ以外は`type`を決めて次へ。公式サイト系は`brewery`も必須
+4. **構造が新しいサイトだけ**: `update_products.py` に収集関数 `collect_xxx(source, known_ids, backfill) -> list[dict]` を書き、`COLLECTORS` に登録する
+   (レコードは `id`=`<source_key>-…` / `name` / `brewery` / `style` / `abv` / `hops` / `url` / `image` / `description` / `source` / `added`)。
+   **0件は「新着なし」でなく障害**なので例外を投げる(1ソースの失敗は他へ波及せず `source_errors` に記録される)。
+   typeが未登録のままだとその回は失敗として報告される(黙って飛ばされない)
+5. **月次監査の対応**: `audit_catalog.py` の `UNREGISTERED_CHECKS` に「サイトにあって未登録の銘柄」の検査関数を足す
+   (足し忘れても、月次の`audit_review.json`に`sources_without_completeness_check`として出るので見逃さない)。Shopify系は自動で全件ライブ照合される
+6. **ホップ名の整備**: ドライランで出る「[review needed] hop varieties not yet in the aroma chart」を処理する。表記ゆれ・副原料・商標は
+   `HOP_NAME_FIXES`、本物の新品種・加工品(Cryo/Kief等)は`hops_tab.js`のチャートへ(根拠のある情報源があるものだけ。捏造しない)。
+   チャートの構造確認(`hops`と`hopDesc`の整列・アルファベット順・ベクトル6要素)を忘れずに
+7. **初回取り込み**: 通常実行は「一覧に載っている最新分」だけ。過去分を入れるかはユーザーに確認し、入れるなら `BACKFILL_SOURCES=<source_key>`
+   (公式サイトの全件取り込み時は`added`を公開日にしてNEWバッジの洪水を避ける)
+8. **画面と本番の確認**: `python scripts/build_html.py` → 絞り込み・バッジ・リンク・見出し/注記・モーダルをブラウザで確認 → コミット/push →
+   Actionsの`Weekly Hop Product Update (all sources)`を手動実行し、`data/last_run_summary.json`の`sources`に新しい収集先が`ok`で載ることを確認
+9. **記録**: このREADMEの「巡回対象サイト」に1項目足し、運用メモリ/月次タスクの説明にも追記する
 
 ## データの仕様（products.json）
 
@@ -72,7 +123,7 @@ python3 scripts/build_html.py
 | url | 商品ページURL |
 | image | 缶画像URL（?width=400付き） |
 | description | 日本語説明文 |
-| source | antenna / southbound |
+| source | 収集元(`update_sources.json`の`source_key`): antenna / southbound / vertere / westcoast |
 | added | 追加日（YYYY-MM-DD） |
 
 ## 更新ルール（Claude引き継ぎ用）
@@ -96,9 +147,11 @@ python3 scripts/build_html.py
 - 商品ページのURL/IDがサイト側のハンドル変更で無効化していないか
 - 説明文中にホップ品種名が埋もれていて構造化欄(hops)に未反映のもの
 - hops[]に使われているが hops_tab.js のアロマチャートに未収録の品種名
-- ブルワリー公式サイト(WordPress、Vertere)で、週次の収集(最新30件のみ確認)が見ない古い日付の記事の取りこぼし
-  (`unregistered_wp_posts`。全記事のIDだけを数リクエストで一覧して照合する。見つかったら
-  `VERTERE_BACKFILL=1 python scripts/update_products.py` で取り込む)
+- ブルワリー公式サイト系(Vertere / West Coast Brewing)で、週次の収集が見る範囲(Vertere=最新30件、WCB=最新12件)を外れた取りこぼし
+  (`needs_review.unregistered_items`。VertereはREST APIで全記事のID、WCBは一覧の先頭72銘柄を読んで照合する。
+  見つかったら `BACKFILL_SOURCES=<source_key> python scripts/update_products.py` で取り込む)。
+  **検査が未実装の収集先は `sources_without_completeness_check` に列挙される**(「問題なし」と区別して必ず報告に出す)。
+  Shopify系はライブカタログと全件照合する対象を`update_sources.json`から自動で決める
 
 このうち「表記ゆれの再正規化」と「IDが今も有効なハンドルに一致する商品の欠落フィールド補完」は
 機械的に安全なため自動適用される。それ以外（二重登録候補・ハンドル不整合候補・説明文からの

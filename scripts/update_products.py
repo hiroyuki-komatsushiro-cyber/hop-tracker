@@ -131,6 +131,12 @@ HOP_NAME_FIXES = {
     "Rosemary": "",
     "Lemongrass": "",
     "Lemon Peel": "",
+    # West Coast Brewingの「w/」行に載る副原料(バーボンバレル熟成ビール等)。ホップではないので除外
+    "Roasted Coconut": "",
+    "Rum": "",
+    "Vanilla Beans": "",
+    # WCB「Westie Bois」の「w/」行は"Nectar"だが、同じ個別ページの本文に「Nectaronも採用」と明記(2026-10-16確認)
+    "Nectar": "Nectaron",
     # Vertereの古い記事の綴りミス(大文字小文字の違いだけのものは下のcanonical化で自動的に直る)
     "Centenial": "Centennial",
     "Centtenial": "Centennial",
@@ -191,6 +197,8 @@ def normalize_hop(name: str) -> str:
     # 商標記号を除き、カーリーアポストロフィ(’)をASCII(')に揃える(Antenna表記の"Falconer’s Flight"対策。
     # アロマチャート側の名前はVeterans' Blend等と同じASCIIなので、揃えないと紐付かない)
     name = name.replace("®", "").replace("™", "").replace("’", "'").strip()
+    # NZ Hopsの濃縮品「Hop Kief」はチャート側では「<品種> Kief」の表記("Riwaka Hop Kief"→"Riwaka Kief")
+    name = re.sub(r"\s+Hop\s+Kief$", " Kief", name, flags=re.I)
     if name in HOP_NAME_FIXES:
         return HOP_NAME_FIXES[name]
     fix, chart = _hop_tables()
@@ -492,7 +500,7 @@ def parse_vertere_page(page: str, post: dict, source_key: str, brewery: str):
 
 def collect_wp_brewlog(source: dict, known_ids: set, backfill: bool) -> list[dict]:
     """WP REST APIで記事一覧(新しい順)を取り、未登録の記事だけ個別ページを取得して解析する。
-    通常実行は最新30件だけ見る。全件(初回の取り込み用)は環境変数 VERTERE_BACKFILL=1 で指定する。
+    通常実行は最新30件だけ見る。全件(初回の取り込み用)は環境変数 BACKFILL_SOURCES=vertere で指定する。
     戻り値のレコードには'added'を付与済み(通常=今日、全件取り込み=記事の公開日で、
     取り込み直後に全件へNEWバッジが付くのを避ける)。"""
     base_url, key = source["base_url"], source["source_key"]
@@ -516,8 +524,11 @@ def collect_wp_brewlog(source: dict, known_ids: set, backfill: bool) -> list[dic
             break
         page += 1
     print(f"  {len(posts)} post(s) read from the REST list.")
+    if not posts:
+        # 0件は「新着なし」ではなく通信障害・API変更。黙って成功扱いにせず、このソースの失敗として報告させる
+        raise RuntimeError(f"REST list returned no posts ({base_url}); site down or API changed")
 
-    new_posts = sorted((p for p in posts if f"{key}-{p['id']}" not in known_ids), key=lambda p: p["date"])
+    new_posts =sorted((p for p in posts if f"{key}-{p['id']}" not in known_ids), key=lambda p: p["date"])
     records = []
     for post in new_posts:
         page_html = fetch_url(post["link"])
@@ -529,6 +540,131 @@ def collect_wp_brewlog(source: dict, known_ids: set, backfill: bool) -> list[dic
         record["added"] = post["date"][:10] if backfill else str(date.today())
         records.append(record)
     return records
+
+
+# ---------------------------------------------------------------------------
+# West Coast Brewing(静岡のブルワリー公式サイト、WordPress)。2026-10-16追加。
+# /ourbeers/ の一覧(=最新12銘柄)に、各ビールの名前・「スタイル / ABV」・「w/ホップ...」行・画像が載る。
+# ホップは「w/」以降の記載が対象(ブルワリー自身の公開情報)。「w/」には副原料(Roasted Coconut, Rum等)が
+# 混ざることがあるので、ホップ名の正規化(HOP_NAME_FIXES)で除く。説明文は個別ページ(/beer/<slug>/)の日本語本文。
+# アーカイブ(/beer/ 、ページ送り /beer/page/N/)も同じ部品(bli_a)で構成される。
+# ---------------------------------------------------------------------------
+WCB_ITEM_RE = re.compile(r'<a href="([^"]+)" class="bli_a">(.*?)</a>', re.S)
+
+
+def parse_wcb_list(page: str) -> list[dict]:
+    """一覧/アーカイブのHTML -> アイテム(url, slug, name, style, abv, hops_raw, image)のリスト。"""
+    items = []
+    for m in WCB_ITEM_RE.finditer(page):
+        url, body = m.group(1), m.group(2)
+        ttl = re.search(r'<h3 class="bli_ttl">(.*?)</h3>', body, re.S)
+        if not ttl:
+            continue
+        type_m = re.search(r'<p class="bli_type">(.*?)</p>', body, re.S)
+        type_text = strip_tags(type_m.group(1)).strip() if type_m else ""
+        sm = re.match(r"^(.*?)\s*/\s*(\d+(?:\.\d+)?)\s*%", type_text)
+        style, abv = (sm.group(1).strip(), f"{float(sm.group(2)):g}%") if sm else (type_text, "-")
+        w_m = re.search(r'<p class="bli_w">(.*?)</p>', body, re.S)
+        hops_raw = re.sub(r"^\s*w\s*/\s*", "", strip_tags(w_m.group(1)), flags=re.I) if w_m else ""
+        img = re.search(r'<img[^>]*\sdata-src="([^"]+)"', body) or re.search(r'<img[^>]*\ssrc="([^"]+)"', body)
+        items.append({
+            "url": url,
+            "slug": handle_from_url(url),
+            "name": strip_tags(ttl.group(1)).strip(),
+            "style": style,
+            "abv": abv,
+            "hops_raw": hops_raw,
+            "image": img.group(1) if img else "",
+        })
+    return items
+
+
+def parse_wcb_description(page: str) -> str:
+    """個別ページの日本語本文(beerPost_txt_ja)。"""
+    m = re.search(r'<div class="beerPost_txt_ja">(.*?)</div>', page, re.S)
+    if not m:
+        return ""
+    paras = [strip_tags(p).strip() for p in re.findall(r"<p[^>]*>(.*?)</p>", m.group(1), re.S)]
+    return " ".join(p for p in paras if p)
+
+
+def wcb_list_items(source: dict, archive: bool = False, max_archive_pages: int = 60) -> list[dict]:
+    """/ourbeers/ の一覧のアイテムを返す。archive=Trueならアーカイブ(/beer/page/N/)も全ページ読む。"""
+    pages = [source["base_url"] + source["list_path"]]
+    items, seen = [], set()
+    n = 0
+    while True:
+        if n < len(pages):
+            url = pages[n]
+        elif archive and n - len(pages) < max_archive_pages:
+            k = n - len(pages) + 1
+            url = source["base_url"] + source["archive_path"] + (f"page/{k}/" if k > 1 else "")
+        else:
+            break
+        n += 1
+        page = fetch_url(url)
+        time.sleep(REQUEST_DELAY)
+        found = [it for it in parse_wcb_list(page)] if page else []
+        if not found and n > len(pages):
+            break  # アーカイブの末尾(空ページ/404)
+        for it in found:
+            if it["url"] not in seen:
+                seen.add(it["url"])
+                items.append(it)
+    return items
+
+
+def collect_wcb_list(source: dict, known_ids: set, backfill: bool) -> list[dict]:
+    """一覧から未登録のビールを見つけ、その個別ページだけ取得して説明文を補う。
+    通常は /ourbeers/ の1ページのみ。アーカイブ(過去分)の取り込みは BACKFILL_SOURCES=westcoast で指定する
+    (全ページ=約530銘柄。環境変数 BACKFILL_PAGES=N で読むアーカイブのページ数を絞れる。1ページ=12銘柄で、
+    月次監査が見つけた取りこぼしの補充には BACKFILL_PAGES=6 が使える)。"""
+    key = source["source_key"]
+    max_pages = int(os.environ.get("BACKFILL_PAGES") or 60)
+    items = wcb_list_items(source, archive=backfill, max_archive_pages=max_pages)
+    print(f"  {len(items)} beer(s) read from the list page(s).")
+    if not items:
+        raise RuntimeError(f"no beers found on {source['base_url']}{source['list_path']}; "
+                           f"site down or page layout changed")
+    records = []
+    for it in reversed(items):  # 古い順に追記(一覧は新しい順)
+        rid = f"{key}-{it['slug']}"
+        if rid in known_ids:
+            continue
+        detail = fetch_url(it["url"])
+        time.sleep(REQUEST_DELAY)
+        description = parse_wcb_description(detail) if detail else ""
+        if not description:
+            print(f"  [warn] no description found for {it['url']} (record added without it)", file=sys.stderr)
+        records.append({
+            "id": rid,
+            "name": it["name"],
+            "brewery": source["brewery"],
+            "style": it["style"],
+            "abv": it["abv"],
+            "hops": list(dict.fromkeys(split_hops(it["hops_raw"]))),
+            "url": it["url"],
+            "image": it["image"],
+            "description": description,
+            "source": key,
+            "added": str(date.today()),
+        })
+    return records
+
+
+# source.type -> 収集関数。「新しい収集先の追加」= update_sources.jsonに1件足す(構造が新しいサイトは
+# ここに収集関数を足す)。週次ワークフローは update_sources.json の全ソースを順に処理するので、
+# 登録すれば自動的に定期巡回の対象になる(type未登録のソースは警告して飛ばす)。
+COLLECTORS = {"wp_brewlog": collect_wp_brewlog, "wcb_list": collect_wcb_list}
+
+
+def backfill_requested(source_key: str) -> bool:
+    """全件(過去分)取り込みの指定。環境変数 BACKFILL_SOURCES にソースキーのカンマ区切り(または all)。
+    旧名 VERTERE_BACKFILL=1 も受け付ける。"""
+    wanted = {s.strip() for s in os.environ.get("BACKFILL_SOURCES", "").split(",") if s.strip()}
+    if os.environ.get("VERTERE_BACKFILL") == "1":
+        wanted.add("vertere")
+    return "all" in wanted or source_key in wanted
 
 
 def recheck_description_for_hops(client, product: dict) -> list[str]:
@@ -610,73 +746,89 @@ def main():
     recycled_handles: list[str] = []
     unknown_hops_seen: set[str] = set()
 
-    print(f"[{date.today()}] Scanning {len(sources)} source site(s) via their products.json feed...")
-    backfill = os.environ.get("VERTERE_BACKFILL") == "1"
+    print(f"[{date.today()}] Scanning {len(sources)} source site(s) listed in update_sources.json...")
+    source_errors: dict[str, str] = {}
     for source in sources:
-        base_url = source["base_url"]
-        source_key = source["source_key"]
+        try:
+            base_url = source["base_url"]
+            source_key = source["source_key"]
+            source_type = source.get("type", "shopify")
 
-        if source.get("type") == "wp_brewlog":
-            print(f"[{source['name']}] reading the WordPress brewlog list"
-                  f"{' (FULL backfill)' if backfill else ''}...")
-            for record in collect_wp_brewlog(source, known_ids, backfill):
+            if source_type != "shopify":
+                collector = COLLECTORS.get(source_type)
+                if collector is None:
+                    # 収集関数の追加漏れ。黙って飛ばすと「登録したのに巡回されない」ままになるので失敗として報告させる
+                    raise RuntimeError(f"unknown source type {source_type!r}: add a collector to COLLECTORS "
+                                       f"in update_products.py")
+                backfill = backfill_requested(source_key)
+                print(f"[{source['name']}] collecting ({source_type}){' - FULL backfill' if backfill else ''}...")
+                for record in collector(source, known_ids, backfill):
+                    for h in record["hops"]:
+                        if h not in known_hops:
+                            unknown_hops_seen.add(h)
+                    data["products"].append(record)
+                    added.append(record)
+                    known_ids.add(record["id"])
+                continue
+
+            print(f"[{source['name']}] fetching full catalog feed...")
+            catalog = fetch_catalog(base_url)
+            print(f"  {len(catalog)} total products in feed.")
+            if not catalog:
+                # 0件は「在庫なし」ではなく通信障害・フィード形式の変更。このソースの失敗として報告させる
+                raise RuntimeError(f"products.json feed returned no products ({base_url}); "
+                                   f"site down, blocked, or feed format changed")
+
+            for p in catalog:
+                handle = p["handle"]
+                if not in_stock(p):
+                    continue
+
+                if source_key == "antenna":
+                    if p.get("vendor") in ANTENNA_EXCLUDE_VENDORS:
+                        continue
+                    if {t.lower() for t in p.get("tags", [])} & _EXCLUDE_TAGS_LOWER:
+                        continue
+                    if not p.get("product_type"):
+                        continue
+                    record = parse_antenna_product(p, source_key, base_url)
+                else:
+                    if p.get("product_type") not in SOUTHBOUND_INCLUDE_TYPES:
+                        continue
+                    record = parse_southbound_product(p, base_url, source_key)
+
+                existing = records_by_handle.get(handle, [])
+                if any(same_product(r, record) for r in existing):
+                    continue
+                if existing:
+                    # 同じハンドルを別商品の旧レコードが使っている(=ハンドル再利用)。旧レコードには
+                    # 一切触れず、新商品は衝突しない別IDで追加する(urlが本来のハンドルを保持するので、
+                    # 次回以降は上の判定で既知として扱われ、重複追加されない)。
+                    n = 1
+                    while f"{handle}-recycled{n}" in known_ids:
+                        n += 1
+                    record["id"] = f"{handle}-recycled{n}"
+                    recycled_handles.append(handle)
+
+                if not record.get("hops") and client:
+                    extra_hops = recheck_description_for_hops(client, record)
+                    if extra_hops:
+                        record["hops"] = extra_hops
+
                 for h in record["hops"]:
                     if h not in known_hops:
                         unknown_hops_seen.add(h)
+
+                record["added"] = str(date.today())
                 data["products"].append(record)
                 added.append(record)
                 known_ids.add(record["id"])
-            continue
-
-        print(f"[{source['name']}] fetching full catalog feed...")
-        catalog = fetch_catalog(base_url)
-        print(f"  {len(catalog)} total products in feed.")
-
-        for p in catalog:
-            handle = p["handle"]
-            if not in_stock(p):
-                continue
-
-            if source_key == "antenna":
-                if p.get("vendor") in ANTENNA_EXCLUDE_VENDORS:
-                    continue
-                if {t.lower() for t in p.get("tags", [])} & _EXCLUDE_TAGS_LOWER:
-                    continue
-                if not p.get("product_type"):
-                    continue
-                record = parse_antenna_product(p, source_key, base_url)
-            else:
-                if p.get("product_type") not in SOUTHBOUND_INCLUDE_TYPES:
-                    continue
-                record = parse_southbound_product(p, base_url, source_key)
-
-            existing = records_by_handle.get(handle, [])
-            if any(same_product(r, record) for r in existing):
-                continue
-            if existing:
-                # 同じハンドルを別商品の旧レコードが使っている(=ハンドル再利用)。旧レコードには
-                # 一切触れず、新商品は衝突しない別IDで追加する(urlが本来のハンドルを保持するので、
-                # 次回以降は上の判定で既知として扱われ、重複追加されない)。
-                n = 1
-                while f"{handle}-recycled{n}" in known_ids:
-                    n += 1
-                record["id"] = f"{handle}-recycled{n}"
-                recycled_handles.append(handle)
-
-            if not record.get("hops") and client:
-                extra_hops = recheck_description_for_hops(client, record)
-                if extra_hops:
-                    record["hops"] = extra_hops
-
-            for h in record["hops"]:
-                if h not in known_hops:
-                    unknown_hops_seen.add(h)
-
-            record["added"] = str(date.today())
-            data["products"].append(record)
-            added.append(record)
-            known_ids.add(record["id"])
-            records_by_handle.setdefault(handle, []).append(record)
+                records_by_handle.setdefault(handle, []).append(record)
+        except Exception as e:  # 1サイトの不具合(通信エラー・サイト構造の変更)で他の収集元の更新を止めない
+            key = source.get("source_key") or source.get("name", "?")
+            source_errors[key] = f"{type(e).__name__}: {e}"
+            print(f"[ERROR] {key}: collection failed ({type(e).__name__}: {e}) - "
+                  f"the other sources are still processed", file=sys.stderr)
 
     # HOP_NAME_FIXESは随時追記されるため、追記時点より前に収集した既存商品が
     # 古い表記のまま残らないよう、毎回全商品に再正規化をかける(安全・決定的な処理のみ)。
@@ -711,6 +863,18 @@ def main():
         for h in sorted(unknown_hops_seen):
             print(f"  - {h}")
 
+    # 収集元ごとの結果。「全ソースを巡回できたか」をこのファイルだけで確認できるようにする
+    sources_summary = {
+        s.get("source_key") or s.get("name", "?"): {
+            "status": "error" if (s.get("source_key") or s.get("name", "?")) in source_errors else "ok",
+            "added": sum(1 for r in added if r.get("source") == s.get("source_key")),
+        }
+        for s in sources
+    }
+    if source_errors:
+        print(f"\n[ERROR] {len(source_errors)} source(s) could not be collected: "
+              f"{', '.join(f'{k} ({v})' for k, v in source_errors.items())}", file=sys.stderr)
+
     # Write a summary file for the workflow / notification step
     summary_path = ROOT / "data" / "last_run_summary.json"
     with open(summary_path, "w", encoding="utf-8") as f:
@@ -720,6 +884,8 @@ def main():
                 "new_products": added,
                 "recycled_handles": recycled_handles,
                 "hops_needing_aroma_review": sorted(unknown_hops_seen),
+                "sources": sources_summary,
+                "source_errors": source_errors,
             },
             f,
             ensure_ascii=False,

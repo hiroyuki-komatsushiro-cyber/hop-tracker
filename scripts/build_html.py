@@ -1,7 +1,9 @@
 import json
+from html import escape as html_escape
 from pathlib import Path
 
 DATA_PATH       = Path(__file__).parent.parent / "data" / "products.json"
+SOURCES_PATH    = Path(__file__).parent / "update_sources.json"
 YCH_SPECS_PATH  = Path(__file__).parent.parent / "data" / "ych_specs.json"
 OUTPUT_PATH     = Path(__file__).parent.parent / "docs" / "index.html"
 SCRIPTS_DIR     = Path(__file__).parent
@@ -117,7 +119,7 @@ h2{font-size:16px;font-weight:700;margin-bottom:8px;}
 .m-btn-link{padding:13px;font-size:14px;font-weight:600;background:#f0f0ee;color:#2c2c2a;border:none;border-radius:10px;cursor:pointer;text-decoration:none;display:block;text-align:center;}
 .m-btn-close{padding:13px;font-size:14px;background:#fff;color:#555;border:1px solid #ddd;border-radius:10px;cursor:pointer;margin-top:4px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;}
 .shop-badge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:6px;background:#f3e8ff;color:#6b21a8;white-space:nowrap;margin-left:4px;}
-.shop-badge.vertere{background:#fde8d4;color:#9a4a0a;}
+/*SHOP_CSS*/
 """
 
 HTML_TEMPLATE = """\
@@ -154,7 +156,7 @@ HTML_TEMPLATE = """\
 </div>
 
 <div id="t2" class="tab-panel">
-  <h2>製品別ホップ成分表 — Antenna America / Southbound / Vertere</h2>
+  <h2>製品別ホップ成分表 — {shop_names}</h2>
   <div class="updated-line">最終更新: {last_updated}</div>
   <div class="t2-header">
     <input type="search" id="psrch" placeholder="製品名・ブリュワリーで検索...">
@@ -170,9 +172,7 @@ HTML_TEMPLATE = """\
     </select>
     <select id="shopfil">
       <option value="">全ショップ</option>
-      <option value="antenna">Antenna America</option>
-      <option value="southbound">Southbound</option>
-      <option value="vertere">Vertere</option>
+{shop_options}
     </select>
     <select id="bfil">
       <option value="">全ブルワリー</option>
@@ -180,7 +180,7 @@ HTML_TEMPLATE = """\
   </div>
   <div id="prod-count"></div>
   <div id="prod-list"></div>
-  <p class="note">※ 商品をタップすると成分表が表示されます。一度登録した商品はサイトから消えても削除しません。直近7日以内の新商品にはNEWバッジが付きます。Antenna America・Southboundは販売中の商品、Vertereはブルワリー公式サイトに掲載された銘柄（過去の醸造分を含む）で、販売状況は反映していません。</p>
+  <p class="note">※ 商品をタップすると成分表が表示されます。一度登録した商品はサイトから消えても削除しません。直近7日以内の新商品にはNEWバッジが付きます。{shop_note}</p>
 </div>
 
 </div>
@@ -211,6 +211,7 @@ function switchTab(id,btn){{
 }}
 </script>
 <script>var hopYCH = {hop_ych_json};</script>
+<script>var SHOPS = {shops_json};</script>
 <script>{hops_tab_js}</script>
 <script>var products = {products_json};</script>
 <script>{products_tab_js}</script>
@@ -227,8 +228,28 @@ def main():
     if YCH_SPECS_PATH.exists():
         hop_ych = json.loads(YCH_SPECS_PATH.read_text(encoding="utf-8")).get("specs", {})
 
+    # 収集先(update_sources.json)から、絞り込み・バッジ・リンク文言・見出し・注記を自動生成する。
+    # 収集先を足すとき、この画面のコードを触る必要は無い
+    sources = json.loads(SOURCES_PATH.read_text(encoding="utf-8"))["sources"]
+    shops = {s["source_key"]: {k: v for k, v in s.get("ui", {}).items() if k in ("badge", "link")} for s in sources}
+    shop_options = "\n".join(
+        f'      <option value="{s["source_key"]}">{html_escape(s.get("ui", {}).get("filter", s["name"]))}</option>'
+        for s in sources)
+    shop_css = "\n".join(
+        f".shop-badge.{s['source_key']}{{background:{s['ui']['badge_bg']};color:{s['ui']['badge_fg']};}}"
+        for s in sources if s.get("ui", {}).get("badge") and s["ui"].get("badge_bg"))
+    retailers = "・".join(s["name"] for s in sources if s.get("kind", "retailer") == "retailer")
+    breweries = "・".join(s["name"] for s in sources if s.get("kind") == "brewery")
+    shop_note = (f"{retailers}は販売中の商品、" if retailers else "") + \
+                (f"{breweries}はブルワリー公式サイトに掲載された銘柄（過去の醸造分を含む場合があります）で、"
+                 f"販売状況は反映していません。" if breweries else "")
+
     html = HTML_TEMPLATE.format(
-        css             = CSS,
+        css             = CSS.replace("/*SHOP_CSS*/", shop_css),
+        shop_names      = " / ".join(s["name"] for s in sources),
+        shop_options    = shop_options,
+        shop_note       = shop_note,
+        shops_json      = json.dumps(shops, ensure_ascii=False, separators=(",", ":")),
         last_updated    = data.get("last_updated", "-"),
         hop_ych_json    = json.dumps(hop_ych, ensure_ascii=False, separators=(",", ":")),
         hops_tab_js     = HOPS_TAB_JS,

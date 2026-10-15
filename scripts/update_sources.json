@@ -4,12 +4,25 @@
       "name": "Antenna America",
       "base_url": "https://www.antenna-america.com",
       "source_key": "antenna",
+      "kind": "retailer",
+      "ui": {
+        "filter": "Antenna America",
+        "link": "🛒 Antenna Americaの商品ページへ"
+      },
       "notes": "products.jsonフィード(全ページ)を巡回し、在庫あり(variants[].available)かつ除外カテゴリ(Merchandise/Cheese/Food/Liquor/Mix/Pickles/RTD/Non Alcohol)に該当しない商品のみ対象にする。"
     },
     {
       "name": "Southbound",
       "base_url": "https://southbound.jp",
       "source_key": "southbound",
+      "kind": "retailer",
+      "ui": {
+        "filter": "Southbound",
+        "badge": "Southbound",
+        "badge_bg": "#f3e8ff",
+        "badge_fg": "#6b21a8",
+        "link": "🛒 Southboundの商品ページへ"
+      },
       "notes": "products.jsonフィード(全ページ)を巡回し、product_typeがBeer/Cider/Meadの在庫あり商品のみ対象にする。"
     },
     {
@@ -19,7 +32,33 @@
       "post_type": "brewlog",
       "source_key": "vertere",
       "brewery": "Vertere",
-      "notes": "奥多摩のブルワリー公式サイト(WordPress)。brewlog記事(1銘柄=1記事、約300件)をWP REST API(/wp-json/wp/v2/brewlog)で一覧し、未登録の記事の個別ページだけ取得してStyle/Alc/Hopを解析する。通常実行は最新30件のみ確認。初回の全件取り込みは VERTERE_BACKFILL=1。小規模サイトなので1ページ/1.5秒以上の間隔を守る(REQUEST_DELAY)。在庫の概念が無いため、サイトに載っている銘柄を全て対象にする。"
+      "kind": "brewery",
+      "ui": {
+        "filter": "Vertere",
+        "badge": "Vertere",
+        "badge_bg": "#fde8d4",
+        "badge_fg": "#9a4a0a",
+        "link": "🍺 Vertere公式ページへ"
+      },
+      "notes": "奥多摩のブルワリー公式サイト(WordPress)。brewlog記事(1銘柄=1記事、約300件)をWP REST API(/wp-json/wp/v2/brewlog)で一覧し、未登録の記事の個別ページだけ取得してStyle/Alc/Hopを解析する。通常実行は最新30件のみ確認。初回の全件取り込みは BACKFILL_SOURCES=vertere。小規模サイトなので1ページ/1.5秒以上の間隔を守る(REQUEST_DELAY)。在庫の概念が無いため、サイトに載っている銘柄を全て対象にする。"
+    },
+    {
+      "name": "West Coast Brewing",
+      "type": "wcb_list",
+      "base_url": "https://www.westcoastbrewing.jp",
+      "list_path": "/ourbeers/",
+      "archive_path": "/beer/",
+      "source_key": "westcoast",
+      "brewery": "West Coast Brewing",
+      "kind": "brewery",
+      "ui": {
+        "filter": "West Coast Brewing",
+        "badge": "WCB",
+        "badge_bg": "#dbeafe",
+        "badge_fg": "#1e40af",
+        "link": "🍺 West Coast Brewing公式ページへ"
+      },
+      "notes": "静岡のブルワリー公式サイト(WordPress)。/ourbeers/ の一覧(最新12銘柄)から名前・スタイル/ABV・画像・「w/…」行(=ホップ。副原料が混ざる場合はHOP_NAME_FIXESで除外)を取り、未登録のビールだけ個別ページの日本語説明を取得する。通常実行は一覧1ページ+新規の個別ページのみ。過去分のアーカイブ(/beer/page/N/、2026-10-16時点で45ページ・約530銘柄)は BACKFILL_SOURCES=westcoast で取り込める(未実施。BACKFILL_PAGES=Nで読むページ数を絞れる、1ページ=12銘柄)。小規模サイトなので1ページ/1.5秒以上の間隔を守る(REQUEST_DELAY)。在庫の概念が無いため、一覧に載っている銘柄を全て対象にする。"
     }
   ],
   "update_rules": [
@@ -28,8 +67,9 @@
     "説明文は日本語で登録（products.jsonのbody_htmlに既に日本語の紹介文が含まれているため、通常は追加の翻訳処理は不要）",
     "画像URLはproducts.jsonのimages[0].srcから取得（?width=400を付与）",
     "ホップはアロマチャートに未収録のものがあれば hops_tab.js にも追加（実在の情報源で裏付けが取れたものだけ。取れなければ追加せず last_run_summary.json の hops_needing_aroma_review に残す）",
-    "source フィールドで antenna / southbound を区別",
+    "source フィールドで収集元(antenna / southbound / vertere / westcoast)を区別",
     "last_updated を更新日に設定",
-    "2026-09: コレクションページのHTMLスクレイピング方式は廃止。各サイト公開のproducts.jsonフィードを直接使う(誤検出が無く、個別ページの再取得も不要なため)"
+    "2026-09: コレクションページのHTMLスクレイピング方式は廃止。各サイト公開のproducts.jsonフィードを直接使う(誤検出が無く、個別ページの再取得も不要なため)",
+    "新しい収集先の追加 = このファイルに1件足す。週次ワークフロー(weekly-update.yml)はここの全ソースを順に処理するので、登録すれば自動的に定期巡回の対象になる。画面の絞り込み・バッジ・リンク文言は ui から、見出しと注記は kind(retailer=販売中の商品 / brewery=公式サイト掲載銘柄)から自動生成される。サイトの構造が新しい場合だけ update_products.py の COLLECTORS に収集関数を足す。手順の全体は README_MIGRATION.md「新しい収集先の追加チェックリスト」"
   ]
 }

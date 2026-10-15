@@ -12,6 +12,9 @@
     ブリュワリー名が一致しない場合は同一商品と断定せず補完もスキップする)
   - 説明文中にホップ品種名が埋もれていて構造化欄(hops)に未反映のもの
   - hops[]に使われているが scripts/hops_tab.js のアロマチャートに未収録の品種名
+  - Shopify以外の収集元(ブルワリー公式サイト: Vertere / West Coast Brewing など)で、サイトに載っているのに
+    未登録の銘柄(週次の収集が見る範囲=最新の一覧を外れて取りこぼしたもの)。update_sources.jsonに足した
+    新しい収集先も自動で対象になる(検査が未実装のtypeは sources_without_completeness_check に列挙して見逃さない)
 
 このうち「安全・機械的に判定できるもの」(表記ゆれ再正規化、IDが現在も有効なハンドルに
 一致する商品の欠落フィールド補完)はこのスクリプトが自動適用する。
@@ -41,9 +44,10 @@ REVIEW_PATH = ROOT / "data" / "audit_review.json"
 KNOWN_UNRESOLVED_HOPS = {"Brema", "Torpedo Hop", "X7"}
 # Vertere(2026-10-16取り込み)で出てきた、品種としてチャート化しないホップ名。
 # Kohia Nelson=Freestyle Hopsの植物原料入りブレンド(NelsonとRakauにNZパッションフルーツ、品種ではない)、
-# Nelson Terpene/Maui Nelson Hop Kief/Tropical Fusion=出典が見つからず製品の実体が不明、
+# Nelson Terpene/Maui Nelson Kief/Tropical Fusion=出典が見つからず製品の実体が不明
+# (Maui Nelson Kiefは元々"Maui Nelson Hop Kief"表記。"Hop Kief"→"Kief"の正規化で綴りが変わった)、
 # HBC 342/USDA 008/Pelre=実験品種・誤記の可能性があり香りの出典が乏しい
-KNOWN_UNRESOLVED_HOPS |= {"Kohia Nelson", "Nelson Terpene", "Maui Nelson Hop Kief", "Tropical Fusion",
+KNOWN_UNRESOLVED_HOPS |= {"Kohia Nelson", "Nelson Terpene", "Maui Nelson Kief", "Tropical Fusion",
                           "HBC 342", "Usda 008", "Pelre"}
 
 
@@ -65,7 +69,7 @@ def core_name_key(p: dict) -> str:
     return re.sub(r"[^a-z0-9ぁ-んァ-ヶ一-龠]", "", name.lower())
 
 
-def find_duplicate_candidates(products: list[dict]) -> list[dict]:
+def find_duplicate_candidates(products: list[dict], shopify_keys: set[str]) -> list[dict]:
     """ブリュワリー名プレフィックスを除いた商品名の完全一致 **かつ** ブリュワリー一致を候補とする。
     ブリュワリー条件が無いと「West Coast IPA」等の汎用スタイル名を共有するだけの無関係な
     別ブリュワリー商品まで大量に誤検出する(2026-10-02の監査スクリプト初版で146件の誤検出を確認)。
@@ -76,8 +80,8 @@ def find_duplicate_candidates(products: list[dict]) -> list[dict]:
     by_key: dict[tuple[str, str], list[dict]] = {}
     for p in products:
         # 二重登録が起きるのは、商品ごとに別ハンドルで再掲載されるShopify系ソースだけ。
-        # Vertereは記事IDが一意で、同名の記事(Artist collaboration等)は別レシピなので対象外
-        if p.get("source") not in ("antenna", "southbound"):
+        # 公式サイト系(Vertere/WCB)は記事・ページが一意で、同名の別バッチ(Artist collaboration等)は別レシピなので対象外
+        if p.get("source") not in shopify_keys:
             continue
         name_key = core_name_key(p)
         if len(name_key) < 8:
@@ -118,32 +122,78 @@ def find_relocation_candidates(p: dict, catalog: list[dict], known_ids: set[str]
     return hits
 
 
-def find_unregistered_wp_posts(known_ids: set) -> list[dict]:
-    """WordPress系ソース(Vertere)の全記事IDを一覧し、products.jsonに未登録のものを返す。
+def unregistered_wp_posts(source: dict, known_ids: set) -> tuple[list[dict], str]:
+    """WordPress REST系(Vertere)。全記事IDを一覧し、products.jsonに未登録のものを返す
+    (全記事が収集対象なので、未登録はすべて取りこぼし)。
     週次の収集は最新30件しか見ないため、日付の古い記事が後から公開された場合や、週次が
     30件以上連続で失敗した場合の取りこぼしをここで拾う(IDの一覧だけなので数リクエストで済む)。"""
-    missing = []
+    missing, page, total = [], 1, 0
+    while True:
+        url = (f"{source['base_url']}/wp-json/wp/v2/{source['post_type']}?per_page=100&page={page}"
+               f"&_fields=id,link,title,date")
+        raw, headers = up.fetch_url_with_headers(url)
+        up.time.sleep(up.REQUEST_DELAY)
+        if not raw:
+            break
+        batch = json.loads(raw)
+        total += len(batch)
+        for post in batch:
+            if f"{source['source_key']}-{post['id']}" not in known_ids:
+                missing.append({"source": source["source_key"], "id": post["id"], "link": post["link"],
+                                "title": post["title"]["rendered"], "date": post["date"][:10]})
+        total_pages = int(headers.get("X-WP-TotalPages", "1") or 1) if headers else 1
+        if page >= total_pages or not batch:
+            break
+        page += 1
+    if not total:
+        raise RuntimeError(f"{source['source_key']}: REST list returned no posts; cannot verify completeness")
+    return missing, ""
+
+
+WCB_AUDIT_ARCHIVE_PAGES = 6  # 先頭72銘柄(約半年分)。アーカイブ全体(約45ページ・500銘柄超)を毎月読む必要はない
+
+
+def unregistered_wcb_items(source: dict, known_ids: set) -> tuple[list[dict], str]:
+    """West Coast Brewing(wcb_list)。サイトの一覧は新しい順で、/ourbeers/ は先頭12件(=アーカイブの1ページ目と同じ)。
+    週次は先頭12件だけ見て、載ったものを取り込み続ける方針なので、過去分(アーカイブの奥)が未登録なのは仕様。
+    取りこぼしとして拾うのは「登録済みの最も古い銘柄より新しい位置にあるのに未登録のもの」だけ
+    (週次が何週も止まった/1週間に12件超の新作が出て一覧から押し出された、がこれに当たる)。
+    窓(先頭72銘柄)内に登録済みが1件も無い場合は、週次が長期間止まっているとみなして窓内の全件を出す。"""
+    key = source["source_key"]
+    items = up.wcb_list_items(source, archive=True, max_archive_pages=WCB_AUDIT_ARCHIVE_PAGES)
+    if not items:
+        raise RuntimeError(f"{key}: list/archive returned no beers; cannot verify completeness")
+    registered_at = [i for i, it in enumerate(items) if f"{key}-{it['slug']}" in known_ids]
+    limit = max(registered_at) if registered_at else len(items)
+    missing = [{"source": key, "id": it["slug"], "link": it["url"], "title": it["name"], "date": ""}
+               for i, it in enumerate(items) if i < limit and f"{key}-{it['slug']}" not in known_ids]
+    return missing, (f"checked the newest {len(items)} beers on the site; older archive beers are outside "
+                     f"the weekly crawl's scope (not imported)")
+
+
+# source.type -> 「サイトに載っているのに未登録の銘柄」の検査。新しい収集先(COLLECTORS)を足したら、
+# ここにも検査関数を足す(未登録のtypeは find_unregistered_items が sources_without_completeness_check に列挙する)
+UNREGISTERED_CHECKS = {"wp_brewlog": unregistered_wp_posts, "wcb_list": unregistered_wcb_items}
+
+
+def find_unregistered_items(known_ids: set) -> tuple[list[dict], list[str], dict[str, str]]:
+    """Shopify以外の全収集元について、サイトにあって未登録の銘柄を返す。
+    戻り値: (取りこぼし銘柄, 検査関数が未実装のソースキー, ソースごとの補足メモ)。
+    検査が未実装のソースは「問題なし」ではなく「未検査」として必ず報告に出す(静かに見逃さない)。"""
+    missing, unchecked, notes = [], [], {}
     for source in up.load_sources():
-        if source.get("type") != "wp_brewlog":
+        source_type = source.get("type", "shopify")
+        if source_type == "shopify":
+            continue  # Shopify系はライブカタログと全件照合する(main側)
+        check = UNREGISTERED_CHECKS.get(source_type)
+        if check is None:
+            unchecked.append(source["source_key"])
             continue
-        page = 1
-        while True:
-            url = (f"{source['base_url']}/wp-json/wp/v2/{source['post_type']}?per_page=100&page={page}"
-                   f"&_fields=id,link,title,date")
-            raw, headers = up.fetch_url_with_headers(url)
-            up.time.sleep(up.REQUEST_DELAY)
-            if not raw:
-                break
-            batch = json.loads(raw)
-            for post in batch:
-                if f"{source['source_key']}-{post['id']}" not in known_ids:
-                    missing.append({"source": source["source_key"], "id": post["id"], "link": post["link"],
-                                    "title": post["title"]["rendered"], "date": post["date"][:10]})
-            total_pages = int(headers.get("X-WP-TotalPages", "1") or 1) if headers else 1
-            if page >= total_pages or not batch:
-                break
-            page += 1
-    return missing
+        found, note = check(source, known_ids)
+        missing.extend(found)
+        if note:
+            notes[source["source_key"]] = note
+    return missing, unchecked, notes
 
 
 def main():
@@ -152,13 +202,21 @@ def main():
     products = data["products"]
     known_hops = up.known_hop_names()
 
+    # ライブ照合の対象 = update_sources.json のShopify系ソース全部(新しいShopifyソースを足せば自動で入る)
     print(f"[{date.today()}] fetching live catalogs for full audit...")
-    antenna_catalog = up.fetch_catalog("https://www.antenna-america.com")
-    southbound_catalog = up.fetch_catalog("https://southbound.jp")
-    print(f"  antenna: {len(antenna_catalog)} / southbound: {len(southbound_catalog)}")
-    antenna_by_handle = {p["handle"]: p for p in antenna_catalog}
-    southbound_by_handle = {p["handle"]: p for p in southbound_catalog}
-    catalog_by_source = {"antenna": antenna_catalog, "southbound": southbound_catalog}
+    shopify_sources = [s for s in up.load_sources() if s.get("type", "shopify") == "shopify"]
+    catalog_by_source, by_handle, base_urls = {}, {}, {}
+    for s in shopify_sources:
+        key = s["source_key"]
+        catalog = up.fetch_catalog(s["base_url"])
+        if not catalog:
+            # 空のまま進めると、そのソースの全商品を「ハンドル失効」と誤判定してレビューを汚染する
+            raise RuntimeError(f"{key}: live catalog is empty ({s['base_url']}); audit aborted")
+        catalog_by_source[key] = catalog
+        by_handle[key] = {p["handle"]: p for p in catalog}
+        base_urls[key] = s["base_url"]
+    print("  " + " / ".join(f"{k}: {len(c)}" for k, c in catalog_by_source.items()))
+    shopify_keys = set(catalog_by_source)
     known_ids = {p["id"] for p in products}
 
     renormalized = []
@@ -178,13 +236,13 @@ def main():
 
         handle = handle_from_url(p.get("url", "")) or p["id"]
         source = p.get("source")
-        raw = (antenna_by_handle.get(handle) if source == "antenna"
-               else southbound_by_handle.get(handle) if source == "southbound" else None)
+        raw = by_handle[source].get(handle) if source in by_handle else None
 
         if raw is not None:
-            reparsed = (up.parse_antenna_product(raw, source, "https://www.antenna-america.com")
+            # update_products.main() と同じ振り分け(antenna専用パーサ、それ以外のShopifyはsouthbound形式)
+            reparsed = (up.parse_antenna_product(raw, source, base_urls[source])
                         if source == "antenna" else
-                        up.parse_southbound_product(raw, "https://southbound.jp", source))
+                        up.parse_southbound_product(raw, base_urls[source], source))
 
             # ハンドルが実在しても、同一商品とは限らない。Shopifyは商品削除後に同じ
             # ハンドル(連番URL)を全く別の商品へ再利用することがある(2026-10-02の監査で
@@ -210,9 +268,9 @@ def main():
             if changes:
                 backfilled.append({"id": p["id"], "changes": changes})
                 p.update(changes)
-        elif source in ("antenna", "southbound"):
+        elif source in shopify_keys:
             # Shopify由来のレコードだけがライブのproducts.jsonと突き合わせられる。
-            # Vertere等の他ソース(WordPress記事)は「ハンドルが見つからない=失効」の判定が成り立たない
+            # 公式サイト系ソース(Vertere/WCB)は「ハンドルが見つからない=失効」の判定が成り立たない
             gaps = [k for k in ("hops", "abv", "url") if not p.get(k) or p.get(k) == "-"]
             if gaps:
                 stale_handle_candidates.append({
@@ -231,8 +289,8 @@ def main():
             if h not in known_hops and h not in KNOWN_UNRESOLVED_HOPS:
                 unknown_hop_names.setdefault(h, []).append(p["id"])
 
-    duplicate_candidates = find_duplicate_candidates(products)
-    unregistered_wp_posts = find_unregistered_wp_posts(known_ids)
+    duplicate_candidates = find_duplicate_candidates(products, shopify_keys)
+    unregistered_items, unchecked_sources, unregistered_notes = find_unregistered_items(known_ids)
 
     data["last_updated"] = str(date.today())
     with open(DATA_PATH, "w", encoding="utf-8") as f:
@@ -250,8 +308,10 @@ def main():
             "handle_reassigned_candidates": handle_reassigned_candidates,
             "hop_in_description_candidates": hop_in_description_candidates,
             "unknown_hop_names": dict(sorted(unknown_hop_names.items())),
-            "unregistered_wp_posts": unregistered_wp_posts,
+            "unregistered_items": unregistered_items,
+            "sources_without_completeness_check": unchecked_sources,
         },
+        "info": {"unregistered_notes": unregistered_notes},
     }
     with open(REVIEW_PATH, "w", encoding="utf-8") as f:
         json.dump(review, f, ensure_ascii=False, indent=2)
@@ -263,7 +323,11 @@ def main():
     print(f"  - {len(handle_reassigned_candidates)} handle-reassigned candidate(s) (handle now resolves to a different brewery)")
     print(f"  - {len(hop_in_description_candidates)} hop-in-description candidate(s)")
     print(f"  - {len(unknown_hop_names)} hop name(s) not yet in hops_tab.js's aroma chart")
-    print(f"  - {len(unregistered_wp_posts)} WordPress post(s) on the brewery site not in products.json")
+    print(f"  - {len(unregistered_items)} beer(s) listed on a brewery site but missing from products.json")
+    if unchecked_sources:
+        print(f"  - {len(unchecked_sources)} source(s) have no completeness check yet: {', '.join(unchecked_sources)}")
+    for key, note in unregistered_notes.items():
+        print(f"  (info) {key}: {note}")
 
 
 if __name__ == "__main__":

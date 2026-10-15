@@ -58,7 +58,7 @@ Claude API でホップ・スタイル・ABV を自動抽出して `data/product
 ### 4. 動作確認（手動実行）
 
 1. リポジトリの `Actions` タブを開く
-2. 左メニューの `Weekly Antenna America Hop Product Update` を選択
+2. 左メニューの `Weekly Hop Product Update (all sources)` を選択（`scripts/update_sources.json` に載っている全収集元を巡回します）
 3. 右側の `Run workflow` ボタンを押して手動実行
 4. 数分後、緑のチェックマークが出れば成功
 5. `data/products.json` に新商品が追記されているか確認

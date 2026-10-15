@@ -1,4 +1,4 @@
-name: Weekly Antenna America Hop Product Update
+name: Weekly Hop Product Update (all sources)
 
 on:
   schedule:
@@ -42,3 +42,15 @@ jobs:
 
       - name: Show summary
         run: cat data/last_run_summary.json
+
+      # 収集元(update_sources.json)のどれかが失敗しても、他の収集元の更新は上でコミット済み。
+      # ここで実行を失敗扱いにして、GitHubの通知メールで気づけるようにする
+      - name: Fail the run if any source could not be collected
+        run: |
+          python - <<'PY'
+          import json, sys
+          errs = json.load(open("data/last_run_summary.json", encoding="utf-8")).get("source_errors") or {}
+          for key, msg in errs.items():
+              print(f"::error title=Source {key} failed::{msg}")
+          sys.exit(1 if errs else 0)
+          PY

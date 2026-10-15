@@ -2,9 +2,16 @@
 
 function isRecent(d){ return d && (new Date()-new Date(d))/864e5 <= 7; }
 
-// 収集元ごとの表示。antennaは主要ソースなのでバッジ無し(sourceが空の旧データもantenna扱い)
-var SHOP_BADGES = {southbound: 'Southbound', vertere: 'Vertere'};
-var SHOP_LINKS = {southbound: '🛒 Southboundの商品ページへ', vertere: '🍺 Vertere公式ページへ'};
+// 収集元ごとの表示(バッジ・リンク文言)は SHOPS(update_sources.jsonのuiから生成、build_html.pyが埋め込む)。
+// バッジが無い収集元(antenna)は表示しない。sourceが空の旧データはantenna扱い
+function shopBadge(p){
+  var s = SHOPS[p.source];
+  return (s && s.badge) ? '<span class="shop-badge ' + p.source + '">' + s.badge + '</span>' : '';
+}
+function shopLink(p){
+  var s = SHOPS[p.source || 'antenna'];
+  return (s && s.link) || '🛒 商品ページへ';
+}
 function sgroup(s){
   if(/dipa|double|imperial|triple|quad/i.test(s)) return 'DIPA';
   if(/hazy|ne-style|northeast/i.test(s)) return 'IPA';
@@ -58,9 +65,7 @@ function renderProds(){
     row.addEventListener('click', function(){ openModal(p); });
 
     var newB = isRecent(p.added) ? '<span class="new-badge">NEW</span>' : '';
-    var shopB = SHOP_BADGES[p.source]
-      ? '<span class="shop-badge ' + p.source + '">' + SHOP_BADGES[p.source] + '</span>'
-      : '';
+    var shopB = shopBadge(p);
     var hopStr = p.hops && p.hops.length > 0 ? p.hops.join(' / ') : '';
 
     var imgHtml = '';
@@ -158,7 +163,7 @@ function openModal(p){
     lb.href = p.url;
     lb.target = '_blank';
     lb.rel = 'noopener noreferrer';
-    lb.textContent = SHOP_LINKS[p.source] || '🛒 Antenna Americaの商品ページへ';
+    lb.textContent = shopLink(p);
     acts.appendChild(lb);
   }
 
