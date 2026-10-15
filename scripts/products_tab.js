@@ -1,6 +1,10 @@
 // ===== PRODUCTS TAB =====
 
 function isRecent(d){ return d && (new Date()-new Date(d))/864e5 <= 7; }
+
+// 収集元ごとの表示。antennaは主要ソースなのでバッジ無し(sourceが空の旧データもantenna扱い)
+var SHOP_BADGES = {southbound: 'Southbound', vertere: 'Vertere'};
+var SHOP_LINKS = {southbound: '🛒 Southboundの商品ページへ', vertere: '🍺 Vertere公式ページへ'};
 function sgroup(s){
   if(/dipa|double|imperial|triple|quad/i.test(s)) return 'DIPA';
   if(/hazy|ne-style|northeast/i.test(s)) return 'IPA';
@@ -42,9 +46,7 @@ function renderProds(){
   var f = products.filter(function(p){
     var ms = p.name.toLowerCase().indexOf(s) >= 0 || p.brewery.toLowerCase().indexOf(s) >= 0;
     var mst = !sf || sgroup(p.style) === sf;
-    var mshop = !shopf ||
-      (shopf === 'southbound' && p.source === 'southbound') ||
-      (shopf === 'antenna' && p.source !== 'southbound');
+    var mshop = !shopf || (p.source || 'antenna') === shopf;
     var mbrew = !bf || p.brewery === bf;
     return ms && mst && mshop && mbrew;
   });
@@ -56,8 +58,8 @@ function renderProds(){
     row.addEventListener('click', function(){ openModal(p); });
 
     var newB = isRecent(p.added) ? '<span class="new-badge">NEW</span>' : '';
-    var shopB = p.source === 'southbound'
-      ? '<span class="shop-badge">Southbound</span>'
+    var shopB = SHOP_BADGES[p.source]
+      ? '<span class="shop-badge ' + p.source + '">' + SHOP_BADGES[p.source] + '</span>'
       : '';
     var hopStr = p.hops && p.hops.length > 0 ? p.hops.join(' / ') : '';
 
@@ -156,9 +158,7 @@ function openModal(p){
     lb.href = p.url;
     lb.target = '_blank';
     lb.rel = 'noopener noreferrer';
-    lb.textContent = p.source === 'southbound'
-      ? '🛒 Southboundの商品ページへ'
-      : '🛒 Antenna Americaの商品ページへ';
+    lb.textContent = SHOP_LINKS[p.source] || '🛒 Antenna Americaの商品ページへ';
     acts.appendChild(lb);
   }
 

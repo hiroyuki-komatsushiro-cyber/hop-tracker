@@ -50,6 +50,14 @@ python3 scripts/build_html.py
 
 - **Antenna America**: https://www.antenna-america.com
 - **Southbound**: https://southbound.jp
+- **Vertere（バテレ、奥多摩のブルワリー公式サイト）**: https://verterebrew.com/brewery-beer/ （2026-10-16追加）。
+  WordPressの「brewlog」記事が1銘柄=1記事(約300件)で、個別ページにStyle / Alc / Malt / **Hop** / Yeastが載る
+  (ブルワリー自身の公開情報なのでホップが高い確率で取れる)。一覧はWP REST API(`/wp-json/wp/v2/brewlog`)、
+  詳細は個別ページのHTMLを解析する(`update_products.py`の`collect_wp_brewlog`/`parse_vertere_page`)。
+  通常の週次実行は最新30件を見て、**未登録の記事の個別ページだけ**取得する(小規模な醸造所のサイトなので負荷を最小に)。
+  初回の全件取り込みは環境変数 `VERTERE_BACKFILL=1`(このとき`added`は記事の公開日にして、取り込み直後に全件へNEWバッジが付くのを避ける)。
+  idは `vertere-<記事ID>`、`source`は `vertere`。**在庫の概念が無い**ため、サイトに載っている銘柄は過去の醸造分も含めて全て対象
+  (他の2サイトのように「販売中のみ」ではない)。月次監査(`audit_catalog.py`)はShopify由来のレコードだけをライブ照合し、Vertereは対象外
 
 ## データの仕様（products.json）
 

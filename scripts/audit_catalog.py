@@ -39,6 +39,12 @@ REVIEW_PATH = ROOT / "data" / "audit_review.json"
 # 過去に出典を探しても見つからず、ユーザーも「分からない」と確認済みの品種名。
 # 月次レビューに毎回「新規発見」のように出てこないよう除外する(2026-09-22確認)。
 KNOWN_UNRESOLVED_HOPS = {"Brema", "Torpedo Hop", "X7"}
+# Vertere(2026-10-16取り込み)で出てきた、品種としてチャート化しないホップ名。
+# Kohia Nelson=Freestyle Hopsの植物原料入りブレンド(NelsonとRakauにNZパッションフルーツ、品種ではない)、
+# Nelson Terpene/Maui Nelson Hop Kief/Tropical Fusion=出典が見つからず製品の実体が不明、
+# HBC 342/USDA 008/Pelre=実験品種・誤記の可能性があり香りの出典が乏しい
+KNOWN_UNRESOLVED_HOPS |= {"Kohia Nelson", "Nelson Terpene", "Maui Nelson Hop Kief", "Tropical Fusion",
+                          "HBC 342", "Usda 008", "Pelre"}
 
 
 # 「同一商品か」の判定ロジックは週次スクリプトと共通なので、update_products.pyの定義を使う
@@ -133,7 +139,7 @@ def main():
     for p in products:
         old_hops = p.get("hops", [])
         if old_hops:
-            new_hops = [up.normalize_hop(h) for h in old_hops]
+            new_hops = [h for h in (up.normalize_hop(h) for h in old_hops) if h]
             if new_hops != old_hops:
                 renormalized.append({"id": p["id"], "before": old_hops, "after": new_hops})
                 p["hops"] = new_hops
@@ -172,7 +178,9 @@ def main():
             if changes:
                 backfilled.append({"id": p["id"], "changes": changes})
                 p.update(changes)
-        else:
+        elif source in ("antenna", "southbound"):
+            # Shopify由来のレコードだけがライブのproducts.jsonと突き合わせられる。
+            # Vertere等の他ソース(WordPress記事)は「ハンドルが見つからない=失効」の判定が成り立たない
             gaps = [k for k in ("hops", "abv", "url") if not p.get(k) or p.get(k) == "-"]
             if gaps:
                 stale_handle_candidates.append({

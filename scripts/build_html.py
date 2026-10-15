@@ -117,6 +117,7 @@ h2{font-size:16px;font-weight:700;margin-bottom:8px;}
 .m-btn-link{padding:13px;font-size:14px;font-weight:600;background:#f0f0ee;color:#2c2c2a;border:none;border-radius:10px;cursor:pointer;text-decoration:none;display:block;text-align:center;}
 .m-btn-close{padding:13px;font-size:14px;background:#fff;color:#555;border:1px solid #ddd;border-radius:10px;cursor:pointer;margin-top:4px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;}
 .shop-badge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:6px;background:#f3e8ff;color:#6b21a8;white-space:nowrap;margin-left:4px;}
+.shop-badge.vertere{background:#fde8d4;color:#9a4a0a;}
 """
 
 HTML_TEMPLATE = """\
@@ -153,7 +154,7 @@ HTML_TEMPLATE = """\
 </div>
 
 <div id="t2" class="tab-panel">
-  <h2>製品別ホップ成分表 — Antenna America</h2>
+  <h2>製品別ホップ成分表 — Antenna America / Southbound / Vertere</h2>
   <div class="updated-line">最終更新: {last_updated}</div>
   <div class="t2-header">
     <input type="search" id="psrch" placeholder="製品名・ブリュワリーで検索...">
@@ -171,6 +172,7 @@ HTML_TEMPLATE = """\
       <option value="">全ショップ</option>
       <option value="antenna">Antenna America</option>
       <option value="southbound">Southbound</option>
+      <option value="vertere">Vertere</option>
     </select>
     <select id="bfil">
       <option value="">全ブルワリー</option>
@@ -178,7 +180,7 @@ HTML_TEMPLATE = """\
   </div>
   <div id="prod-count"></div>
   <div id="prod-list"></div>
-  <p class="note">※ 商品をタップすると成分表が表示されます。一度登録した商品はサイトから消えても削除しません。直近7日以内の新商品にはNEWバッジが付きます。</p>
+  <p class="note">※ 商品をタップすると成分表が表示されます。一度登録した商品はサイトから消えても削除しません。直近7日以内の新商品にはNEWバッジが付きます。Antenna America・Southboundは販売中の商品、Vertereはブルワリー公式サイトに掲載された銘柄（過去の醸造分を含む）で、販売状況は反映していません。</p>
 </div>
 
 </div>

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-13",
+  "last_updated": "2026-10-16",
   "products": [
     {
       "id": "b105-c16036",
@@ -7574,6 +7574,4976 @@
       "description": "2026/10/15【新作】商品名：Electric Eye Beer Company It's Always a Good Friday When You're Golfing Pale Ale (473ml) / イッツ オールウィーズ ア グッドフライデイ ウェンユア ゴルフィング商品説明：シトラスの爽やかな香りと松を思わせるホップアロマ。キレのある苦味とスムーズなモルトの味わいが絶妙なバランスを生み、ゆったりと過ごす週末にぴったり。Electric Eyeの人気定番商品。スタイル：West Coast Pale AleABV：5%IBU：--入数：1商品名：Electric Eye Beer Company Golden Riff Society West Coast IPA (473ml) / ゴールデン リフ ソサエティ商品説明：「人の心を動かし、常識に挑戦するビール造り」を掲げるElectric Eye Beer Co.らしく、力強く鮮やかなホップキャラクターを前面に押し出した仕上がりスタイル：West Coast IPAABV：7%IBU：--入数：1商品名： Looking Down On You Hazy DIPA (473ml) / ルッキング ダウン オンユー商品説明：ホップを惜しみなく投入し、トロピカルフルーツを前面に押し出した濃厚な味わいを実現。過度な甘さを抑えたバランスの良い飲み口。ヘイジーIPAの進化を感じさせるモダンな取り組みが詰まった一杯スタイル：Hazy DIPAABV：8%IBU：--入数：1商品名： Electric Eye Company LサイズTシャツサイズ ： L、XLの2サイズのみ入数：1",
       "source": "antenna",
       "added": "2026-10-13"
+    },
+    {
+      "id": "vertere-395",
+      "name": "Stellaria",
+      "brewery": "Vertere",
+      "style": "Grisette",
+      "abv": "4.3%",
+      "hops": [],
+      "url": "https://verterebrew.com/brewlog/stellaria/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/02/Stellaria-300x201.jpeg",
+      "description": "低アルコール、軽い口当たり。イースト由来のスパイシーさと、グレープフルーツを思わせるフレーバー。",
+      "source": "vertere",
+      "added": "2019-02-23"
+    },
+    {
+      "id": "vertere-422",
+      "name": "Radiata",
+      "brewery": "Vertere",
+      "style": "Belgian IPA",
+      "abv": "7.1%",
+      "hops": [
+        "Pekko",
+        "Glacier",
+        "Amarillo"
+      ],
+      "url": "https://verterebrew.com/brewlog/radiata/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/02/Radiata-300x225.jpeg",
+      "description": "ベルジャン酵母を使用したIPA。ホップと酵母由来のフルーティーなフレーバー。",
+      "source": "vertere",
+      "added": "2019-02-23"
+    },
+    {
+      "id": "vertere-423",
+      "name": "Bistorta",
+      "brewery": "Vertere",
+      "style": "Saison",
+      "abv": "6%",
+      "hops": [],
+      "url": "https://verterebrew.com/brewlog/bistorta/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/02/Bistorta-300x200.jpg",
+      "description": "イースト由来の香りとジワリと広がる苦味。麦、ホップ、イーストの絶妙なバランス。",
+      "source": "vertere",
+      "added": "2019-02-23"
+    },
+    {
+      "id": "vertere-424",
+      "name": "Nicobarica",
+      "brewery": "Vertere",
+      "style": "Hoppy Weizen",
+      "abv": "5.8%",
+      "hops": [],
+      "url": "https://verterebrew.com/brewlog/nicobarica/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/02/Nicobarica-300x225.jpeg",
+      "description": "バイツェンとヘイジーIPAのハイブリッドエール。バナナ、マンゴーを思わせる香り。滑らかな舌触りとスッキリした飲み口。",
+      "source": "vertere",
+      "added": "2019-02-23"
+    },
+    {
+      "id": "vertere-426",
+      "name": "Roemeria",
+      "brewery": "Vertere",
+      "style": "American IPA",
+      "abv": "5.8%",
+      "hops": [
+        "Chinook",
+        "Centennial",
+        "Simcoe",
+        "Citra"
+      ],
+      "url": "https://verterebrew.com/brewlog/roemeria/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/02/Roemeria-300x225.jpeg",
+      "description": "HazyIPAの製法で作られたWest Coast IPA。ホップ由来の柑橘アロマとフレーバー。",
+      "source": "vertere",
+      "added": "2019-02-23"
+    },
+    {
+      "id": "vertere-501",
+      "name": "Spiraea",
+      "brewery": "Vertere",
+      "style": "Blonde Ale",
+      "abv": "3.8%",
+      "hops": [
+        "Nugget"
+      ],
+      "url": "https://verterebrew.com/brewlog/spiraea/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_2113-300x225.jpeg",
+      "description": "低アルコールでドリンカブル。ほのかに蜂蜜の香り。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-503",
+      "name": "Meridian Wheat",
+      "brewery": "Vertere",
+      "style": "Hoppy Wheat",
+      "abv": "5%",
+      "hops": [
+        "Meridian"
+      ],
+      "url": "https://verterebrew.com/brewlog/meridian-wheat/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_2099-300x225.jpeg",
+      "description": "フルーツジャムのような香り、すっきりとした飲み口。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-504",
+      "name": "Ericales",
+      "brewery": "Vertere",
+      "style": "Belgian Amber",
+      "abv": "5.5%",
+      "hops": [
+        "East Kent Golding",
+        "Warrior"
+      ],
+      "url": "https://verterebrew.com/brewlog/ericales/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_2098-300x225.jpeg",
+      "description": "熟したフルーツを思わせる香りとライトな飲み口が共存。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-505",
+      "name": "VERTERE Cream",
+      "brewery": "Vertere",
+      "style": "Mild Ale",
+      "abv": "4.7%",
+      "hops": [
+        "East Kent Golding"
+      ],
+      "url": "https://verterebrew.com/brewlog/vertere-cream/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_2097-300x225.jpeg",
+      "description": "麦の甘みと酵母の香り。 苦味を抑えたまったりとした味わい。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-507",
+      "name": "Aurantium",
+      "brewery": "Vertere",
+      "style": "HAZY IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Citra",
+        "Azacca",
+        "Amarillo"
+      ],
+      "url": "https://verterebrew.com/brewlog/aurantium/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_2093-300x225.jpeg",
+      "description": "濃縮されたオレンジフレーバー。程よく苦く、程よくドライ、程よく甘い。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-508",
+      "name": "Californica",
+      "brewery": "Vertere",
+      "style": "WEST COAST IPA",
+      "abv": "6.8%",
+      "hops": [
+        "Columbus",
+        "Simcoe",
+        "Cascade",
+        "Chinook"
+      ],
+      "url": "https://verterebrew.com/brewlog/californica/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_2062-300x225.jpeg",
+      "description": "クラフトビールの火付け役IPAを再現。ガツンとした苦味とオレンジの香りが特徴。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-510",
+      "name": "Marsh & Ruby",
+      "brewery": "Vertere",
+      "style": "SAIZON",
+      "abv": "5.9%",
+      "hops": [
+        "Amarillo",
+        "Citra"
+      ],
+      "url": "https://verterebrew.com/brewlog/marsh-ruby/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_2007-300x225.jpeg",
+      "description": "グレープフルーツ計100個分のフレッシュピールを使用。爽やかな 味わいにマーマレードのような余韻。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-511",
+      "name": "Penny Black",
+      "brewery": "Vertere",
+      "style": "Milk Porter",
+      "abv": "5.5%",
+      "hops": [
+        "Columbus",
+        "Cascade",
+        "Amarillo"
+      ],
+      "url": "https://verterebrew.com/brewlog/penny-black/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_2004-300x225.jpeg",
+      "description": "乳糖とオーツ麦を使用したミルクポーター。 チョコレートのような甘さに滑らかな口当たり。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-512",
+      "name": "Daphne",
+      "brewery": "Vertere",
+      "style": "American Pale Ale",
+      "abv": "5.4%",
+      "hops": [
+        "Chinook",
+        "Simcoe",
+        "Cascade",
+        "Mosaic"
+      ],
+      "url": "https://verterebrew.com/brewlog/daphne/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1989-300x225.jpeg",
+      "description": "計算値上IBU0。 チヌック、シムコ、カスケード、モザイクを使用。フルーティでジューシーな仕上がり。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-513",
+      "name": "Gardenia",
+      "brewery": "Vertere",
+      "style": "HAZY IPA",
+      "abv": "7.2%",
+      "hops": [
+        "Galaxy",
+        "Vic Secret",
+        "El Dorado"
+      ],
+      "url": "https://verterebrew.com/brewlog/gardenia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1988-300x225.jpeg",
+      "description": "グァバやパイナップル、アプリコットのような香り。滑らかな舌触りに弾けるアロマとフレーバー。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-514",
+      "name": "Sorachi Ace Nector",
+      "brewery": "Vertere",
+      "style": "Hoppy Wheat",
+      "abv": "5.1%",
+      "hops": [
+        "Sorachi Ace",
+        "Meridian"
+      ],
+      "url": "https://verterebrew.com/brewlog/sorachi-ace-nector/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1985-300x225.jpeg",
+      "description": "ソラチエース特有のディルハーブやココナツを思わせる香り。口当たり柔らかく、味わいはしっかり。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-515",
+      "name": "Marshall Porter",
+      "brewery": "Vertere",
+      "style": "Porter",
+      "abv": "5%",
+      "hops": [
+        "East Kent Golding"
+      ],
+      "url": "https://verterebrew.com/brewlog/marshall-porter/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1980-300x225.jpeg",
+      "description": "6種類のモルトを使用した深い味わい。隠し味にメイプルシロップを使用したポーター。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-516",
+      "name": "Osmanthus",
+      "brewery": "Vertere",
+      "style": "IPA",
+      "abv": "7.5%",
+      "hops": [
+        "Galaxy",
+        "Chinook",
+        "Columbus",
+        "Simcoe"
+      ],
+      "url": "https://verterebrew.com/brewlog/osmanthus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1963-300x225.jpeg",
+      "description": "ベリーやアプリコット、トロピカルフルーツのアロマ。苦味も味もしっかりなIPA。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-517",
+      "name": "Cestrum",
+      "brewery": "Vertere",
+      "style": "HAZY IPA",
+      "abv": "6.1%",
+      "hops": [
+        "Galaxy",
+        "Idaho 7",
+        "Amarillo"
+      ],
+      "url": "https://verterebrew.com/brewlog/cestrum/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1961-300x225.jpeg",
+      "description": "青リンゴやグレープフルーツ、桃を思わせるアロマ。口当たりライトな濁り系IPA。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-518",
+      "name": "Noctunum",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "6.3%",
+      "hops": [
+        "Idaho 7",
+        "Vic Secret",
+        "Motueka"
+      ],
+      "url": "https://verterebrew.com/brewlog/noctunum/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1949-300x225.jpeg",
+      "description": "桃やアプリコット、ベリーを思わせるアロマとフレーバー。柔らかい口当たりと優しい甘み。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-519",
+      "name": "Black Charm",
+      "brewery": "Vertere",
+      "style": "STOUT",
+      "abv": "7.5%",
+      "hops": [
+        "Polaris",
+        "Amarillo"
+      ],
+      "url": "https://verterebrew.com/brewlog/black-charm/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1929-300x225.jpeg",
+      "description": "カカオやコーヒー、バナナを思わせる香り。ビターチョコのように、ほろ苦さと甘みが余韻に残る。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-521",
+      "name": "Photinia",
+      "brewery": "Vertere",
+      "style": "Dark Ale",
+      "abv": "4%",
+      "hops": [
+        "Sorachi Ace",
+        "Pekko"
+      ],
+      "url": "https://verterebrew.com/brewlog/photinia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1926-300x225.jpeg",
+      "description": "深すぎないロースト麦芽の香りと軽やかなホップ。 苦味も控えめで、非常に飲みやすいダークエール。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-522",
+      "name": "Heterophyllus",
+      "brewery": "Vertere",
+      "style": "Cascadian Dark Ale",
+      "abv": "4.9%",
+      "hops": [
+        "Columbus",
+        "Simcoe",
+        "Cascade"
+      ],
+      "url": "https://verterebrew.com/brewlog/heterophyllus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1916-300x225.jpeg",
+      "description": "珈琲や柑橘を思わせるアロマ。ドライでキレのある口当たり。ホップとロースト感を楽しめるBLACK IPA。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-523",
+      "name": "Stylomecon",
+      "brewery": "Vertere",
+      "style": "West Coast IPA",
+      "abv": "6.3%",
+      "hops": [
+        "Columbus",
+        "Centennial",
+        "Simcoe",
+        "Cascade",
+        "Amarillo"
+      ],
+      "url": "https://verterebrew.com/brewlog/stylomecon/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1913-300x225.jpeg",
+      "description": "C系ホップを使用した往年の西海岸スタイルを表現。シトラスでクリーンなWestCoastIPA。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-525",
+      "name": "Nelson Nectar",
+      "brewery": "Vertere",
+      "style": "Hoppy Wheat",
+      "abv": "4.6%",
+      "hops": [
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/nelson-nectar/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1905-300x225.jpeg",
+      "description": "ブドウやグレープフルーツを思わせるアロマとフレーバー。ライトな口当たりに爽やかな余韻。ネルソンソーヴィンのシングルホップ。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-526",
+      "name": "BlackCharm#2",
+      "brewery": "Vertere",
+      "style": "Stout",
+      "abv": "7%",
+      "hops": [
+        "Polaris",
+        "Centennial",
+        "Amarillo"
+      ],
+      "url": "https://verterebrew.com/brewlog/blackcharm2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1891-300x225.jpeg",
+      "description": "カカオやコーヒーを思わせる香り。ビターチョコのように、ほろ苦さと甘みが余韻に残る。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-527",
+      "name": "Arvence",
+      "brewery": "Vertere",
+      "style": "Rye Bolnde",
+      "abv": "4.8%",
+      "hops": [
+        "Glacier",
+        "Saaz"
+      ],
+      "url": "https://verterebrew.com/brewlog/arvence/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_2004-300x225.jpeg",
+      "description": "ライ麦とヴィエナモルトを使用。ほんのりスパイシー、麦の香りが楽しめるブロンドエール。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-530",
+      "name": "Meconopsis",
+      "brewery": "Vertere",
+      "style": "IPA",
+      "abv": "6.8%",
+      "hops": [
+        "Columbus",
+        "Azacca",
+        "Centennial",
+        "Chinook",
+        "Cascade",
+        "Citra"
+      ],
+      "url": "https://verterebrew.com/brewlog/new%e3%80%80meconopsis/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1879-300x225.jpeg",
+      "description": "パイナップル、柑橘、草、樹脂のニュアンス。ゆっくり飲むことで様々な香りが楽しめるIPA。",
+      "source": "vertere",
+      "added": "2019-04-22"
+    },
+    {
+      "id": "vertere-536",
+      "name": "Calypso Nectar",
+      "brewery": "Vertere",
+      "style": "Hoppy Wheat",
+      "abv": "5.4%",
+      "hops": [
+        "Calypso"
+      ],
+      "url": "https://verterebrew.com/brewlog/calypso-nectar/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1826-300x225.jpeg",
+      "description": "シトラスでハーバルなアロマとフレーバー。ライトな口当たりにしっかりとした苦味。カリプソのシングルホップ。",
+      "source": "vertere",
+      "added": "2019-05-07"
+    },
+    {
+      "id": "vertere-541",
+      "name": "Aronia",
+      "brewery": "Vertere",
+      "style": "American Amber",
+      "abv": "5%",
+      "hops": [
+        "Mosaic",
+        "Amarillo",
+        "Simcoe"
+      ],
+      "url": "https://verterebrew.com/brewlog/aronia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1773-300x225.jpeg",
+      "description": "ライトな口当たりとカラメルモルト由来の優しい甘み。ロースト香とホップによるイチゴジャムのようなアロマ。",
+      "source": "vertere",
+      "added": "2019-05-15"
+    },
+    {
+      "id": "vertere-545",
+      "name": "Malus",
+      "brewery": "Vertere",
+      "style": "Pale Ale",
+      "abv": "5.4%",
+      "hops": [
+        "Cashmere"
+      ],
+      "url": "https://verterebrew.com/brewlog/malus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/04/IMG_1724-1-300x225.jpeg",
+      "description": "りんご のようなアロマ。 軽やかな口当たり。バランスのとれたペールエール。",
+      "source": "vertere",
+      "added": "2019-05-29"
+    },
+    {
+      "id": "vertere-556",
+      "name": "Gardenia#2",
+      "brewery": "Vertere",
+      "style": "HAZY IPA",
+      "abv": "7.5%",
+      "hops": [
+        "Amarillo",
+        "Simcoe",
+        "Belma",
+        "Idaho 7"
+      ],
+      "url": "https://verterebrew.com/brewlog/gardenia2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/02/Ulmus-300x225.jpeg",
+      "description": "桃やパイナップルのような香り。滑らかな舌触りに弾けるアロマとフレーバー。",
+      "source": "vertere",
+      "added": "2019-06-03"
+    },
+    {
+      "id": "vertere-560",
+      "name": "Senecio",
+      "brewery": "Vertere",
+      "style": "Session IPA",
+      "abv": "3.4%",
+      "hops": [
+        "Amarillo",
+        "Simcoe",
+        "Columbus",
+        "El Dorado",
+        "Mosaic"
+      ],
+      "url": "https://verterebrew.com/brewlog/senecio/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/02/Nicobarica-300x225.jpeg",
+      "description": "オレンジや黄桃のようなアロマ。 軽めの口当たりに爽やかな甘み、じわりとした苦味が舌全体に広がる。",
+      "source": "vertere",
+      "added": "2019-06-10"
+    },
+    {
+      "id": "vertere-564",
+      "name": "Euryops",
+      "brewery": "Vertere",
+      "style": "HOPPY WHEAT",
+      "abv": "4.6%",
+      "hops": [
+        "Amarillo",
+        "Citra",
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/euryops/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/02/Stellaria-300x201.jpeg",
+      "description": "小麦由来の滑らかな舌触り。シトラスやブドウのニュアンス。華やかながらスッキリと飲めるウィートエール。",
+      "source": "vertere",
+      "added": "2019-06-19"
+    },
+    {
+      "id": "vertere-591",
+      "name": "Emex",
+      "brewery": "Vertere",
+      "style": "Herb Saison",
+      "abv": "6.8%",
+      "hops": [
+        "Polaris",
+        "Crystal",
+        "Meridian"
+      ],
+      "url": "https://verterebrew.com/brewlog/emex/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/07/IMG-0670-300x225.jpg",
+      "description": "ジュニパー、ローズマリー、レモングラス等のハーブを使用。ジメジメした時期に飲みたい爽快感のあるセゾン。",
+      "source": "vertere",
+      "added": "2019-07-08"
+    },
+    {
+      "id": "vertere-599",
+      "name": "Ananas",
+      "brewery": "Vertere",
+      "style": "Fruit IPA",
+      "abv": "6.5%",
+      "hops": [
+        "El Dorado",
+        "Citra",
+        "Vic Secret",
+        "Mosaic"
+      ],
+      "url": "https://verterebrew.com/brewlog/ananas/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/07/IMG-0714-300x225.jpg",
+      "description": "パイナップルとココナッツを使用したIPA。フルーティなアロマとパイン由来の酸味。",
+      "source": "vertere",
+      "added": "2019-07-16"
+    },
+    {
+      "id": "vertere-603",
+      "name": "Anthemis",
+      "brewery": "Vertere",
+      "style": "American Pale Ale",
+      "abv": "5.5%",
+      "hops": [
+        "Cascade",
+        "Citra",
+        "Simcoe"
+      ],
+      "url": "https://verterebrew.com/brewlog/anthemis/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/07/IMG-0736-300x225.jpg",
+      "description": "程よい苦味と柑橘のアロマ。バランスのとれたアメリカンペールエール。",
+      "source": "vertere",
+      "added": "2019-07-26"
+    },
+    {
+      "id": "vertere-604",
+      "name": "Prunus",
+      "brewery": "Vertere",
+      "style": "HAZY IPA",
+      "abv": "5.2%",
+      "hops": [
+        "Mosaic",
+        "Strata",
+        "Vic Secret"
+      ],
+      "url": "https://verterebrew.com/brewlog/prunus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/07/IMG-0752-300x225.jpg",
+      "description": "ピーチジュースを使用したヘイジーIPA。爽やかなピーチのアロマとフレーバー。程よい苦味とすっきりとした味わい。",
+      "source": "vertere",
+      "added": "2019-07-29"
+    },
+    {
+      "id": "vertere-612",
+      "name": "Hamura Golden",
+      "brewery": "Vertere",
+      "style": "Golden Ale",
+      "abv": "5.3%",
+      "hops": [
+        "Saaz"
+      ],
+      "url": "https://verterebrew.com/brewlog/hamura-golden/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/07/IMG-0777-300x225.jpg",
+      "description": "東京都羽村市産の麦芽を配合。爽やかな飲み口に広がる麦の風味。",
+      "source": "vertere",
+      "added": "2019-08-13"
+    },
+    {
+      "id": "vertere-622",
+      "name": "Aesculus",
+      "brewery": "Vertere",
+      "style": "Single Hop Saison",
+      "abv": "6.2%",
+      "hops": [
+        "Citra",
+        "Citra Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/aesculus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/09/IMG_1847-300x225.jpg",
+      "description": "シトラのシングルホップ。シトラス感とオレンジ感、苦味を抑えバランスがとれたセゾン。",
+      "source": "vertere",
+      "added": "2019-09-04"
+    },
+    {
+      "id": "vertere-625",
+      "name": "Ritro",
+      "brewery": "Vertere",
+      "style": "Oats Golden Ale",
+      "abv": "4.7%",
+      "hops": [
+        "Meridian",
+        "Strata"
+      ],
+      "url": "https://verterebrew.com/brewlog/ritro/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/09/DSC_0049-1-300x201.jpeg",
+      "description": "オーツ麦芽を使用し、滑らかさと甘さが残るよう設計。 レモンや白ブドウのような爽やかなアロマとフレーバー。",
+      "source": "vertere",
+      "added": "2019-09-24"
+    },
+    {
+      "id": "vertere-626",
+      "name": "Rudis",
+      "brewery": "Vertere",
+      "style": "Single Hop Saison",
+      "abv": "5.6%",
+      "hops": [
+        "Barbe Rouge"
+      ],
+      "url": "https://verterebrew.com/brewlog/rudis/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/09/DSC_0055-1-300x201.jpeg",
+      "description": "フランス産ホップBarbe Rouge を使用。ストロベリーやラズベリーを思わせるフレーバー。苦さを抑えたドリンカブルなセゾン。",
+      "source": "vertere",
+      "added": "2019-09-24"
+    },
+    {
+      "id": "vertere-629",
+      "name": "Chassalia",
+      "brewery": "Vertere",
+      "style": "Pale Ale",
+      "abv": "4%",
+      "hops": [
+        "Glacier",
+        "Pekko"
+      ],
+      "url": "https://verterebrew.com/brewlog/chassalia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/09/DSC_0363-1-300x201.jpeg",
+      "description": "あきる野市 南沢あじさい山で育てられた甘茶(紫陽花茶)を使用したペールエール。すっきりとした飲み口、甘茶特有の口に広がる甘い余韻。",
+      "source": "vertere",
+      "added": "2019-09-24"
+    },
+    {
+      "id": "vertere-655",
+      "name": "Norway Cream",
+      "brewery": "Vertere",
+      "style": "Mild Ale",
+      "abv": "5.3%",
+      "hops": [
+        "Meridian"
+      ],
+      "url": "https://verterebrew.com/brewlog/norway-cream/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/09/IMG_7377-1-300x225.jpeg",
+      "description": "麦の甘みと酵母由来の酸味。苦味を抑えたまったりとした味わい。",
+      "source": "vertere",
+      "added": "2019-09-30"
+    },
+    {
+      "id": "vertere-658",
+      "name": "Tetrorum",
+      "brewery": "Vertere",
+      "style": "Hazy Pale",
+      "abv": "4.7%",
+      "hops": [
+        "Idaho 7"
+      ],
+      "url": "https://verterebrew.com/brewlog/tetrorum/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/09/IMG_7474-1-300x225.jpeg",
+      "description": "シトラスやオレンジを思わせるアロマ。軽やかでスッキリとした飲み口。Idaho7のシングルホップ。",
+      "source": "vertere",
+      "added": "2019-10-07"
+    },
+    {
+      "id": "vertere-659",
+      "name": "Okutama Saison",
+      "brewery": "Vertere",
+      "style": "Saison",
+      "abv": "5.2%",
+      "hops": [
+        "Meridian"
+      ],
+      "url": "https://verterebrew.com/brewlog/okutama-saison/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/09/IMG_7561-1-300x225.jpeg",
+      "description": "奥多摩で収穫された大麦を使用。酵母由来のスパイシーでフローラルなアロマ。口に含むと柔らかく解けるように広がる甘み。",
+      "source": "vertere",
+      "added": "2019-10-11"
+    },
+    {
+      "id": "vertere-686",
+      "name": "Adonis",
+      "brewery": "Vertere",
+      "style": "WEST COAST IPA",
+      "abv": "8%",
+      "hops": [
+        "Columbus",
+        "Nugget",
+        "Rakau",
+        "Simcoe",
+        "Mosaic"
+      ],
+      "url": "https://verterebrew.com/brewlog/adonis/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/10/IMG-2639-300x225.jpg",
+      "description": "シトラスや草を感じる味わい。苦味もボディもしっかりとしたWEST COAST IPA.",
+      "source": "vertere",
+      "added": "2019-11-05"
+    },
+    {
+      "id": "vertere-688",
+      "name": "Aria",
+      "brewery": "Vertere",
+      "style": "Single Hop Pale Ale",
+      "abv": "5.7%",
+      "hops": [
+        "Citra"
+      ],
+      "url": "https://verterebrew.com/brewlog/aria/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/11/IMG-2723-e1573016177791-300x196.jpg",
+      "description": "シトラホップのシングルホップペールエール。柑橘香る爽やかな味わい。",
+      "source": "vertere",
+      "added": "2019-11-06"
+    },
+    {
+      "id": "vertere-691",
+      "name": "CREAM",
+      "brewery": "Vertere",
+      "style": "Mild Ale",
+      "abv": "5.4%",
+      "hops": [
+        "Nugget",
+        "Glacier",
+        "Mt. Hood",
+        "Meridian",
+        "Saaz"
+      ],
+      "url": "https://verterebrew.com/brewlog/cream/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/10/IMG_0894-300x225.jpeg",
+      "description": "Beer Cafe VERTEREの定番ビール。麦の甘みと酵母の香り。  苦味を抑えたまったりとした味わい。",
+      "source": "vertere",
+      "added": "2019-11-11"
+    },
+    {
+      "id": "vertere-693",
+      "name": "Ritro#2",
+      "brewery": "Vertere",
+      "style": "Hazy Blonde",
+      "abv": "-",
+      "hops": [
+        "Strata",
+        "Ella",
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/ritro2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/10/IMG_0512-300x225.jpeg",
+      "description": "オーツ麦芽を使用し、滑らかさと甘さが残るよう設計。 レモンや白ブドウのような爽やかなアロマとフレーバー。前回よりホップを増量",
+      "source": "vertere",
+      "added": "2019-11-18"
+    },
+    {
+      "id": "vertere-698",
+      "name": "Aurea",
+      "brewery": "Vertere",
+      "style": "Saison",
+      "abv": "6%",
+      "hops": [
+        "Sorachi Ace",
+        "Huell Melon"
+      ],
+      "url": "https://verterebrew.com/brewlog/aurea/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/10/IMG_0716-300x225.jpeg",
+      "description": "ジュニパーベリーを使用したセゾン。樹脂のようなスパイシーな香り。口当たり滑らかで甘みのある余韻。",
+      "source": "vertere",
+      "added": "2019-11-28"
+    },
+    {
+      "id": "vertere-699",
+      "name": "Armeria",
+      "brewery": "Vertere",
+      "style": "Hoppy Wheat",
+      "abv": "5.1%",
+      "hops": [
+        "Citra Lupomax",
+        "Citra",
+        "Comet"
+      ],
+      "url": "https://verterebrew.com/brewlog/armeria/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/10/IMG_0526-300x225.jpeg",
+      "description": "小麦由来の滑らかな舌触り。シトラスやブドウのニュアンス。華やかながらスッキリと飲めるウィートエール。",
+      "source": "vertere",
+      "added": "2019-11-28"
+    },
+    {
+      "id": "vertere-731",
+      "name": "Kalmia",
+      "brewery": "Vertere",
+      "style": "Belgian Amber",
+      "abv": "5.2%",
+      "hops": [
+        "Sorachi Ace",
+        "Saphir"
+      ],
+      "url": "https://verterebrew.com/brewlog/kalmia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/12/IMG_3143-300x225.jpg",
+      "description": "熟したバナナを思わせるアロマ。バランスのとれたベルジャンアンバー。",
+      "source": "vertere",
+      "added": "2019-12-20"
+    },
+    {
+      "id": "vertere-733",
+      "name": "Vanda # 2",
+      "brewery": "Vertere",
+      "style": "Milkshake",
+      "abv": "6.1%",
+      "hops": [
+        "Ella",
+        "Columbus",
+        "Nelson Sauvin",
+        "Belma",
+        "El Dorado"
+      ],
+      "url": "https://verterebrew.com/brewlog/vanda-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/12/IMG_3183-300x225.jpg",
+      "description": "柑橘、トロピカルなアロマとフレーバー。程よい苦味とほのかなバニラの余韻。",
+      "source": "vertere",
+      "added": "2019-12-24"
+    },
+    {
+      "id": "vertere-737",
+      "name": "Senecio #2",
+      "brewery": "Vertere",
+      "style": "Session Hazy IPA",
+      "abv": "4.8%",
+      "hops": [
+        "Citra",
+        "Idaho 7",
+        "Mosaic"
+      ],
+      "url": "https://verterebrew.com/brewlog/senecio-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/12/IMG_2209-300x225.jpg",
+      "description": "トロピカルなアロマとフレーバー。低アルコールながら濃厚で甘味のある舌触りと、ほとど良い苦味。",
+      "source": "vertere",
+      "added": "2020-01-06"
+    },
+    {
+      "id": "vertere-740",
+      "name": "Dichroa",
+      "brewery": "Vertere",
+      "style": "Saison",
+      "abv": "6.7%",
+      "hops": [
+        "Callista"
+      ],
+      "url": "https://verterebrew.com/brewlog/dichroa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/12/IMG_3142-300x225.jpg",
+      "description": "イースト由来のハーバルでスパイシーなアロマ。柔らかい口当たりとほのかに甘みを感じる余韻。",
+      "source": "vertere",
+      "added": "2020-02-03"
+    },
+    {
+      "id": "vertere-743",
+      "name": "Castrence",
+      "brewery": "Vertere",
+      "style": "Vienna Lager",
+      "abv": "5.1%",
+      "hops": [
+        "Tettnanger"
+      ],
+      "url": "https://verterebrew.com/brewlog/castrence/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/12/IMG_3158-300x225.jpg",
+      "description": "低温発酵によるさらりとした飲み口。カラメルやパンの風味が楽しめるラガー。",
+      "source": "vertere",
+      "added": "2020-02-14"
+    },
+    {
+      "id": "vertere-745",
+      "name": "Vernalis",
+      "brewery": "Vertere",
+      "style": "IPA",
+      "abv": "6.7%",
+      "hops": [
+        "Nugget",
+        "Simcoe",
+        "Cascade",
+        "Cascade Lupomax",
+        "Citra Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/vernalis/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/12/IMG_3160-300x225.jpg",
+      "description": "しっかりとした苦味とグラッシーなアロマ。カスケードをメインホップにしたオールドスクールIPA。",
+      "source": "vertere",
+      "added": "2020-02-26"
+    },
+    {
+      "id": "vertere-752",
+      "name": "Alata",
+      "brewery": "Vertere",
+      "style": "Saiosn",
+      "abv": "6.6%",
+      "hops": [
+        "Azacca",
+        "Barbe Rouge"
+      ],
+      "url": "https://verterebrew.com/brewlog/alata/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/12/IMG_3190-300x225.jpg",
+      "description": "麦芽由来のカラメル感とホップ由来のイチゴジャムのようなアロマ。ほのかに苦く、すっきりとした仕上がり。",
+      "source": "vertere",
+      "added": "2020-03-23"
+    },
+    {
+      "id": "vertere-753",
+      "name": "Yucca",
+      "brewery": "Vertere",
+      "style": "Pale Ale",
+      "abv": "5.9%",
+      "hops": [
+        "Sabro"
+      ],
+      "url": "https://verterebrew.com/brewlog/yucca/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/12/IMG_3197-300x225.jpg",
+      "description": "Sabroのシングルホップペールエール。爽やかな白ぶどうのアロマと優しくスッと伸びるフィニッシュ。",
+      "source": "vertere",
+      "added": "2020-03-30"
+    },
+    {
+      "id": "vertere-755",
+      "name": "Trema",
+      "brewery": "Vertere",
+      "style": "IPA",
+      "abv": "7%",
+      "hops": [
+        "Pacific Jade",
+        "Columbus",
+        "Cascade Lupomax",
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/trema/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/12/IMG_3228-300x240.jpg",
+      "description": "ダンクなアロマを強調したIPA。しっかりとしたボディと苦味。",
+      "source": "vertere",
+      "added": "2020-04-13"
+    },
+    {
+      "id": "vertere-757",
+      "name": "SUMIRE",
+      "brewery": "Vertere",
+      "style": "STOUT",
+      "abv": "8.5%",
+      "hops": [
+        "Sterling"
+      ],
+      "url": "https://verterebrew.com/brewlog/sumire/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/12/IMG_3283-300x225.jpg",
+      "description": "カナダ産メープルシロップを使用。 滑らかな口当たりと濃厚な甘み。 程よい苦味のフィニッシュで、ビール全体のバランスを維持。名古屋Used like new beerとのコラボビール。",
+      "source": "vertere",
+      "added": "2020-04-27"
+    },
+    {
+      "id": "vertere-758",
+      "name": "Fusca",
+      "brewery": "Vertere",
+      "style": "Sour Blonde",
+      "abv": "6%",
+      "hops": [
+        "Callista",
+        "Saaz"
+      ],
+      "url": "https://verterebrew.com/brewlog/fuscka/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/12/IMG_3297-768x1024.jpg",
+      "description": "ライトなブロンドエールをベースにしたサワーブロンド。ラクトバジルス由来のしっかりとした酸味。ほのかに香る蜂蜜、花、柑橘の香り。",
+      "source": "vertere",
+      "added": "2020-04-27"
+    },
+    {
+      "id": "vertere-759",
+      "name": "Stay Home",
+      "brewery": "Vertere",
+      "style": "Session IPA",
+      "abv": "4.9%",
+      "hops": [],
+      "url": "https://verterebrew.com/brewlog/stay-home/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2019/12/IMG_3272-300x225.jpg",
+      "description": "渋谷OL東京とVERTEREのコラボビール。Oslo Brewing(ノルウェー)よりレシピを提供していただき、カモミールを加えたSession IPA。",
+      "source": "vertere",
+      "added": "2020-04-28"
+    },
+    {
+      "id": "vertere-764",
+      "name": "All Together (WC)",
+      "brewery": "Vertere",
+      "style": "West Coast IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Columbus",
+        "Mosaic",
+        "Cascade Lupomax",
+        "Citra Lupomax",
+        "Simcoe"
+      ],
+      "url": "https://verterebrew.com/brewlog/all-together-wc/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/05/96857496_2586790031426792_556637846144811008_o-300x249.jpg",
+      "description": "NY Other half Brewing 発案のWorldwide Collaboration 。提供されたレシピをベースに醸造したWest Coast IPA。",
+      "source": "vertere",
+      "added": "2020-05-15"
+    },
+    {
+      "id": "vertere-765",
+      "name": "All Together (NE)",
+      "brewery": "Vertere",
+      "style": "New England IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Columbus",
+        "Mosaic",
+        "Cascade",
+        "Citra",
+        "Simcoe"
+      ],
+      "url": "https://verterebrew.com/brewlog/all-together-ne/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/05/96377800_2586790478093414_3544913586318999552_o-300x249.jpg",
+      "description": "NY Other half Brewing 発案のWorldwide Collaboration 。提供されたレシピをベースに醸造したNew England IPA。",
+      "source": "vertere",
+      "added": "2020-05-15"
+    },
+    {
+      "id": "vertere-788",
+      "name": "Mitis",
+      "brewery": "Vertere",
+      "style": "Lime Saison",
+      "abv": "6%",
+      "hops": [
+        "HBC 342"
+      ],
+      "url": "https://verterebrew.com/brewlog/mitis/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "爽やかなセゾンをベースにライム由来のアロマと酸味、程よい苦味のフィニッシュ。春から夏にかけての気候にマッチしたドリンカブルな仕上がり。",
+      "source": "vertere",
+      "added": "2020-06-24"
+    },
+    {
+      "id": "vertere-797",
+      "name": "Pimelea",
+      "brewery": "Vertere",
+      "style": "American Pale Ale",
+      "abv": "6.5%",
+      "hops": [
+        "Idaho 7",
+        "Barbe Rouge",
+        "Cashmere"
+      ],
+      "url": "https://verterebrew.com/brewlog/pimelea-3/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "シトラス、りんご、ベリーのニュアンス。爽やかで柔らかな口当たりのペールエール。",
+      "source": "vertere",
+      "added": "2020-06-24"
+    },
+    {
+      "id": "vertere-799",
+      "name": "Viscaria",
+      "brewery": "Vertere",
+      "style": "Hoppy Wheat",
+      "abv": "5%",
+      "hops": [
+        "Centennial",
+        "Citra",
+        "Comet"
+      ],
+      "url": "https://verterebrew.com/brewlog/viscaria-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "小麦由来の滑らかな口当たり、爽やかなシトラスのアロマとフレーバー。",
+      "source": "vertere",
+      "added": "2020-06-24"
+    },
+    {
+      "id": "vertere-809",
+      "name": "Magnifica",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "5.5%",
+      "hops": [
+        "El Dorado",
+        "Simcoe"
+      ],
+      "url": "https://verterebrew.com/brewlog/magnifica/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "マンゴーを使用したHazy IPA。",
+      "source": "vertere",
+      "added": "2020-06-30"
+    },
+    {
+      "id": "vertere-818",
+      "name": "Trifolium",
+      "brewery": "Vertere",
+      "style": "HAZY IPA",
+      "abv": "7.5%",
+      "hops": [
+        "Azacca",
+        "Centennial",
+        "El Dorado"
+      ],
+      "url": "https://verterebrew.com/brewlog/trifolium/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "ケルシュイーストを使用したHAZY IPA。フルーティなアロマとドライな飲み口。",
+      "source": "vertere",
+      "added": "2020-07-15"
+    },
+    {
+      "id": "vertere-821",
+      "name": "Pigafetta",
+      "brewery": "Vertere",
+      "style": "Session IPA",
+      "abv": "5%",
+      "hops": [
+        "Columbus",
+        "Cascade",
+        "Pacific Jade"
+      ],
+      "url": "https://verterebrew.com/brewlog/pigafetta/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "程よい苦味とライトな飲み口が共存。シトラスや草を思わせるアロマ。",
+      "source": "vertere",
+      "added": "2020-07-22"
+    },
+    {
+      "id": "vertere-825",
+      "name": "Likka",
+      "brewery": "Vertere",
+      "style": "HAZY IPA",
+      "abv": "8.5%",
+      "hops": [
+        "Simcoe",
+        "Idaho 7",
+        "Nelson Sauvin",
+        "Ekuanot"
+      ],
+      "url": "https://verterebrew.com/brewlog/likka/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "トロピカル、シトラスなアロマとフレーバー。重すぎない飲み口ながら濃い味、程良い苦味。",
+      "source": "vertere",
+      "added": "2020-08-05"
+    },
+    {
+      "id": "vertere-828",
+      "name": "Asper",
+      "brewery": "Vertere",
+      "style": "Belgian Wit",
+      "abv": "5%",
+      "hops": [],
+      "url": "https://verterebrew.com/brewlog/asper/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "ライトで爽やかな口当たり。\n\nベルジャンイースト由来の花のような香りと、ほのかなカモミールの余韻。",
+      "source": "vertere",
+      "added": "2020-08-13"
+    },
+    {
+      "id": "vertere-829",
+      "name": "Sahulana",
+      "brewery": "Vertere",
+      "style": "Sour Saison",
+      "abv": "6%",
+      "hops": [],
+      "url": "https://verterebrew.com/brewlog/sahulana/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "清涼感ある口当たりと酸味。\n\nセゾン酵母と乳酸菌由来のピンクグレープフルーツのようなフレーバー。",
+      "source": "vertere",
+      "added": "2020-08-13"
+    },
+    {
+      "id": "vertere-837",
+      "name": "Maroccana",
+      "brewery": "Vertere",
+      "style": "Oats IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Strata",
+        "Sultana",
+        "Vic Secret"
+      ],
+      "url": "https://verterebrew.com/brewlog/maroccana/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "オーツ麦芽50%使用。柔らかい口当たりと溢れるトロピカルなホップのフレーバー。",
+      "source": "vertere",
+      "added": "2020-09-09"
+    },
+    {
+      "id": "vertere-846",
+      "name": "Astelia",
+      "brewery": "Vertere",
+      "style": "Hoppy Wheat",
+      "abv": "5.5%",
+      "hops": [
+        "Pacific Sunrise"
+      ],
+      "url": "https://verterebrew.com/brewlog/astelia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "爽やかな口当たり。レモン、バナナ、マンゴーのようなアロマとフレーバー。\n\nスッキリとしたウィートらしいフィニッシュ。",
+      "source": "vertere",
+      "added": "2020-09-30"
+    },
+    {
+      "id": "vertere-855",
+      "name": "Betula",
+      "brewery": "Vertere",
+      "style": "Norwegian Pale Mild",
+      "abv": "5.5%",
+      "hops": [
+        "Idaho 7"
+      ],
+      "url": "https://verterebrew.com/brewlog/betula/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/10/ea82ab5c4b7bea2a9e1478b82ebfa5d5.png",
+      "description": "ノルウェー酵母 Kveik Yeast を使用。麦の甘みと酵母由来のフルーティなアロマ。苦味を抑えたまったりとした味わい。",
+      "source": "vertere",
+      "added": "2020-10-09"
+    },
+    {
+      "id": "vertere-857",
+      "name": "Nestotus",
+      "brewery": "Vertere",
+      "style": "Belgian Golden",
+      "abv": "7.5%",
+      "hops": [
+        "Aurora",
+        "Tettnanger"
+      ],
+      "url": "https://verterebrew.com/brewlog/nestotus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "酵母由来の梨やバナナを思わせるアロマ。\n\nドライながら飲みごたえのあるベルジャンゴールデン。",
+      "source": "vertere",
+      "added": "2020-10-14"
+    },
+    {
+      "id": "vertere-859",
+      "name": "Decora",
+      "brewery": "Vertere",
+      "style": "Kveik IPA",
+      "abv": "7%",
+      "hops": [
+        "Ella",
+        "Enigma"
+      ],
+      "url": "https://verterebrew.com/brewlog/decora/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/10/1d0f6c919db5b52e2db1e5dcd1360230.png",
+      "description": "ノルウェー酵母 Kveik Yeast を使用。酵母由来の独特でフルーティなアロマ。",
+      "source": "vertere",
+      "added": "2020-10-20"
+    },
+    {
+      "id": "vertere-860",
+      "name": "Mistol",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "6%",
+      "hops": [
+        "Idaho 7",
+        "Centennial",
+        "Cashmere",
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/mistol/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "トロピカル、シトラスなアロマとフレーバー。重すぎない飲み口と程良い苦味の余韻。",
+      "source": "vertere",
+      "added": "2020-10-20"
+    },
+    {
+      "id": "vertere-863",
+      "name": "Postii",
+      "brewery": "Vertere",
+      "style": "Wheat IPA",
+      "abv": "7%",
+      "hops": [
+        "Centennial",
+        "Cascade",
+        "Chinook",
+        "Amarillo"
+      ],
+      "url": "https://verterebrew.com/brewlog/postii/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "蜂蜜、みかん、草のニュアンス。後に引かないしっかりとした苦味。",
+      "source": "vertere",
+      "added": "2020-10-28"
+    },
+    {
+      "id": "vertere-864",
+      "name": "Sanctum",
+      "brewery": "Vertere",
+      "style": "Belgian Amber",
+      "abv": "8.5%",
+      "hops": [
+        "Tettnanger"
+      ],
+      "url": "https://verterebrew.com/brewlog/sanctum/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "カラメル、レーズン、プラムのニュアンス。しっかりとしたボディと余韻に残る優しい甘み。",
+      "source": "vertere",
+      "added": "2020-10-28"
+    },
+    {
+      "id": "vertere-891",
+      "name": "Christmas Sour",
+      "brewery": "Vertere",
+      "style": "Sour Ale",
+      "abv": "6%",
+      "hops": [
+        "Aurora"
+      ],
+      "url": "https://verterebrew.com/brewlog/christmas-sour/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/11/bd95a4c567764c59a68cd26208563fb0-300x300.jpeg",
+      "description": "りんご果汁、アニス、ローズマリーを使用したサワーエール。サワー酵母のまろやかな酸味を感じ、食事にも合わせやすい。",
+      "source": "vertere",
+      "added": "2020-12-03"
+    },
+    {
+      "id": "vertere-892",
+      "name": "Christmas Stout",
+      "brewery": "Vertere",
+      "style": "Pastry Stout",
+      "abv": "10%",
+      "hops": [
+        "Idaho 7",
+        "Tettnanger"
+      ],
+      "url": "https://verterebrew.com/brewlog/christmas-stout/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/11/4012c535f852c3734a5505b68d246641-300x300.jpeg",
+      "description": "シュトーレンをイメージしたデザートのようなクリスマススタウト。\n\n黒蜜、レーズンペースト、オレンジピール、バニラビーンズ、シナモンを使用。",
+      "source": "vertere",
+      "added": "2020-12-03"
+    },
+    {
+      "id": "vertere-912",
+      "name": "Mollis",
+      "brewery": "Vertere",
+      "style": "Saison",
+      "abv": "5.5%",
+      "hops": [
+        "Cascade",
+        "Aurora"
+      ],
+      "url": "https://verterebrew.com/brewlog/mollis/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "ほのかな苦味と酵母のスパイシーな香り。爽やかで清涼感のあるセゾン。",
+      "source": "vertere",
+      "added": "2021-01-21"
+    },
+    {
+      "id": "vertere-913",
+      "name": "Pulcher",
+      "brewery": "Vertere",
+      "style": "Session IPA",
+      "abv": "-",
+      "hops": [
+        "Mosaic",
+        "El Dorado",
+        "Columbus"
+      ],
+      "url": "https://verterebrew.com/brewlog/pulcher/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/06/5cc2d6cb11b3124e233a0c77c1e80cde.png",
+      "description": "恵比寿にあるクラフトビールバーTBEの5周年記念ビール。\n\n柑橘香るドリンカブルなSession IPA。",
+      "source": "vertere",
+      "added": "2021-01-21"
+    },
+    {
+      "id": "vertere-922",
+      "name": "Raphia",
+      "brewery": "Vertere",
+      "style": "Session IPA",
+      "abv": "4%",
+      "hops": [
+        "Columbus",
+        "Citra",
+        "Centennial"
+      ],
+      "url": "https://verterebrew.com/brewlog/raphia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/01/8b5608bf5b8a11ed14c0994658b536dc-300x300.jpeg",
+      "description": "パイナップルや柑橘のアロマとしっかりとした苦味。\n\n微炭酸でドリンカブルなSession IPA。",
+      "source": "vertere",
+      "added": "2021-01-26"
+    },
+    {
+      "id": "vertere-923",
+      "name": "Alpinum",
+      "brewery": "Vertere",
+      "style": "Oats Lager",
+      "abv": "5.5%",
+      "hops": [
+        "Pacific Sunrise",
+        "Aurora",
+        "Chinook"
+      ],
+      "url": "https://verterebrew.com/brewlog/alpinum-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/01/e64008f2f3e89ca4835a9b23a60d7813-300x300.jpeg",
+      "description": "低温発酵によるすっきりさと、オーツ麦の柔らかな口当たり。",
+      "source": "vertere",
+      "added": "2021-01-26"
+    },
+    {
+      "id": "vertere-928",
+      "name": "5th Anniversary Red IPA",
+      "brewery": "Vertere",
+      "style": "Red IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Columbus",
+        "Mosaic",
+        "Idaho 7",
+        "Citra",
+        "Chinook"
+      ],
+      "url": "https://verterebrew.com/brewlog/5th-anniversary-red-ipa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/02/e3d92eb564d6c0f4d0d0e0105e3b61e0-300x300.jpeg",
+      "description": "Beer Cafe VERTERE定番のRED IPA。イチゴやカラメルの香り、苦味とコクがしっかり。",
+      "source": "vertere",
+      "added": "2021-02-03"
+    },
+    {
+      "id": "vertere-931",
+      "name": "Rubra",
+      "brewery": "Vertere",
+      "style": "English Brown Ale",
+      "abv": "4.5%",
+      "hops": [
+        "East Kent Golding"
+      ],
+      "url": "https://verterebrew.com/brewlog/rubra/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/01/8b5608bf5b8a11ed14c0994658b536dc-300x300.jpeg",
+      "description": "イギリス産のモルトとホップを使用したBrown Ale。カラメルや土のニュアンスと余韻に残る程よい苦味。",
+      "source": "vertere",
+      "added": "2021-02-16"
+    },
+    {
+      "id": "vertere-935",
+      "name": "Prattii",
+      "brewery": "Vertere",
+      "style": "Single Hop Pale Ale",
+      "abv": "5.5%",
+      "hops": [
+        "El Dorado"
+      ],
+      "url": "https://verterebrew.com/brewlog/prattii/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/01/8b5608bf5b8a11ed14c0994658b536dc-300x300.jpeg",
+      "description": "El Doradoを使用したSingle Hop Pale Ale。桃やぶどうを思わせるアロマ。ごくごく飲めるすっきりとしたペールエール。",
+      "source": "vertere",
+      "added": "2021-03-12"
+    },
+    {
+      "id": "vertere-936",
+      "name": "Ruscus",
+      "brewery": "Vertere",
+      "style": "Black IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Columbus",
+        "Chinook",
+        "Azacca"
+      ],
+      "url": "https://verterebrew.com/brewlog/ruscus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/01/8b5608bf5b8a11ed14c0994658b536dc-300x300.jpeg",
+      "description": "ライトな口当たりとしっかりとした苦味。\n\n甘く爽やかなホップのアロマとあとから追いかけるロースト感。",
+      "source": "vertere",
+      "added": "2021-03-12"
+    },
+    {
+      "id": "vertere-946",
+      "name": "Serra",
+      "brewery": "Vertere",
+      "style": "Pseudo Lager (スードラガー)",
+      "abv": "5.5%",
+      "hops": [
+        "Aurora"
+      ],
+      "url": "https://verterebrew.com/brewlog/serra/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/01/8b5608bf5b8a11ed14c0994658b536dc-300x300.jpeg",
+      "description": "ノルウェー産Kveik酵母を使用したPseudo(Fake) Lager。はちみつのようなアロマ。エールだがラガーのようにすっきりとした飲み口。",
+      "source": "vertere",
+      "added": "2021-04-14"
+    },
+    {
+      "id": "vertere-957",
+      "name": "Repens",
+      "brewery": "Vertere",
+      "style": "Brut IPA",
+      "abv": "6%",
+      "hops": [
+        "Lotus",
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/repens/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/01/8b5608bf5b8a11ed14c0994658b536dc-300x300.jpeg",
+      "description": "シトラスやぶどう、ハーブのニュアンス。柔らかい口当たりとドライな後味でスルスル飲めるBrut IPA。",
+      "source": "vertere",
+      "added": "2021-05-21"
+    },
+    {
+      "id": "vertere-962",
+      "name": "Glacilis",
+      "brewery": "Vertere",
+      "style": "Belgian Strong",
+      "abv": "10%",
+      "hops": [
+        "Sabro",
+        "Mistral"
+      ],
+      "url": "https://verterebrew.com/brewlog/glacilis/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/01/8b5608bf5b8a11ed14c0994658b536dc-300x300.jpeg",
+      "description": "濃厚な麦の甘みとレーズンを思わせるアロマ。ほどよいアルコールの余韻。",
+      "source": "vertere",
+      "added": "2021-06-22"
+    },
+    {
+      "id": "vertere-890",
+      "name": "Amyris",
+      "brewery": "Vertere",
+      "style": "American Pale Ale",
+      "abv": "7.5%",
+      "hops": [
+        "Mosaic",
+        "Idaho 7",
+        "Centennial",
+        "Amarillo",
+        "Citra"
+      ],
+      "url": "https://verterebrew.com/brewlog/amyris-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2020/11/5d2c23b1417ed9f061c78a2a0d40f061-300x300.jpeg",
+      "description": "柑橘や草を思わせるアロマとフレーバー。柔らかい口当たりと余韻に残る麦の優しい甘み。",
+      "source": "vertere",
+      "added": "2021-07-20"
+    },
+    {
+      "id": "vertere-970",
+      "name": "Lupinus",
+      "brewery": "Vertere",
+      "style": "Single Hop Pale Ale",
+      "abv": "5.5%",
+      "hops": [
+        "Citra",
+        "Citra Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/lupinus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/01/8b5608bf5b8a11ed14c0994658b536dc-300x300.jpeg",
+      "description": "シトラのシングルホップペールエール。すっきりとした飲み口、夏にゴクゴクいける仕上がり。",
+      "source": "vertere",
+      "added": "2021-07-20"
+    },
+    {
+      "id": "vertere-972",
+      "name": "Exacum",
+      "brewery": "Vertere",
+      "style": "Vienna Pseudo Lager",
+      "abv": "5%",
+      "hops": [
+        "East Kent Golding"
+      ],
+      "url": "https://verterebrew.com/brewlog/exacum/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/01/8b5608bf5b8a11ed14c0994658b536dc-300x300.jpeg",
+      "description": "Viennaモルトとノルウェー産Kveik酵母を使用したPseudo(Fake) Lager。\n\nエールだがラガーのようにすっきりとした飲み口。",
+      "source": "vertere",
+      "added": "2021-07-28"
+    },
+    {
+      "id": "vertere-967",
+      "name": "Inessa",
+      "brewery": "Vertere",
+      "style": "Apple Mint Sour",
+      "abv": "5.5%",
+      "hops": [
+        "Lotus"
+      ],
+      "url": "https://verterebrew.com/brewlog/inessa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/07/78d0a586446b03f63896f21b2d8902e4-300x300.jpeg",
+      "description": "りんごのアロマとミントのフレーバー。爽やかな酸味とクリーンなフィニッシュ。",
+      "source": "vertere",
+      "added": "2021-08-18"
+    },
+    {
+      "id": "vertere-976",
+      "name": "Vismia",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "6%",
+      "hops": [
+        "Citra",
+        "Strata",
+        "Citra Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/vismia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/01/8b5608bf5b8a11ed14c0994658b536dc-300x300.jpeg",
+      "description": "桃やパイナップルを思わせるアロマとフレーバー。程よい苦味とジューシーな味わい。",
+      "source": "vertere",
+      "added": "2021-08-18"
+    },
+    {
+      "id": "vertere-980",
+      "name": "0.05 // Collaboration Beer with「Another Round」",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "6%",
+      "hops": [
+        "Idaho 7",
+        "Citra",
+        "Citra Lupomax",
+        "Mosaic Lupomax",
+        "Amarillo"
+      ],
+      "url": "https://verterebrew.com/brewlog/0-05-collaboration-beer-with%e3%80%8canother-round%e3%80%8d/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/08/78d0a586446b03f63896f21b2d8902e4-300x300.jpeg",
+      "description": "映画『アナザーラウンド』をイメージしたコラボビール。\n\nトロピカルなアロマとフレーバー。バランスのとれた甘みと苦味。 ーーーーーーーーーーーーーーーーー\n\n映画 アナザーラウンド 9/3（金）公開\n\nhttps://anotherround-movie.com\n\n配給：クロックワークス\n\nc2020 Zentropa Entertainments3 ApS, Zentropa Sweden AB, Topkapi Films B.V. & Zentropa Netherlands B.V.\n\nーーーーーーーーーーーーーーーーー",
+      "source": "vertere",
+      "added": "2021-08-26"
+    },
+    {
+      "id": "vertere-983",
+      "name": "Misera",
+      "brewery": "Vertere",
+      "style": "Pale Ale",
+      "abv": "5.5%",
+      "hops": [
+        "Belma",
+        "El Dorado"
+      ],
+      "url": "https://verterebrew.com/brewlog/misera/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/01/8b5608bf5b8a11ed14c0994658b536dc-300x300.jpeg",
+      "description": "メロンや洋梨のようなアロマとフレーバー。ドライでクリーンなペールエール。",
+      "source": "vertere",
+      "added": "2021-09-14"
+    },
+    {
+      "id": "vertere-930",
+      "name": "Alnus",
+      "brewery": "Vertere",
+      "style": "English Pale Ale",
+      "abv": "5%",
+      "hops": [
+        "East Kent Golding"
+      ],
+      "url": "https://verterebrew.com/brewlog/alnus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/01/8b5608bf5b8a11ed14c0994658b536dc-300x300.jpeg",
+      "description": "麦の香りと酵母由来のフルーティなアロマ。優しい甘みとまったりとした味わい。",
+      "source": "vertere",
+      "added": "2021-10-06"
+    },
+    {
+      "id": "vertere-959",
+      "name": "Triple Fruited Gose",
+      "brewery": "Vertere",
+      "style": "Triple Fruited Gose",
+      "abv": "5.5%",
+      "hops": [
+        "El Dorado"
+      ],
+      "url": "https://verterebrew.com/brewlog/triple-fruited-gose-peach-brown-sugar-cinnamon-vertere-x-north-brewing/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/05/78d0a586446b03f63896f21b2d8902e4-1-300x229.jpeg",
+      "description": "VERTERE初のブルワリーコラボレーションが、イギリスのNorth Brewingと実現。オンラインの打ち合わせを重ね、North定番のTFGシリーズに私たちのサワリングの技術を組み合わせたレシピを作成。ピーチピューレと黒糖をふんだんに使用した、クリアな酸味とシナモンがふわっと広がるゴーゼ。",
+      "source": "vertere",
+      "added": "2021-10-06"
+    },
+    {
+      "id": "vertere-593",
+      "name": "Plumeria",
+      "brewery": "Vertere",
+      "style": "Brux IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Zappa"
+      ],
+      "url": "https://verterebrew.com/brewlog/plumeria/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/01/8b5608bf5b8a11ed14c0994658b536dc-300x300.jpeg",
+      "description": "トロピカル、アプリコット、ベリーもアロマ。酵母由来とホップ由来のスパイシーな味わい。",
+      "source": "vertere",
+      "added": "2021-10-27"
+    },
+    {
+      "id": "vertere-1045",
+      "name": "Merry Christmas 2021 // Juniper Saison",
+      "brewery": "Vertere",
+      "style": "Juniper Saison",
+      "abv": "6%",
+      "hops": [
+        "Sultana"
+      ],
+      "url": "https://verterebrew.com/brewlog/merry-christmas-2021-juniper-saison/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/12/c91b0d172890e7ab86495d50954b2c6d-300x300.jpeg",
+      "description": "ジュニパーベリーを使用したセゾン。カモミールとレモンピールの爽やかなアロマ。クリスマスの食前酒に。",
+      "source": "vertere",
+      "added": "2021-12-03"
+    },
+    {
+      "id": "vertere-1046",
+      "name": "Merry Christmas 2021 // Golden Sour",
+      "brewery": "Vertere",
+      "style": "Golden Sour",
+      "abv": "7%",
+      "hops": [
+        "Motueka",
+        "Barbe Rouge"
+      ],
+      "url": "https://verterebrew.com/brewlog/merry-christmas-2021-golden-sour/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/12/cf2227f4d3b33416e51ad61192637797-1-300x300.jpeg",
+      "description": "ゴールデンエールをベースにした食事にも合わせやすいサワービール。ラクトバジルス由来のしっかりとした酸味。みかんやグレープフルーツを思わせるフレーバー。",
+      "source": "vertere",
+      "added": "2021-12-03"
+    },
+    {
+      "id": "vertere-1047",
+      "name": "Merry Christmas 2021 // Strawberry Milkshake IPA",
+      "brewery": "Vertere",
+      "style": "Strawberry Milkshake IPA",
+      "abv": "7.5%",
+      "hops": [
+        "Belma",
+        "El Dorado"
+      ],
+      "url": "https://verterebrew.com/brewlog/merry-christmas-2021-strawberry-milkshake-ipa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/12/794def669236451e93886e1775151a4e-300x300.jpeg",
+      "description": "いちごピューレを使用したデザートのようなMIlkshake IPA。ショートケーキのようなアロマ。",
+      "source": "vertere",
+      "added": "2021-12-03"
+    },
+    {
+      "id": "vertere-1049",
+      "name": "Window to WCB // Collaboration Beer with West Coast Brewing",
+      "brewery": "Vertere",
+      "style": "Hazy DIPA",
+      "abv": "8%",
+      "hops": [
+        "Motueka",
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/window-to-wcb-collaboration-beer-with-west-coast-brewing/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/12/55_WCB-01-300x300.jpeg",
+      "description": "VERTERE初となる国内ブルワリーとのコラボレーションビール。モルト分量や基本的なホップスケジュール、酵母は統一し、ドライホップで使用したMotuekaとNelson Sauvinの分量を逆にして、2種類飲め比べしていただけるように醸造。",
+      "source": "vertere",
+      "added": "2021-12-09"
+    },
+    {
+      "id": "vertere-1079",
+      "name": "Oxalis",
+      "brewery": "Vertere",
+      "style": "Imperial Stout",
+      "abv": "12%",
+      "hops": [
+        "Columbus"
+      ],
+      "url": "https://verterebrew.com/brewlog/oxalis/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/12/61_Oxalis-01-300x300.jpeg",
+      "description": "通常の２倍量のモルトを使用した濃厚なスタウト。レーズン、チョコレート、トフィーのニュアンス。",
+      "source": "vertere",
+      "added": "2022-01-20"
+    },
+    {
+      "id": "vertere-1080",
+      "name": "Impatiens",
+      "brewery": "Vertere",
+      "style": "Belgian Golden",
+      "abv": "7.5%",
+      "hops": [
+        "Tettnanger"
+      ],
+      "url": "https://verterebrew.com/brewlog/impatiens/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/12/0CAE4A1A-86F8-44CF-85BD-F7CBC9921375_1_105_c-300x300.jpeg",
+      "description": "福岡のデザートバー『日と常』とのコラボビール。酵母由来のバナナのようなアロマと甘い余韻。",
+      "source": "vertere",
+      "added": "2022-01-21"
+    },
+    {
+      "id": "vertere-1083",
+      "name": "Discover Japan　Mixed Culture IPA",
+      "brewery": "Vertere",
+      "style": "Mixed Culture IPA",
+      "abv": "8%",
+      "hops": [],
+      "url": "https://verterebrew.com/brewlog/discover-japan%e3%80%80mixed-culture-ipa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/01/63_Discover-Japan-01-300x300.jpeg",
+      "description": "アンケート結果と生配信中のコメントをベースにレシピを作成。\n\nジューシーさを引き出すために通常のIPAより、\n\nほんのわずかに酸度を上げるため乳酸菌を使用。\n\nラクトース(乳糖)を加えることで、マンゴーやグァバといった南国フルーツの甘みと口当たりを表現。",
+      "source": "vertere",
+      "added": "2022-01-28"
+    },
+    {
+      "id": "vertere-1085",
+      "name": "Valentine Sour 2022  w/Apple, Ginger, Mint",
+      "brewery": "Vertere",
+      "style": "Session Sour",
+      "abv": "3.5%",
+      "hops": [
+        "Tettnanger"
+      ],
+      "url": "https://verterebrew.com/brewlog/valentine-sour-2022-w-apple-ginger-mint/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/01/64_valentinesour-01-300x300.jpeg",
+      "description": "アップル果汁、ジンジャー、ミントを使用した爽やかなセッションサワー。酸味が効いたジンジャーエールのような味わい。",
+      "source": "vertere",
+      "added": "2022-02-04"
+    },
+    {
+      "id": "vertere-1086",
+      "name": "Valentine Porter 2022  w/Orange Peel, Lemon Peel, Cacao",
+      "brewery": "Vertere",
+      "style": "Porter",
+      "abv": "6%",
+      "hops": [
+        "Tettnanger",
+        "Azacca"
+      ],
+      "url": "https://verterebrew.com/brewlog/valentine-porter-2022-w-orange-peel-lemon-peel-cacao/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/01/65_valentineporter-01-300x300.jpeg",
+      "description": "レモンピール、オレンジピール、カカオを使用したフルーツチョコレートをイメージしたポーター。しっかりしたボディとほのかな柑橘感。",
+      "source": "vertere",
+      "added": "2022-02-04"
+    },
+    {
+      "id": "vertere-1097",
+      "name": "6th Anniversary Sour IPA",
+      "brewery": "Vertere",
+      "style": "Sour IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Idaho 7",
+        "Mosaic",
+        "El Dorado",
+        "Motueka",
+        "Citra Lupomax",
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/6th-anniversary-sour-ipa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/02/67_6th_SourIPA-01-300x300.jpeg",
+      "description": "乳酸菌由来のプラムのようなスッキリな味わい。苦味を感じるホッピーなフィニッシュ。",
+      "source": "vertere",
+      "added": "2022-02-25"
+    },
+    {
+      "id": "vertere-1098",
+      "name": "6th Anniversary Hazy IPA",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Idaho 7",
+        "Mosaic",
+        "El Dorado",
+        "Motueka",
+        "Citra Lupomax",
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/6th-anniversary-hazy-ipa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/02/68_6th_HazyIPA-01-300x300.jpeg",
+      "description": "トロピカルフルーツのようなジューシーなアロマとフレーバー。優しい舌触り。",
+      "source": "vertere",
+      "added": "2022-02-25"
+    },
+    {
+      "id": "vertere-1099",
+      "name": "After SAUNA ALE",
+      "brewery": "Vertere",
+      "style": "Juniper Sour Saison",
+      "abv": "4.5%",
+      "hops": [],
+      "url": "https://verterebrew.com/brewlog/after-sauna-ale/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/02/8bd55ae4f154094bb89a3b1547cf3603-300x300.jpeg",
+      "description": "フィンランドのサウナ後の定番カクテル『ロンケロ』に着想を得たサワーエール。\n\nジンを思わせるようなボタニカルな香り。心地よい酸味と爽やかな飲み口。",
+      "source": "vertere",
+      "added": "2022-03-04"
+    },
+    {
+      "id": "vertere-882",
+      "name": "Artist collaboration",
+      "brewery": "Vertere",
+      "style": "Pale Sour Saison",
+      "abv": "-",
+      "hops": [
+        "Belma"
+      ],
+      "url": "https://verterebrew.com/brewlog/artist-collaboration-1/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/03/Bannai_SourSaison-300x300.jpeg",
+      "description": "イラストレーター 坂内拓氏とのコラボレーション企画商品。 ラベルアートを見ながら飲むという形でクラフトビールの価値を高め、またクラフトビールを通してアートに触れる機会を増やしたい。 VERTEREのために坂内拓氏が描き下ろした作品からイメージを得てビールのレシピを作成しました。 商品説明：柑橘とほのかにカラメルのニュアンス。飲み口軽く、爽やかなペールサワー。",
+      "source": "vertere",
+      "added": "2022-03-16"
+    },
+    {
+      "id": "vertere-883",
+      "name": "Artist collaboration",
+      "brewery": "Vertere",
+      "style": "TIPA",
+      "abv": "-",
+      "hops": [
+        "Idaho 7"
+      ],
+      "url": "https://verterebrew.com/brewlog/artist-collaboration-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/03/Bannai_TIPA-300x300.jpeg",
+      "description": "イラストレーター 坂内拓氏とのコラボレーション企画商品。 ラベルアートを見ながら飲むという形でクラフトビールの価値を高め、またクラフトビールを通してアートに触れる機会を増やしたい。 VERTEREのために坂内拓氏が描き下ろした作品からイメージを得てビールのレシピを作成しました。 商品説明：Idaho 7 シングルホップのTIPA。濃厚な飲み口とアプリコットやオレンジを思わせるフレーバー。",
+      "source": "vertere",
+      "added": "2022-03-16"
+    },
+    {
+      "id": "vertere-884",
+      "name": "Artist collaboration",
+      "brewery": "Vertere",
+      "style": "Belgian Blonde",
+      "abv": "-",
+      "hops": [
+        "Mistral"
+      ],
+      "url": "https://verterebrew.com/brewlog/artist-collaboration-3/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/03/Bannai_Belgian-300x300.jpeg",
+      "description": "イラストレーター 坂内拓氏とのコラボレーション企画商品。 ラベルアートを見ながら飲むという形でクラフトビールの価値を高め、またクラフトビールを通してアートに触れる機会を増やしたい。 VERTEREのために坂内拓氏が描き下ろした作品からイメージを得てビールのレシピを作成しました。 商品説明：イースト由来のフルーティーなアロマ。優しい甘味とキレのあるドライな後味。",
+      "source": "vertere",
+      "added": "2022-03-16"
+    },
+    {
+      "id": "vertere-1095",
+      "name": "Passiflora // Artist Collaboration Version",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "7%",
+      "hops": [
+        "Citra",
+        "Mosaic",
+        "Citra Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/artist-collaboration-4/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/03/Bannai_Passiflora-300x300.jpeg",
+      "description": "イラストレーター 坂内拓氏とのコラボレーション企画商品。 ラベルアートを見ながら飲むという形でクラフトビールの価値を高め、またクラフトビールを通してアートに触れる機会を増やしたい。 VERTEREのために坂内拓氏が描き下ろした作品です。 商品説明：南国を思わせるアロマとフレーバー。甘く柔らかい舌触りとほど良い苦味。",
+      "source": "vertere",
+      "added": "2022-03-16"
+    },
+    {
+      "id": "vertere-1117",
+      "name": "Palaquium",
+      "brewery": "Vertere",
+      "style": "Mango Sour",
+      "abv": "7.8%",
+      "hops": [
+        "Mosaic",
+        "Vic Secret"
+      ],
+      "url": "https://verterebrew.com/brewlog/palaquium/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/04/757e3d6890a691468f723ecc1a3ba8e6-300x300.jpeg",
+      "description": "マンゴーピューレを大量に使用。なめらかな舌触りと溢れる果汁感。",
+      "source": "vertere",
+      "added": "2022-05-10"
+    },
+    {
+      "id": "vertere-1122",
+      "name": "Fraus",
+      "brewery": "Vertere",
+      "style": "Sour Saison",
+      "abv": "4.5%",
+      "hops": [
+        "Hallertau Blanc"
+      ],
+      "url": "https://verterebrew.com/brewlog/fraus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/05/76_Fraus-01-300x300.jpeg",
+      "description": "コリアンダー、イースト由来のスパイシーなアロマ。\n\nキレのあるドライな仕上がり。優しい酸味。",
+      "source": "vertere",
+      "added": "2022-05-11"
+    },
+    {
+      "id": "vertere-1062",
+      "name": "Idea",
+      "brewery": "Vertere",
+      "style": "Sour IPA w/Banana, Blueberry",
+      "abv": "8%",
+      "hops": [
+        "El Dorado",
+        "Belma"
+      ],
+      "url": "https://verterebrew.com/brewlog/idea/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/12/4843dc3a30927d5a6f4a272864097c56-300x300.jpeg",
+      "description": "バナナピューレ、ブルーベリー果汁を使用したSour IPA。甘みのあるブルーベリーと乳酸菌由来のクリアな酸味。バナナがほのかに香る。",
+      "source": "vertere",
+      "added": "2022-05-26"
+    },
+    {
+      "id": "vertere-869",
+      "name": "Ambrax",
+      "brewery": "Vertere",
+      "style": "Blueberry Sour",
+      "abv": "6.5%",
+      "hops": [
+        "El Dorado",
+        "Azacca"
+      ],
+      "url": "https://verterebrew.com/brewlog/ambrax/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/10/9642ed09641cbd8ba2399a09cad60986-300x300.jpeg",
+      "description": "ブルーベリー果汁、ラクトース、バニラビーンズを使用。ブルーベリーと乳酸菌の酸味の中にふわっとバニラが香るジューシーなサワーエール。",
+      "source": "vertere",
+      "added": "2022-06-22"
+    },
+    {
+      "id": "vertere-1141",
+      "name": "Bellis",
+      "brewery": "Vertere",
+      "style": "Session IPA",
+      "abv": "4.5%",
+      "hops": [
+        "Mosaic",
+        "Simcoe",
+        "Nelson Sauvin",
+        "El Dorado",
+        "East Kent Golding"
+      ],
+      "url": "https://verterebrew.com/brewlog/bellis/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/06/81_Bellis-01-300x300.jpeg",
+      "description": "柑橘、トロピカルなアロマ。ボディのしっかりしたSession IPA。",
+      "source": "vertere",
+      "added": "2022-06-29"
+    },
+    {
+      "id": "vertere-1203",
+      "name": "Chapmannia",
+      "brewery": "Vertere",
+      "style": "Peanut Butter Stout",
+      "abv": "7.5%",
+      "hops": [
+        "Fuggle"
+      ],
+      "url": "https://verterebrew.com/brewlog/chapmannia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/07/381ee4604db1c6b43fa95e9d41abd8e4-1-300x300.jpeg",
+      "description": "ピーナッツバターとカカオを使用したスイーツのようなスタウト。まろやかな口当たり。",
+      "source": "vertere",
+      "added": "2022-07-27"
+    },
+    {
+      "id": "vertere-1214",
+      "name": "Shawii",
+      "brewery": "Vertere",
+      "style": "Rye Saison",
+      "abv": "6.5%",
+      "hops": [
+        "Fuggle",
+        "Usda 008"
+      ],
+      "url": "https://verterebrew.com/brewlog/shawii/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/09/89_Shawii-01-300x300.jpeg",
+      "description": "ライ麦を使用したセゾン。\n\nほのかにスパイシーなアロマと、軽くなめらかな口当たり",
+      "source": "vertere",
+      "added": "2022-09-22"
+    },
+    {
+      "id": "vertere-1134",
+      "name": "Cupido",
+      "brewery": "Vertere",
+      "style": "Sour Blonde Ale",
+      "abv": "6%",
+      "hops": [
+        "Aurora"
+      ],
+      "url": "https://verterebrew.com/brewlog/cupido/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/05/79_Cupido-01-300x300.jpeg",
+      "description": "フラワーブーケや蜂蜜のニュアンス。フルーティーな酸味と優しい甘味が特徴のサワーブロンド。",
+      "source": "vertere",
+      "added": "2022-09-28"
+    },
+    {
+      "id": "vertere-827",
+      "name": "Cracca",
+      "brewery": "Vertere",
+      "style": "Blonde Ale",
+      "abv": "6%",
+      "hops": [
+        "Aurora"
+      ],
+      "url": "https://verterebrew.com/brewlog/cracca/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/10/94_Cracca-01-300x300.jpeg",
+      "description": "酵母由来のほのかに白ブドウを思わせるアロマ。柔らかい舌触りと優しい麦の風味、軽い甘味。",
+      "source": "vertere",
+      "added": "2022-10-26"
+    },
+    {
+      "id": "vertere-981",
+      "name": "Nucifera",
+      "brewery": "Vertere",
+      "style": "Imperial Stout",
+      "abv": "10%",
+      "hops": [
+        "Fuggle",
+        "Belma"
+      ],
+      "url": "https://verterebrew.com/brewlog/nucifera/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/10/92_Nucifera-01-300x300.jpeg",
+      "description": "ココナッツ、カカオ、バニラ、黒蜜を使用。\n\n焙煎したココナッツのアロマと甘みが特徴的なスタウト。 （麦芽使用率50%以上）",
+      "source": "vertere",
+      "added": "2022-11-04"
+    },
+    {
+      "id": "vertere-1250",
+      "name": "UNLEARN",
+      "brewery": "Vertere",
+      "style": "Hazy Pale",
+      "abv": "5.5%",
+      "hops": [],
+      "url": "https://verterebrew.com/brewlog/unlearn/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/11/3f97e7c8e403eb3d6ba6aa25fecebdd6-300x300.jpeg",
+      "description": "ビジュアルデザインスタジオWOWとのコラボビール。ホップにシトラ、モザイク、エルドラド、ネルソンを使用したHazy Pale Ale。",
+      "source": "vertere",
+      "added": "2022-11-18"
+    },
+    {
+      "id": "vertere-1259",
+      "name": "Blonde Ale w/Honey, Lemon Peel",
+      "brewery": "Vertere",
+      "style": "Blonde Ale",
+      "abv": "6.5%",
+      "hops": [
+        "Aurora"
+      ],
+      "url": "https://verterebrew.com/brewlog/blonde-ale-w-honey-lemon-peel/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/11/04cb54908e5b97fec9aef79a0821a15b-300x300.jpeg",
+      "description": "はちみつと瀬戸内産グリーンレモンピールを使用。フレッシュなレモンのアロマに、はちみつのニュアンス。口当たり軽く、ドライなフィニッシュ。 (麦芽使用率50%以上)",
+      "source": "vertere",
+      "added": "2022-11-29"
+    },
+    {
+      "id": "vertere-1260",
+      "name": "Barley Wine w/Ginger, Cinnamon",
+      "brewery": "Vertere",
+      "style": "Barley Wine",
+      "abv": "11%",
+      "hops": [
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/barley-wine-w-ginger-cinnamon/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/11/cc8e47264d91ab8587bd1f26d6dd879d-300x300.jpeg",
+      "description": "シナモン、ナツメグ、バニラ、生姜を使用。複雑なスパイスの香味と、通常の倍量使用した麦芽のコク。厚めのボディにしっかりとした甘み。",
+      "source": "vertere",
+      "added": "2022-11-29"
+    },
+    {
+      "id": "vertere-1261",
+      "name": "Sour IPA w/Cherry, Basil",
+      "brewery": "Vertere",
+      "style": "Sour IPA",
+      "abv": "7.5%",
+      "hops": [
+        "Azacca",
+        "El Dorado"
+      ],
+      "url": "https://verterebrew.com/brewlog/sour-ipa-w-cherry-basil/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/11/0dc6eec8cca82855a55ddd59d7242127-300x300.jpeg",
+      "description": "サワーチェリー、バジル、クローブを使用。乳酸菌とチェリーによるフルーティーな酸味。バジルとクローブを組み合わせることで層のある味わいに。",
+      "source": "vertere",
+      "added": "2022-11-29"
+    },
+    {
+      "id": "vertere-1265",
+      "name": "Window to WCB",
+      "brewery": "Vertere",
+      "style": "Sour DIPA",
+      "abv": "8%",
+      "hops": [
+        "Riwaka",
+        "Moutere",
+        "Kohatu",
+        "Lorien"
+      ],
+      "url": "https://verterebrew.com/brewlog/window-to-wcb-collaboration-beer-with-west-coast-brewing-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/12/3e812825692f084a3b0137a414e7cd37-300x300.jpeg",
+      "description": "WCB とのコラボレーション第二弾。ベースとなる原料は同じ物を使用し、発酵方法のみ変更。爽やかな柑橘のアロマとほのかにトロピカル。フレッシュな酸味がホップのジューシーさを引き立てる。 （麦芽比率50％以上）",
+      "source": "vertere",
+      "added": "2022-12-08"
+    },
+    {
+      "id": "vertere-1284",
+      "name": "7th Anniversary // Red IPA",
+      "brewery": "Vertere",
+      "style": "Red IPA",
+      "abv": "7.5%",
+      "hops": [
+        "Amarillo",
+        "Azacca",
+        "Mosaic",
+        "Comet"
+      ],
+      "url": "https://verterebrew.com/brewlog/7th-anniversary-red-ipa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/02/102_7th_RedIPA-01-300x239.jpeg",
+      "description": "クリスタルモルト由来のルビーレッドカラー。ベリーやシトラスのアロマ。しっかりとした苦味。創業初期に作っていたRed IPAの復刻版。",
+      "source": "vertere",
+      "added": "2023-02-17"
+    },
+    {
+      "id": "vertere-1285",
+      "name": "7th Anniversary // IPA",
+      "brewery": "Vertere",
+      "style": "IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Mosaic",
+        "Mosaic Lupomax",
+        "El Dorado"
+      ],
+      "url": "https://verterebrew.com/brewlog/7th-anniversary-ipa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/02/103_7th_IPA-01-300x240.jpeg",
+      "description": "MosaicとEl doradoによるトロピカル、ピーチ、シトラスのアロマとフレーバー。普段よりホップの量を増量。",
+      "source": "vertere",
+      "added": "2023-02-17"
+    },
+    {
+      "id": "vertere-1310",
+      "name": "Lobelia",
+      "brewery": "Vertere",
+      "style": "Black Currant Stout",
+      "abv": "-",
+      "hops": [
+        "Centennial"
+      ],
+      "url": "https://verterebrew.com/brewlog/lobelia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/03/106_Lobelia-01-300x300.jpeg",
+      "description": "ダークチョコレートを思わせるベースに、カシス、バニラ、シナモンを使用することで複雑味を追加。カシス由来のほのかな酸味が全体を引き締める。ほろりと苦いショコラを思わせる味わい。 (麦芽使用率50%以上)",
+      "source": "vertere",
+      "added": "2023-03-08"
+    },
+    {
+      "id": "vertere-1132",
+      "name": "Artist Collaboration",
+      "brewery": "Vertere",
+      "style": "Bitter",
+      "abv": "4%",
+      "hops": [
+        "Barbe Rouge"
+      ],
+      "url": "https://verterebrew.com/brewlog/baku-takahashi-bitter/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/06/78d0a586446b03f63896f21b2d8902e4-300x241.jpeg",
+      "description": "モルト由来のカラメル、ナッツのニュアンス。軽い口当たりながら、優しい苦味とイースト由来のほのかなフルーティーさで奥行きのある味わいに。",
+      "source": "vertere",
+      "added": "2023-04-07"
+    },
+    {
+      "id": "vertere-1341",
+      "name": "Artist Collaboration",
+      "brewery": "Vertere",
+      "style": "Sour IPA",
+      "abv": "7%",
+      "hops": [
+        "Citra Lupomax",
+        "Idaho 7",
+        "Cascade",
+        "Kohatu",
+        "El Dorado"
+      ],
+      "url": "https://verterebrew.com/brewlog/artist-collaboration-baku-takahashi-sour-ipa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/04/3d547cbd182614b809a7e445d98230a6-300x241.jpeg",
+      "description": "ワインパミスとホップ、乳酸菌を組み合わせることによるトロピカルなアロマ。パイナップル、パッションフルーツ、グアバを思わせるジューシーな酸味と甘み。",
+      "source": "vertere",
+      "added": "2023-04-07"
+    },
+    {
+      "id": "vertere-1131",
+      "name": "Artist Collaboration",
+      "brewery": "Vertere",
+      "style": "German Pale Ale",
+      "abv": "5%",
+      "hops": [
+        "Mistral",
+        "Mandarina Bavaria",
+        "Pelre"
+      ],
+      "url": "https://verterebrew.com/brewlog/baku-takahashi-gpa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/06/900bc414f17621ac93283ddb2ca12fd2-300x240.jpeg",
+      "description": "キレのあるクリーンな飲み口。ホップ由来のハーバル、フローラルなアロマとフレーバー。バランスのとれた軽快なペールエール。",
+      "source": "vertere",
+      "added": "2023-04-07"
+    },
+    {
+      "id": "vertere-1344",
+      "name": "Artist Collaboration",
+      "brewery": "Vertere",
+      "style": "Single Hop IPA",
+      "abv": "7%",
+      "hops": [
+        "Vic Secret"
+      ],
+      "url": "https://verterebrew.com/brewlog/artist-collaboration-baku-takahashi-laxmannia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/04/68de034b781f647f993d273c167f5bb0-300x241.jpeg",
+      "description": "Vic SecretのSingle Hop IPA。バブルガムやパイナップルのアロマ、ハーバルなニュアンス。すっきりとした口当たりと、しっかりとした苦味。 Variety Pack限定の高橋漠氏とのコラボレーションラベルです。※ECサイト限定販売",
+      "source": "vertere",
+      "added": "2023-04-07"
+    },
+    {
+      "id": "vertere-1357",
+      "name": "Rheedii",
+      "brewery": "Vertere",
+      "style": "Lichtenhainer",
+      "abv": "4%",
+      "hops": [
+        "Barbe Rouge"
+      ],
+      "url": "https://verterebrew.com/brewlog/rheedii/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/04/111_Lichtenhainer-300x300.jpeg",
+      "description": "ドイツ東部で作られていた伝統的なスタイルのサワーエール。酸味をやや控えめに設計し、小麦由来のキレのいいライトなボディとピートモルトの豊かな燻製香を感じる、初夏をイメージした爽やかなビール。",
+      "source": "vertere",
+      "added": "2023-04-26"
+    },
+    {
+      "id": "vertere-1367",
+      "name": "Mixta",
+      "brewery": "Vertere",
+      "style": "IPA",
+      "abv": "7%",
+      "hops": [
+        "Cascade",
+        "Citra Incognito",
+        "Riwaka",
+        "Citra Cryo",
+        "Mosaic Cryo",
+        "Nelson Sauvin",
+        "Citra"
+      ],
+      "url": "https://verterebrew.com/brewlog/mixta/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/05/113_Inkhorn-300x300.jpeg",
+      "description": "ホップと酵母により溢れるパッションフルーツ、マンゴー、桃のニュアンス。柔らかいタッチながらドライな飲み口としっかりとした苦味。 【東京都目白にあるInkhorn Brewingとのコラボレーション。お互いに同じモルト、ホップを使用し割合と酵母を変えることで味わいの違いを表現。VERTEREではラガー酵母を使用したIPAを醸造。】",
+      "source": "vertere",
+      "added": "2023-05-17"
+    },
+    {
+      "id": "vertere-885",
+      "name": "Euclea",
+      "brewery": "Vertere",
+      "style": "Imperial IPA",
+      "abv": "9.5%",
+      "hops": [
+        "Cascade",
+        "Idaho 7",
+        "Nelson Sauvin",
+        "Mosaic Cryo",
+        "Comet"
+      ],
+      "url": "https://verterebrew.com/brewlog/euclea/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/05/78d0a586446b03f63896f21b2d8902e4-2-300x300.jpeg",
+      "description": "シトラス、白ぶどうのアロマとフレーバー。重厚感のあるリッチな仕上がり。",
+      "source": "vertere",
+      "added": "2023-06-22"
+    },
+    {
+      "id": "vertere-1110",
+      "name": "Laxmannia",
+      "brewery": "Vertere",
+      "style": "Single Hop IPA",
+      "abv": "7%",
+      "hops": [
+        "Vic Secret"
+      ],
+      "url": "https://verterebrew.com/brewlog/laxmannia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/04/72_Laxmannia-01-300x300.jpeg",
+      "description": "Vic SecretのSingle Hop IPA。バブルガムやパイナップルのアロマ、ハーバルなニュアンス。\n\nすっきりとした口当たりと、しっかりとした苦味。",
+      "source": "vertere",
+      "added": "2023-06-27"
+    },
+    {
+      "id": "vertere-1385",
+      "name": "Collaboration Beer with Be Easy Brewing",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Cascade",
+        "Motueka",
+        "Kohia Nelson",
+        "Nelson Sauvin",
+        "Nelson Terpene"
+      ],
+      "url": "https://verterebrew.com/brewlog/collaboration-beer-with-be-easy-brewing/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/07/115_BeEasy-300x300.jpeg",
+      "description": "ライトな飲み口のHazy IPA。清涼感のあるグレープフルーツや白ブドウのアロマ。",
+      "source": "vertere",
+      "added": "2023-07-07"
+    },
+    {
+      "id": "vertere-1392",
+      "name": "Carpe Noctem",
+      "brewery": "Vertere",
+      "style": "Oat Cream IPA",
+      "abv": "7%",
+      "hops": [
+        "Lorien",
+        "Vic Secret"
+      ],
+      "url": "https://verterebrew.com/brewlog/carpe-noctem-collaboration-with-mountain-culture-beer-co/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/07/116_MountainCulture-300x300.jpeg",
+      "description": "オーストラリアで日本産クラフトビールの輸入を手掛けるBenchwarmerの声かけにて実現したMountain Culture Beer Co.(以下MCBC)とのコラボレーションビール。 MCBCで人気のスタイルOat Cream IPAをベースに、お互いの意見を出し合ってレシピを作成。\n\nシトラス、パイナップル、メロンを思わせるアロマ、クリーミーな舌触りと甘く厚みのあるボディ。",
+      "source": "vertere",
+      "added": "2023-07-21"
+    },
+    {
+      "id": "vertere-1403",
+      "name": "Amni",
+      "brewery": "Vertere",
+      "style": "Sour Blonde w/ Dried Flowers",
+      "abv": "6%",
+      "hops": [
+        "Aurora"
+      ],
+      "url": "https://verterebrew.com/brewlog/amni/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/07/114_Collab.offtrail-300x300.jpeg",
+      "description": "Far Yeast Brewingが展開するブランドOff Trail Projectとのコラボレーションビール。\n\nOff Trail側ではオーク樽熟成のサワーブロンドとストロングエールをブレンド、\n\nVERTERE側ではステンレスタンクにて乳酸菌とベルジャンイーストを使用して発酵。\n\nほのかに花のアロマが香る、フレッシュなサワーブロンド。",
+      "source": "vertere",
+      "added": "2023-07-26"
+    },
+    {
+      "id": "vertere-1410",
+      "name": "SAISON",
+      "brewery": "Vertere",
+      "style": "SAISON",
+      "abv": "6%",
+      "hops": [
+        "Vista"
+      ],
+      "url": "https://verterebrew.com/brewlog/saison-hiroshi-nagai/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/07/e4bd3954e64bfd0c942af5d55a470fa7-300x300.jpeg",
+      "description": "アメリカンホップをホットサイドに使用したセゾン。甘みを含んだフルーティーなアロマとほのかにスパイスのニュアンス。軽く柔らかい口当たり、やさしい甘味が余韻に残る。",
+      "source": "vertere",
+      "added": "2023-08-03"
+    },
+    {
+      "id": "vertere-1411",
+      "name": "Sour IPA",
+      "brewery": "Vertere",
+      "style": "Sour IPA",
+      "abv": "6%",
+      "hops": [
+        "Sultana",
+        "Azacca"
+      ],
+      "url": "https://verterebrew.com/brewlog/sour-ipa-hiroshi-nagai/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/07/e1981d7eaed8f530ba851bf91313c19c-300x300.jpeg",
+      "description": "乳酸菌を使用したほのかな酸味のSour IPA。柑橘やパイナップルを思わせるアロマとフレーバー。中程度のボディとオーツ麦と小麦による滑らかな舌触り。",
+      "source": "vertere",
+      "added": "2023-08-03"
+    },
+    {
+      "id": "vertere-1412",
+      "name": "IPA",
+      "brewery": "Vertere",
+      "style": "IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Centennial",
+        "Chinook",
+        "Luminosa"
+      ],
+      "url": "https://verterebrew.com/brewlog/ipa-hiroshi-nagai/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/07/0f640068a07c7c6231ec1e2e8e8609e5-300x300.jpeg",
+      "description": "蜜感のある柑橘と、甘いフルーツのアロマ。ホットサイドホップによる爽やかな苦味。モルトのニュアンスも感じられるバランスのとれたIPA。",
+      "source": "vertere",
+      "added": "2023-08-03"
+    },
+    {
+      "id": "vertere-1417",
+      "name": "Stella",
+      "brewery": "Vertere",
+      "style": "Sour D IPA",
+      "abv": "8%",
+      "hops": [
+        "Mosaic Cryo",
+        "Azacca",
+        "Comet"
+      ],
+      "url": "https://verterebrew.com/brewlog/stella/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/08/120_Stella-300x300.jpeg",
+      "description": "ラクトバジルス由来の酸味。 熟した柑橘のアロマに、厚みのあるボディ。",
+      "source": "vertere",
+      "added": "2023-08-15"
+    },
+    {
+      "id": "vertere-1430",
+      "name": "Luculia",
+      "brewery": "Vertere",
+      "style": "Coffee Blonde",
+      "abv": "5%",
+      "hops": [
+        "Strata"
+      ],
+      "url": "https://verterebrew.com/brewlog/luculia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/08/121_Luculia-300x300.jpeg",
+      "description": "フルーティーで優しい飲み口のブロンドエールをベースにボリビア産のコーヒーを使用。\n\nワールプールホップにStrataを使用することでベリーのニュアンスを強調、\n\nライトな見た目ながらしっかりとコーヒーを感じることができる1杯。",
+      "source": "vertere",
+      "added": "2023-09-05"
+    },
+    {
+      "id": "vertere-944",
+      "name": "Ulmus",
+      "brewery": "Vertere",
+      "style": "Porter",
+      "abv": "5.5%",
+      "hops": [
+        "Barbe Rouge"
+      ],
+      "url": "https://verterebrew.com/brewlog/ulmus-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/05/77_Ulmus-01-300x300.jpeg",
+      "description": "黒糖やチョコレートを思わせる香り。しっとりとした口当たり、すっきりとしたフィニッシュのライトなポーター。",
+      "source": "vertere",
+      "added": "2023-09-14"
+    },
+    {
+      "id": "vertere-1130",
+      "name": "Vesca",
+      "brewery": "Vertere",
+      "style": "IPA",
+      "abv": "7%",
+      "hops": [
+        "Cascade",
+        "Mosaic",
+        "Mosaic Cryo",
+        "Barbe Rouge",
+        "Strata"
+      ],
+      "url": "https://verterebrew.com/brewlog/vesca/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/10/78_Vesca-IPA-300x300.jpeg",
+      "description": "ハーブ、ベリー、シトラスのニュアンス。なめらかな口当たりと程よい苦味。",
+      "source": "vertere",
+      "added": "2023-09-14"
+    },
+    {
+      "id": "vertere-974",
+      "name": "Khaya",
+      "brewery": "Vertere",
+      "style": "French Hop Saison",
+      "abv": "5.5%",
+      "hops": [
+        "Mistral",
+        "Barbe Rouge"
+      ],
+      "url": "https://verterebrew.com/brewlog/khaya/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/10/78d0a586446b03f63896f21b2d8902e4-300x300.jpeg",
+      "description": "2種類のフランス産ホップを使用したセゾン。イースト由来のスパイシーな飲み口とレモンピールのようなアロマ。",
+      "source": "vertere",
+      "added": "2023-09-27"
+    },
+    {
+      "id": "vertere-1446",
+      "name": "IPA",
+      "brewery": "Vertere",
+      "style": "IPA",
+      "abv": "6%",
+      "hops": [
+        "Cascade",
+        "Centennial",
+        "Sultana",
+        "Luminosa"
+      ],
+      "url": "https://verterebrew.com/brewlog/ipa-moonstar/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/10/6c03fd1fbcde4f997eea44b9265b4e8f-300x300.jpg",
+      "description": "柑橘やグラッシーなニュアンスをもつオールドスクールなWest Coast IPAをベースに、フローラルやトロピカルなアロマのホップを追加。しっかりとした苦味と優しい甘味の余韻。",
+      "source": "vertere",
+      "added": "2023-10-14"
+    },
+    {
+      "id": "vertere-1447",
+      "name": "Saison",
+      "brewery": "Vertere",
+      "style": "Saison",
+      "abv": "5.5%",
+      "hops": [
+        "Citra Cryo",
+        "Lorien",
+        "Kohatu"
+      ],
+      "url": "https://verterebrew.com/brewlog/saison-moonstar/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/10/7779f77fea3ce42c2bd0a6b091aea68b-300x300.jpg",
+      "description": "ベルギーの伝統的なスタイルであるセゾンをベースに、よりシャープな飲み口を追求。\n\n酵母由来のスパイシーさとホップのシトラスとハーバルなニュアンス、ドリンカブルだが飲みごたえのあるセゾン。",
+      "source": "vertere",
+      "added": "2023-10-14"
+    },
+    {
+      "id": "vertere-1069",
+      "name": "Carnea",
+      "brewery": "Vertere",
+      "style": "Peated Scotch Ale",
+      "abv": "8%",
+      "hops": [
+        "Azacca"
+      ],
+      "url": "https://verterebrew.com/brewlog/carnea/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/12/62_Carnea-01-300x300.jpeg",
+      "description": "ピートモルト由来のスモーキーなアロマ。ウッドチップを漬け込んだ深みのある味わい。",
+      "source": "vertere",
+      "added": "2023-10-24"
+    },
+    {
+      "id": "vertere-1465",
+      "name": "Christmas Beer 2023 Cranberry Pie Sour",
+      "brewery": "Vertere",
+      "style": "Cranberry Pie Sour",
+      "abv": "-",
+      "hops": [
+        "Azacca"
+      ],
+      "url": "https://verterebrew.com/brewlog/christmas-beer-2023-cranberry-pie-sour/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/11/128_Christmas2023_Cranberry-Pie-Sour-300x300.jpg",
+      "description": "クランベリーと乳酸菌によるフルーティな酸味。ビスケットやトフィーを思わせる風味豊かなモルトベース。\n\nナッツやシナモンを加えることで香ばしいパイのニュアンスを表現。",
+      "source": "vertere",
+      "added": "2023-11-14"
+    },
+    {
+      "id": "vertere-1466",
+      "name": "Christmas Beer 2023 Barley Wine w/Ginger,Cinnamon",
+      "brewery": "Vertere",
+      "style": "Barley Wine",
+      "abv": "11%",
+      "hops": [
+        "Azacca"
+      ],
+      "url": "https://verterebrew.com/brewlog/christmas-beer-2023-barley-wine-w-gingercinnamon/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/11/127_Christmas2023_Barley-wine-300x300.jpg",
+      "description": "シナモン、ナツメグ、バニラ、生姜を使用。複雑なスパイスの香味と、通常の倍量使用した麦芽のコク。\n\n厚めのボディにしっかりとした甘み。",
+      "source": "vertere",
+      "added": "2023-11-14"
+    },
+    {
+      "id": "vertere-1474",
+      "name": "Juglans",
+      "brewery": "Vertere",
+      "style": "English Pale Ale",
+      "abv": "5%",
+      "hops": [
+        "Savinjski Golding"
+      ],
+      "url": "https://verterebrew.com/brewlog/juglans/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/11/HP_129_Juglans-300x300.jpg",
+      "description": "モルトの風味に重点を置いたペールエール。モルト由来の甘みとトフィーやキャラメルのニュアンス。優しい口当たりに余韻に残るほのかな苦味。",
+      "source": "vertere",
+      "added": "2023-12-05"
+    },
+    {
+      "id": "vertere-1481",
+      "name": "Window to WCB 2023",
+      "brewery": "Vertere",
+      "style": "NWIPA",
+      "abv": "7%",
+      "hops": [
+        "Moutere",
+        "Nelson Sauvin",
+        "Cascade"
+      ],
+      "url": "https://verterebrew.com/brewlog/window-to-wcb-2023/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/12/6c289c1789c2ea8a6722dd4bdf3a20ac-300x300.jpg",
+      "description": "キャラメルやレーズンを思わせるモルトのバックボーン。ホップ由来のブドウやグレープフルーツ、トロピカルのアロマ。優しい飲み口と穏やかな苦味、余韻に残る柔らかい甘み。",
+      "source": "vertere",
+      "added": "2023-12-13"
+    },
+    {
+      "id": "vertere-1082",
+      "name": "Fominii",
+      "brewery": "Vertere",
+      "style": "Pilsner",
+      "abv": "6%",
+      "hops": [
+        "Idaho 7"
+      ],
+      "url": "https://verterebrew.com/brewlog/fominii/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/12/60_Fominii-01-300x300.jpeg",
+      "description": "年に一度醸造するピルスナー。アメリカンホップを使用したことによる厚みのある苦味。",
+      "source": "vertere",
+      "added": "2024-01-23"
+    },
+    {
+      "id": "vertere-1270",
+      "name": "Leptopus",
+      "brewery": "Vertere",
+      "style": "Mexican Lager",
+      "abv": "4.5%",
+      "hops": [
+        "Azacca"
+      ],
+      "url": "https://verterebrew.com/brewlog/leptopus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/12/101_Leptopus-300x300.jpeg",
+      "description": "コーングリッツ(とうもろこし)を使用した、琥珀がかった色のラガー。ライトな飲み口と爽やかな苦味。とうもろこしを感じるフィニッシュ。",
+      "source": "vertere",
+      "added": "2024-01-23"
+    },
+    {
+      "id": "vertere-868",
+      "name": "Campestre",
+      "brewery": "Vertere",
+      "style": "Blonde Ale",
+      "abv": "5.5%",
+      "hops": [
+        "Barbe Rouge",
+        "Mistral"
+      ],
+      "url": "https://verterebrew.com/brewlog/campestre-3/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/10/e8b6cbc3749748f461032df323ac4c10-300x300.jpeg",
+      "description": "花やはちみつを思わせるアロマ、クリアな麦の風味と爽やかな苦味。",
+      "source": "vertere",
+      "added": "2024-01-30"
+    },
+    {
+      "id": "vertere-1540",
+      "name": "8th Anniversary // Red IPA",
+      "brewery": "Vertere",
+      "style": "Red IPA",
+      "abv": "8%",
+      "hops": [
+        "Comet",
+        "Mosaic",
+        "Strata",
+        "Mosaic Cryo"
+      ],
+      "url": "https://verterebrew.com/brewlog/8th-anniversary-red-ipa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/02/1c3fa5e0ab41f9a75d1c2da0ba3ca9d0-300x300.jpg",
+      "description": "創業初期に醸造していたRed IPAをベースにリメイク。\n\nベリー、熟した柑橘、トロピカルフルーツのニュアンス。\n\nアルコールとボディを強め、合わせてホップもキャラクターが強いものをチョイス。",
+      "source": "vertere",
+      "added": "2024-02-07"
+    },
+    {
+      "id": "vertere-1541",
+      "name": "8th Anniversary // Session IPA",
+      "brewery": "Vertere",
+      "style": "Session IPA",
+      "abv": "4%",
+      "hops": [
+        "El Dorado",
+        "Citra",
+        "Chinook"
+      ],
+      "url": "https://verterebrew.com/brewlog/8th-anniversary-session-ipa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/02/f3b294aac733fa276cd60652a7181bd6-300x300.jpg",
+      "description": "創業初期に醸造していたSession IPAをベースにリメイク。\n\nアルコールは低めながら軽くなりすぎないようにフレーバーを強化。\n\nグレープフルーツのような爽やかなシトラス、ほのかにトロピカルのニュアンス。",
+      "source": "vertere",
+      "added": "2024-02-07"
+    },
+    {
+      "id": "vertere-1038",
+      "name": "Napiaria",
+      "brewery": "Vertere",
+      "style": "Sour Saison",
+      "abv": "6%",
+      "hops": [
+        "Aurora"
+      ],
+      "url": "https://verterebrew.com/brewlog/napiaria/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/12/c5e5cf8d64d7e0fcc8980510355916da-300x300.jpeg",
+      "description": "乳酸菌とセゾンイースト由来の柑橘やほのかなスパイス感。\n\nそこにウッドやハーバルなホップをチョイス。",
+      "source": "vertere",
+      "added": "2024-02-16"
+    },
+    {
+      "id": "vertere-1457",
+      "name": "Zenobia",
+      "brewery": "Vertere",
+      "style": "Sour TIPA",
+      "abv": "10%",
+      "hops": [
+        "Idaho 7",
+        "Mosaic Cryo",
+        "Motueka"
+      ],
+      "url": "https://verterebrew.com/brewlog/zenobia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/10/124_Zenobia_HP-300x300.jpg",
+      "description": "蜜感のあるオレンジやトロピカルフルーツのニュアンス。大量のモルトと乳糖による厚みのあるボディ。乳酸菌とホップ由来のジューシーな酸味を帯びたサワーエール。",
+      "source": "vertere",
+      "added": "2024-02-22"
+    },
+    {
+      "id": "vertere-940",
+      "name": "Anfracta",
+      "brewery": "Vertere",
+      "style": "Session IPA",
+      "abv": "4%",
+      "hops": [
+        "Idaho 7",
+        "Galaxy"
+      ],
+      "url": "https://verterebrew.com/brewlog/anfracta-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/03/0975e0bbe3eebd088036a51be4cdbf7d-300x300.jpeg",
+      "description": "草を思わせるアロマとパイナップルのようなフレーバー。低アルコールながら程よい苦味が口に広がる。",
+      "source": "vertere",
+      "added": "2024-02-29"
+    },
+    {
+      "id": "vertere-1142",
+      "name": "Tristis",
+      "brewery": "Vertere",
+      "style": "TIPA",
+      "abv": "10%",
+      "hops": [
+        "Citra",
+        "Centennial"
+      ],
+      "url": "https://verterebrew.com/brewlog/tristis/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2022/06/80_Tristis-01-300x300.jpeg",
+      "description": "滑らかなな口当たりに甘味のあるしっかりとしたボディ。\n\nアプリコットやシトラスのニュアンス。",
+      "source": "vertere",
+      "added": "2024-03-14"
+    },
+    {
+      "id": "vertere-1503",
+      "name": "Verna",
+      "brewery": "Vertere",
+      "style": "Belgian Golden Strong Ale",
+      "abv": "9%",
+      "hops": [
+        "Mistral"
+      ],
+      "url": "https://verterebrew.com/brewlog/verna/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/01/HP_131_Verna-300x300.jpg",
+      "description": "熟した洋梨やバナナを思わせる甘いアロマ。 重厚感のある舌触りと程よい苦味。",
+      "source": "vertere",
+      "added": "2024-03-28"
+    },
+    {
+      "id": "vertere-1315",
+      "name": "Kleinia",
+      "brewery": "Vertere",
+      "style": "Blonde Ale",
+      "abv": "5%",
+      "hops": [
+        "Idaho 7"
+      ],
+      "url": "https://verterebrew.com/brewlog/kleinia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/03/108_Kleinia-01-300x300.jpeg",
+      "description": "ソリッドな印象になるように水質を調整。クリスピーでドライな飲み口。\n\nホットサイドでしっかりとホップを使用することで、爽やかながら豊かな味わい。",
+      "source": "vertere",
+      "added": "2024-04-12"
+    },
+    {
+      "id": "vertere-1314",
+      "name": "Fumariola",
+      "brewery": "Vertere",
+      "style": "American IPA",
+      "abv": "7%",
+      "hops": [
+        "Centennial",
+        "Azacca"
+      ],
+      "url": "https://verterebrew.com/brewlog/fumariola/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/04/107_Fumariola-300x300.jpg",
+      "description": "ホップ由来のストーンフルーツやトロピカルのニュアンス。口に含むと軽めのタッチながら、しっかりと芯の入った苦味。",
+      "source": "vertere",
+      "added": "2024-04-29"
+    },
+    {
+      "id": "vertere-1659",
+      "name": "Howellii",
+      "brewery": "Vertere",
+      "style": "American Pale Ale",
+      "abv": "5%",
+      "hops": [
+        "Centennial",
+        "Cascade",
+        "Amarillo",
+        "Citra"
+      ],
+      "url": "https://verterebrew.com/brewlog/howelii/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/06/140_Howellii_HP-968x1024.jpg",
+      "description": "【ローカル限定商品】デイリービールとして飲み続けられるバランスを目指したペールエール。今のトレンドではない西海岸系のホップをメインに、ホップが支配的にならないようクリスタルモルトの割合を増やしてバランスを取りました。\n\nホップ由来のシトラスやフローラルに麦由来のほのかなカラメル。水質をほぼ調整していないので奥多摩の水の爽やかな飲み口が楽しめる仕上がりに。",
+      "source": "vertere",
+      "added": "2024-05-20"
+    },
+    {
+      "id": "vertere-1631",
+      "name": "Morinda",
+      "brewery": "Vertere",
+      "style": "Imperial Stout",
+      "abv": "10%",
+      "hops": [
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/morinda/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/05/141_350ml_Morinda_HP-300x300.jpg",
+      "description": "大量に使用したモルトと黒糖によるコクと厚みのあるボディ。 モルト由来のチョコレート､トフィー、レーズンのバックボーンにオークチップ由来のほのかなバニラのニュアンス。 フルーティーなニュアンスを作る酵母を使用することで複雑な味わいを表現。滑らかな口当たりと甘めの仕上がり。",
+      "source": "vertere",
+      "added": "2024-05-22"
+    },
+    {
+      "id": "vertere-1648",
+      "name": "Sylvatica",
+      "brewery": "Vertere",
+      "style": "Belgian IPA",
+      "abv": "5.5%",
+      "hops": [
+        "Barbe Rouge",
+        "Lorien",
+        "Riwaka",
+        "Citra"
+      ],
+      "url": "https://verterebrew.com/brewlog/sylvatica/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/06/144_sylvatica_-300x300.jpg",
+      "description": "シトラスやトロピカルにほのかにミントやセージのニュアンス。 フルーティーなホップとハーバルなニュアンスを持つホップを組み合わせ清涼感のあるアロマに。 モルトのカラメルと酵母由来のスパイシーさがアクセントとなり全体のバランスを整えている。 滑らかな口当たりと控えめな苦味で和食料理にも合う仕上がり。",
+      "source": "vertere",
+      "added": "2024-06-13"
+    },
+    {
+      "id": "vertere-1663",
+      "name": "Terminusphobia",
+      "brewery": "Vertere",
+      "style": "West Coast Lager",
+      "abv": "6.5%",
+      "hops": [
+        "Centennial",
+        "Riwaka",
+        "Citra"
+      ],
+      "url": "https://verterebrew.com/brewlog/terminusphobia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/06/d0b904030d4c98eaa9b95ac879ff0705-300x300.jpg",
+      "description": "Totopia Breweryのノウハウを参考にしたWest Coast Lager。\n\nピルスナーモルトとライスを使用し、ラガーイーストで発酵させることでモルトのニュアンスを抑えホップの個性が表に出るように設計。\n\nたっぷりと使用したNZホップとAmericanホップによるシトラス感溢れるアロマ。",
+      "source": "vertere",
+      "added": "2024-06-27"
+    },
+    {
+      "id": "vertere-1671",
+      "name": "Commelina",
+      "brewery": "Vertere",
+      "style": "Table Saison",
+      "abv": "3.5%",
+      "hops": [
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/commelina-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/07/015_Commelina-300x300.jpg",
+      "description": "フローラルなアロマと爽やかな味わい。食事の邪魔をしない低アルコールのセゾン。",
+      "source": "vertere",
+      "added": "2024-07-11"
+    },
+    {
+      "id": "vertere-1673",
+      "name": "Ardens",
+      "brewery": "Vertere",
+      "style": "IPA",
+      "abv": "7%",
+      "hops": [
+        "Cascade",
+        "Mosaic Cryo",
+        "Citra Cryo",
+        "Mosaic",
+        "Citra"
+      ],
+      "url": "https://verterebrew.com/brewlog/ardens/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/07/353ace2e364a1031e97f2679eb75c438-300x300.jpg",
+      "description": "フルーティーなアロマを作り出す2種類のイーストをブレンド。\n\n酵母とホップ由来のトロピカルやピーチ、ほのかにスパイシーなニュアンス。\n\n口当たりは軽くなめらかな舌触り。苦味は控えめで優しい甘味の余韻が残る。",
+      "source": "vertere",
+      "added": "2024-07-11"
+    },
+    {
+      "id": "vertere-1691",
+      "name": "Campanula",
+      "brewery": "Vertere",
+      "style": "Dry Hopped Pilsner",
+      "abv": "5%",
+      "hops": [
+        "Cascade",
+        "Lorien",
+        "Meridian"
+      ],
+      "url": "https://verterebrew.com/brewlog/campanula/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/07/2e654fca579f39b6c4bbe9e01e35f82e-300x300.jpg",
+      "description": "シンプルな構成のピルスナーをベースに\n\nアメリカのIndie Hops が手がけるLorienと Meridianというホップをメインに使用。\n\nハーバル、フローラル、レモン、ほのかにシナモンのニュアンス。\n\n柔らかい口当たりとライトな飲み口。 キレのあるドリンカブルな一杯。",
+      "source": "vertere",
+      "added": "2024-07-19"
+    },
+    {
+      "id": "vertere-1703",
+      "name": "Phragmites",
+      "brewery": "Vertere",
+      "style": "Vienna Lager",
+      "abv": "5%",
+      "hops": [
+        "Saaz"
+      ],
+      "url": "https://verterebrew.com/brewlog/phragmites/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/07/bdb1eef64e07b0041589d61984226c33-300x300.jpg",
+      "description": "ミュンヘンラガー酵母を使用しモルトの特徴を引き出した。\n\nトーストやパン、蜂蜜、ほのかにナッツのニュアンス。\n\n赤みがかったアンバーカラー。\n\nモルト由来のコクはありつつもドライな仕上がり。",
+      "source": "vertere",
+      "added": "2024-07-25"
+    },
+    {
+      "id": "vertere-932",
+      "name": "Felicia",
+      "brewery": "Vertere",
+      "style": "Session IPA",
+      "abv": "4%",
+      "hops": [
+        "Idaho 7",
+        "El Dorado",
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/felicia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2021/03/41bc3c469bda6332585b445a974975b5-300x300.jpeg",
+      "description": "オレンジジュースのような風味と爽やかな苦味。さらさらと飲めるSession IPA。",
+      "source": "vertere",
+      "added": "2024-08-01"
+    },
+    {
+      "id": "vertere-1724",
+      "name": "Beta",
+      "brewery": "Vertere",
+      "style": "Beets Sour Saison",
+      "abv": "5.5%",
+      "hops": [
+        "Strata"
+      ],
+      "url": "https://verterebrew.com/brewlog/beta/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/08/154_Beta_HP-300x300.jpg",
+      "description": "東京の青梅市にて有機野菜を栽培するOme Farmさんとのコラボレーションによるビーツサワーセゾンが完成しました。\n\nビーツと酵母、乳酸菌の組み合わせによる、ライチやレモンキャンディを思わせる香り。\n\n口に含むとほのかに香る土の匂いと酸味。\n\n原材料に使用したビーツは、ブルワーたちがOme Farmで収穫をお手伝いして仕入れたもの。\n\n1個ずつ丁寧に皮を剥いて漬け込み、鮮やかなピンク色のビールに仕上がりました。",
+      "source": "vertere",
+      "added": "2024-08-08"
+    },
+    {
+      "id": "vertere-1667",
+      "name": "Zenobia",
+      "brewery": "Vertere",
+      "style": "Sour TIPA",
+      "abv": "-",
+      "hops": [
+        "Idaho 7",
+        "Mosaic Cryo",
+        "Motueka"
+      ],
+      "url": "https://verterebrew.com/brewlog/zenobia-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/07/6f802f4f0b11aa34a5b2edf5328f5f23-300x300.jpg",
+      "description": "蜜感のあるオレンジやトロピカルフルーツのニュアンス。大量のモルトと乳糖による厚みのあるボディ。\n\n乳酸菌とホップ由来のジューシーな酸味を帯びたサワーエール。",
+      "source": "vertere",
+      "added": "2024-08-08"
+    },
+    {
+      "id": "vertere-1740",
+      "name": "Feeria",
+      "brewery": "Vertere",
+      "style": "Session IPL",
+      "abv": "4%",
+      "hops": [
+        "Cascade",
+        "Chinook",
+        "Aurora",
+        "Luminosa",
+        "Chinook Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/feeria/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/08/155_Feeria_HP-300x300.jpg",
+      "description": "ラガー酵母由来のキレを活かし、苦味を前面に出した構成のSession IPL。\n\n特徴の違うホップを組み合わせることで複雑な香味を表現。\n\nマンゴーやシトラス、ほのかに草のようなニュアンス。\n\n口当たりは軽く、ドライながらもしっかりとした苦味。",
+      "source": "vertere",
+      "added": "2024-08-15"
+    },
+    {
+      "id": "vertere-1744",
+      "name": "Lilium",
+      "brewery": "Vertere",
+      "style": "DH Saison",
+      "abv": "6.5%",
+      "hops": [
+        "Lorien",
+        "Citra Lupomax",
+        "Aurora"
+      ],
+      "url": "https://verterebrew.com/brewlog/lilium/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/08/af27d1edb7b5fee8aa7dfabb832e58ea-300x300.jpg",
+      "description": "IPAと同量のホップを使用したドライホップセゾン。 セゾン酵母とホップの組み合わせによるシトラスやライムのアロマ。 ワイルドフラワーやメロン、ほのかにシナモンのニュアンス。 清涼感のあるドライな仕上がり。",
+      "source": "vertere",
+      "added": "2024-08-22"
+    },
+    {
+      "id": "vertere-1061",
+      "name": "Danaus",
+      "brewery": "Vertere",
+      "style": "Mixed Culture IPA",
+      "abv": "7%",
+      "hops": [
+        "Mosaic Cryo",
+        "Mosaic",
+        "El Dorado"
+      ],
+      "url": "https://verterebrew.com/brewlog/danaus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/01/971e49466f35b74518c9fe7a99543580-300x300.jpg",
+      "description": "パイナップルを思わせるアロマとフレーバー。乳酸菌のアロマをいかしたMixed Culture IPA。",
+      "source": "vertere",
+      "added": "2024-09-04"
+    },
+    {
+      "id": "vertere-1826",
+      "name": "Vulpes",
+      "brewery": "Vertere",
+      "style": "West Coast Pilsner",
+      "abv": "6%",
+      "hops": [
+        "Bobek",
+        "Chinook",
+        "Strata",
+        "Motueka",
+        "Mosaic"
+      ],
+      "url": "https://verterebrew.com/brewlog/vulpes/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/10/157_FoxFriday_HP-300x300.jpg",
+      "description": "ホップの風味が表に出るようモルト構成はシンプルに。\n\n白ブドウ、オレンジゼスト、シトラス、パッションフルーツ、\n\nほのかにノーブルなニュアンス。\n\nキレのある飲み口と、爽やかな苦味の余韻。",
+      "source": "vertere",
+      "added": "2024-10-03"
+    },
+    {
+      "id": "vertere-1890",
+      "name": "Christmas Beer 2024 Barley Wine w/Cinnamon, Vanilla",
+      "brewery": "Vertere",
+      "style": "Barley Wine",
+      "abv": "10%",
+      "hops": [
+        "Northern Brewer"
+      ],
+      "url": "https://verterebrew.com/brewlog/christmas-beer-2024-barley-wine-w-cinnamon-vanilla/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/11/18524035ec3b3d65de29998edbc6fe1a-300x300.jpg",
+      "description": "スパイスとオークチップを香り付けに使用したバーレイワイン。\n\n複雑なスパイスの香味と、通常の倍量使用した麦芽のコク。\n\n厚めのボディにしっかりとした甘み。",
+      "source": "vertere",
+      "added": "2024-11-22"
+    },
+    {
+      "id": "vertere-1891",
+      "name": "Christmas Beer 2024 Blueberry Sour w/Lemon,Vanilla",
+      "brewery": "Vertere",
+      "style": "Blueberry Sour",
+      "abv": "7.5%",
+      "hops": [
+        "Luminosa"
+      ],
+      "url": "https://verterebrew.com/brewlog/christmas-beer-2024-blueberry-sour-w-lemonvanilla/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/11/2f7b2689fa0de58c3da01a6d61dcfc27-300x300.jpg",
+      "description": "ブルーベリーチーズケーキに着想を得て醸造したサワーエール。\n\nブルーベリーとホップ、乳酸菌の組み合わせによるフルーティな味わい。\n\n余韻のバニラとアクセントのレモンピールが複雑に絡み合う。",
+      "source": "vertere",
+      "added": "2024-11-22"
+    },
+    {
+      "id": "vertere-1559",
+      "name": "Fraxinus",
+      "brewery": "Vertere",
+      "style": "Single Hop IPA",
+      "abv": "6%",
+      "hops": [
+        "El Dorado",
+        "El Dorado Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/fraxinus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/03/134_Fraxinus_HP-300x300.jpg",
+      "description": "El doradoのシングルホップIPA。モルト構成もシンプルにすることでホップのアロマを強調。トロピカルフルーツやピーチ、洋梨のニュアンス。軽めの口当たりに苦味もしっかり感じられるドライな仕上がり。",
+      "source": "vertere",
+      "added": "2024-11-22"
+    },
+    {
+      "id": "vertere-1900",
+      "name": "Camellia",
+      "brewery": "Vertere",
+      "style": "Single Hop IPA",
+      "abv": "-",
+      "hops": [
+        "Luminosa"
+      ],
+      "url": "https://verterebrew.com/brewlog/camellia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/11/af8f1191d54e8a2d240ae306e4ab8570-300x300.jpg",
+      "description": "VERTERE Eifuku Taproomの開業に合わせて醸造。アメリカ、オレゴン州のIndie Hopsが手がけるLuminosaのみを使用したSingle Hop IPA。パイナップル、マンゴー、甘みを帯びたトロピカルフルーツ。ほのかにわたがしのニュアンス。軽めの飲み口に全体を引き締める程よい苦味。",
+      "source": "vertere",
+      "added": "2024-12-05"
+    },
+    {
+      "id": "vertere-1905",
+      "name": "Windows to WCB 2024",
+      "brewery": "Vertere",
+      "style": "TIPL",
+      "abv": "-",
+      "hops": [
+        "Motueka",
+        "Luminosa",
+        "Kohia Nelson",
+        "Motueka Kief"
+      ],
+      "url": "https://verterebrew.com/brewlog/windows-to-wcb-2024/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/12/faa9834beb79114817e4a7ce6a775f1c-300x300.jpg",
+      "description": "パッションフルーツ、ライム、グレープフルーツを思わせるアロマ。口に含むと、ほのかに白ブドウやフローラルのニュアンス。モルトはピルスナーモルトのみとシンプルにすることでハイアルコールでありながらライトな口当たりに。",
+      "source": "vertere",
+      "added": "2024-12-12"
+    },
+    {
+      "id": "vertere-1916",
+      "name": "Corydalis",
+      "brewery": "Vertere",
+      "style": "NZ Pale Ale",
+      "abv": "5.5%",
+      "hops": [
+        "Pacifica (NZ Hops)",
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/corydalis/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/12/688f0969ebd31b081c850029ecdf6848-300x300.jpg",
+      "description": "NZ産のNelson SauvinとPacifica の２種類のホップを使用したペールエール。パイナップルやグレープフルーツのアロマに、柑橘の花やキウイのニュアンス。口当たりは軽く、苦味も控えめ。キレのある味わいで何杯でも飲める仕上がり。",
+      "source": "vertere",
+      "added": "2024-12-19"
+    },
+    {
+      "id": "vertere-876",
+      "name": "Baldwinii",
+      "brewery": "Vertere",
+      "style": "Pastry Stout",
+      "abv": "10%",
+      "hops": [
+        "Luminosa",
+        "Idaho 7"
+      ],
+      "url": "https://verterebrew.com/brewlog/baldwinii-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/12/5d9ab4574fa21a242c83f1858420eba9-300x300.jpg",
+      "description": "コーヒー、カカオ、バニラビーンズを使用した甘味のあるスタウト。乳糖とオーツによるなめらかな口当たりと厚みのあるボディ。モルトを贅沢に使用することで奥行きのあるアロマとフレーバーに。",
+      "source": "vertere",
+      "added": "2024-12-26"
+    },
+    {
+      "id": "vertere-1923",
+      "name": "Myrtus",
+      "brewery": "Vertere",
+      "style": "Guava Sour w/Coconut",
+      "abv": "7%",
+      "hops": [
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/myrtus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/12/0e761829d319e1281547947235f670d8-300x300.jpg",
+      "description": "グァバとココナッツを使用したサワーエール。小麦とオーツ麦による滑らかな口当たり。口に含むとグァバと乳酸菌によるジューシーな酸味。余韻にほのかなココナッツのニュアンス。",
+      "source": "vertere",
+      "added": "2024-12-26"
+    },
+    {
+      "id": "vertere-1967",
+      "name": "9th Anniversary",
+      "brewery": "Vertere",
+      "style": "Red IPA",
+      "abv": "8%",
+      "hops": [
+        "Chinook",
+        "Comet",
+        "Amarillo",
+        "Citra Lupomax",
+        "Cascade"
+      ],
+      "url": "https://verterebrew.com/brewlog/9th-anniversary-red-ipa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/02/172_9th_Red-IPA-300x300.jpg",
+      "description": "醸造初期に製造していたRed IPAをリメイク。カラメルモルト由来のルビーレッド。フレッシュなシトラスのアロマとベリーのニュアンス。重厚なモルトの甘みとしっかりとした苦味。",
+      "source": "vertere",
+      "added": "2025-02-27"
+    },
+    {
+      "id": "vertere-1969",
+      "name": "9th Anniversary",
+      "brewery": "Vertere",
+      "style": "Hazy DIPA",
+      "abv": "8.5%",
+      "hops": [
+        "Cascade",
+        "Riwaka",
+        "Nelson Sauvin",
+        "Motueka",
+        "Motueka Kief"
+      ],
+      "url": "https://verterebrew.com/brewlog/9th-anniversary/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/02/173_9th_Hazy-DIPA-300x300.jpg",
+      "description": "酵母とホップの組み合わせによるトロピカルなアロマに重点を置いたHazy DIPA。 グアバやパッションフルーツのアロマと、シトラス、レモン、ほのかな白ブドウのニュアンス。オーツと小麦由来の滑らかな口当たり。",
+      "source": "vertere",
+      "added": "2025-02-27"
+    },
+    {
+      "id": "vertere-2025",
+      "name": "Somnium",
+      "brewery": "Vertere",
+      "style": "Sour Belgian IPA",
+      "abv": "7%",
+      "hops": [
+        "Citra Lupomax",
+        "Riwaka",
+        "Lorien"
+      ],
+      "url": "https://verterebrew.com/brewlog/somnium/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/03/4ff65c5864ebb26261aab3c6dc4b604f-300x300.jpg",
+      "description": "京都醸造のベルジャンIPAの構成とバテレのサワーエールの手法を組み合わせたSour Belgian IPA。イースト由来のフルーツアロマとスパイスのニュアンスにホップ由来のオレンジ、シトラスのフレーバーが複雑に絡み合う。",
+      "source": "vertere",
+      "added": "2025-03-22"
+    },
+    {
+      "id": "vertere-813",
+      "name": "Papilio",
+      "brewery": "Vertere",
+      "style": "Raspberry Sour",
+      "abv": "6.5%",
+      "hops": [
+        "Comet"
+      ],
+      "url": "https://verterebrew.com/brewlog/papilio/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/04/011_Papilio-300x300.jpg",
+      "description": "ラズベリー果汁を使用したサワーエール。ベリーの中にヨーグルト、ブラッドオレンジの風味。フルーツと乳酸菌による複雑で爽やかな酸味。",
+      "source": "vertere",
+      "added": "2025-04-03"
+    },
+    {
+      "id": "vertere-948",
+      "name": "Pursh",
+      "brewery": "Vertere",
+      "style": "Belgian Wit",
+      "abv": "5%",
+      "hops": [
+        "Amarillo",
+        "Chinook"
+      ],
+      "url": "https://verterebrew.com/brewlog/pursh-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/04/034_Pursh-300x300.jpg",
+      "description": "グラッシーでノーブルなアロマ。コリアンダー由来の爽やかな風味と柔らかな口当たり。",
+      "source": "vertere",
+      "added": "2025-04-10"
+    },
+    {
+      "id": "vertere-2080",
+      "name": "Potamidae",
+      "brewery": "Vertere",
+      "style": "Saison w/Sake Kasu",
+      "abv": "5.5%",
+      "hops": [
+        "Northern Brewer"
+      ],
+      "url": "https://verterebrew.com/brewlog/potamidae/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/04/178_Potamidae_HP-300x300.jpg",
+      "description": "小澤酒造の酒粕を使用したセゾン。甘酒を思わせる芳醇な香りと酵母由来のクローブのアロマ。優しく溶ける口当たりにキレのある後味。",
+      "source": "vertere",
+      "added": "2025-04-19"
+    },
+    {
+      "id": "vertere-2102",
+      "name": "Simul",
+      "brewery": "Vertere",
+      "style": "American IPA",
+      "abv": "6%",
+      "hops": [
+        "Comet",
+        "Elani",
+        "Luminosa"
+      ],
+      "url": "https://verterebrew.com/brewlog/simul/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/04/183_Simul_HP-300x300.jpg",
+      "description": "坂道ブルイングとのコラボレーション。\n\n坂道ブルイングが得意とする”飲みやすい・飲み飽きない”ビールたちにインスピレーションを受けたAmerican IPA。濃いオレンジ、白ブドウ、メロンのアロマ。ドライで軽い口当たりに程よい苦味。",
+      "source": "vertere",
+      "added": "2025-04-24"
+    },
+    {
+      "id": "vertere-2116",
+      "name": "Equus",
+      "brewery": "Vertere",
+      "style": "West Coast IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Centennial",
+        "Chinook",
+        "Strata",
+        "Audacia"
+      ],
+      "url": "https://verterebrew.com/brewlog/equus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/04/184_Equus_HP-300x300.jpg",
+      "description": "オレンジ、シトラス、レモンキャンディを思わせるアロマとフレーバー。口に含むとほのかにラベンダーのニュアンス。口当たりは軽く、爽やかな印象ながらしっかりとした苦味。",
+      "source": "vertere",
+      "added": "2025-04-30"
+    },
+    {
+      "id": "vertere-1633",
+      "name": "Erithalion",
+      "brewery": "Vertere",
+      "style": "Mixed Berry Sour",
+      "abv": "8%",
+      "hops": [
+        "Comet"
+      ],
+      "url": "https://verterebrew.com/brewlog/erithalion/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/05/142_350ml_Erithalion_HP-300x300.jpg",
+      "description": "ブルーベリー、ブラックベリー、ストロベリーを使用したサワーエール。爽やかな飲み口に、果実と乳酸菌由来のジューシーな酸味。ベリーのニュアンスを持つコメットホップを使用することで果実感を補強。乳糖を加えることで全体的に丸みのある仕上がりに。",
+      "source": "vertere",
+      "added": "2025-05-21"
+    },
+    {
+      "id": "vertere-2211",
+      "name": "Lycaena",
+      "brewery": "Vertere",
+      "style": "Sour IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Nelson Sauvin",
+        "Luminosa",
+        "Motueka Kief"
+      ],
+      "url": "https://verterebrew.com/brewlog/lycaena/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/06/188_Lycaena_HP-300x300.jpg",
+      "description": "白ぶどう､みかん､グレープフルーツの皮､メロンを思わせるアロマとフレーバー。ジューシーで滑らかな口当たり。甘さは控えめですっきりとした優しい酸味。",
+      "source": "vertere",
+      "added": "2025-06-18"
+    },
+    {
+      "id": "vertere-2221",
+      "name": "Infirmphobia",
+      "brewery": "Vertere",
+      "style": "Sea Buckthorn Sour",
+      "abv": "6%",
+      "hops": [
+        "Bobek"
+      ],
+      "url": "https://verterebrew.com/brewlog/infirmphobia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/07/HP_189_Infirmphobia-300x300.jpg",
+      "description": "愛知県長久手市に拠点を置くTotopia Breweryとのコラボレーション第二弾。サジーピューレとフレッシュカモミールを使用したサワーエール。柔らかなボディとジューシーな柑橘のフレーバー。花の蜜のような青々としたニュアンス。",
+      "source": "vertere",
+      "added": "2025-06-25"
+    },
+    {
+      "id": "vertere-528",
+      "name": "Scilla",
+      "brewery": "Vertere",
+      "style": "Blonde Ale",
+      "abv": "5.5%",
+      "hops": [
+        "Aurora"
+      ],
+      "url": "https://verterebrew.com/brewlog/scilla/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/04/014_Scilla-300x300.jpg",
+      "description": "ホップ由来のフローラルとほのかに桃や洋梨のニュアンス。苦味は抑えめ。口当たりは丸く、軽やかにラガーのような清涼感とエールらしい華やかさを重ねた一杯。",
+      "source": "vertere",
+      "added": "2025-07-02"
+    },
+    {
+      "id": "vertere-2233",
+      "name": "Sustainable Hop : Blonde",
+      "brewery": "Vertere",
+      "style": "Blonde Ale",
+      "abv": "5.5%",
+      "hops": [
+        "Bobek"
+      ],
+      "url": "https://verterebrew.com/brewlog/sustainable-hop-blonde/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/07/HP_179_Sustainable-Hop-Blonde-300x253.jpg",
+      "description": "最新の乾燥技術で再生したホップを使用のサステナブルビール。\n\nフローラルや蜂蜜を思わせるアロマ、ほのかにシナモンの香り。苦味は控えめで軽く、爽やかな飲み口。",
+      "source": "vertere",
+      "added": "2025-07-09"
+    },
+    {
+      "id": "vertere-2235",
+      "name": "Sustainable Hop : Saison",
+      "brewery": "Vertere",
+      "style": "Saison",
+      "abv": "6%",
+      "hops": [
+        "Bobek"
+      ],
+      "url": "https://verterebrew.com/brewlog/sustainable-hop-saison/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/07/HP_180_Sustainable-Hop-Saison_0522-300x253.jpg",
+      "description": "最新の乾燥技術で再生したホップを使用のサステナブルビール。\n\nバナナやクローブ、レモングラスを思わせる香り。キレのあるライトな飲み口。",
+      "source": "vertere",
+      "added": "2025-07-09"
+    },
+    {
+      "id": "vertere-2251",
+      "name": "Salvia",
+      "brewery": "Vertere",
+      "style": "Dryhopped Saison",
+      "abv": "6%",
+      "hops": [
+        "Lorien",
+        "Tettnanger"
+      ],
+      "url": "https://verterebrew.com/brewlog/salvia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/07/193_Salvia-300x300.jpg",
+      "description": "酵母由来の白胡椒のようなスパイス香とホップ由来のレモングラスやフローラル、ほのかに草のニュアンス。苦味は穏やかで、ボディは軽く、余韻にはほのかなスパイスとハーブが残る。透明感のある香りが主役のドライでクリーンなセゾン。",
+      "source": "vertere",
+      "added": "2025-07-16"
+    },
+    {
+      "id": "vertere-2286",
+      "name": "Beta Ⅱ",
+      "brewery": "Vertere",
+      "style": "Beets Sour Saison",
+      "abv": "5.5%",
+      "hops": [
+        "Strata"
+      ],
+      "url": "https://verterebrew.com/brewlog/beta-%e2%85%a1/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/08/197_Beta-II-300x300.jpg",
+      "description": "東京都青梅市 Ome Farm のビーツを使用したサワーセゾン第二弾。赤・黄・白の3種を使い、鮮やかな色合いとレモンキャンディーを思わせる香り。ビーツ由来の土のニュアンスは控えめに、やわらかく広がる自然な甘み。",
+      "source": "vertere",
+      "added": "2025-08-13"
+    },
+    {
+      "id": "vertere-792",
+      "name": "Anthocharis",
+      "brewery": "Vertere",
+      "style": "Sour IPA",
+      "abv": "6%",
+      "hops": [
+        "El Dorado",
+        "Chinook",
+        "El Dorado CGX",
+        "Chinook Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/anthocharis-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/03/010_Anthocharis-300x300.jpg",
+      "description": "乳酸菌由来のフレッシュな酸味とホップによる瑞々しいシトラスのニュアンス。 キレのあるドライな仕上がりで、後味はすっきりクリーン。 ホップと乳酸菌による複雑で多層的な味わいのSour IPA。",
+      "source": "vertere",
+      "added": "2025-08-27"
+    },
+    {
+      "id": "vertere-2307",
+      "name": "Sambac",
+      "brewery": "Vertere",
+      "style": "American IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Erebus",
+        "Mosaic",
+        "Citra Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/sambac/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/09/194_Sambac-300x300.jpg",
+      "description": "ゼラニウムやレモングラス、柑橘を思わせる香り。軽やかなボディと余韻に残る程よい苦味。ドライな飲み口に繊細なアロマが調和する爽快なIPA。",
+      "source": "vertere",
+      "added": "2025-09-03"
+    },
+    {
+      "id": "vertere-2371",
+      "name": "Miestas",
+      "brewery": "Vertere",
+      "style": "Lithuaninan Farmhouse w/Basil",
+      "abv": "6%",
+      "hops": [
+        "Bobek"
+      ],
+      "url": "https://verterebrew.com/brewlog/miestas/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/09/HP_200_Miestas-300x300.jpg",
+      "description": "Sanity高輪ゲートウェイ店のオープン記念ビール。酵母由来のスパイシーさとOme Farmのフレッシュバジルの青々とした香り。レモングラス由来の爽やかなシトラス感が重なり合うアロマ。",
+      "source": "vertere",
+      "added": "2025-09-16"
+    },
+    {
+      "id": "vertere-2366",
+      "name": "Ficus",
+      "brewery": "Vertere",
+      "style": "Fig Gose w/ Sudachi & Dashi",
+      "abv": "6%",
+      "hops": [],
+      "url": "https://verterebrew.com/brewlog/ficus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/09/HP_199_Ficus-300x300.jpg",
+      "description": "SUBA VSの人気メニュー『酢橘無花果』からインスピレーションを得たゴーゼ。いちじくとすだち、隠し味に出汁を使用。いちじくの優しい甘みと乳酸菌由来のフレッシュな酸味。すだちの爽やかさと出汁の旨みが余韻を彩る。",
+      "source": "vertere",
+      "added": "2025-09-16"
+    },
+    {
+      "id": "vertere-2407",
+      "name": "Melissa",
+      "brewery": "Vertere",
+      "style": "Belgian Wit",
+      "abv": "5%",
+      "hops": [
+        "Bobek"
+      ],
+      "url": "https://verterebrew.com/brewlog/melissa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/09/201_Melissa-300x300.jpg",
+      "description": "ライトな飲み口に溢れるオレンジピールの香り。酵母が生み出すバナナやほのかにスパイス、フローラル。爽やかながら奥深いBelgian Wit。",
+      "source": "vertere",
+      "added": "2025-09-24"
+    },
+    {
+      "id": "vertere-1751",
+      "name": "Stoebe",
+      "brewery": "Vertere",
+      "style": "Bock",
+      "abv": "7%",
+      "hops": [
+        "Bobek"
+      ],
+      "url": "https://verterebrew.com/brewlog/stoebe/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/09/153_Stoebe_hp-300x300.jpg",
+      "description": "トーストやパン、ナッツのニュアンス。ほのかにカラメル。\n\n滑らかな口当たりと控えめな苦味。甘さはありつつもラガーらしく爽やかな喉越し。",
+      "source": "vertere",
+      "added": "2025-11-05"
+    },
+    {
+      "id": "vertere-2541",
+      "name": "Christmas Beer 2025 Barley Wine w/Spice, Vanilla",
+      "brewery": "Vertere",
+      "style": "Barley Wine",
+      "abv": "10%",
+      "hops": [
+        "Northern Brewer"
+      ],
+      "url": "https://verterebrew.com/brewlog/christmas-2025-barley-wine/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/11/203_Christmas-Beer-2025-Barley-Wine-300x300.jpg",
+      "description": "スパイスとオークチップを香り付けに使用したバーレイワイン。複雑なスパイスの香味と、通常の倍量使用した麦芽のコク。厚めのボディにしっかりとした甘み。",
+      "source": "vertere",
+      "added": "2025-11-12"
+    },
+    {
+      "id": "vertere-2544",
+      "name": "Christmas Beer 2025 Grisette w/Honey, Basil",
+      "brewery": "Vertere",
+      "style": "Grisette",
+      "abv": "4.5%",
+      "hops": [
+        "Lorien"
+      ],
+      "url": "https://verterebrew.com/brewlog/christmas-2025-grisette/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/11/204_Christmas-Beer-2025-Grisette-300x300.jpg",
+      "description": "ライ麦と小麦を使用したグリゼットに、青梅産のバジルと蜂蜜を使用。レモンピールや清涼感のあるハーブ、フローラルのニュアンス。軽やかでありながら奥行きのある口当たり。",
+      "source": "vertere",
+      "added": "2025-11-12"
+    },
+    {
+      "id": "vertere-790",
+      "name": "Albizia",
+      "brewery": "Vertere",
+      "style": "DIPA",
+      "abv": "8.5%",
+      "hops": [
+        "Chinook",
+        "Bobek",
+        "Comet",
+        "Barbe Rouge",
+        "Mosaic Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/albizia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/05/b1125125795c23846e2d3379d3329420-300x300.jpg",
+      "description": "シトラス、松脂、トロピカル、ほのかにフローラル。カラメルモルト由来のやさしい甘みとボディ。しっかりとした苦味ながらフィニッシュはスムーズ。クラシックとモダンが交差する複雑な味わいのIPA。",
+      "source": "vertere",
+      "added": "2025-11-19"
+    },
+    {
+      "id": "vertere-2609",
+      "name": "Windows to WCB",
+      "brewery": "Vertere",
+      "style": "Hazy Pale Ale",
+      "abv": "5.5%",
+      "hops": [
+        "Idaho 7",
+        "Riwaka",
+        "Idaho 7 CGX",
+        "Mosaic Quantum",
+        "Simcoe Quantum"
+      ],
+      "url": "https://verterebrew.com/brewlog/windows-to-wcb/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/11/HP205_Windows-to-WCB-300x300.jpg",
+      "description": "West Coast Brewingとのコラボ第５弾。パッションフルーツやパイナップル、グレープフルーツを思わせる鮮烈なアロマ。普段よりも多めに使用した小麦とオーツ由来のなめらかな口当たりと柔らかなボディ。ジューシーなトロピカル感の中にほのかにダンクな飲みごたえのあるHazy Pale Ale。",
+      "source": "vertere",
+      "added": "2025-11-26"
+    },
+    {
+      "id": "vertere-1670",
+      "name": "Tristis",
+      "brewery": "Vertere",
+      "style": "TIPA",
+      "abv": "10%",
+      "hops": [
+        "Cascade",
+        "Idaho 7",
+        "Centennial",
+        "Citra",
+        "Idaho 7 CGX",
+        "Citra Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/tristis-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/07/363aa2f95dfdb4d9e2846d9f09ced9c5-300x300.jpg",
+      "description": "マンゴーやパイナップル、黄桃のようなアロマに、シトラスのニュアンス。小麦とオーツ由来の滑らかな口当たりと甘味のあるしっかりとしたボディ。ハイアルコールを感じさせない柔らかな飲み心地のTIPA。",
+      "source": "vertere",
+      "added": "2025-12-03"
+    },
+    {
+      "id": "vertere-2703",
+      "name": "Mirabilis",
+      "brewery": "Vertere",
+      "style": "American Pale Ale",
+      "abv": "5.5%",
+      "hops": [],
+      "url": "https://verterebrew.com/brewlog/mirabilis/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/12/Mirabilis_eifuku-1st-300x300.jpg",
+      "description": "",
+      "source": "vertere",
+      "added": "2025-12-09"
+    },
+    {
+      "id": "vertere-966",
+      "name": "Lebbeck",
+      "brewery": "Vertere",
+      "style": "DIPA",
+      "abv": "8%",
+      "hops": [
+        "Idaho 7",
+        "Amarillo",
+        "Amarillo CGX",
+        "Chinook",
+        "Chinook Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/lebbeck/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/02/050_Lebbeck-300x300.jpg",
+      "description": "ホップ由来の柑橘や草を思わせるアロマ。しっかりとした苦味と甘く滑らかな余韻のバランス。飲みごたえがありながら、どこか懐かしさを感じる王道のDIPA。",
+      "source": "vertere",
+      "added": "2025-12-10"
+    },
+    {
+      "id": "vertere-1874",
+      "name": "Emoryi",
+      "brewery": "Vertere",
+      "style": "Mexican Lager w/Chili,Lime",
+      "abv": "5.5%",
+      "hops": [
+        "Motueka"
+      ],
+      "url": "https://verterebrew.com/brewlog/emoryi/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/10/69c9bb7b0908f0456d078e7c2984a25d-1-300x300.jpg",
+      "description": "ライムピールと東京都青梅市Ome Farmのハラペーニョを漬け込んだメキシカンラガー。キレのある爽やかな飲み口にほのかにライムが香る。余韻には唐辛子由来のピリっとした辛さ。食事と合わせても楽しいチリビール。",
+      "source": "vertere",
+      "added": "2025-12-17"
+    },
+    {
+      "id": "vertere-2725",
+      "name": "Calluna",
+      "brewery": "Vertere",
+      "style": "West Coast Pilsner",
+      "abv": "6%",
+      "hops": [
+        "Triumph",
+        "Audacia"
+      ],
+      "url": "https://verterebrew.com/brewlog/calluna/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/12/206_Calluna1-1-300x300.jpg",
+      "description": "ライムやグレープフルーツ、ほのかにベリー、ローズのニュアンス。軽めの飲み口に優しい甘味。爽やかな苦味の余韻。ピルスナーらしいクリーンな味わいを保ちながらホップのレイヤーをしっかりと感じられる仕上がり。",
+      "source": "vertere",
+      "added": "2025-12-17"
+    },
+    {
+      "id": "vertere-2740",
+      "name": "Syringa",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "7%",
+      "hops": [
+        "HQG 3",
+        "Citra",
+        "Citra Lupomax",
+        "Idaho 7 CGX",
+        "Krush Quantum"
+      ],
+      "url": "https://verterebrew.com/brewlog/syringa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/12/207_Syringa-1_251209_HP-300x300.jpg",
+      "description": "熟したマンゴーや黄桃を思わせるトロピカルな甘いアロマ。ほのかにココナッツやバナナ、綿菓子のニュアンス。小麦とオーツ麦由来のジューシーな飲み口。厚みのあるヘイズながらも爽やかな余韻。",
+      "source": "vertere",
+      "added": "2025-12-23"
+    },
+    {
+      "id": "vertere-2750",
+      "name": "Freestyle Fes 2026 Tropical Fusion",
+      "brewery": "Vertere",
+      "style": "DIPA",
+      "abv": "8%",
+      "hops": [
+        "Tropical Fusion",
+        "Nelson Sauvin",
+        "Maui Nelson Hop Kief"
+      ],
+      "url": "https://verterebrew.com/brewlog/freestyle-fes-2026-tropical-fusion/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/01/208_Free-Style-HP-300x300.jpg",
+      "description": "ニュージーランドのFreestyle Hopsが手がけるホップを使用した6社コラボレーション。甘い柑橘や溢れるトロピカルフルーツのアロマとフレーバー。全体を引き締めるレモンピールの爽やかな香り。甘みも感じつつ後味にはしっかりとした苦味。 -FreeStyle Fes Collaboration-\n\n各社共通してTropical Fusionという一つの区画で栽培された様々なホップをブレンドした製品を使用。それ以外の副原料やスタイルは各社ルーレットで決定、という遊び心溢れるビールです。 ▼ 参加ブルワリー",
+      "source": "vertere",
+      "added": "2026-01-07"
+    },
+    {
+      "id": "vertere-2758",
+      "name": "Tilia",
+      "brewery": "Vertere",
+      "style": "Belgian Quad",
+      "abv": "10%",
+      "hops": [
+        "Tettnanger"
+      ],
+      "url": "https://verterebrew.com/brewlog/tilia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/01/209_Tilia-300x300.jpg",
+      "description": "酵母由来のクローブやカルダモン、ほのかに熟したバナナ。温度が上がると甘味を帯びたカラメルやレーズン、プルーンのニュアンス。濃密なボディながら重すぎない口当たり。穏やかな苦味が全体を引き締め、奥行きのある余韻に。",
+      "source": "vertere",
+      "added": "2026-01-14"
+    },
+    {
+      "id": "vertere-2052",
+      "name": "Nemophila",
+      "brewery": "Vertere",
+      "style": "West Coast Pilsner",
+      "abv": "6%",
+      "hops": [
+        "Amarillo",
+        "Citra",
+        "El Dorado CGX",
+        "Amarillo CGX"
+      ],
+      "url": "https://verterebrew.com/brewlog/nemophila/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/04/a153467d97f9c7234e3a502c2a03f678-300x300.jpg",
+      "description": "グレープフルーツやマスカット、フローラル。口に含むと優しく溶ける口当たりと爽やかな苦味の余韻。ピルスナーらしくキレはありつつも飲みごたえのある仕上がりに。",
+      "source": "vertere",
+      "added": "2026-01-14"
+    },
+    {
+      "id": "vertere-2056",
+      "name": "Bellevalia",
+      "brewery": "Vertere",
+      "style": "Pilsner",
+      "abv": "5%",
+      "hops": [
+        "Aurora"
+      ],
+      "url": "https://verterebrew.com/brewlog/bellevalia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/04/d68fc89d22b67b665f19ac384db8bf18-300x300.jpg",
+      "description": "フローラル、ホップ由来のノーブルなアロマ、ほのかに蜂蜜のニュアンス。口当たりは軽く、口に含むと優しく溶ける。余韻に残るほのかな麦の甘み。",
+      "source": "vertere",
+      "added": "2026-01-28"
+    },
+    {
+      "id": "vertere-2778",
+      "name": "Clusia",
+      "brewery": "Vertere",
+      "style": "Imperial Stout w/Banana & Maple Syrup",
+      "abv": "10%",
+      "hops": [
+        "Luminosa",
+        "Tettnanger"
+      ],
+      "url": "https://verterebrew.com/brewlog/clusia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/02/211_Clusia-300x300.jpg",
+      "description": "バナナピューレとメープルシロップを使用したデザートのようなスタウト。ローストとほのかなカラメル感、バナナブレッドを思わせる風味。大量のモルトと乳糖による甘みとねっとりとした厚みのあるボディ。温度が上がるにつれて表情を変える、余韻の長い一杯。",
+      "source": "vertere",
+      "added": "2026-02-04"
+    },
+    {
+      "id": "vertere-2781",
+      "name": "Salix",
+      "brewery": "Vertere",
+      "style": "Dark Lager",
+      "abv": "5%",
+      "hops": [
+        "Tettnanger"
+      ],
+      "url": "https://verterebrew.com/brewlog/salix/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/02/212_Salix-300x300.jpg",
+      "description": "トーストやほのかにチョコレートのニュアンス。モルトの甘みは持ちつつもラガーらしい端正なバランス。クリーンでドライな飲み口でキレのある余韻。ダークビールでありながら、何杯でも飲める軽やかさ。",
+      "source": "vertere",
+      "added": "2026-02-04"
+    },
+    {
+      "id": "vertere-2791",
+      "name": "Fluorite",
+      "brewery": "Vertere",
+      "style": "Brett Table Saison",
+      "abv": "4.5%",
+      "hops": [
+        "Centennial"
+      ],
+      "url": "https://verterebrew.com/brewlog/fluorite/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/02/210_Fluorite-300x300.jpg",
+      "description": "リトアニアの農家由来の酵母で主発酵させた軽めなベースにBrett酵母を加えてコンディション。梨や白葡萄のようなホワイトフルーツを思わせるアロマ。柔らかいタッチとドライな口当たり、余韻に残る淡いミネラル感。食中にも心地よく寄り添うTable Saison。",
+      "source": "vertere",
+      "added": "2026-02-09"
+    },
+    {
+      "id": "vertere-2790",
+      "name": "10th Anniversary – Grape Sour",
+      "brewery": "Vertere",
+      "style": "Grape Sour",
+      "abv": "8.5%",
+      "hops": [
+        "Barbe Rouge"
+      ],
+      "url": "https://verterebrew.com/brewlog/10th-anniversary-grape-sour/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/02/214_10th_Grape-Sour-300x300.jpg",
+      "description": "山葡萄とカベルネソーヴィニヨンを使用したサワーエール。ジューシーな果実のアロマと柔らかい酸味。爽やかでキレのある飲み口に余韻に残るほのかなタンニン。深みもありながら、軽快に飲み進められるバランス。",
+      "source": "vertere",
+      "added": "2026-02-10"
+    },
+    {
+      "id": "vertere-2787",
+      "name": "10th Anniversary – Imperial Red IPA",
+      "brewery": "Vertere",
+      "style": "Imperial Red IPA",
+      "abv": "10%",
+      "hops": [
+        "Chinook",
+        "Comet",
+        "Cascade",
+        "Amarillo",
+        "Chinook Lupomax",
+        "Amarillo CGX",
+        "Simcoe Quantum"
+      ],
+      "url": "https://verterebrew.com/brewlog/10th-anniversary-imperial-red-ipa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/02/213_10th_Imperial-Red-IPA-300x300.jpg",
+      "description": "グレープフルーツや松脂、ダンクなアロマ。モルトの甘味と、カラメルのニュアンス。ボディはありつつもしっかりとした苦味が全体を引き締める。醸造初期のRed IPAを参考にしたImperial Red IPA。",
+      "source": "vertere",
+      "added": "2026-02-10"
+    },
+    {
+      "id": "vertere-1249",
+      "name": "Violacea",
+      "brewery": "Vertere",
+      "style": "Belgian IPA",
+      "abv": "7%",
+      "hops": [
+        "Sultana",
+        "Citra",
+        "Meridian",
+        "Mosaic",
+        "Motueka"
+      ],
+      "url": "https://verterebrew.com/brewlog/violacea/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/06/095_Violacea-300x300.jpg",
+      "description": "パイナップルやアプリコット、熟したバナナのようなアロマ。華やかさの奥に、繊細なスパイスのニュアンス。滑らかな口当たりとキャンディのような甘味を帯びた余韻。ベルジャンの複雑さとIPAのジューシーさが混ざり合った一杯。",
+      "source": "vertere",
+      "added": "2026-02-25"
+    },
+    {
+      "id": "vertere-2838",
+      "name": "Frustum",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Citra",
+        "Mosaic",
+        "Strata",
+        "Vera"
+      ],
+      "url": "https://verterebrew.com/brewlog/frustum/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/03/217_Frustum-300x300.jpg",
+      "description": "伊勢角屋麦酒とのコラボレーション。お互いに普段と違う酵母と、ロットの違うStrataホップを使用したHazy IPA。マンゴーやパイナップル、熟したベリーとほのかなクリーム感。オーツと小麦による柔らかな口当たりとシルキーなテクスチャー。濃密でありながらもクリーンな飲み口。",
+      "source": "vertere",
+      "added": "2026-03-04"
+    },
+    {
+      "id": "vertere-1622",
+      "name": "Coffea",
+      "brewery": "Vertere",
+      "style": "Coffee Stout",
+      "abv": "7.5%",
+      "hops": [
+        "Tettnanger"
+      ],
+      "url": "https://verterebrew.com/brewlog/coffea/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/09/202_Coffea-WTH-300x300.jpg",
+      "description": "奥多摩の Gotta Coffee が焙煎したコーヒー豆を贅沢に使用。香ばしいコーヒーの香りと、なめらかな飲み口。見た目に反した軽やかな口当たり。コーヒーとスタウト、それぞれの豊かさを重ねた一杯。",
+      "source": "vertere",
+      "added": "2026-03-11"
+    },
+    {
+      "id": "vertere-2049",
+      "name": "Tenera",
+      "brewery": "Vertere",
+      "style": "Session Hazy",
+      "abv": "4%",
+      "hops": [
+        "Mosaic",
+        "Chinook",
+        "Chinook Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/tenera-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/04/139_Tenera_350ml-300x300.jpg",
+      "description": "【ローカル限定商品】パッションフルーツやグレープフルーツのニュアンス。軽い口当たりと爽やかなアロマが重なるSession Hazy。クリーンな飲み口ながらホップのアロマが心地よく広がる。",
+      "source": "vertere",
+      "added": "2026-03-11"
+    },
+    {
+      "id": "vertere-816",
+      "name": "Hydrangea",
+      "brewery": "Vertere",
+      "style": "Saison",
+      "abv": "6%",
+      "hops": [
+        "Tettnanger"
+      ],
+      "url": "https://verterebrew.com/brewlog/hydrangea/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/03/012_Hydrangea-300x300.jpg",
+      "description": "酵母由来のスパイシーなニュアンスとドライな口当たり。ほのかに柑橘や白ブドウのアロマ。シンプルなモルト構成がキレを引き立て、すっきり軽快な飲み口に。スパイシーさと爽やかさを両立したモダンなセゾン。",
+      "source": "vertere",
+      "added": "2026-03-18"
+    },
+    {
+      "id": "vertere-2898",
+      "name": "Viburnum",
+      "brewery": "Vertere",
+      "style": "Boysenberry Sour w/White Chocolate",
+      "abv": "6.5%",
+      "hops": [
+        "Idaho 7 Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/viburnum/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/03/218_Viburnum-300x300.jpg",
+      "description": "目白のInkhorn Brewingとのコラボレーション。ボイセンベリーと、ホワイトチョコレートを使用したサワーエール。乳酸菌と果実の鮮やかな酸味、ベリーの濃密なアロマ。タッチは軽めで爽やかな印象ながら、余韻にホワイトチョコレートのクリーミーなニュアンスが重なる。デザートのようでありながら飲み疲れしない一杯。",
+      "source": "vertere",
+      "added": "2026-03-25"
+    },
+    {
+      "id": "vertere-2936",
+      "name": "Lupulus",
+      "brewery": "Vertere",
+      "style": "American Pale Ale",
+      "abv": "5.5%",
+      "hops": [
+        "Citra",
+        "Citra Spectrum",
+        "Citra Prysma",
+        "Galaxy Prysma"
+      ],
+      "url": "https://verterebrew.com/brewlog/lupulus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/04/219_Lupulus-300x300.jpg",
+      "description": "アメリカのホップサプライヤー、BarthHaasとのコラボレーション。シトラスやパッションフルーツ、ほのかに樹脂感を感じるアロマ。T90ペレットに加え、PrysmaとSpectrumといったホップオイル製品を使用。奥行きのあるレイヤーと、鮮やかでクリアな香り立ち。ジューシーさと飲みやすさのバランスが取れたアメリカンペールエール。",
+      "source": "vertere",
+      "added": "2026-04-01"
+    },
+    {
+      "id": "vertere-1758",
+      "name": "Persica",
+      "brewery": "Vertere",
+      "style": "Peach Gose",
+      "abv": "6%",
+      "hops": [
+        "Idaho 7"
+      ],
+      "url": "https://verterebrew.com/brewlog/persica/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/09/159_Peach-Gose_HP-300x300.jpg",
+      "description": "白桃ジュースとシナモン、バニラを使用したピーチゴーゼ。通常よりも塩の割合を増やすことで厚みのあるボディを表現。ほのかに香ばしいパイやビスケットのニュアンスが桃の味わいを引き立てる。甘い香りと優しい酸味、爽やかな余韻。",
+      "source": "vertere",
+      "added": "2026-04-08"
+    },
+    {
+      "id": "vertere-2161",
+      "name": "Galanthus",
+      "brewery": "Vertere",
+      "style": "Cascadian Dark Ale",
+      "abv": "7%",
+      "hops": [
+        "Citra",
+        "Cascade",
+        "Amarillo",
+        "Centennial",
+        "Tettnanger"
+      ],
+      "url": "https://verterebrew.com/brewlog/galanthus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/05/187_Galanthus_Hp-300x300.jpg",
+      "description": "IPAと同量のホップを使用しフルーティーさを表に引き出したCascadian Dark Ale。オレンジキャンディー、レーズン、アプリコット、キャラメルのようなアロマとフレーバー。ドライで軽い口当たりにしっかりとした苦味、オレンジピールのような余韻。",
+      "source": "vertere",
+      "added": "2026-04-08"
+    },
+    {
+      "id": "vertere-2955",
+      "name": "Heliconia",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "7%",
+      "hops": [
+        "Mosaic Incognito",
+        "Luminosa",
+        "El Dorado",
+        "El Dorado CGX",
+        "Citra Quantum"
+      ],
+      "url": "https://verterebrew.com/brewlog/heliconia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/04/222_Heliconia-300x300.jpg",
+      "description": "マンゴーやパイナップルを思わせる、甘みを伴ったトロピカルフルーツのキャラクター。濃縮ペレットやオイルなど、さまざまな形態のホッププロダクトを使用。ホップのレイヤーによる奥行きのある味わいに。オーツと小麦による柔らかな口当たりとシルキーなテクスチャー。濃密でありながらも、スムースに飲み進められる一杯。",
+      "source": "vertere",
+      "added": "2026-04-14"
+    },
+    {
+      "id": "vertere-2951",
+      "name": "Typhina",
+      "brewery": "Vertere",
+      "style": "Modern Pilsner",
+      "abv": "5.5%",
+      "hops": [
+        "Chinook",
+        "Simcoe",
+        "Motueka",
+        "Nelson Sauvin",
+        "Citra"
+      ],
+      "url": "https://verterebrew.com/brewlog/typhina/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/04/221_Typhina_260330-300x300.jpg",
+      "description": "奈良醸造のXPAを参考にしたModern Pilsner。柑橘や白ブドウ、ほのかにハーバルなニュアンス。シャープな苦味と軽快な飲み口。ラガーらしいクリアな味わいと、ホップアロマが心地よく共存した一杯。",
+      "source": "vertere",
+      "added": "2026-04-14"
+    },
+    {
+      "id": "vertere-2956",
+      "name": "VERTERE Anniversary Festival -10th Anniversary-",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "7%",
+      "hops": [
+        "Mosaic Incognito",
+        "HQG 3",
+        "Motueka Kief"
+      ],
+      "url": "https://verterebrew.com/brewlog/vertere-anniversary-festival-10th-anniversary/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/04/mailtoC-0406VAF_store_-1012x1024.jpg",
+      "description": "アメリカオレゴン州のCrosby Hopsが手がける実験品種HQG3をメインに使用。マンゴーやシトラス、ほのかにバナナのようなクリーミーなニュアンス。滑らかな口当たりで余韻に残るほのかな甘み。",
+      "source": "vertere",
+      "added": "2026-04-18"
+    },
+    {
+      "id": "vertere-798",
+      "name": "Casimiroa",
+      "brewery": "Vertere",
+      "style": "NEIPA",
+      "abv": "7.5%",
+      "hops": [
+        "Nelson Sauvin",
+        "Idaho 7 CGX",
+        "El Dorado CGX",
+        "Citra",
+        "Idaho 7",
+        "El Dorado"
+      ],
+      "url": "https://verterebrew.com/brewlog/casimiroa-3/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/04/04_Casimiroa-300x300.jpg",
+      "description": "ピーチ、ぶどう、パイナップル、シトラスの多彩なアロマ。オーツ由来のシルキーな口当たりと乳糖由来の厚みのあるボディ。口の中で弾けるホップのフレーバー。ミックスフルーツを思わせるジューシーなIPA。",
+      "source": "vertere",
+      "added": "2026-04-21"
+    },
+    {
+      "id": "vertere-2966",
+      "name": "Vespa",
+      "brewery": "Vertere",
+      "style": "Mango Sour w/Pineapple&Chili",
+      "abv": "8%",
+      "hops": [
+        "Motueka"
+      ],
+      "url": "https://verterebrew.com/brewlog/vespa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/04/223_Vespa-300x300.jpg",
+      "description": "韓国・済州島に拠点を構えるMagpie Brewingとのコラボレーション。 マンゴーとパイナップル、アクセントにチリパウダーを加えたサワーエール。大量に使用したピューレによる濃密な果実感。乳酸菌由来の穏やかな酸味と、チリのスパイシーな刺激がほんのりと余韻を残す。濃密でありながらもバランスよく、スムースに飲み進められる一杯。",
+      "source": "vertere",
+      "added": "2026-04-22"
+    },
+    {
+      "id": "vertere-800",
+      "name": "Passiflora",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "7%",
+      "hops": [
+        "Mosaic",
+        "Citra",
+        "Citra Lupomax",
+        "Mosaic Lupomax",
+        "Mosaic Incognito"
+      ],
+      "url": "https://verterebrew.com/brewlog/passiflora/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/03/02_Passiflora-300x300.jpg",
+      "description": "トロピカルフルーツを思わせる香りと、シルキーな飲み口が特徴のHazy IPA。ホップと酵母によるパッションフルーツ、マンゴーのようなアロマ。オーツによるなめらかな口当たり。苦味は控えめ。ホップの華やかさ溢れる一杯。",
+      "source": "vertere",
+      "added": "2026-04-29"
+    },
+    {
+      "id": "vertere-1952",
+      "name": "Rostrata",
+      "brewery": "Vertere",
+      "style": "West Coast IPA",
+      "abv": "7%",
+      "hops": [
+        "Chinook",
+        "Amarillo",
+        "Cascade",
+        "Centennial"
+      ],
+      "url": "https://verterebrew.com/brewlog/rostrata/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/12/e41934030cf3d35fa51bedd5e4e75395-300x300.jpg",
+      "description": "白ブドウや洋梨を思わせるアロマとほのかに草のニュアンス。クセのない爽やかな飲み口。穏やかな甘味としっかりとした苦味のフィニッシュ。",
+      "source": "vertere",
+      "added": "2026-04-29"
+    },
+    {
+      "id": "vertere-925",
+      "name": "Nox",
+      "brewery": "Vertere",
+      "style": "Sour IPA",
+      "abv": "7.5%",
+      "hops": [
+        "Idaho 7",
+        "Idaho 7 CGX",
+        "Citra",
+        "Citra Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/nox/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/05/036_nox-300x300.jpg",
+      "description": "乳酸菌とホップの組み合わせによるトロピカルな香りとフレッシュな酸味。パイナップルやグレープフルーツを思わせるジューシーなアロマ。酸味はありながらもオーツと乳糖で丸みのある飲み口。苦味は控えめ、果実感あふれるSour IPA。",
+      "source": "vertere",
+      "added": "2026-05-03"
+    },
+    {
+      "id": "vertere-2972",
+      "name": "Pieris",
+      "brewery": "Vertere",
+      "style": "Lime Sour Saison w/Mint",
+      "abv": "6%",
+      "hops": [
+        "Meridian"
+      ],
+      "url": "https://verterebrew.com/brewlog/pieris/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/05/224_Pieris-300x300.jpg",
+      "description": "ライムピールとスペアミントを使用したサワーセゾン。乳酸発酵によるシャープな酸味、スペアミントの柔らかい清涼感とフレッシュなライムのアロマ。ほのかな塩味がボディの厚みをつくり酸味や香りを引き締める。暑い時期に飲みたくなる爽快な一杯。",
+      "source": "vertere",
+      "added": "2026-05-06"
+    },
+    {
+      "id": "vertere-2290",
+      "name": "Protea",
+      "brewery": "Vertere",
+      "style": "Hazy DIPA",
+      "abv": "8%",
+      "hops": [
+        "Centennial Incognito",
+        "Mosaic Lupomax",
+        "Riwaka",
+        "Nelson Sauvin",
+        "Mosaic"
+      ],
+      "url": "https://verterebrew.com/brewlog/protea/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/08/195_Protea-300x300.jpg",
+      "description": "パッションフルーツや白ぶどう、ほのかにライチのニュアンス。滑らかな口当たりと甘すぎない後味で8.0％を感じさせない飲みやすさ。アロマあふれるジューシーなHazy DIPA。",
+      "source": "vertere",
+      "added": "2026-05-06"
+    },
+    {
+      "id": "vertere-2978",
+      "name": "Splendens",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "7%",
+      "hops": [
+        "Triumph",
+        "Krush Quantum"
+      ],
+      "url": "https://verterebrew.com/brewlog/splendens/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/05/Splendens_Tachikawa-1st-300x300.jpg",
+      "description": "ホップオイルとペレットを組み合わせ濃密なアロマを纏わせたIPA。マンゴー、グアバ、オレンジ、ピーチを思わせるジューシーなアロマ。オーツ由来のシルキーな口当たり。濃厚でありながら抜けの良い軽やかな飲み口。",
+      "source": "vertere",
+      "added": "2026-05-11"
+    },
+    {
+      "id": "vertere-2979",
+      "name": "Achillea",
+      "brewery": "Vertere",
+      "style": "West Coast IPA",
+      "abv": "7%",
+      "hops": [
+        "Centennial",
+        "Chinook Lupomax",
+        "Chinook",
+        "Audacia",
+        "Strata CGX"
+      ],
+      "url": "https://verterebrew.com/brewlog/achillea/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/05/225_Achillea-300x300.jpg",
+      "description": "オレンジ、シトラス、草感のあるハーバルなアロマとフレーバー。ほのかにラベンダーのようなフローラルなニュアンス。口当たりは軽く、爽やかな印象ながらしっかりとした苦味。",
+      "source": "vertere",
+      "added": "2026-05-13"
+    },
+    {
+      "id": "vertere-2983",
+      "name": "Collectiophobia",
+      "brewery": "Vertere",
+      "style": "Hazy DIPA",
+      "abv": "8.5%",
+      "hops": [
+        "Luminosa",
+        "Simcoe",
+        "Audacia",
+        "Citra Spectrum",
+        "Citra Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/collectiophobia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/05/226_Collectiophobia-300x300.jpg",
+      "description": "愛知県長久手市に拠点を置くTotopia Breweryとのコラボレーション第三弾。 ポートランドのIndie Hopsが手がけるLuminosaというホップをメインにしたHazy DIPA。オレンジやパイナップルを思わせる甘味を帯びた明るいフルーツのアロマ。口に含むとクリーミーなトロピカルフルーツのニュアンス。控えめな苦味と、滑らかでシルキーな口当たり。アルコールを感じさせない軽めの飲み口。",
+      "source": "vertere",
+      "added": "2026-05-19"
+    },
+    {
+      "id": "vertere-1123",
+      "name": "Benitoa",
+      "brewery": "Vertere",
+      "style": "Belgian Blonde",
+      "abv": "6%",
+      "hops": [
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/benitoa-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/02/075_Benitoa-300x300.jpg",
+      "description": "ベルギー由来の酵母を使用したブロンドエール。白ブドウや洋梨を思わせるやわらかな果実感。ほのかにクローブやバナナのようなニュアンス。キレのある明るく軽やかな飲み口。余韻に穏やかなスパイスが心地よく残る。",
+      "source": "vertere",
+      "added": "2026-05-20"
+    },
+    {
+      "id": "vertere-1245",
+      "name": "Acca",
+      "brewery": "Vertere",
+      "style": "NZIPA",
+      "abv": "6.5%",
+      "hops": [
+        "Riwaka",
+        "Moutere"
+      ],
+      "url": "https://verterebrew.com/brewlog/acca/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/04/ff98027c37856293f7c2b047b7dbdd69-300x300.jpg",
+      "description": "2種類のNZ産ホップを使用したIPA。グレープフルーツやパッションフルーツを思わせる爽やかなアロマ。オーツ麦によるシルキーな口当たり。軽やかで瑞々しい飲み心地。",
+      "source": "vertere",
+      "added": "2026-05-26"
+    },
+    {
+      "id": "vertere-896",
+      "name": "Sapida",
+      "brewery": "Vertere",
+      "style": "Single Hop IPA",
+      "abv": "6%",
+      "hops": [
+        "Motueka",
+        "Motueka Kief"
+      ],
+      "url": "https://verterebrew.com/brewlog/sapida/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/04/029_Sapida-300x300.jpg",
+      "description": "Freestyle Hops が手がけるMotuekaを使用したSingle Hop IPA。トロピカルフルーツ、ライム、レモンゼストのニュアンス。滑らかな口当たりと控えめな苦味。鮮やかに香るホップアロマが余韻まで心地よく続く。",
+      "source": "vertere",
+      "added": "2026-05-26"
+    },
+    {
+      "id": "vertere-2998",
+      "name": "Fabiana",
+      "brewery": "Vertere",
+      "style": "Hazy Pale Ale",
+      "abv": "5.5%",
+      "hops": [
+        "Luminosa",
+        "Dolcita Spectrum",
+        "Motueka"
+      ],
+      "url": "https://verterebrew.com/brewlog/fabiana/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/05/227_Fabiana-300x300.jpg",
+      "description": "パイナップル、マンゴー、ピーチを思わせる明るいアロマ。ほのかにライチやミント、クリームキャンディのニュアンス。小麦とオーツによるやわらかくジューシーな口当たり。軽やかな飲み口ながら、ホップの華やかさをしっかり楽しめる一杯。",
+      "source": "vertere",
+      "added": "2026-06-03"
+    },
+    {
+      "id": "vertere-856",
+      "name": "Ruta",
+      "brewery": "Vertere",
+      "style": "Lithuanian Farmhouse",
+      "abv": "6%",
+      "hops": [
+        "Barbe Rouge"
+      ],
+      "url": "https://verterebrew.com/brewlog/ruta/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/05/028_Ruta-300x300.jpg",
+      "description": "カルダモンや白胡椒、レモンを思わせる爽やかなアロマ。酵母由来のほのかなエステルと丸みを帯びたタッチ。小麦のやさしい風味を残しながらも口当たりはドライ。",
+      "source": "vertere",
+      "added": "2026-06-10"
+    },
+    {
+      "id": "vertere-3013",
+      "name": "Duranta",
+      "brewery": "Vertere",
+      "style": "NZ Pilsner",
+      "abv": "6%",
+      "hops": [
+        "Motueka Kief",
+        "Pacifica (NZ Hops)",
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/duranta/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/06/228_Duranta-300x300.jpg",
+      "description": "パッションフルーツ、レモン、ライムを思わせる明るい柑橘感に、ほのかにフローラルなニュアンス。口に含むとやわらかな麦の甘み、NZホップ由来の瑞々しい果実感。ドライでキレのあるフィニッシュながら、ホップの余韻は軽やかに残る。爽やかな飲み心地の中に、ホップの香りもしっかりと楽しめるピルスナー。",
+      "source": "vertere",
+      "added": "2026-06-17"
+    },
+    {
+      "id": "vertere-951",
+      "name": "Zela",
+      "brewery": "Vertere",
+      "style": "Pomegranate Sour",
+      "abv": "5%",
+      "hops": [
+        "Sultana"
+      ],
+      "url": "https://verterebrew.com/brewlog/zela/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/04/df2694eb82f52e87f658dd4b2ed7efc4-300x300.jpg",
+      "description": "ザクロとフレッシュカモミールを使用したサワーエール。ザクロ由来の甘酸っぱい果実感、余韻に抜けるカモミールのやわらかなフローラル。赤い果実の余韻にカモミールの穏やかな香りが重なる、爽やかな飲み心地。",
+      "source": "vertere",
+      "added": "2026-06-17"
+    },
+    {
+      "id": "vertere-2275",
+      "name": "Pppassiflora",
+      "brewery": "Vertere",
+      "style": "DDH Hazy IPA",
+      "abv": "7%",
+      "hops": [],
+      "url": "https://verterebrew.com/brewlog/pppassiflora/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/08/000_Pppassiflora-300x300.jpg",
+      "description": "",
+      "source": "vertere",
+      "added": "2026-06-20"
+    },
+    {
+      "id": "vertere-1942",
+      "name": "Ravenia",
+      "brewery": "Vertere",
+      "style": "American IPA",
+      "abv": "7%",
+      "hops": [
+        "Chinook",
+        "Centennial",
+        "Chinook Lupomax",
+        "Idaho 7 CGX",
+        "Centennial Incognito"
+      ],
+      "url": "https://verterebrew.com/brewlog/ravenia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/12/5fe26f97145568f77e8ee47311e566bf-300x300.jpg",
+      "description": "蜜感のある濃いオレンジやアプリコットのニュアンス。小麦やオーツ麦による滑らかな口当たり。苦味は控えめで飲み口は軽め。ホップの持つ柑橘感を引き出したジューシーなIPA。",
+      "source": "vertere",
+      "added": "2026-06-24"
+    },
+    {
+      "id": "vertere-2159",
+      "name": "Roystonea",
+      "brewery": "Vertere",
+      "style": "West Coast IPA",
+      "abv": "5%",
+      "hops": [
+        "Cascade",
+        "Centennial",
+        "Chinook",
+        "Amarillo",
+        "Comet",
+        "Amarillo CGX"
+      ],
+      "url": "https://verterebrew.com/brewlog/roystonea/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/05/186_Roystonea_Hp-300x300.jpg",
+      "description": "西海岸の陽光をイメージしたダンクなIPA。Cascade、Centennial、Chinookをメインとした往年の西海岸系のホップから成るオレンジ、シトラス、松ヤニのニュアンス。ボディは軽く、強い苦味を前面に押し出したフレーバー。",
+      "source": "vertere",
+      "added": "2026-06-24"
+    },
+    {
+      "id": "vertere-1346",
+      "name": "Eugenia",
+      "brewery": "Vertere",
+      "style": "NZIPA",
+      "abv": "7%",
+      "hops": [
+        "Motueka",
+        "Cascade",
+        "Kohatu",
+        "Nelson Sauvin",
+        "Motueka Kief"
+      ],
+      "url": "https://verterebrew.com/brewlog/eugenia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/03/110_Eugenia-300x300.jpg",
+      "description": "ニュージーランド産ホップを贅沢に使用したIPA。イチジクやドライフルーツ、マスクメロンを思わせるアロマに、ほのかにバブルガムのニュアンス。モルトと乳糖由来の厚みと滑らかな口当たり。ホップの果実味を存分に楽しめる仕上がり。",
+      "source": "vertere",
+      "added": "2026-06-30"
+    },
+    {
+      "id": "vertere-3032",
+      "name": "Beta Ⅲ",
+      "brewery": "Vertere",
+      "style": "Beets Sour Saison",
+      "abv": "5.5%",
+      "hops": [
+        "Barbe Rouge"
+      ],
+      "url": "https://verterebrew.com/brewlog/beta-%e2%85%a2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/06/4cb2cba9d189c022ab4889200bba9ae1-1-300x300.jpg",
+      "description": "東京都青梅市Ome Farmのビーツを使用したサワーセゾン第3弾。赤ビーツの鮮やかなピンクの色合いと、レモンキャンディーを思わせる香り。ビーツ由来の土のニュアンスは控えめ。優しい酸味とほのかな塩味で爽快な口当たりに。 ▶︎ Ome Farmについて",
+      "source": "vertere",
+      "added": "2026-07-01"
+    },
+    {
+      "id": "vertere-3064",
+      "name": "Melilotus",
+      "brewery": "Vertere",
+      "style": "Belgian Pale Ale",
+      "abv": "5.5%",
+      "hops": [
+        "Pekko",
+        "Audacia",
+        "Lorien"
+      ],
+      "url": "https://verterebrew.com/brewlog/melilotus/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/07/230_Melilotus-300x300.jpg",
+      "description": "洋梨やバナナを思わせる軽やかなアロマ。ほのかなスパイスとハーブのニュアンス。軽快でドライな飲み口、余韻に残るほのかな苦味。酵母とホップが重なり合うBelgian Pale Ale。",
+      "source": "vertere",
+      "added": "2026-07-08"
+    },
+    {
+      "id": "vertere-1602",
+      "name": "Palmeri",
+      "brewery": "Vertere",
+      "style": "DIPA",
+      "abv": "8%",
+      "hops": [
+        "Mosaic",
+        "Luminosa",
+        "Meridian",
+        "Strata CGX"
+      ],
+      "url": "https://verterebrew.com/brewlog/palmeri/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/04/138_Palmeri-300x300.jpg",
+      "description": "熟したベリーやマンゴー、ピーチのような甘い果実のアロマ。モルト由来のやわらかな甘みと厚み。苦味を抑えたスムースな飲み口。ジューシーなアロマが心地よく続くDouble IPA。",
+      "source": "vertere",
+      "added": "2026-07-08"
+    },
+    {
+      "id": "vertere-3072",
+      "name": "Solandra",
+      "brewery": "Vertere",
+      "style": "American IPA",
+      "abv": "6.5%",
+      "hops": [
+        "El Dorado",
+        "El Dorado Spectrum",
+        "Elani",
+        "Triumph"
+      ],
+      "url": "https://verterebrew.com/brewlog/solandra/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/07/232_Solandra-300x300.jpg",
+      "description": "マンゴーやパッションフルーツを思わせるジューシーな果実のアロマ。 やわらかな口当たりと穏やかな甘み。 厚みのある味わいと、柑橘の花を思わせる爽やかな余韻。 Hazy IPAをベースに、異なる表情を探ったIPA。",
+      "source": "vertere",
+      "added": "2026-07-15"
+    },
+    {
+      "id": "vertere-3069",
+      "name": "Macranthos",
+      "brewery": "Vertere",
+      "style": "American Pale Ale",
+      "abv": "5.5%",
+      "hops": [
+        "Chinook",
+        "Cascade",
+        "Lorien"
+      ],
+      "url": "https://verterebrew.com/brewlog/macranthos/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/07/231_Macranthos-1-300x300.jpg",
+      "description": "DAISHIZENが運営する川崎のファームマーケットSOLSO FARMとのコラボレーション。柑橘や花、ハーブ、刈りたての芝生を思わせるアロマ。軽快なモルトの味わいと穏やかな苦味。植物を思わせる爽やかな香りを楽しめるAmerican Pale Ale。 ▶︎ SOLSO FARMについて",
+      "source": "vertere",
+      "added": "2026-07-15"
+    },
+    {
+      "id": "vertere-2155",
+      "name": "Artemisia",
+      "brewery": "Vertere",
+      "style": "Hazy DIPA",
+      "abv": "-",
+      "hops": [
+        "Idaho 7 CGX",
+        "El Dorado CGX",
+        "Motueka"
+      ],
+      "url": "https://verterebrew.com/brewlog/artemisia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/05/185_Artemisia_Hp-300x300.jpg",
+      "description": "グレープフルーツ、パッションフルーツ、若干のオレンジを感じさせるアロマとフレーバー。ほのかにレモンやライムのニュアンスが加わり、すっきりとした印象に。苦味は抑えめ、オーツによる滑らかな口当たり。",
+      "source": "vertere",
+      "added": "2026-07-22"
+    },
+    {
+      "id": "vertere-1364",
+      "name": "Deserti",
+      "brewery": "Vertere",
+      "style": "Session IPA",
+      "abv": "4%",
+      "hops": [
+        "Luminosa",
+        "Strata"
+      ],
+      "url": "https://verterebrew.com/brewlog/deserti/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/05/112_Deserti_2-300x300.jpeg",
+      "description": "ホップにLuminosa,Strataを使用し、Kveikで発酵させたSession IPA。柑橘、トロピカル、フローラルのアロマ。柔らかく軽い口当たりと、爽やかな苦味の余韻。",
+      "source": "vertere",
+      "added": "2026-07-22"
+    },
+    {
+      "id": "vertere-2836",
+      "name": "Iris",
+      "brewery": "Vertere",
+      "style": "Cold IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Motueka Kief",
+        "Pacifica (NZ Hops)",
+        "Riwaka"
+      ],
+      "url": "https://verterebrew.com/brewlog/iris/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/06/216_iris_3-300x300.jpg",
+      "description": "青い柑橘の皮を思わせるシャープなアロマ。ライムやグレープフルーツのニュアンス。ホップを際立たせながらもクリーンでドライな飲み口。爽やかな苦味で飲み疲れしない仕上がり。",
+      "source": "vertere",
+      "added": "2026-08-05"
+    },
+    {
+      "id": "vertere-1113",
+      "name": "Anemone",
+      "brewery": "Vertere",
+      "style": "American Pale Ale",
+      "abv": "5.5%",
+      "hops": [
+        "Cascade",
+        "Chinook"
+      ],
+      "url": "https://verterebrew.com/brewlog/anemone/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/01/73_Anemone-300x300.jpg",
+      "description": "モルトとホップの両立を目指した王道のAmerican Pale Ale。フローラルやシトラス、ほのかにグラッシーなニュアンス。ほのかな甘味と余韻に残る程よい苦味。シンプルながらもホップの層を楽しめる飽きのこないPale Ale。",
+      "source": "vertere",
+      "added": "2026-08-12"
+    },
+    {
+      "id": "vertere-2260",
+      "name": "Calamintha",
+      "brewery": "Vertere",
+      "style": "Italian Pilsner",
+      "abv": "5%",
+      "hops": [
+        "Tettnanger",
+        "Bobek"
+      ],
+      "url": "https://verterebrew.com/brewlog/calamintha/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/07/192_Calamintha-300x300.jpg",
+      "description": "フローラル、ハーバルなアロマとほのかに草のようなニュアンス。柔らかい口当たりと余韻に残るしっかりとした苦味。シルキーで細かく柔らかい泡の質感。クラシックなホップに焦点を当てたItalian Pilsner。",
+      "source": "vertere",
+      "added": "2026-08-12"
+    },
+    {
+      "id": "vertere-921",
+      "name": "Hortia",
+      "brewery": "Vertere",
+      "style": "Lithuanian Wit",
+      "abv": "5.5%",
+      "hops": [
+        "Sultana"
+      ],
+      "url": "https://verterebrew.com/brewlog/hortia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/01/100_Hortia-300x300.jpg",
+      "description": "オレンジピールとコリアンダーを使用したウィートエール。コリアンダーの爽やかな清涼感と柑橘の香り。キレのあるライトな飲み口。",
+      "source": "vertere",
+      "added": "2026-08-17"
+    },
+    {
+      "id": "vertere-1218",
+      "name": "Efulensia",
+      "brewery": "Vertere",
+      "style": "IPA",
+      "abv": "6%",
+      "hops": [
+        "Citra",
+        "Strata",
+        "Mosaic Cryo",
+        "Idaho 7 CGX"
+      ],
+      "url": "https://verterebrew.com/brewlog/efulensia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/04/091_Efulensia_240221-300x300.jpg",
+      "description": "トロピカルフルーツやシトラス、アプリコットのニュアンス。苦味は控えめ、滑らかな口当たりと爽やかな余韻。酵母とホップが生み出す複雑な味わいに焦点を当てたジューシーなIPA。",
+      "source": "vertere",
+      "added": "2026-08-19"
+    },
+    {
+      "id": "vertere-791",
+      "name": "Magnolia",
+      "brewery": "Vertere",
+      "style": "DIPA",
+      "abv": "8%",
+      "hops": [
+        "Idaho 7",
+        "El Dorado",
+        "El Dorado CGX",
+        "Idaho 7 CGX"
+      ],
+      "url": "https://verterebrew.com/brewlog/magnolia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2025/02/08_Magnolia-300x300.jpg",
+      "description": "Idaho7とEl Doradoホップによるあふれる柑橘やパイナップルのアロマ。しっかりした飲みごたえと余韻に広がるホップの香り。濃密なのに重たくない、鮮やかな飲み心地。苦味を抑えて仕上げた、ジュースのようなDIPA。",
+      "source": "vertere",
+      "added": "2026-08-26"
+    },
+    {
+      "id": "vertere-3096",
+      "name": "Osmunda",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Kohia Nelson",
+        "Riwaka"
+      ],
+      "url": "https://verterebrew.com/brewlog/osmunda/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/08/235_Osmunda-300x300.jpg",
+      "description": "グレープフルーツやパッションフルーツ、マンゴーのアロマ。口に含むとほのかにクリーミーなニュアンス。果実感を支えるほのかな甘味。オーツと小麦による滑らかな口当たり。",
+      "source": "vertere",
+      "added": "2026-08-26"
+    },
+    {
+      "id": "vertere-3098",
+      "name": "Mmmagnolia",
+      "brewery": "Vertere",
+      "style": "DIPA",
+      "abv": "8%",
+      "hops": [
+        "Idaho 7",
+        "El Dorado",
+        "El Dorado CGX",
+        "Idaho 7 CGX"
+      ],
+      "url": "https://verterebrew.com/brewlog/mmmagnolia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/08/MMMagnolia-300x300.jpg",
+      "description": "VERTEREの準定番商品Magnoliaに大幅にドライホップを追加したホップ強化版のDIPA。パイナップルや柑橘、ストーンフルーツを思わせるアロマ。より濃密で立体的な果実感とほのかに樹脂を思わせる余韻。",
+      "source": "vertere",
+      "added": "2026-08-28"
+    },
+    {
+      "id": "vertere-1031",
+      "name": "Liponesco",
+      "brewery": "Vertere",
+      "style": "Black Currant Sour",
+      "abv": "7%",
+      "hops": [
+        "Meridian"
+      ],
+      "url": "https://verterebrew.com/brewlog/liponesco/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/03/049_Liponesco-300x300.jpg",
+      "description": "カシスの濃厚な果実感とバニラ、クローブのスパイスが香る。ラクトースとオーツによる滑らかさと程よいボディ。飲みごたえと軽やかさの絶妙なバランス。甘酸っぱくリッチなサワーエール。",
+      "source": "vertere",
+      "added": "2026-09-02"
+    },
+    {
+      "id": "vertere-861",
+      "name": "Rhoeas",
+      "brewery": "Vertere",
+      "style": "West Coast IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Cascade",
+        "Chinook",
+        "Citra Cryo",
+        "Chinook Lupomax"
+      ],
+      "url": "https://verterebrew.com/brewlog/rhoeas-4/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/05/016_Rhoeas-300x300.jpg",
+      "description": "アメリカンホップを大量に使用。グレープフルーツやオレンジを思わせるアロマ。しっかりした苦味が全体を引き締め、キレのある後味に。クラシカルで力強い、王道のWest Coast IPA。",
+      "source": "vertere",
+      "added": "2026-09-02"
+    },
+    {
+      "id": "vertere-3101",
+      "name": "Torenia",
+      "brewery": "Vertere",
+      "style": "Saison",
+      "abv": "6%",
+      "hops": [
+        "Tettnanger",
+        "Lorien"
+      ],
+      "url": "https://verterebrew.com/brewlog/torenia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/09/238_Torenia-300x300.jpg",
+      "description": "パンや蜂蜜を思わせる豊かなモルトの風味。ライ麦の素朴な香ばしさと、酵母由来のほのかにスパイシーなアロマ。ドライな飲み口ながら柔らかな口当たり。穀物の味わいを穏やかに楽しめる仕上がり。",
+      "source": "vertere",
+      "added": "2026-09-09"
+    },
+    {
+      "id": "vertere-1286",
+      "name": "Crowea",
+      "brewery": "Vertere",
+      "style": "Hazy Pale Ale",
+      "abv": "5.5%",
+      "hops": [
+        "Mosaic Cryo",
+        "El Dorado",
+        "Nelson Sauvin"
+      ],
+      "url": "https://verterebrew.com/brewlog/crowea/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/07/104_Crowea-300x300.jpg",
+      "description": "トロピカル、ストーンフルーツのアロマに白ブドウのニュアンス。柔らかな舌触りと軽めのタッチ。蜜感のあるフルーツを思わせるフレーバー。",
+      "source": "vertere",
+      "added": "2026-09-09"
+    },
+    {
+      "id": "vertere-1760",
+      "name": "Spinosa",
+      "brewery": "Vertere",
+      "style": "Single Hop IPA",
+      "abv": "7%",
+      "hops": [
+        "Strata",
+        "Strata CGX"
+      ],
+      "url": "https://verterebrew.com/brewlog/spinosa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/09/158_Spinosa_HP-300x300.jpg",
+      "description": "アメリカ、オレゴン州のIndie Hopsが手がけるStrataホップのみを使用したIPA。桃やマンゴー、パッションフルーツ、ほのかにベリーやメロンのニュアンス。滑らかな舌触りと控えめな苦味。",
+      "source": "vertere",
+      "added": "2026-09-16"
+    },
+    {
+      "id": "vertere-1460",
+      "name": "Dicentra",
+      "brewery": "Vertere",
+      "style": "NZIPA",
+      "abv": "6.5%",
+      "hops": [
+        "Moutere",
+        "Kohia Nelson",
+        "Cascade"
+      ],
+      "url": "https://verterebrew.com/brewlog/dicentra/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2023/11/88fbeb522cb619cf8bc37e694c656faa-300x300.jpg",
+      "description": "NZ産ホップのみを使用した西海岸系のIPA。シトラスやグレープフルーツのアロマと、ほのかなパッションフルーツやグァバのニュアンス。軽めの口当たりと爽快な苦味。",
+      "source": "vertere",
+      "added": "2026-09-16"
+    },
+    {
+      "id": "vertere-3126",
+      "name": "Parantica",
+      "brewery": "Vertere",
+      "style": "Pear Sour w/Raspberry & Thyme",
+      "abv": "8%",
+      "hops": [
+        "Meridian"
+      ],
+      "url": "https://verterebrew.com/brewlog/parantica/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/09/239_Parantica-300x300.jpg",
+      "description": "洋梨の芳醇な甘香とラズベリーのジューシーな酸味。オーツ麦と乳糖が生み出すしっとりとした口当たり。タイムの爽やかな清涼感が全体の輪郭を締める。甘味、酸味、ハーブ香の調和を楽しめる一杯。",
+      "source": "vertere",
+      "added": "2026-09-23"
+    },
+    {
+      "id": "vertere-796",
+      "name": "Globba",
+      "brewery": "Vertere",
+      "style": "Chai Latte Stout",
+      "abv": "7%",
+      "hops": [
+        "Barbe Rouge"
+      ],
+      "url": "https://verterebrew.com/brewlog/globba-2/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/04/2c8f054f00a21e1f460c098129541ad0-300x300.jpg",
+      "description": "インド式チャイを使用したスタウト。スパイス由来の爽やかでスパイシーな香り。口に含むとしっとりとした甘味が広がる。",
+      "source": "vertere",
+      "added": "2026-09-23"
+    },
+    {
+      "id": "vertere-1621",
+      "name": "Erato",
+      "brewery": "Vertere",
+      "style": "Lager",
+      "abv": "5.5%",
+      "hops": [
+        "Meridian"
+      ],
+      "url": "https://verterebrew.com/brewlog/erato/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/05/137_Erato_2-300x300.jpg",
+      "description": "【ローカル限定商品】奥多摩産の治助いもを使用したラガー。自然な甘みと、ホップのハーバル、フローラルな香りが重なり合う一杯。やわらかな飲み口と穏やかな余韻、軽やかで飲み飽きない味わい。",
+      "source": "vertere",
+      "added": "2026-09-24"
+    },
+    {
+      "id": "vertere-1092",
+      "name": "Calendula",
+      "brewery": "Vertere",
+      "style": "Oats IPA",
+      "abv": "7%",
+      "hops": [
+        "Vista",
+        "Luminosa",
+        "Strata",
+        "Nelson Sauvin",
+        "Idaho 7 CGX"
+      ],
+      "url": "https://verterebrew.com/brewlog/calendula/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2024/04/068_Calendula_HP-300x300.jpg",
+      "description": "オーツ麦を通常より多く使用したOats IPA。マンゴーやパイナップル、白ブドウを思わせるアロマとフレーバー。オーツ由来の柔らかな甘みと、クリーミーでシルキーな口当たり。濃密な果実感と滑らかなテクスチャーを楽しめる一杯。",
+      "source": "vertere",
+      "added": "2026-09-30"
+    },
+    {
+      "id": "vertere-3153",
+      "name": "Excelsa",
+      "brewery": "Vertere",
+      "style": "Hazy TIPA",
+      "abv": "9%",
+      "hops": [
+        "El Dorado",
+        "El Dorado Spectrum",
+        "Simcoe",
+        "Strata",
+        "Elani"
+      ],
+      "url": "https://verterebrew.com/brewlog/excelsa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/10/242_Excelsa-300x300.jpg",
+      "description": "トロピカルフルーツ、桃、ライムやグレープフルーツのアロマ。高いアルコール度数を感じさせない、柔らかくシルキーな口当たり。余韻に残る甘いオレンジのニュアンス。",
+      "source": "vertere",
+      "added": "2026-10-07"
+    },
+    {
+      "id": "vertere-3158",
+      "name": "Jasius",
+      "brewery": "Vertere",
+      "style": "Brett Mixed Berry Sour",
+      "abv": "9%",
+      "hops": [
+        "Comet"
+      ],
+      "url": "https://verterebrew.com/brewlog/jasius/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/10/241_Jasius-300x300.jpg",
+      "description": "ブルーベリー、ブラックベリー、ストロベリーを使用したサワーエールにブレタノマイセスを加え、18ヶ月間熟成。果実と乳酸菌由来のジューシーな酸味に、長期熟成によるレザーを思わせる乾いた香りや、ほのかなスモーキーさ。発酵由来の風味と熟した果実が絡み合う奥行きのある味わい。",
+      "source": "vertere",
+      "added": "2026-10-08"
+    },
+    {
+      "id": "vertere-3166",
+      "name": "仮面ライダー Collaboration Beer",
+      "brewery": "Vertere",
+      "style": "Hazy IPA",
+      "abv": "7%",
+      "hops": [
+        "Meridian",
+        "Nelson Sauvin",
+        "Mosaic Cryo"
+      ],
+      "url": "https://verterebrew.com/brewlog/%e4%bb%ae%e9%9d%a2%e3%83%a9%e3%82%a4%e3%83%80%e3%83%bc-collaboration-beer/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/10/2b96ef47a4ffca3dff2073cb4be2df08-300x300.jpg",
+      "description": "[ 仮面ライダー55周年記念コラボ ] ベリー、シトラス、トロピカルのアロマとフレーバー。オーツと小麦によるシルキーな口当たり。ホップを大量に使用し、発酵中の投入によるホップアロマの変換 —「変身」—に重点を置いたHazy IPA。",
+      "source": "vertere",
+      "added": "2026-10-14"
     }
   ]
 }

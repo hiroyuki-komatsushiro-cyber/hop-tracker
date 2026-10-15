@@ -108,7 +108,78 @@ HOP_NAME_FIXES = {
     "Hallertau Mittelfrüh": "Hallertauer Mittelfruher",
     "Mittelfruh": "Hallertauer Mittelfruher",
     "Mandarina": "Mandarina Bavaria",  # Antenna America表記は略記(2026-10-06確認、Firestone Walker Easy Jack)
+    # --- Vertere(2026-10-16)の表記。産地の修飾語・表記ミス・加工品の綴りゆれ ---
+    "Styrian Bobek": "Bobek",  # スロベニア(シュタイヤー地方)産のBobek
+    "Styrian Aurora": "Aurora",  # 同上、Aurora
+    "US Tettnanger": "Tettnanger",  # 米国産のTettnanger(品種名は同じ)
+    "NZ Cascade": "Cascade",  # NZ産Cascade(2016年からNZ Hopsが「Taiheke」名で販売。品種としてはCascade)
+    "Idaho7": "Idaho 7",
+    "Motueka Hop Kief": "Motueka Kief",
+    "Motueka hop Kief": "Motueka Kief",
+    "SImcoe Quantum": "Simcoe Quantum",  # 大文字小文字の打ち間違い
+    "HQG3": "HQG 3",
+    "HQG-3": "HQG 3",
+    # ホップではない注記(仕込みメモ等)は空文字に対応させて除外する(split_hopsが空を捨てる)
+    "--": "",
+    "Reuse Hop": "",
+    "(Crosby)": "",
+    "XX": "",
+    # 副原料・スパイスがホップ欄に混ざっている記事(Vertereの古い記事)。ホップではないので除外
+    "Grapefruits peel": "",
+    "Maple syrup": "",
+    "Juniper berries": "",
+    "Rosemary": "",
+    "Lemongrass": "",
+    "Lemon Peel": "",
+    # Vertereの古い記事の綴りミス(大文字小文字の違いだけのものは下のcanonical化で自動的に直る)
+    "Centenial": "Centennial",
+    "Centtenial": "Centennial",
+    "simocoe": "Simcoe",
+    "Eldorado": "El Dorado",
+    "El Dorad0": "El Dorado",
+    "EKG": "East Kent Golding",
+    "Kentgoldings": "East Kent Golding",
+    "Kent Golding": "East Kent Golding",
+    "UK Golding": "East Kent Golding",
+    "Styrian Golding": "Savinjski Golding",  # スロベニア(シュタイヤー地方)産Golding
+    "Commet": "Comet",
+    "Gracier": "Glacier",
+    "Calista": "Callista",
+    "Colombus": "Columbus",
+    "Ctra": "Citra",
+    "H.Saphir": "Saphir",
+    "Pas Jade": "Pacific Jade",
+    "Mt Hood": "Mt. Hood",
+    "HBC342": "HBC 342",
+    # 「Lupomax」(BarthHaasの濃縮ルプリンペレット)の略記・語順違い。LP=Lupomax
+    "Lupo Citra": "Citra Lupomax",
+    "LP Citra": "Citra Lupomax",
+    "Citra LP": "Citra Lupomax",
+    "Lupomax Citra": "Citra Lupomax",
+    "LP Cascade": "Cascade Lupomax",
+    "Cascade LP": "Cascade Lupomax",
+    "Lupomax Mosaic": "Mosaic Lupomax",
+    "Citra Incognite": "Citra Incognito",
 }
+
+# 区切り文字が抜けて1語になっている記載(Vertereの入力ミス)を、複数のホップに展開する
+HOP_TOKEN_EXPANSIONS = {
+    "CitraNelson Sauvin": ["Citra", "Nelson Sauvin"],
+    "BelmaEl Dorado": ["Belma", "El Dorado"],
+    "Simcoe Cascade": ["Simcoe", "Cascade"],
+    "Citra LP Citra": ["Citra Lupomax", "Citra"],
+}
+
+_HOP_TABLES = {}
+
+
+def _hop_tables():
+    """表記の大文字小文字を無視して照合するための表(初回に作成)。
+    fix: HOP_NAME_FIXESのキーを小文字化 / chart: アロマチャート収録名(小文字 -> 正式表記)"""
+    if not _HOP_TABLES:
+        _HOP_TABLES["fix"] = {k.lower(): v for k, v in HOP_NAME_FIXES.items()}
+        _HOP_TABLES["chart"] = {n.lower(): n for n in known_hop_names()}
+    return _HOP_TABLES["fix"], _HOP_TABLES["chart"]
 
 
 def normalize_brewery(name: str) -> str:
@@ -120,7 +191,13 @@ def normalize_hop(name: str) -> str:
     # 商標記号を除き、カーリーアポストロフィ(’)をASCII(')に揃える(Antenna表記の"Falconer’s Flight"対策。
     # アロマチャート側の名前はVeterans' Blend等と同じASCIIなので、揃えないと紐付かない)
     name = name.replace("®", "").replace("™", "").replace("’", "'").strip()
-    return HOP_NAME_FIXES.get(name, name)
+    if name in HOP_NAME_FIXES:
+        return HOP_NAME_FIXES[name]
+    fix, chart = _hop_tables()
+    low = name.lower()
+    if low in fix:  # 別名表は大文字小文字を無視して引く(例: "lemon peel", "SImcoe")
+        return fix[low]
+    return chart.get(low, name)  # チャート収録名と大文字小文字だけ違うもの(例: "cascade", "EL Dorado")は正式表記に揃える
 
 
 def split_hops(raw: str) -> list[str]:
@@ -128,8 +205,18 @@ def split_hops(raw: str) -> list[str]:
     if raw.strip() in ("", "-"):
         return []
     raw = raw.replace("&amp;", "&")
-    parts = re.split(r",|、|\s+and\s+|&|•", raw)
-    return [normalize_hop(p.strip()) for p in parts if p.strip() and normalize_hop(p.strip())]
+    out = []
+    for part in re.split(r",|、|\s+and\s+|&|•", raw):
+        part = part.strip()
+        if not part:
+            continue
+        if part in HOP_TOKEN_EXPANSIONS:
+            out.extend(n for n in (normalize_hop(x) for x in HOP_TOKEN_EXPANSIONS[part]) if n)
+            continue
+        n = normalize_hop(part)
+        if n:
+            out.append(n)
+    return out
 
 
 def handle_from_url(url: str) -> str:
@@ -181,16 +268,21 @@ def strip_tags(t: str) -> str:
     return html.unescape(t).strip()
 
 
-def fetch_url(url: str, timeout: int = 20) -> str:
-    """Fetch a URL's content as text."""
+def fetch_url_with_headers(url: str, timeout: int = 20):
+    """Fetch a URL; returns (text, response headers). On failure returns ("", {})."""
     req = Request(url, headers={"User-Agent": USER_AGENT})
     try:
         with urlopen(req, timeout=timeout) as resp:
             charset = resp.headers.get_content_charset() or "utf-8"
-            return resp.read().decode(charset, errors="ignore")
+            return resp.read().decode(charset, errors="ignore"), resp.headers
     except (HTTPError, URLError) as e:
         print(f"  [warn] failed to fetch {url}: {e}", file=sys.stderr)
-        return ""
+        return "", {}
+
+
+def fetch_url(url: str, timeout: int = 20) -> str:
+    """Fetch a URL's content as text."""
+    return fetch_url_with_headers(url, timeout)[0]
 
 
 def fetch_catalog(base_url: str) -> list[dict]:
@@ -323,6 +415,122 @@ def parse_southbound_product(p: dict, base_url: str, source_key: str) -> dict:
     }
 
 
+# ---------------------------------------------------------------------------
+# Vertere(バテレ、奥多摩のブルワリー公式サイト)。WordPressの「brewlog」記事が1銘柄=1記事で、
+# 個別ページにStyle / Alc / Malt / Hop / Yeastが載る(ブルワリー自身の公開情報)。
+# 一覧はWP REST API(認証不要の公開API)、詳細は個別ページのHTMLから取る。
+# 2026-10-16追加。小規模な醸造所のサイトなので、アクセスは「新規記事の個別ページ」だけに絞る。
+# ---------------------------------------------------------------------------
+VERTERE_LABEL_RE = re.compile(r"^(style|alc|abv|ibu|malt|hops?|yeast|品目)\s*[:：]\s*(.*)$", re.I | re.S)
+
+
+def parse_vertere_page(page: str, post: dict, source_key: str, brewery: str):
+    """brewlog個別ページ(HTML) -> レコード。必須要素(タイトル)が無ければNone。"""
+    m = re.search(r'<div class="splitLeft[^"]*">(.*?)</div>', page, re.S)
+    if not m:
+        return None
+    block = m.group(1)
+    h1 = re.search(r'<h1 class="brewlogTitle">(.*?)</h1>', block, re.S)
+    if not h1:
+        return None
+    title = strip_tags(h1.group(1))
+    # 「Jasius / ジャシアス」→「Jasius」。日本語名が無く末尾が「 /」だけの題(例: 仮面ライダー Collaboration Beer /)も除く
+    name = re.split(r"\s+/(?:\s+|$)", title, maxsplit=1)[0].strip() or title
+
+    style, abv, hops_raw, desc_parts = "", "-", "", []
+    for para in re.findall(r"<p[^>]*>(.*?)</p>", block, re.S):
+        text = strip_tags(para).replace("　", " ").strip()
+        if not text or text.lower() == "back":
+            continue
+        lm = VERTERE_LABEL_RE.match(text)
+        if lm:
+            label, val = lm.group(1).lower(), lm.group(2).strip()
+            if label == "style":
+                style = val
+            elif label in ("alc", "abv"):
+                am = re.search(r"(\d+(?:\.\d+)?)\s*%", val)
+                if am:
+                    abv = f"{float(am.group(1)):g}%"
+            elif label.startswith("hop"):
+                hops_raw = val
+            continue  # malt / yeast / ibu / 品目は保存しない
+        desc_parts.append(text)
+
+    # 説明文は日本語の段落を採用(英訳が併記されている記事は英語段落を除く)
+    jp = [t for t in desc_parts if sum(1 for ch in t if ord(ch) > 127) > len(t) * 0.2]
+    description = " ".join(jp or desc_parts).strip()
+
+    # 古い記事の入力ゆれを除く: Hop行にYeast欄が続いている / "Hop:"が重複 / 括弧内は副原料などの注記
+    hops_raw = re.split(r"\byeast\s*:", hops_raw, flags=re.I)[0]
+    hops_raw = re.sub(r"\bhops?\s*:\s*", "", hops_raw, flags=re.I)
+    hops_raw = re.sub(r"[（(][^）)]*[）)]", "", hops_raw)
+    hops = list(dict.fromkeys(split_hops(hops_raw)))  # 仕込み工程ごとの重複記載を除く(順序は保持)
+
+    # 画像: アイキャッチのsrcsetに300px版があればそれを使う(小さな醸造所のサーバーへの転送量を抑える)
+    image = ""
+    fig = re.search(r'<figure class="eyeCatch">\s*(<img[^>]*>)', page, re.S)
+    if fig:
+        tag = fig.group(1)
+        src = re.search(r'\ssrc="([^"]+)"', tag)
+        srcset = re.search(r'\ssrcset="([^"]+)"', tag)
+        small = re.search(r"(\S+)\s+300w", srcset.group(1)) if srcset else None
+        image = small.group(1) if small else (src.group(1) if src else "")
+
+    return {
+        "id": f"{source_key}-{post['id']}",
+        "name": name,
+        "brewery": brewery,
+        "style": style,
+        "abv": abv,
+        "hops": hops,
+        "url": post["link"],
+        "image": image,
+        "description": description,
+        "source": source_key,
+    }
+
+
+def collect_wp_brewlog(source: dict, known_ids: set, backfill: bool) -> list[dict]:
+    """WP REST APIで記事一覧(新しい順)を取り、未登録の記事だけ個別ページを取得して解析する。
+    通常実行は最新30件だけ見る。全件(初回の取り込み用)は環境変数 VERTERE_BACKFILL=1 で指定する。
+    戻り値のレコードには'added'を付与済み(通常=今日、全件取り込み=記事の公開日で、
+    取り込み直後に全件へNEWバッジが付くのを避ける)。"""
+    base_url, key = source["base_url"], source["source_key"]
+    per_page = 100 if backfill else 30
+    posts, page = [], 1
+    while True:
+        url = (f"{base_url}/wp-json/wp/v2/{source['post_type']}?per_page={per_page}&page={page}"
+               f"&_fields=id,slug,link,title,date")
+        raw, headers = fetch_url_with_headers(url)
+        time.sleep(REQUEST_DELAY)
+        if not raw:
+            break
+        try:
+            batch = json.loads(raw)
+        except json.JSONDecodeError:
+            print(f"  [warn] could not parse JSON from {url}", file=sys.stderr)
+            break
+        posts.extend(batch)
+        total_pages = int(headers.get("X-WP-TotalPages", "1") or 1) if headers else 1
+        if not backfill or page >= total_pages or not batch:
+            break
+        page += 1
+    print(f"  {len(posts)} post(s) read from the REST list.")
+
+    new_posts = sorted((p for p in posts if f"{key}-{p['id']}" not in known_ids), key=lambda p: p["date"])
+    records = []
+    for post in new_posts:
+        page_html = fetch_url(post["link"])
+        time.sleep(REQUEST_DELAY)
+        record = parse_vertere_page(page_html, post, key, source["brewery"]) if page_html else None
+        if not record:
+            print(f"  [warn] could not parse {post['link']} - skipped (will retry next run)", file=sys.stderr)
+            continue
+        record["added"] = post["date"][:10] if backfill else str(date.today())
+        records.append(record)
+    return records
+
+
 def recheck_description_for_hops(client, product: dict) -> list[str]:
     """[オプション機能] 構造化スペック欄が「-」でも、説明文中にホップ品種名が明記されている
     場合がある。ANTHROPIC_API_KEYが設定されている場合のみ実行し、失敗しても本体の収集処理には
@@ -403,9 +611,23 @@ def main():
     unknown_hops_seen: set[str] = set()
 
     print(f"[{date.today()}] Scanning {len(sources)} source site(s) via their products.json feed...")
+    backfill = os.environ.get("VERTERE_BACKFILL") == "1"
     for source in sources:
         base_url = source["base_url"]
         source_key = source["source_key"]
+
+        if source.get("type") == "wp_brewlog":
+            print(f"[{source['name']}] reading the WordPress brewlog list"
+                  f"{' (FULL backfill)' if backfill else ''}...")
+            for record in collect_wp_brewlog(source, known_ids, backfill):
+                for h in record["hops"]:
+                    if h not in known_hops:
+                        unknown_hops_seen.add(h)
+                data["products"].append(record)
+                added.append(record)
+                known_ids.add(record["id"])
+            continue
+
         print(f"[{source['name']}] fetching full catalog feed...")
         catalog = fetch_catalog(base_url)
         print(f"  {len(catalog)} total products in feed.")
@@ -463,7 +685,7 @@ def main():
         old_hops = p.get("hops", [])
         if not old_hops:
             continue
-        new_hops = [normalize_hop(h) for h in old_hops]
+        new_hops = [h for h in (normalize_hop(h) for h in old_hops) if h]
         if new_hops != old_hops:
             p["hops"] = new_hops
             renormalized += 1

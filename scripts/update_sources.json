@@ -11,6 +11,15 @@
       "base_url": "https://southbound.jp",
       "source_key": "southbound",
       "notes": "products.jsonフィード(全ページ)を巡回し、product_typeがBeer/Cider/Meadの在庫あり商品のみ対象にする。"
+    },
+    {
+      "name": "Vertere",
+      "type": "wp_brewlog",
+      "base_url": "https://verterebrew.com",
+      "post_type": "brewlog",
+      "source_key": "vertere",
+      "brewery": "Vertere",
+      "notes": "奥多摩のブルワリー公式サイト(WordPress)。brewlog記事(1銘柄=1記事、約300件)をWP REST API(/wp-json/wp/v2/brewlog)で一覧し、未登録の記事の個別ページだけ取得してStyle/Alc/Hopを解析する。通常実行は最新30件のみ確認。初回の全件取り込みは VERTERE_BACKFILL=1。小規模サイトなので1ページ/1.5秒以上の間隔を守る(REQUEST_DELAY)。在庫の概念が無いため、サイトに載っている銘柄を全て対象にする。"
     }
   ],
   "update_rules": [
