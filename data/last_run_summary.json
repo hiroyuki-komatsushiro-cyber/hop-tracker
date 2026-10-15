@@ -1,6 +1,20 @@
 {
-  "date": "2026-10-13",
-  "new_products": [],
+  "date": "2026-10-15",
+  "new_products": [
+    {
+      "id": "set-34-oct-15",
+      "name": "《coozieつき》今夜は、香ばしいビール。アンバー＆コーヒーポーター飲み比べ4本セット",
+      "brewery": "Smog City",
+      "style": "MIX",
+      "abv": "-",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/set-34-oct-15",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SmogCity_0a28b4fb-6f68-4002-848d-dc9176c7127b.jpg?width=400",
+      "description": "アンテナアメリカ Smog City 人気NO.１商品名：Smog City IPA (473ml) / スモッグ シティ アイピーエー商品説明：Smog Cityを語るならまずはコレ！王道IPAをまずはお試しください！シトラス（グレープフルーツなど）や松（パイン）、ダンクなホップアロマがしっかり効いた、クリーンで心地よい苦味スタイル：West Coast IPAABV：7.2%IBU：入数：1アンテナアメリカ Smog City 人気NO.２商品名：Sabre-Toothed Squirrel (473ml) / セイバートゥースド スクオロル商品説明：非常にポップで印象的なパッケージ（剣歯リス）と、ホップとモルトのバランスが完璧なSmog Cityの影の人気商品。秋から冬に味わいたくなるコクがあります。スタイル：IPAABV：7%IBU：入数：1アンテナアメリカ Smog City 人気NO.３商品名：Smog City Coffee Porter (473ml) / コーヒー ポーター商品説明：「極上のコールドブリュー（冷製抽出）コーヒー」の贅沢感！地元ロサンゼルスの人気ロースター（Groundwork Coffee）の挽きたてオーガニックコーヒー豆を使用。まるで高級エスプレッソのような香りと、ダークチョコレートやナッツを思わせる深みが特長スタイル：Robust Porter w/ CoffeeABV：6%IBU：入数：1商品名：Smog City Space Weather Hazy IPA (473ml) / スペース ウェザー商品説明：宇宙級のジューシー感（トロピカルフルーティー）マンゴー、パッションフルーツ、パイナップルを思わせる、弾けるほどフレッシュなホップアロマスタイル：Hazy IPAABV：6.2%IBU：入数：1商品名：Smog City - 16oz Coozie/ クージー商品説明：クージーは、缶ビールを長く楽しむためのアイテム！軽量なウェットスーツ素材を使用し、ビールを保冷。結露による濡れを防ぐアイテムです。473ml缶にピッタリ。色は6種類からお選びいただけます。・バーガンディー・ネイビーブルー・イエロー・グリーン・チャコール購入画面の摘要欄にご記入ください色をご指定ください。指定がない場合はランダムでおおくりさせていただきます。ご了承ください。",
+      "source": "antenna",
+      "added": "2026-10-15"
+    }
+  ],
   "recycled_handles": [],
   "hops_needing_aroma_review": []
 }
