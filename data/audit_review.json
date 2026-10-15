@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-06",
+  "date": "2026-10-16",
   "auto_fixed": {
     "renormalized_hops": [],
     "backfilled_from_live_source": []
@@ -248,6 +248,16 @@
         "relocation_candidates": []
       },
       {
+        "id": "sa-minordissent-pkg",
+        "name": "Minor Dissent",
+        "brewery": "Sante Adairius",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ],
+        "relocation_candidates": []
+      },
+      {
         "id": "jo-flamestitch-pkg",
         "name": "Flamestitch",
         "brewery": "Jackie O's",
@@ -310,6 +320,16 @@
         "relocation_candidates": []
       },
       {
+        "id": "hi-doublehipitchipa-pkg",
+        "name": "Double Hi-Pitch IPA",
+        "brewery": "Hi-Wire Brewing",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ],
+        "relocation_candidates": []
+      },
+      {
         "id": "hi-hiwirelager-pkg",
         "name": "Hi-Wire Lager",
         "brewery": "Hi-Wire Brewing",
@@ -350,6 +370,16 @@
         "relocation_candidates": []
       },
       {
+        "id": "su-bapeanutbutterjellycrime-pkg",
+        "name": "Bourbon Barrel Aged Peanut Butter Jelly Crime",
+        "brewery": "Superstition",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ],
+        "relocation_candidates": []
+      },
+      {
         "id": "sa-eternaltruth-pkg",
         "name": "Eternal Truth",
         "brewery": "Sante Adairius",
@@ -373,6 +403,26 @@
         "id": "hw-kyxmasmorningcan-pkg",
         "name": "Kentucky Christmas Morning",
         "brewery": "Hardywood Park",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ],
+        "relocation_candidates": []
+      },
+      {
+        "id": "nb-frenchcidre-pkg",
+        "name": "French Cidre",
+        "brewery": "Noble Cider",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ],
+        "relocation_candidates": []
+      },
+      {
+        "id": "jk-grimharvest-pkg",
+        "name": "Grim Harvest",
+        "brewery": "Jester King",
         "source": "southbound",
         "gaps": [
           "hops"
@@ -413,6 +463,17 @@
         "id": "oktoberfest6packs",
         "name": "《オクトーバーフェスト！》 Pils （3本）・Oktoberfest 2026 （3本）",
         "brewery": "MIX",
+        "source": "antenna",
+        "gaps": [
+          "hops",
+          "abv"
+        ],
+        "relocation_candidates": []
+      },
+      {
+        "id": "belching-beaver-selectb",
+        "name": "<B>Belching Beaver おすすめ飲み比べ6本セット【10/8出荷】",
+        "brewery": "Mix",
         "source": "antenna",
         "gaps": [
           "hops",
@@ -463,11 +524,12 @@
         "name": "《Patagoniaコラボ含む》 Deschutes Brewery 4本セット",
         "found": [
           "Amarillo",
-          "Mandarina Bavaria",
-          "Cashmere"
+          "Cashmere",
+          "Mandarina Bavaria"
         ]
       }
     ],
-    "unknown_hop_names": {}
+    "unknown_hop_names": {},
+    "unregistered_wp_posts": []
   }
 }

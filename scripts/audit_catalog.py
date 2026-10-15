@@ -75,6 +75,10 @@ def find_duplicate_candidates(products: list[dict]) -> list[dict]:
     candidates = []
     by_key: dict[tuple[str, str], list[dict]] = {}
     for p in products:
+        # 二重登録が起きるのは、商品ごとに別ハンドルで再掲載されるShopify系ソースだけ。
+        # Vertereは記事IDが一意で、同名の記事(Artist collaboration等)は別レシピなので対象外
+        if p.get("source") not in ("antenna", "southbound"):
+            continue
         name_key = core_name_key(p)
         if len(name_key) < 8:
             continue
@@ -112,6 +116,34 @@ def find_relocation_candidates(p: dict, catalog: list[dict], known_ids: set[str]
             hits.append({"handle": raw["handle"], "title": raw.get("title"),
                          "available": any(v.get("available") for v in raw.get("variants", []))})
     return hits
+
+
+def find_unregistered_wp_posts(known_ids: set) -> list[dict]:
+    """WordPress系ソース(Vertere)の全記事IDを一覧し、products.jsonに未登録のものを返す。
+    週次の収集は最新30件しか見ないため、日付の古い記事が後から公開された場合や、週次が
+    30件以上連続で失敗した場合の取りこぼしをここで拾う(IDの一覧だけなので数リクエストで済む)。"""
+    missing = []
+    for source in up.load_sources():
+        if source.get("type") != "wp_brewlog":
+            continue
+        page = 1
+        while True:
+            url = (f"{source['base_url']}/wp-json/wp/v2/{source['post_type']}?per_page=100&page={page}"
+                   f"&_fields=id,link,title,date")
+            raw, headers = up.fetch_url_with_headers(url)
+            up.time.sleep(up.REQUEST_DELAY)
+            if not raw:
+                break
+            batch = json.loads(raw)
+            for post in batch:
+                if f"{source['source_key']}-{post['id']}" not in known_ids:
+                    missing.append({"source": source["source_key"], "id": post["id"], "link": post["link"],
+                                    "title": post["title"]["rendered"], "date": post["date"][:10]})
+            total_pages = int(headers.get("X-WP-TotalPages", "1") or 1) if headers else 1
+            if page >= total_pages or not batch:
+                break
+            page += 1
+    return missing
 
 
 def main():
@@ -200,6 +232,7 @@ def main():
                 unknown_hop_names.setdefault(h, []).append(p["id"])
 
     duplicate_candidates = find_duplicate_candidates(products)
+    unregistered_wp_posts = find_unregistered_wp_posts(known_ids)
 
     data["last_updated"] = str(date.today())
     with open(DATA_PATH, "w", encoding="utf-8") as f:
@@ -217,6 +250,7 @@ def main():
             "handle_reassigned_candidates": handle_reassigned_candidates,
             "hop_in_description_candidates": hop_in_description_candidates,
             "unknown_hop_names": dict(sorted(unknown_hop_names.items())),
+            "unregistered_wp_posts": unregistered_wp_posts,
         },
     }
     with open(REVIEW_PATH, "w", encoding="utf-8") as f:
@@ -229,6 +263,7 @@ def main():
     print(f"  - {len(handle_reassigned_candidates)} handle-reassigned candidate(s) (handle now resolves to a different brewery)")
     print(f"  - {len(hop_in_description_candidates)} hop-in-description candidate(s)")
     print(f"  - {len(unknown_hop_names)} hop name(s) not yet in hops_tab.js's aroma chart")
+    print(f"  - {len(unregistered_wp_posts)} WordPress post(s) on the brewery site not in products.json")
 
 
 if __name__ == "__main__":

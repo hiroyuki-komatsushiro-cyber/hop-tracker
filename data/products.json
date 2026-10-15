@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-15",
+  "last_updated": "2026-10-16",
   "products": [
     {
       "id": "b105-c16036",
@@ -7356,7 +7356,10 @@
       "brewery": "Revision Brewing",
       "style": "Hazy DIPA",
       "abv": "8.2%",
-      "hops": [],
+      "hops": [
+        "Motueka",
+        "Citra"
+      ],
       "url": "https://www.antenna-america.com/products/b055-c12121",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/ElusiveRainbowTree_Shroom12oz_3b609f28-eea3-4151-8d75-4fef3e21205e.png?width=400",
       "description": "状態の良いMotuekaとCitraホップを使用。一口飲むごとに濃厚な完熟オレンジ、ハニードューメロン、レモン、ライムのような味わいが押し寄せ、なんだかトリップしちゃいそう・・・。Untappd 4.08の高評価商品。",
