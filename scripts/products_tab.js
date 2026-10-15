@@ -12,15 +12,17 @@ function shopLink(p){
   var s = SHOPS[p.source || 'antenna'];
   return (s && s.link) || '🛒 商品ページへ';
 }
+// スタイル名 -> 絞り込み用グループ。Imperial Stout/Quadrupel/Double Mashed IPA等がDIPAに混ざらないよう、
+// Stoutを先に判定し、DIPAは「double/imperial/triple + IPA」またはDIPA/TIPAの表記だけにする(2026-10-16)
 function sgroup(s){
-  if(/dipa|double|imperial|triple|quad/i.test(s)) return 'DIPA';
+  if(/stout|porter/i.test(s)) return 'Stout';
+  if(/dipa|tipa|(double|imperial|triple)\s+(\w+\s+)?(\w*ipa|india)/i.test(s)) return 'DIPA';
   if(/hazy|ne-style|northeast/i.test(s)) return 'IPA';
   if(/ipa|india/i.test(s)) return 'IPA';
   if(/pale ale|belgian pale/i.test(s)) return 'Pale Ale';
   if(/saison|farmhouse/i.test(s)) return 'Sour';
   if(/sour|lambic|gose|berliner/i.test(s)) return 'Sour';
   if(/lager|pilsner/i.test(s)) return 'Lager';
-  if(/stout|porter/i.test(s)) return 'Stout';
   return 'Other';
 }
 
