@@ -11,7 +11,9 @@ permissions:
 
 jobs:
   audit:
-    runs-on: ubuntu-latest
+    # ubuntu-latestは2026-10-19からUbuntu 26へ移行する予告があり、Python 3.11の用意が追いつかないと定期実行が止まる。
+    # 動作確認済みの24.04に固定しておく(将来の移行は意図して行う)
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
