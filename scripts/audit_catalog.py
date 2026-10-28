@@ -10,7 +10,9 @@
   - 商品のURL/IDは実在するが、Shopify側がそのハンドルを全く別の商品に再利用していないか
     (2026-10-02の月次監査で実例を確認: 廃盤商品のハンドルが別の新商品に再利用されていた。
     ブリュワリー名が一致しない場合は同一商品と断定せず補完もスキップする)
-  - 説明文中にホップ品種名が埋もれていて構造化欄(hops)に未反映のもの
+  - 説明文中にホップ品種名が埋もれていて構造化欄(hops)に未反映のもの。辞書ベースの抽出(hop_text.py。ライブページの
+    本文全体も見る)で拾えたものは hops に自動で追記し(auto_fixed.hops_from_description)、拾えなかったが
+    説明文に「ホップ」の語がある最近の商品は needs_review.recent_products_hop_words_without_names に出す
   - hops[]に使われているが scripts/hops_tab.js のアロマチャートに未収録の品種名
   - Shopify以外の収集元(ブルワリー公式サイト: Vertere / West Coast Brewing など)で、サイトに載っているのに
     未登録の銘柄(週次の収集が見る範囲=最新の一覧を外れて取りこぼしたもの)。update_sources.jsonに足した
@@ -67,6 +69,37 @@ def core_name_key(p: dict) -> str:
     if brewery and name.strip().lower().startswith(brewery.strip().lower()):
         name = name[len(brewery):]
     return re.sub(r"[^a-z0-9ぁ-んァ-ヶ一-龠]", "", name.lower())
+
+
+RECENT_DAYS = 60  # 「最近追加された商品」とみなす日数(説明文からのホップの拾い漏れ確認の対象)
+HOP_EMPTY_LINE_RE = re.compile(r"^(?:ホップ|hops?)\s*[:：]\s*-?\s*$", re.I)
+# 品種名の列挙らしい形: 「…、(名前)ホップ」(読点の直後に1〜20字を挟んでホップ語)、または「ホップ：(名前)」
+HOP_LIST_LIKE_RE = re.compile(r"[、,・]\s*[^、,・。]{1,20}(?:ホップ|hops?\b)|(?:ホップ|hops?)\s*[:：]\s*[^\s\-]", re.I)
+
+
+def recently_added(p: dict) -> bool:
+    try:
+        return (date.today() - date.fromisoformat(p.get("added", ""))).days <= RECENT_DAYS
+    except ValueError:
+        return False
+
+
+def hop_word_snippets(text: str, limit: int = 2) -> list[str]:
+    """ホップを指す語(ホップ/hops/dry hop等)がある文。品種名を拾えなかった商品を人間/Claudeが読んで、
+    辞書(hop_text.py)に無い日本語表記があれば追記するための手がかり。比較文は除く(抽出器と同じ扱い)。"""
+    out = []
+    for seg in up.hop_text.SPLIT_RE.split(text or ""):
+        seg = seg.strip()
+        if not up.hop_text.HOP_MARKER_RE.search(seg) or up.hop_text.CONTRAST_RE.search(seg):
+            continue
+        if seg.startswith("原材料") or HOP_EMPTY_LINE_RE.match(seg):
+            continue  # 「原材料：麦芽、ホップ」「ホップ：-」は品種の手がかりにならない定型行
+        if not HOP_LIST_LIKE_RE.search(seg):
+            continue  # 「A、B、Cホップ」「ホップ：A, B」のような列挙の形でなければ、品種名を落としている可能性は低い
+        out.append(seg[:200])
+        if len(out) >= limit:
+            break
+    return out
 
 
 def find_duplicate_candidates(products: list[dict], shopify_keys: set[str]) -> list[dict]:
@@ -223,7 +256,8 @@ def main():
     backfilled = []
     stale_handle_candidates = []
     handle_reassigned_candidates = []
-    hop_in_description_candidates = []
+    hops_from_description = []
+    recent_hop_words_unparsed = []
     unknown_hop_names: dict[str, list[str]] = {}
 
     for p in products:
@@ -280,10 +314,24 @@ def main():
                 })
 
         if not p.get("hops"):
-            desc = p.get("description", "") or ""
-            found = [h for h in known_hops if h.lower() in desc.lower()]
-            if found:
-                hop_in_description_candidates.append({"id": p["id"], "name": p["name"], "found": found})
+            # スペック欄が空でも説明文に品種名があれば補う(2026-10-28のユーザー指示)。保存済みの説明文に加え、
+            # Shopify系はライブページの本文全体も見る(保存用descriptionはスペック欄より後・英語段落を落としている)
+            texts = [p.get("description", "") or ""]
+            if raw is not None:
+                texts.append(up.body_full_text(raw.get("body_html", "")))
+            filled = []
+            for text in texts:
+                for h in up.hops_from_description(text, known_hops):
+                    if h not in filled:
+                        filled.append(h)
+            if filled:
+                p["hops"] = filled
+                hops_from_description.append({"id": p["id"], "name": p["name"], "hops": filled})
+            elif recently_added(p):
+                snippets = [s for text in texts for s in hop_word_snippets(text)][:3]
+                if snippets:
+                    recent_hop_words_unparsed.append({"id": p["id"], "name": p["name"], "added": p.get("added"),
+                                                      "snippets": snippets})
 
         for h in p.get("hops", []):
             if h not in known_hops and h not in KNOWN_UNRESOLVED_HOPS:
@@ -301,12 +349,13 @@ def main():
         "auto_fixed": {
             "renormalized_hops": renormalized,
             "backfilled_from_live_source": backfilled,
+            "hops_from_description": hops_from_description,
         },
         "needs_review": {
             "duplicate_candidates": duplicate_candidates,
             "stale_handle_candidates": stale_handle_candidates,
             "handle_reassigned_candidates": handle_reassigned_candidates,
-            "hop_in_description_candidates": hop_in_description_candidates,
+            "recent_products_hop_words_without_names": recent_hop_words_unparsed,
             "unknown_hop_names": dict(sorted(unknown_hop_names.items())),
             "unregistered_items": unregistered_items,
             "sources_without_completeness_check": unchecked_sources,
@@ -316,12 +365,13 @@ def main():
     with open(REVIEW_PATH, "w", encoding="utf-8") as f:
         json.dump(review, f, ensure_ascii=False, indent=2)
 
-    print(f"\nauto-fixed: {len(renormalized)} renormalized, {len(backfilled)} backfilled from live source")
+    print(f"\nauto-fixed: {len(renormalized)} renormalized, {len(backfilled)} backfilled from live source, "
+          f"{len(hops_from_description)} hop list(s) filled from the description")
     print(f"needs review (see data/audit_review.json):")
     print(f"  - {len(duplicate_candidates)} possible duplicate record(s)")
     print(f"  - {len(stale_handle_candidates)} stale-handle candidate(s) (id/url no longer resolves live)")
     print(f"  - {len(handle_reassigned_candidates)} handle-reassigned candidate(s) (handle now resolves to a different brewery)")
-    print(f"  - {len(hop_in_description_candidates)} hop-in-description candidate(s)")
+    print(f"  - {len(recent_hop_words_unparsed)} recent product(s) mention hops in the description but no variety was extracted")
     print(f"  - {len(unknown_hop_names)} hop name(s) not yet in hops_tab.js's aroma chart")
     print(f"  - {len(unregistered_items)} beer(s) listed on a brewery site but missing from products.json")
     if unchecked_sources:

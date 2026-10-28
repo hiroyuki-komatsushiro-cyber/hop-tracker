@@ -72,8 +72,8 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
   **「w/ …」の行(=ホップ。ユーザー指定)** を取り、未登録の銘柄だけ個別ページ(`/beer/<slug>/`)の日本語説明文を取得する
   (`collect_wcb_list`/`parse_wcb_list`)。idは `westcoast-<slug>`、`source`は `westcoast`。
   **「w/」の行にはホップ以外(副原料: Roasted Coconut / Rum / Vanilla Beans等)が載ることがある**ので、`HOP_NAME_FIXES`の
-  空文字マッピングで除外する(新しい副原料が出たら追記。月次監査の`unknown_hop_names`に出る)。「w/」行が無い銘柄(Seabreeze等)は
-  ホップ空のまま(推測で埋めない)。ブルワリー表記のゆれ("Nectar"=Westie Boisの個別ページ本文が「Nectaron」と明記)は
+  空文字マッピングで除外する(新しい副原料が出たら追記。月次監査の`unknown_hop_names`に出る)。「w/」行が空の銘柄(Seabreeze等)は、
+  説明文に品種名があれば補い(「説明文からのホップ抽出」)、無ければホップ空のまま(推測で埋めない)。ブルワリー表記のゆれ("Nectar"=Westie Boisの個別ページ本文が「Nectaron」と明記)は
   `HOP_NAME_FIXES`で寄せる。**一覧の「w/」行と個別ページ本文で食い違う例**: Campfire Storiesは「w/」行がCascade/Centennial/Columbusだが、
   本文(10バッチ目)はChinookを挙げている。ユーザー指定どおり「w/」行を採用している。
   **範囲は「`/ourbeers/`に載っている銘柄を毎週取り込み続ける」**(Antennaが「販売中の商品を取り込み続ける」のと同じ考え方)。
@@ -103,7 +103,8 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
    (足し忘れても、月次の`audit_review.json`に`sources_without_completeness_check`として出るので見逃さない)。Shopify系は自動で全件ライブ照合される
 6. **ホップ名の整備**: ドライランで出る「[review needed] hop varieties not yet in the aroma chart」を処理する。表記ゆれ・副原料・商標は
    `HOP_NAME_FIXES`、本物の新品種・加工品(Cryo/Kief等)は`hops_tab.js`のチャートへ(根拠のある情報源があるものだけ。捏造しない)。
-   チャートの構造確認(`hops`と`hopDesc`の整列・アルファベット順・ベクトル6要素)を忘れずに
+   チャートの構造確認(`hops`と`hopDesc`の整列・アルファベット順・ベクトル6要素)を忘れずに。
+   スペック欄が空の商品は説明文から自動で補われる(新しい収集先の日本語表記が辞書に無ければ`hop_text.py`に足し、`test_hop_text.py`にも例を追加)
 7. **初回取り込み**: 通常実行は「一覧に載っている最新分」だけ。過去分を入れるかはユーザーに確認し、入れるなら `BACKFILL_SOURCES=<source_key>`
    (公式サイトの全件取り込み時は`added`を公開日にしてNEWバッジの洪水を避ける)
 8. **画面と本番の確認**: `python scripts/build_html.py` → 絞り込み・バッジ・リンク・見出し/注記・モーダルをブラウザで確認 → コミット/push →
@@ -129,13 +130,38 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
 ## 更新ルール（Claude引き継ぎ用）
 
 - 既存商品（同一id）は絶対に削除しない
-- 新商品は必ず image / description（日本語）/ hops / abv を揃えてから追記。ページ自体がホップ品種を開示していない商品（スタウト・サワー・ラガー・サイダー等に多い）は空配列のままでよい——推測で埋めない
+- 新商品は必ず image / description（日本語）/ hops / abv を揃えてから追記。ページ自体がホップ品種を開示していない商品（スタウト・サワー・ラガー・サイダー等に多い）は空配列のままでよい——推測で埋めない。**ただし構造化欄(スペックのホップ欄)が空でも、説明文に品種名が書かれていれば hops に追記する**(2026-10-28のユーザー指示。下の「説明文からのホップ抽出」)。「ホップ」とだけ書かれていて品種名が無い場合は空のまま
 - 画像URLはproducts.jsonフィードの`images[0].src`から取得（?width=400を付与）
 - ホップはアロマチャートに未収録のものがあれば hops_tab.js の hops配列と hopDesc オブジェクトにも追加。ただしアロマの0〜5スコアは感覚評価が必要なため自動生成せず、実在確認(BeerMaverick/Hopsteiner/Yakima Chief等の一次情報源)を取った上で追加すること。`data/audit_review.json`の`needs_review.unknown_hop_names`に溜まったものがレビュー対象
 - ブルワリー名・ホップ名の表記ゆれは`update_products.py`の`BREWERY_ALIASES`/`HOP_NAME_FIXES`に追記していく方式。新しいゆれを見つけたら必ずそこに追記する(2箇所以上に同じ正規化ロジックを書き写さない)
 - 週次の新商品検出は「ハンドルが既知か」ではなく「ハンドルが既知 **かつ** 同一商品か(`same_product`、ブリュワリー・商品名の一致)」で判定する。Shopifyは廃盤商品のハンドル(連番URL)を別商品へ再利用するため、ハンドルだけで判定すると再利用ハンドル上の新商品を永久に取りこぼす(2026-10-06にAmbitious AlesのPorch Rack Mexican Lagerで実害を確認)。再利用ハンドル上の新商品は `<handle>-recycledN` というidで追加され(旧レコードには触らない)、urlが本来のハンドルを保持する。idがハンドルと一致しない商品が存在するのは正常
 - Antenna Americaの非ビール商品(ハードセルツァー等)は`ANTENNA_EXCLUDE_VENDORS`/`ANTENNA_EXCLUDE_TAGS`で除外する。vendor欄がスタイル名(ビール)またはカテゴリ名(それ以外)になっているため、新しい非ビールカテゴリが混入したらここに追記する(2026-10-06にHard Seltzer 4件が混入して発覚)
 - 出力ファイル名は `docs/index.html` 固定（GitHub Pages公開用）
+
+## 説明文からのホップ抽出（scripts/hop_text.py、2026-10-28導入）
+
+スペックのホップ欄が空でも、説明文に品種名が書かれていることがある(例: 「シトラとアマリロホップを使用した、力強いNew England IPA」)。
+ユーザー指示「ホップ成分に記載がなくても、説明に記載があれば成分として追記する」に従い、これを `hops` に反映する。
+
+- **使う場所**: 週次(`update_products.py`)は、新商品のスペック欄が空なら説明文から補う(Shopifyは`body_html`の全文、
+  Vertere/WCBは説明文)。補った商品は `data/last_run_summary.json` の `hops_from_description`、
+  何も無かった新商品は `new_products_without_hops` に残る。月次(`audit_catalog.py`)は既存商品のうちホップが空のものを同じ方法で補う
+- **なぜ`body_html`の全文か**: 保存用の`description`は、Antennaは最初の`<ul>`(スペック欄)より前、Southboundは日本語の段落だけに絞っている。
+  セット商品の個別説明や英語の説明文(例: Jester Kingの"dry hop of El Dorado, Motueka…")はそこに入らない
+- **辞書ベース・誤抽出ゼロ優先**: 品種名はアロマチャートの名前と、日本語(カタカナ)表記の辞書(`JP_DISTINCT`/`JP_CONTEXT`)だけ。
+  - カタカナ名は前後にカタカナが続く場合は除外(シトラス=citrus、フローラル=floral、シエラネバダ、クリスタルモルトの誤検出防止)
+  - 一般名詞・地名・人名と同形の名前(Cascade/Summit/Target/Summer/クラッシュ/コロンバス等)は、「ホップ」「hops」「dry hop」等が
+    同じ文にあるときだけ採用。英語表記はさらに大文字小文字の一致と「hopに隣接/確実な名前が同じ文にある/名前が2つ以上並ぶ」を要求
+  - ブルワリー名(Cascade Brewing)・地名(カスケード山脈)・他銘柄との比較文(「…とは対照的に」)・「ホッピー」(風味)・
+    「クライオ系のホップ」(品種名なし)は拾わない。加工品は「シトラ・クライオ」→`Citra Cryo`(チャートに在る組み合わせだけ)
+  - セット商品は、含まれる銘柄の説明に出てくるホップの和集合(例: Belching Beaverの飲み比べセット)
+- **検証(2026-10-28、商品896件)**: ホップ空だった323件を人手で全て読んだ正解と比べ、品種名ありの37件は全て拾え(取りこぼしは
+  加工品の細かい形2語のみ)、品種名なしの286件は誤抽出ゼロ。スペック欄のある573件に対しても、抽出器が出した「欄に無い名前」25件は
+  全て説明文/ライブページ側の正しい記載だった(比較文の誤抽出は比較語ルールで除外)。回帰テスト: `python scripts/test_hop_text.py`
+- **辞書にない新しい日本語表記は拾えない**(取りこぼし=ホップ空のまま)。月次監査が`recent_products_hop_words_without_names`に
+  「ホップの語が列挙の形である最近の商品」を出すので、月次のClaudeタスクが読み、新しい表記を `hop_text.py` に足してテストを追加する
+- **注意**: 「スペック欄の記載」と「説明文の記載」が食い違う商品がある(例: WCB Campfire Storiesは「w/」行がCentennial、本文はChinook。
+  Sierra Nevada Rad Little Thingは保存済みのスペックと現在のページで品種が違う)。欄に記載がある商品は書き換えず、食い違いは報告に残す
 
 ## 月次監査（scripts/audit_catalog.py）
 
@@ -145,7 +171,9 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
 
 - 商品の二重登録（ブリュワリー名+商品名の一致で検出）
 - 商品ページのURL/IDがサイト側のハンドル変更で無効化していないか
-- 説明文中にホップ品種名が埋もれていて構造化欄(hops)に未反映のもの
+- 説明文中にホップ品種名が埋もれていて構造化欄(hops)に未反映のもの(`hop_text.py`の辞書ベース抽出。ライブページの本文全体も見る)。
+  拾えたものは**hopsに自動で追記**し(`auto_fixed.hops_from_description`)、拾えなかったが説明文に「ホップ」の語が
+  列挙の形である最近60日の商品は `needs_review.recent_products_hop_words_without_names`(辞書に無い日本語表記の発見用)に出す
 - hops[]に使われているが hops_tab.js のアロマチャートに未収録の品種名
 - ブルワリー公式サイト系(Vertere / West Coast Brewing)で、週次の収集が見る範囲(Vertere=最新30件、WCB=最新12件)を外れた取りこぼし
   (`needs_review.unregistered_items`。VertereはREST APIで全記事のID、WCBは一覧の先頭72銘柄を読んで照合する。
@@ -153,9 +181,9 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
   **検査が未実装の収集先は `sources_without_completeness_check` に列挙される**(「問題なし」と区別して必ず報告に出す)。
   Shopify系はライブカタログと全件照合する対象を`update_sources.json`から自動で決める
 
-このうち「表記ゆれの再正規化」と「IDが今も有効なハンドルに一致する商品の欠落フィールド補完」は
-機械的に安全なため自動適用される。それ以外（二重登録候補・ハンドル不整合候補・説明文からの
-ホップ抽出候補・未知の品種名）は**自動適用せず** `data/audit_review.json` に記録するだけに留める
+このうち「表記ゆれの再正規化」「IDが今も有効なハンドルに一致する商品の欠落フィールド補完」「説明文からの
+ホップ抽出(辞書ベース。検証済み)」は機械的に安全なため自動適用される(月次のClaudeタスクが`auto_fixed`の中身を確認する)。
+それ以外（二重登録候補・ハンドル不整合候補・辞書で拾えなかった説明文・未知の品種名）は**自動適用せず** `data/audit_review.json` に記録するだけに留める
 ——いずれも「本当に同一商品か」「実在する品種名か」の判断にWeb検索や人間的判断が必要なため、
 誤った自動適用はデータ破損や品種の捏造になり得る。月1回、Claudeが`data/audit_review.json`を読んで
 Web検索で裏取りし、安全と確認できたものだけ反映する運用（スケジュール済みタスクとして設定済み）。

@@ -42,6 +42,9 @@ try:
 except ImportError:
     anthropic = None
 
+sys.path.insert(0, str(Path(__file__).parent))
+import hop_text  # noqa: E402  説明文からのホップ抽出(辞書と判定ルールはhop_text.py)
+
 ROOT = Path(__file__).parent.parent
 DATA_PATH = ROOT / "data" / "products.json"
 SOURCES_PATH = Path(__file__).parent / "update_sources.json"
@@ -718,6 +721,21 @@ def known_hop_names() -> set[str]:
     return set(re.findall(r'\{name:"([^"]+)"', text))
 
 
+def body_full_text(body_html: str) -> str:
+    """Shopifyの商品説明(body_html)の全文。ブロック要素の終わりを改行にしてタグを除く。
+    保存用のdescriptionはAntennaなら最初の<ul>(スペック欄)より前、Southboundなら日本語段落だけに絞っているため、
+    ホップ品種名がそれ以外の部分(セット商品の個別説明、英語の説明文)に書かれていることがある。抽出にはこちらを使う。"""
+    return strip_tags(re.sub(r"</(p|li|h\d|div)>", "\n", body_html or "", flags=re.I))
+
+
+def hops_from_description(text: str, chart_names=None) -> list[str]:
+    """説明文に品種名が書かれているホップ(アロマチャートの表記・出現順)。無ければ空リスト。
+    2026-10-28、ユーザー指示「ホップ成分に記載がなくても、説明に記載があれば成分として追記する」で導入。
+    誤抽出を避けるルールと検証結果は hop_text.py の冒頭と README_MIGRATION.md を参照。"""
+    return hop_text.extract_hops_from_text(text, chart_names if chart_names is not None else known_hop_names(),
+                                           normalize_hop)
+
+
 def main():
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     client = None
@@ -747,6 +765,7 @@ def main():
     added = []
     recycled_handles: list[str] = []
     unknown_hops_seen: set[str] = set()
+    hops_from_description_log: list[dict] = []  # スペック欄が空で、説明文から補ったホップ(確認用に要約へ残す)
 
     print(f"[{date.today()}] Scanning {len(sources)} source site(s) listed in update_sources.json...")
     source_errors: dict[str, str] = {}
@@ -765,6 +784,11 @@ def main():
                 backfill = backfill_requested(source_key)
                 print(f"[{source['name']}] collecting ({source_type}){' - FULL backfill' if backfill else ''}...")
                 for record in collector(source, known_ids, backfill):
+                    if not record.get("hops"):
+                        desc_hops = hops_from_description(record.get("description", ""), known_hops)
+                        if desc_hops:
+                            record["hops"] = desc_hops
+                            hops_from_description_log.append({"id": record["id"], "name": record["name"], "hops": desc_hops})
                     for h in record["hops"]:
                         if h not in known_hops:
                             unknown_hops_seen.add(h)
@@ -811,6 +835,13 @@ def main():
                         n += 1
                     record["id"] = f"{handle}-recycled{n}"
                     recycled_handles.append(handle)
+
+                if not record.get("hops"):
+                    # スペック欄が空でも説明文に品種名があれば補う(辞書ベースの決定的な抽出。ルールはhop_text.py)
+                    desc_hops = hops_from_description(body_full_text(p.get("body_html", "")), known_hops)
+                    if desc_hops:
+                        record["hops"] = desc_hops
+                        hops_from_description_log.append({"id": record["id"], "name": record["name"], "hops": desc_hops})
 
                 if not record.get("hops") and client:
                     extra_hops = recheck_description_for_hops(client, record)
@@ -859,6 +890,13 @@ def main():
         print("\nNew products this run:")
         for p in added:
             print(f"  - {p['name']} ({p['brewery']}) [{p['source']}] - hops: {', '.join(p['hops']) or 'unknown'}")
+    if hops_from_description_log:
+        print("\nHops filled from the product description (the spec field was empty):")
+        for e in hops_from_description_log:
+            print(f"  - {e['name']}: {', '.join(e['hops'])}")
+    no_hops_new = [{"id": r["id"], "name": r["name"], "source": r["source"]} for r in added if not r.get("hops")]
+    if no_hops_new:
+        print(f"\n{len(no_hops_new)} new product(s) have no hop information (neither spec nor description).")
     if unknown_hops_seen:
         print("\n[review needed] hop varieties not yet in scripts/hops_tab.js's aroma chart"
               " (add sensory-profile vectors manually, do not fabricate):")
@@ -886,6 +924,8 @@ def main():
                 "new_products": added,
                 "recycled_handles": recycled_handles,
                 "hops_needing_aroma_review": sorted(unknown_hops_seen),
+                "hops_from_description": hops_from_description_log,
+                "new_products_without_hops": no_hops_new,
                 "sources": sources_summary,
                 "source_errors": source_errors,
             },
