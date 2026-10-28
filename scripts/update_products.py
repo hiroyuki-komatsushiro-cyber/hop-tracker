@@ -137,6 +137,8 @@ HOP_NAME_FIXES = {
     "Vanilla Beans": "",
     # WCB「Westie Bois」の「w/」行は"Nectar"だが、同じ個別ページの本文に「Nectaronも採用」と明記(2026-10-16確認)
     "Nectar": "Nectaron",
+    # 本来の綴りはStrisselspalt(アルザスのホップ)。アロマチャートの項目名は既存のStrisselspalterに合わせる
+    "Strisselspalt": "Strisselspalter",
     # Vertereの古い記事の綴りミス(大文字小文字の違いだけのものは下のcanonical化で自動的に直る)
     "Centenial": "Centennial",
     "Centtenial": "Centennial",

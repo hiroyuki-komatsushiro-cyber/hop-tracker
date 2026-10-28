@@ -6113,7 +6113,11 @@
       "brewery": "Harland",
       "style": "West Coast IPA",
       "abv": "6.7%",
-      "hops": [],
+      "hops": [
+        "Nelson Sauvin",
+        "Riwaka",
+        "Simcoe"
+      ],
       "url": "https://www.antenna-america.com/products/b070-c16065",
       "added": "2026-09-15",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/PihaBreakWCIPA_2.png?width=400",
@@ -6188,7 +6192,11 @@
       "brewery": "Harland",
       "style": "West Coast IPA",
       "abv": "6.5%",
-      "hops": [],
+      "hops": [
+        "Simcoe",
+        "Cascade",
+        "Krush"
+      ],
       "url": "https://www.antenna-america.com/products/b070-c16047",
       "added": "2026-09-15",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/WestCoastIPA_a537b775-c96a-45e3-b3f7-0639e5dc1497.png?width=400",
@@ -6298,7 +6306,10 @@
       "brewery": "Beachwood",
       "style": "Hazy IPA",
       "abv": "6.5%",
-      "hops": [],
+      "hops": [
+        "Mosaic",
+        "Citra"
+      ],
       "url": "https://www.antenna-america.com/products/b027-c16089",
       "added": "2026-09-15",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/ElectricLimbsHazyIPA_318a610b-87b5-4af2-8df8-9c90b96ef90f.png?width=400",
@@ -6619,7 +6630,11 @@
       "brewery": "Firestone Walker",
       "style": "MIX",
       "abv": "-",
-      "hops": [],
+      "hops": [
+        "Galaxy",
+        "Citra",
+        "Krush"
+      ],
       "url": "https://www.antenna-america.com/products/firestone-walker-mind-haze-setof6bottles",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Firestone_mindhazeset.png?width=400",
       "description": "商品名：Firestone Walker Mind Haze (355ml) / マインド ヘイズ商品説明：ホップ由来の柑橘、草、松脂のような香りが溢れ出す。ジューシーでありながらもすっきりとした飲み心地のHazy IPAスタイル：Hazy IPAABV：6.2%IBU：40入数：2商品名：Firestone Walker Mind Haze Cosmic Crusher (355ml) / マインド ヘイズ コスミッククラッシャー商品説明：Mind Hazeを強烈に魔改造したJuicy Imperial IPA。パイナップルやマンゴーのような鮮烈な味わいと抜群の飲みごたえは森羅万象をも打ち砕く。スタイル：Juicy Imperial IPAABV：9.5%IBU：25入数：2商品名：Firestone Walker Galaxy Bender Hazy DIPA (355ml) / ギャラクシーベンダー商品説明：ギャラクシー、シトラ、クラッシュホップを使用したヘイジーな一本。濃厚なヘイズ感とピーチやプラムを思わせる豊かな果実味を楽しみながら、ゆっくりと時間をかけて味わいたくなる、遊び心あふれる仕上がりです。スタイル：Hazy DIPAABV：8.5%IBU：--入数：2",
@@ -6661,7 +6676,12 @@
       "brewery": "Faction Brewing",
       "style": "West Coast Strong Pale Ale",
       "abv": "6%",
-      "hops": [],
+      "hops": [
+        "Krush Cryo",
+        "Riwaka",
+        "Strata",
+        "Cascade"
+      ],
       "url": "https://www.antenna-america.com/products/b098-c16062",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Coupd_EtatWCStrongPale.png?width=400",
       "description": "ワシントン州にある人気ブリュワリーGrains of Wrathとのコラボレーションで醸造したWest Coast Strong Pale Ale。通常のペールエールよりもややしっかりとしたボディと、力強いホップキャラクターを備えたウェストコーストらしさ全開の一本です。クラッシュ・クライオ、リワカ、ストラータ、カスケードホップを使用し、ピルスナーモルト、二条大麦、フレークドオーツを組み合わせています。豊かなホップの存在感と飲み応えをお楽しみください。",
@@ -6674,7 +6694,11 @@
       "brewery": "Faction Brewing",
       "style": "West Coast IPA",
       "abv": "6.9%",
-      "hops": [],
+      "hops": [
+        "Nelson Sauvin",
+        "Citra",
+        "Mosaic"
+      ],
       "url": "https://www.antenna-america.com/products/b098-c16060",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/GasserIPA.png?width=400",
       "description": "ネルソン・ソーヴィンホップにファンタズムをブレンドしたスーパーソーヴィン、ネルソン、シトラ、モザイクホップを使用。ラベルに描かれたマシンに負けないパワフルなホップキャラクターを備えた、個性あふれる一本です。Gasser IPAは、アメリカの1960年代のサイケデリック・カルチャーを象徴する伝説的なアーティストStanley Mouse氏とのコラボレーションで誕生しました。ラベルアートは、同氏の作品にも通じる1950年代のホットロッドカルチャーへのオマージュとなっています。",
@@ -6687,7 +6711,11 @@
       "brewery": "Paperback Brewing",
       "style": "West Coast IPA",
       "abv": "6.8%",
-      "hops": [],
+      "hops": [
+        "Comet",
+        "El Dorado",
+        "Azacca"
+      ],
       "url": "https://www.antenna-america.com/products/b093-c16054",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/BombDiggityWCIPA_3.png?width=400",
       "description": "オレゴン州ウィラメットバレーに位置する歴史あるホップ農家Crosby Hops産の自社栽培コメットホップを中心に、エルドラドとアザッカを組み合わせたウエストコーストIPA。キャンディーのようなパイナップル、オレンジクリームソーダ、メロン、濃厚なシトラスを思わせるジューシーな風味が広がります。コメットホップ由来のグレープフルーツやハーバルなニュアンスがアクセントとなり、モダンで果実味豊かなホップキャラクターをバランスよく引き締めています。名前は90年代を思わせながらも、ホップの魅力は現代的でフレッシュな仕上がりです。",
@@ -6700,7 +6728,11 @@
       "brewery": "Paperback Brewing",
       "style": "TDH New Zealand Pale Ale",
       "abv": "5.2%",
-      "hops": [],
+      "hops": [
+        "Riwaka",
+        "Moutere",
+        "Nelson Sauvin"
+      ],
       "url": "https://www.antenna-america.com/products/b093-c16053",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/DeathofaSalesmanNZIPA_2_fe23a789-142c-40db-b8f6-24bb4cde5fc2.png?width=400",
       "description": "トリプルドライホップを施し、ニュージーランド産ホップの魅力を存分に引き出したニュージーランドスタイル・ペールエール。熟したパッションフルーツ、グレープフルーツの皮、ホワイトピーチ、フレッシュライムを思わせる華やかなアロマが広がります。リワカ由来の力強いトロピカルフルーツ、モウテレの樹脂を思わせるシトラスや松、ネルソン・ソーヴィンの特徴的なグーズベリーや白ワインのようなニュアンスが重なり、複雑で鮮やかなホップキャラクターを形成。控えめなモルトの風味とクリスプでドライな後味がホップの個性を際立たせ、爽快で飲み進めやすい仕上がりです。",
@@ -6713,7 +6745,11 @@
       "brewery": "Paperback Brewing",
       "style": "Hazy IPA",
       "abv": "6.6%",
-      "hops": [],
+      "hops": [
+        "Citra",
+        "Nelson Sauvin",
+        "Cashmere"
+      ],
       "url": "https://www.antenna-america.com/products/b093-c16052",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/6YearsofMischief.png?width=400",
       "description": "「6 Years of Mischief（6年にわたる悪ふざけ）」は、Paperbackの6周年とこの6年間のやんちゃな歩みを祝うために醸造された、ジューシーなHazy IPA。シトラ、ネルソン、カシミアの3種のホップを使用し、力強く華やかなアロマと豊かなホップフレーバーを引き出しています。シトラ由来の鮮やかなシトラスやトロピカルフルーツに、ネルソンの白ブドウやグーズベリー、カシミアのやわらかなメロンやピーチ、ほのかなレモンライムのニュアンスが重なります。丸みのあるなめらかな口当たりと穏やかな苦味、やわらかな後味で、驚くほどスムーズに飲み進められる一本です。ホップにまみれた6年間のカオスに乾杯、そしてこれからの楽しい時間に向けて――Cheers！",
@@ -6759,7 +6795,12 @@
       "brewery": "Los Angeles Ale Works",
       "style": "West Coast IPA",
       "abv": "6.8%",
-      "hops": [],
+      "hops": [
+        "Manilita",
+        "Centennial",
+        "Nectaron",
+        "El Dorado"
+      ],
       "url": "https://www.antenna-america.com/products/b095-c16046",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SteadyCoastin_WCIPA_3_29a9759b-5d90-4191-8548-2e361059b867.jpg?width=400",
       "description": "ベリーやルビーレッドグレープフルーツ、オレンジブロッサムを思わせる華やかな風味が広がります。レシピを一新し、マニリタ、センテニアル、ネクタロン、エルドラドの新たなホップとモルトの組み合わせが生み出す、フレッシュなホップキャラクターが魅力。週末に気軽に楽しみたくなる、爽やかで飲みやすい仕上がりです。",
@@ -6823,7 +6864,10 @@
       "brewery": "Faction Brewing",
       "style": "WC IPA",
       "abv": "7%",
-      "hops": [],
+      "hops": [
+        "Mosaic",
+        "Citra"
+      ],
       "url": "https://www.antenna-america.com/products/b098-c16043",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/MedusaIPA.png?width=400",
       "description": "モザイクとシトラホップをふんだんに使ったWest Coast IPA。ボディは軽めで、ホップの香りと味わいが綺麗に主張するバランスはさすがFaction。",
@@ -6999,7 +7043,12 @@
       "brewery": "Revision Brewing",
       "style": "West Coast IPA",
       "abv": "6%",
-      "hops": [],
+      "hops": [
+        "Simcoe",
+        "Mosaic",
+        "Strata",
+        "Columbus"
+      ],
       "url": "https://www.antenna-america.com/products/b055-c16152",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/LupulinRiotWCIPA.png?width=400",
       "description": "シムコー、モザイク、ストラータ、コロンバスを使用した、ホップの個性を前面に押し出したWest Coast IPA。松を思わせる樹脂感とシトラスの鮮烈なアロマに、力強い苦味が重なります。無濾過ならではの濃厚なホップ感と、ダイレクトな味わいが楽しめる、妥協のないホッピーな一本です。",
@@ -7042,7 +7091,12 @@
       "brewery": "Jester King",
       "style": "Saison Blended with Wild Ale",
       "abv": "5.0%",
-      "hops": [],
+      "hops": [
+        "El Dorado",
+        "Motueka",
+        "Meridian",
+        "Simcoe"
+      ],
       "url": "https://southbound.jp/products/jk-daswunderkind-pkg",
       "image": "https://cdn.shopify.com/s/files/1/0269/3677/0662/products/JK_product_daswunderkind-glamour_1060x1365_5ebc9060-e8d3-46b4-b20a-5f71c37347f5.jpg?width=400",
       "description": "ジェスターキングが作っている中でも最も歴史を持つビールの1つであり、バレルエイジのワイルドビールのブレンドを取り入れた最初のビールでもあります。2021年の11月、彼らは瑞々しく新鮮でホップ感溢れるファームハウスエールを醸造しており、その過程で樽熟成させたワイルドビールをブレンドさせ、更にエルドラード、モトゥエカ、メリディアン、そしてシムコーといったフレッシュなホップでドライホップを加えました。その後8ヵ月をかけ自然熟成させ、ビールを限界までねばねばとした粘着質な状態にします。自然熟成させたビールはトロピカルな爽やかさがあり、キリッとした酸味とグアバやパッションフルーツのしっかりとしたフレーバーやアロマが感じられます。熟成させる長さや圧力、そして自然の野生酵母を絶妙に組み合わせることで、ドライホップの際立つフレーバーを最大限に引き出すことができ、彼らのイチオシのファームハウスエールが生まれます。",
@@ -7073,7 +7127,10 @@
       "brewery": "Jester King",
       "style": "Blended Farmhouse Ale",
       "abv": "6.3%",
-      "hops": [],
+      "hops": [
+        "Fuggle",
+        "Perle"
+      ],
       "url": "https://southbound.jp/products/jk-bieredecoupage-pkg",
       "image": "https://cdn.shopify.com/s/files/1/0269/3677/0662/products/JK_product_bieredecoupage-glamour_720x928_401ff032-c567-450a-9f6d-495ba8db2b7d.jpg?width=400",
       "description": "ビエール・ド・クパージュは、SPONともっと新しいファームハウスエールをブレンディングした上で、オーガニックなファグルとパールのホップでドライホップしているエールです。ファームハウスエールに使用する混合培養酵母は、気に入った古いエールともっと新しいエールとブレンドすることで開発された経緯があります。新しいビールの味や香りに良い影響を与えるだけでなく、液体中に生きている微生物の成長を良い方向へ導くことが目的でした。",
@@ -7102,7 +7159,11 @@
       "brewery": "Deschutes",
       "style": "MIX",
       "abv": "-",
-      "hops": [],
+      "hops": [
+        "Cashmere",
+        "Mandarina Bavaria",
+        "Amarillo"
+      ],
       "url": "https://www.antenna-america.com/products/deschutes4buttele-set",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Deschtes.jpg?width=400",
       "description": "アンテナアメリカ Deschutes人気NO.１商品名：Deschutes Fresh Haze IPA (355ml) / フレッシュ ヘイズ アイピーエー商品説明：Cashmere、Mandarina Bavaria、Amarilloホップの柑橘やトロピカルフルーツのような味わいが際立つHazy IPAスタイル：Hazy IPAABV：6.5%IBU：45アンテナアメリカ Deschutes人気NO.２商品名：Deschutes Fresh Squeezed IPA (355ml) / フレッシュ スクイーズド アイピーエー商品説明：まるで収穫したてのホップをそのまま瓶の中に絞って入れたかのようなフレッシュな味わい。フルーティーで爽快感抜群！スタイル：IPAABV：6.4%IBU：60商品名：Deschutes Black Butte Porter (355ml) / ブラック ビュート ポーター商品説明：Deschutesの定番ビールの中での一番人気。リッチでクリーミーなチョコレートやコーヒーの味わいとロースト感スタイル：PorterABV：5.5%IBU：30入数：1商品名：Deschutes Patagonia Provisions Organic Lager (355ml) / パタゴニア プロビジョンズ オーガニックラガー商品説明：パタゴニア プロビジョンズとDeschutesが共同開発したオーガニックラガー。アウトドア企業「パタゴニア」の食品部門、パタゴニア プロビジョンズとDeschutes Breweryが共同開発した、明るくクリスプで飲みやすさに優れたオーガニックラガー。飲んだそばからおかわりしたい！！スタイル：Organic LagerABV：4.7%IBU：入数：1",
@@ -7115,7 +7176,11 @@
       "brewery": "Mix",
       "style": "MIX",
       "abv": "-",
-      "hops": [],
+      "hops": [
+        "Dolcita",
+        "Citra",
+        "Mosaic"
+      ],
       "url": "https://www.antenna-america.com/products/belching-beaver-selecta",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/AAonline.jpg?width=400",
       "description": "（アンテナアメリカ 初登場 ） ●Belching Beaver Hop Maxxing Hazy IPA (473ml) / ホップ マックシングリア商品説明：ドルシータ、シトラ、モザイクホップを限界まで投入！トロピカルフルーツの魅力をマックス（極限）まで引き出したビールぜひお試しあれ！ABV：7.4%IBU：--● Peanut Butter Milk Stout (473ml) / ピーナッツ バター ミルク スタウト商品説明：黒に近い、深く濃い茶色の液色に薄茶色の泡が乗る。グラスからローストピーナッツとコーヒーの芳ばしい香りとチョコレートの甘い香り。ABV：5.3%IBU：30●Phantom Bride IPA (473ml) / ファントム ブライド商品説明：ホップ由来の柑橘感と心地良い苦みにモルト感が混ざり合い、樹脂のような風味とバニラやキャラメルのような微かな甘み。アメリカのメタルバンド DeftonesとのコラボABV：7.1%IBU：60スタイル：IPA●Tropical Terps (473ml) / トロピカル タープス商品説明：植物から抽出した香り成分テルペンを使用し、トロピカルでフルーティーな香りが楽しめるIPA。GABF2023で金賞を受賞したとんでもない実力を秘めたビール！ABV：6.6%IBU：-スタイル：Terpene IPA●Hop Trail WC Pilsner (473ml) / ホップトレイル商品説明：クラッカーのような軽快なモルト感をベースに、ピルスナーらしいクリーンでシャープな口当たり。ホップ由来のパッションフルーツや松の力強い香りが重なり、程よい苦みが次の一口を誘います！ABV：5%IBU：40スタイル：West Coast Pilsner● Must be the Honey! Blonde (473ml) / マスト ビー ザ ハニー！ ブロンド商品説明：Belching Beaverで最も飲まれている商品の一つ。高品質のハチミツを使用して造られたスムースな飲み心地のビール。ABV：5.5%IBU：スタイル：Honey Ale",
@@ -7128,7 +7193,11 @@
       "brewery": "Mix",
       "style": "MIX",
       "abv": "-",
-      "hops": [],
+      "hops": [
+        "Dolcita",
+        "Citra",
+        "Mosaic"
+      ],
       "url": "https://www.antenna-america.com/products/belching-beaver-selectb",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/AAonline_1.jpg?width=400",
       "description": "（アンテナアメリカ 初登場 ） ●Belching Beaver Hop Maxxing Hazy IPA (473ml) / ホップ マックシングリア×2本商品説明：ドルシータ、シトラ、モザイクホップを限界まで投入！トロピカルフルーツの魅力をマックス（極限）まで引き出したビールぜひお試しあれ！ABV：7.4%IBU：--● Peanut Butter Milk Stout (473ml) / ピーナッツ バター ミルク スタウト商品説明：黒に近い、深く濃い茶色の液色に薄茶色の泡が乗る。グラスからローストピーナッツとコーヒーの芳ばしい香りとチョコレートの甘い香り。ABV：5.3%IBU：30●Phantom Bride IPA (473ml) / ファントム ブライド商品説明：ホップ由来の柑橘感と心地良い苦みにモルト感が混ざり合い、樹脂のような風味とバニラやキャラメルのような微かな甘み。アメリカのメタルバンド DeftonesとのコラボABV：7.1%IBU：60スタイル：IPA●Tropical Terps (473ml) / トロピカル タープス商品説明：植物から抽出した香り成分テルペンを使用し、トロピカルでフルーティーな香りが楽しめるIPA。GABF2023で金賞を受賞したとんでもない実力を秘めたビール！ABV：6.6%IBU：-スタイル：Terpene IPA●Hop Trail WC Pilsner (473ml) / ホップトレイル商品説明：クラッカーのような軽快なモルト感をベースに、ピルスナーらしいクリーンでシャープな口当たり。ホップ由来のパッションフルーツや松の力強い香りが重なり、程よい苦みが次の一口を誘います！ABV：5%IBU：40スタイル：West Coast Pilsner",
@@ -7415,7 +7484,11 @@
       "brewery": "Electric Eye Beer Company",
       "style": "Hazy DIPA",
       "abv": "8%",
-      "hops": [],
+      "hops": [
+        "Citra",
+        "Galaxy",
+        "Krush"
+      ],
       "url": "https://www.antenna-america.com/products/b137-c16002",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/LookingDownOnYouHazyDIPA.png?width=400",
       "description": "シトラ、ギャラクシー、クラッシュという強力な3種のホップを贅沢に使用したHazy Double IPAです。「Celestial Flex（宇宙規模の存在感）」をテーマに、一般的なヘイジーIPAをさらに進化させた一杯。ホップを惜しみなく投入することで、トロピカルフルーツを前面に押し出した濃厚な味わいを実現しながらも、過度な甘さを抑え、バランスの良い飲み口に仕上げています。ビール名は、1982年にリリースされたヘヴィメタルバンドJudas Priestの名曲「Electric Eye」に由来しています。宇宙から人類を監視する視点で描かれたこの楽曲は、監視社会やプライバシーの侵害、権威による統制をテーマとしており、その世界観をビールにも投影しています。ホップの圧倒的な存在感と力強さが、まさに楽曲のエネルギーを感じさせる一杯です。",
@@ -7545,7 +7618,11 @@
       "brewery": "Mix",
       "style": "MIX",
       "abv": "-",
-      "hops": [],
+      "hops": [
+        "Dolcita",
+        "Citra",
+        "Mosaic"
+      ],
       "url": "https://www.antenna-america.com/products/set-34-oct-08",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/C_bechingbeaver.png?width=400",
       "description": "（アンテナアメリカ 初登場 ） ●Belching Beaver Hop Maxxing Hazy IPA (473ml) / ホップ マックシングリア　2本商品説明：ドルシータ、シトラ、モザイクホップを限界まで投入！トロピカルフルーツの魅力をマックス（極限）まで引き出したビールぜひお試しあれ！ABV：7.4%IBU：--● Peanut Butter Milk Stout (473ml) / ピーナッツ バター ミルク スタウト　2本商品説明：黒に近い、深く濃い茶色の液色に薄茶色の泡が乗る。グラスからローストピーナッツとコーヒーの芳ばしい香りとチョコレートの甘い香り。ABV：5.3%IBU：30●Tropical Terps (473ml) / トロピカル タープス商品説明：植物から抽出した香り成分テルペンを使用し、トロピカルでフルーティーな香りが楽しめるIPA。GABF2023で金賞を受賞したとんでもない実力を秘めたビール！ABV：6.6%IBU：-スタイル：Terpene IPA●Hop Trail WC Pilsner (473ml) / ホップトレイル商品説明：クラッカーのような軽快なモルト感をベースに、ピルスナーらしいクリーンでシャープな口当たり。ホップ由来のパッションフルーツや松の力強い香りが重なり、程よい苦みが次の一口を誘います！ABV：5%IBU：40スタイル：West Coast Pilsner",
@@ -9726,7 +9803,12 @@
       "brewery": "Vertere",
       "style": "Hazy Pale",
       "abv": "5.5%",
-      "hops": [],
+      "hops": [
+        "Citra",
+        "Mosaic",
+        "El Dorado",
+        "Nelson Sauvin"
+      ],
       "url": "https://verterebrew.com/brewlog/unlearn/",
       "image": "https://verterebrew.com/wp/wp-content/uploads/2022/11/3f97e7c8e403eb3d6ba6aa25fecebdd6-300x300.jpeg",
       "description": "ビジュアルデザインスタジオWOWとのコラボビール。ホップにシトラ、モザイク、エルドラド、ネルソンを使用したHazy Pale Ale。",
@@ -12781,7 +12863,11 @@
       "brewery": "Firestone Walker",
       "style": "DIPA",
       "abv": "8%",
-      "hops": [],
+      "hops": [
+        "Nelson Sauvin",
+        "Citra",
+        "Columbus Cryo"
+      ],
       "url": "https://www.antenna-america.com/products/dba銀賞受賞記念-firestone-walker６本セット",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/DBA_Firestone_Walker.jpg?width=400",
       "description": "いつものお気に入りも、まだ飲んだことのない1本も。この6本から、Firestone Walkerの魅力をあらためて見つけてみてください。DBA、又の名をDouble Barrel Ale。1996年のFirestone Walker創業と当時に発売を開始、常に時代の最先端を突き進み続けてきた看板イングリッシュ・スタイル・ペールエール。グラスに注がれる美しいクリアな赤褐色のビールからはペールモルトが生み出すスムースなキャラメル、トフィー、そして木樽由来のスモーキーさやバニラといった美しい風味が感じられる。",
@@ -12846,7 +12932,9 @@
       "brewery": "Trademark Brewing",
       "style": "Saison",
       "abv": "5.6%",
-      "hops": [],
+      "hops": [
+        "Strisselspalter"
+      ],
       "url": "https://www.antenna-america.com/products/b097-c16062",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Oh_La_La_Saison.png?width=400",
       "description": "ドイツ産ピルスナーモルトとライ麦をベースに、ベルジャン酵母と、フランスのアルザス地方で栽培されている最高級のアロマホップ、フレンチ・ストリッセルシュパルトを組み合わせています。爽やかなレモンの皮、完熟バナナの風味に、ホワイトペッパーのスパイシーなアクセントが重なります。",
@@ -12859,7 +12947,15 @@
       "brewery": "Trademark Brewing",
       "style": "DDH WC IPA",
       "abv": "7.2%",
-      "hops": [],
+      "hops": [
+        "Mosaic",
+        "Mosaic Cryo",
+        "Mosaic Dynaboost",
+        "Citra",
+        "Citra Cryo",
+        "Chinook",
+        "Simcoe"
+      ],
       "url": "https://www.antenna-america.com/products/b097-c16061",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Complicated_Shirt.png?width=400",
       "description": "T90、クライオ、ダイナブースト、リキッド・ルプリンとさまざまな形態のモザイクをはじめ、シトラ、シトラ・クライオ、チヌーク、シムコーを贅沢に使用。ダンクなフルーツ、松、ベリーを思わせる力強いホップの風味が広がり、複雑で濃厚なホップキャラクターを楽しめる一杯です。",
@@ -12872,7 +12968,10 @@
       "brewery": "Trademark Brewing",
       "style": "IPA",
       "abv": "6.5%",
-      "hops": [],
+      "hops": [
+        "Citra",
+        "Simcoe"
+      ],
       "url": "https://www.antenna-america.com/products/b097-c16059",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Queen_of_Hops_2.png?width=400",
       "description": "女王がシトラとシムコーを巧みに組み合わせ、新たなフレーバーを完成させました。シトラス、松を思わせるレジン感、そしてパッションフルーツの豊かな風味が重なり合う、ウェストコーストIPAらしいキレのある味わいが楽しめます。ホップの個性を存分に引き出した、力強くもバランスの取れた一杯です。",
@@ -12911,7 +13010,9 @@
       "brewery": "Crooked Stave",
       "style": "Pilsner",
       "abv": "4.9%",
-      "hops": [],
+      "hops": [
+        "HBC 1134"
+      ],
       "url": "https://www.antenna-america.com/products/b062-c12047",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Italian_Pilsner.png?width=400",
       "description": "希少な実験的ホップHBC 1134を使用したイタリアンスタイル・ピルスナー。クリーンで明るく、華やかなフローラルアロマが広がります。日曜におばあちゃんが作る特製ソースを待ちながら、ゆっくりと味わうのにピッタリ！",
@@ -12950,7 +13051,9 @@
       "brewery": "Trademark Brewing",
       "style": "Amber Lager",
       "abv": "5.4%",
-      "hops": [],
+      "hops": [
+        "Saaz"
+      ],
       "url": "https://www.antenna-america.com/products/b097-c16052",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/FamilyTruckster.png?width=400",
       "description": "クリスプなHana Heritageモルトと、ヴァイエルマン・ボヘミアン・ダークモルトが、香ばしいトースト感とやわらかなキャラメルの甘みを生み出しています。そこにザーツホップ由来のスパイシーなキレが加わり、時間をかけてじっくり楽しみたくなるような味わいに仕上がっています。",
@@ -13140,7 +13243,13 @@
       "brewery": "Mix",
       "style": "Mexican Hot Chocolate Porter",
       "abv": "8.5%",
-      "hops": [],
+      "hops": [
+        "Sabro",
+        "Mosaic",
+        "Citra",
+        "El Dorado",
+        "Amarillo"
+      ],
       "url": "https://www.antenna-america.com/products/set-34-oct-26",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/HEAVYRIFF_Mixpack_eb8fe077-00c0-41b5-84e4-64d5d971bee3.jpg?width=400",
       "description": "秋の夜長に、お気に入りの音楽と、じっくり楽しむビールを。アメリカ・ミズーリ州セントルイスのHeavy Riff Brewingから、秋に飲みたい6本を集めました。ジューシーなホップの香りが広がるヘイジーから、モルトの風味を楽しむアイリッシュレッド、チョコレートを思わせるコク深いブラウンエールやポーターまで。気分に合わせて選べる飲み比べセットです。なかでもHat Danceは、焚き火を眺めながらゆっくり味わいたくなる1本。カカオニブとメキシカンホットチョコレート用のスパイスが、チョコレートのような風味にピリッとしたアクセントを添えます。なめらかな口当たりのVelvet Underbrownとともに、秋の夜にうれしい深い味わいを楽しめます。焚き火を囲むひとときにも、自宅でくつろぐ夜にも。華やかな香りから香ばしい余韻まで、Heavy Riffの個性をゆっくり楽しんでみてください。①Velvet Underbrown (473ml) / ヴェルヴェット アンダーブラウンダークチョコレートのようなアロマとシルキーで滑らかな口当たり。",
@@ -13179,7 +13288,10 @@
       "brewery": "Hinterland",
       "style": "Cold IPA",
       "abv": "6.1%",
-      "hops": [],
+      "hops": [
+        "Mosaic",
+        "Vic Secret"
+      ],
       "url": "https://www.antenna-america.com/products/b128-c16014",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/FootballIsBetterWithSausageandCheese_HopButcher.png?width=400",
       "description": "お隣イリノイ州の著名ブリュワリー、Hop Butcherとのコラボビール。モザイクとヴィクシークレットホップを使ったCold IPA。ジューシーなパイナップル、柑橘類の皮、ほのかな松脂のニュアンス。",
@@ -13205,7 +13317,10 @@
       "brewery": "Hinterland",
       "style": "Juicy IPA",
       "abv": "5.1%",
-      "hops": [],
+      "hops": [
+        "Galaxy",
+        "Lemondrop"
+      ],
       "url": "https://www.antenna-america.com/products/b128-c12015",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SavingGracieJuicyIPA.png?width=400",
       "description": "モルト化したキビとソバを使用し、ギャラクシーとレモンドロップホップを贅沢に使用したグルテンフリーのヘイジーIPAです。グルテンを含まないながらも、一般的なIPAに引けを取らない豊かな風味と飲み応えを実現しています。トロピカルフルーツやシトラスを思わせるジューシーなホップアロマが広がり、ヘイジーIPAらしいなめらかな口当たりを楽しめます。ビールの可能性を広げる挑戦は、Hinterland Brewingの理念のひとつです。このIPAは、創業者兼CEOのビル・トレスラーの娘であり、Hinterlandのアンバサダーでもあるグレイスが2021年にグルテンフリーの生活を始めたことをきっかけに誕生しました。「グルテンフリーでも、IPA好きが心から満足できる一杯を造りたい。」そんな想いから開発された、すべてのビールファンに向けたグルテンフリーIPAです。",
@@ -13218,7 +13333,9 @@
       "brewery": "Embolden Beer Co",
       "style": "Hazy IPA",
       "abv": "7.2%",
-      "hops": [],
+      "hops": [
+        "Waimea"
+      ],
       "url": "https://www.antenna-america.com/products/b114-c16018",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/RoomServiceHazyIPA.png?width=400",
       "description": "ワイメアホップのみを使用した、フレッシュで華やかな味わいが魅力の一杯。ひと口飲めば、まるでVIPになったような気分に。ワイメアがもたらす豊かなホップの風味が、五つ星リゾートを思わせる贅沢な味わいへと誘います。",
@@ -13244,7 +13361,10 @@
       "brewery": "Heavy Riff Brewing",
       "style": "Hazy IPA",
       "abv": "6.4%",
-      "hops": [],
+      "hops": [
+        "Citra",
+        "Amarillo"
+      ],
       "url": "https://www.antenna-america.com/products/b113-c16024",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/DaisyGlaze.png?width=400",
       "description": "シトラとアマリロホップを使用した、力強いNew England IPA。華やかなシトラスとトロピカルフルーツのアロマが広がり、パッションフルーツや甘いオレンジピールのニュアンスが感じられます。やわらかくなめらかなモルトのボディがホップの風味を包み込み、豊かな味わいに仕上がっています。",
@@ -13257,7 +13377,11 @@
       "brewery": "Heavy Riff Brewing",
       "style": "Hazy Session Ale",
       "abv": "5%",
-      "hops": [],
+      "hops": [
+        "Sabro",
+        "Mosaic",
+        "Citra"
+      ],
       "url": "https://www.antenna-america.com/products/b113-c16023",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/N.I.B.HazySessionAle.png?width=400",
       "description": "サブロ、モザイク、シトラホップをたっぷり使用した、濃厚なホップキャラクターが魅力の一杯。ひと口飲めば、これまで飲んできたビールを忘れてしまうほどの魅力であなたを虜にします。ピニャコラーダを思わせるトロピカルでジューシーなホップの風味が広がり、思わずその世界に引き込まれるような味わいです。さあ、手に取って、ひと口味わってみてください。",
@@ -13322,7 +13446,10 @@
       "brewery": "49th State Brewing",
       "style": "Hazy IPA",
       "abv": "7.4%",
-      "hops": [],
+      "hops": [
+        "Riwaka",
+        "Mosaic"
+      ],
       "url": "https://www.antenna-america.com/products/b039-c16007",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/TropicTundra.png?width=400",
       "description": "このIPAで、寒冷地にトロピカルな風をもたらそう。リワカとモザイクをダブルドライホップでたっぷり使用し、ジューシーなグアバ、完熟パイナップル、甘いオレンジを思わせる濃厚なトロピカルフルーツの風味が広がります。",
@@ -13335,7 +13462,10 @@
       "brewery": "49th State Brewing",
       "style": "Spruce Tip IPA",
       "abv": "6.8%",
-      "hops": [],
+      "hops": [
+        "Mosaic",
+        "Citra"
+      ],
       "url": "https://www.antenna-america.com/products/b039-c16006",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SpruceplosionHazySpruceTipIPA_2.png?width=400",
       "description": "アラスカらしさを表現したIPA。手摘みしたアラスカ産トウヒの新芽由来のレッドベリーを思わせる風味に、モザイクとシトラホップによるシトラスやトロピカルフルーツのキャラクターが重なります。アラスカならではの素材とホップの魅力を楽しめる仕上がりです。",
@@ -13361,7 +13491,9 @@
       "brewery": "49th State Brewing",
       "style": "Amerian IPA",
       "abv": "6.8%",
-      "hops": [],
+      "hops": [
+        "Citra"
+      ],
       "url": "https://www.antenna-america.com/products/b039-c12001",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SolsticeIPA.png?width=400",
       "description": "アラスカの夏至に訪れる24時間続く白夜へ敬意を込めて造られたIPA。シトラホップを主体としたホッププロファイルで、ジューシーなグレープフルーツや熟したメロンを思わせるアロマが広がります。心地よい苦味とのバランスも良く、飲み飽きない仕上がりです。",
@@ -13613,7 +13745,10 @@
       "brewery": "Heavy Riff Brewing",
       "style": "New England IPA",
       "abv": "5.7%",
-      "hops": [],
+      "hops": [
+        "Mosaic",
+        "El Dorado"
+      ],
       "url": "https://www.antenna-america.com/products/b113-c16005",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/DiscoApocalypse_2.png?width=400",
       "description": "MosaicとEl Doradoホップ由来のマンゴーやパイナップルのようなトロピカルフルーツを思わせる味わい。ジャクソン・ブラウンによる名曲の名前を冠したHazy IPA",
@@ -13626,7 +13761,9 @@
       "brewery": "Heavy Riff Brewing",
       "style": "American Wheat Ale",
       "abv": "4.8%",
-      "hops": [],
+      "hops": [
+        "Lemondrop"
+      ],
       "url": "https://www.antenna-america.com/products/b113-c16003",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SqueezeBox_2.png?width=400",
       "description": "Lemondropホップと副原料にレモンピールを使用しすっきりフルーティーな酸味。太陽の光を浴びながら飲みたい味。英国のロックバンド The Whoの曲名",
