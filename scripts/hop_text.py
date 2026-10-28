@@ -49,6 +49,24 @@ JP_DISTINCT = {
     "モウテレ": "Moutere", "ムーテレ": "Moutere", "マニリタ": "Manilita", "ピーチャリン": "Peacharine",
     "ストリッセルシュパルト": "Strisselspalt", "パシフィカ": "Pacifica", "ワイイティ": "Wai Iti",
     "ファルコナーズフライト": "Falconer's Flight",
+    # --- 2026-10-28 追加: チャートにあるが日本語表記が未登録だった品種(欧州ノーブル系・英国系・NZ/豪の新品種等)---
+    "アマリーロ": "Amarillo", "ベルマ": "Belma", "エクイノックス": "Ekuanot", "ファッグル": "Fuggle",
+    "ハラタウ・ブラン": "Hallertau Blanc", "マンダリナバヴァリア": "Mandarina Bavaria", "マンダリナ・バヴァリア": "Mandarina Bavaria",
+    "ハラタウアーミッテルフリュー": "Hallertauer Mittelfruher", "ハラタウアー・ミッテルフリュー": "Hallertauer Mittelfruher",
+    "ハラタウミッテルフリュー": "Hallertauer Mittelfruher", "ハラタウアートラディション": "Hallertauer Tradition",
+    "ハラタウアー・トラディション": "Hallertauer Tradition", "ヘルスブルッカー": "Hersbrucker Spat",
+    "テトナング": "Tettnanger", "テトナンガー": "Tettnanger", "シュパルターセレクト": "Spalter Select", "シュパルター": "Spalter",
+    "パシフィックジェム": "Pacific Gem", "パシフィックジェイド": "Pacific Jade", "パシフィックサンライズ": "Pacific Sunrise",
+    "アイダホジェム": "Idaho Gem", "ノーザンブルワー": "Northern Brewer", "ノースダウン": "Northdown",
+    "イーストケントゴールディング": "East Kent Golding", "イースト・ケント・ゴールディング": "East Kent Golding",
+    "スタイリアンゴールディング": "Savinjski Golding", "スティリアンゴールディング": "Savinjski Golding",
+    "ブルワーズゴールド": "Brewer's Gold", "プライドオブリングウッド": "Pride of Ringwood",
+    "サフィール": "Saphir", "ペッコ": "Pekko", "プレミアント": "Premiant", "ヘルクレス": "Herkules", "ヘルガ": "Helga",
+    "サンティアム": "Santiam", "スラデク": "Sladek", "タホマ": "Tahoma", "トライスケル": "Triskel", "シルバ": "Sylva",
+    "スーパープライド": "Super Pride", "スーパーデリック": "Superdelic", "アデーナ": "Adeena", "アディーナ": "Adeena",
+    "アラミス": "Aramis", "アウダシア": "Audacia", "バーブルージュ": "Barbe Rouge", "ボベック": "Bobek",
+    "セレイア": "Celeia", "シェラン": "Chelan", "コンテッサ": "Contessa", "エレニ": "Elani", "エンデバー": "Endeavour",
+    "エレバス": "Erebus", "ファーストゴールド": "First Gold", "ロリアン": "Lorien", "カズベク": "Kazbek",
 }
 # 一般名詞・地名・人名と同形の名前: ホップを指す語が同じ文にあるときだけ採用
 JP_CONTEXT = {
@@ -63,6 +81,14 @@ JP_CONTEXT = {
     "ヘリオス": "Helios", "ホライズン": "Horizon", "パイロット": "Pilot", "サルタナ": "Sultana",
     "タンジェール": "Tangier", "ヴィスタ": "Vista", "ザンバ": "Zamba", "デナリ": "Denali",
     "ヴァンガード": "Vanguard", "スターリング": "Sterling", "エラ": "Ella",
+}
+# 日常語と同形で、ホップの名前としては稀なもの: 「…ホップ」と名前の直後に書かれているときだけ採用
+# (「オーロラのようにホップアロマが輝く」の"オーロラ"を品種と誤認した実例があるため、文脈だけでは採用しない。2026-10-28)
+JP_NEEDS_SUFFIX = {
+    "マウントレーニア": "Mt. Rainier", "ミストラル": "Mistral", "ヴェラ": "Vera", "ソブリン": "Sovereign",
+    "フェニックス": "Phoenix", "プログレス": "Progress", "リバティ": "Liberty", "オパール": "Opal",
+    "トライアンフ": "Triumph", "オリンピック": "Olympic", "オーロラ": "Aurora", "アーネスト": "Ernest",
+    "コロンビア": "Columbia",
 }
 # 前後にカタカナが続かなければ採用する語に付く接尾「ホップ」(例: シトラホップ)
 JP_SUFFIX_OK = "(?:ホップ)?"
@@ -127,6 +153,10 @@ def _spans(seg, chart_names, bases):
                 # 「ホップ」を含めてマッチさせたので、名前の終端はキー末尾
                 end = m.start() + len(key)
                 out.append((m.start(), end, canon, needs_ctx, False))
+    # 日常語と同形(名前の直後に「ホップ」が付いているときだけ)
+    for key, canon in JP_NEEDS_SUFFIX.items():
+        for m in re.finditer(r"(?<![%s])%sホップ(?![%s])" % (KATA, re.escape(key), KATA), seg):
+            out.append((m.start(), m.start() + len(key), canon, True, False))
     # 英語
     for base in bases:
         pats = [base] + EN_ALIASES.get(base, [])

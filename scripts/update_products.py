@@ -142,6 +142,8 @@ HOP_NAME_FIXES = {
     "Nectar": "Nectaron",
     # 本来の綴りはStrisselspalt(アルザスのホップ)。アロマチャートの項目名は既存のStrisselspalterに合わせる
     "Strisselspalt": "Strisselspalter",
+    # Jester King Enigmatic Taxa: 日本語訳の「ブレマ」を"Brema"と起こしていたが、同じ商品の英語原文は"Belma"(2026-10-28確認)
+    "Brema": "Belma",
     # Vertereの古い記事の綴りミス(大文字小文字の違いだけのものは下のcanonical化で自動的に直る)
     "Centenial": "Centennial",
     "Centtenial": "Centennial",
@@ -333,7 +335,15 @@ def antenna_spec_fields(body_html: str) -> dict:
         line = strip_tags(li)
         m = re.match(r"^([^：:]+)[：:]\s*(.*)$", line)
         if m:
-            fields[m.group(1).strip()] = m.group(2).strip()
+            label, value = m.group(1).strip(), m.group(2).strip()
+            if label == "ホップ" and fields.get(label) and value not in ("", "-"):
+                # 複数のビールを含むセット商品は「ホップ：」の行が銘柄ごとに並ぶ。上書きすると最後の銘柄のホップだけになる
+                # (2026-10-28: Allagash 4本セットでLagerのホップしか入っていなかった)ので、全行を連結して和集合にする
+                fields[label] = fields[label] + ", " + value
+            elif label == "ホップ" and fields.get(label) and value in ("", "-"):
+                pass  # 後続の「ホップ：-」で、先に読んだ記載を消さない
+            else:
+                fields[label] = value
     return fields
 
 
@@ -344,7 +354,7 @@ def parse_antenna_product(p: dict, source_key: str, base_url: str) -> dict:
     brewery = normalize_brewery(fields.get("ブリュワリー") or p.get("product_type") or "")
     style = fields.get("スタイル") or p.get("vendor") or ""
     abv = fields.get("ABV") or "-"
-    hops = split_hops(fields.get("ホップ") or "")
+    hops = list(dict.fromkeys(split_hops(fields.get("ホップ") or "")))  # セットで同じ品種が複数行に出ても1回にする
 
     # 商品名: タイトルから "/日本語名" と "(NNNml)" とブリュワリー名の重複プレフィックスを除去
     title = p["title"]

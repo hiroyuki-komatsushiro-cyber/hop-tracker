@@ -158,10 +158,22 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
 - **検証(2026-10-28、商品896件)**: ホップ空だった323件を人手で全て読んだ正解と比べ、品種名ありの37件は全て拾え(取りこぼしは
   加工品の細かい形2語のみ)、品種名なしの286件は誤抽出ゼロ。スペック欄のある573件に対しても、抽出器が出した「欄に無い名前」25件は
   全て説明文/ライブページ側の正しい記載だった(比較文の誤抽出は比較語ルールで除外)。回帰テスト: `python scripts/test_hop_text.py`
+- **カタカナ表記への対応**: 辞書(`JP_DISTINCT`/`JP_CONTEXT`/`JP_NEEDS_SUFFIX`)に載っている表記は拾える
+  (例: Citra←シトラ、Mosaic←モザイク、Simcoe←シムコー、Nelson Sauvin←ネルソン/ネルソンソーヴィン、Moutere←モウテレ)。
+  2026-10-28時点でチャートの基本品種162のうち142に日本語表記があり、残り20は英字の名前(HBC 630、CTZ等)やブレンド名。
+  「シトラス」「フローラル」のようにカタカナが続く語は品種として拾わず、「オーロラ」「リバティ」等の日常語と同形の名前は
+  「…ホップ」と直後に書かれているときだけ採用する(`JP_NEEDS_SUFFIX`。「オーロラのようにホップアロマが輝く」を品種と誤認した実例がある)
 - **辞書にない新しい日本語表記は拾えない**(取りこぼし=ホップ空のまま)。月次監査が`recent_products_hop_words_without_names`に
   「ホップの語が列挙の形である最近の商品」を出すので、月次のClaudeタスクが読み、新しい表記を `hop_text.py` に足してテストを追加する
 - **注意**: 「スペック欄の記載」と「説明文の記載」が食い違う商品がある(例: WCB Campfire Storiesは「w/」行がCentennial、本文はChinook。
-  Sierra Nevada Rad Little Thingは保存済みのスペックと現在のページで品種が違う)。欄に記載がある商品は書き換えず、食い違いは報告に残す
+  Sierra Nevada Rad Little Thingは保存済みのスペックと現在のページで品種が違う)。欄に記載がある商品は書き換えず、食い違いは報告に残す。
+  例外として、ページ側が**追加で**品種を挙げていて保存済みの品種と矛盾しない場合は追記する(2026-10-28に8商品。例: Deschutes Fresh Haze IPAに
+  Callista/Bravoを追記)。ページ側でホップが変わっている商品(Sierra Nevada Rad/Peachy/Cosmic Little Thing、Atomic Torpedo、Revision DIPA/IPA等。
+  新しいバッチ/ヴィンテージの可能性)は書き換えず、ユーザーに報告する
+- **セット商品のスペック**: Antennaのセット商品は「ホップ：」の行が銘柄ごとに並ぶ。`antenna_spec_fields`は以前は最後の行で上書きしていた
+  (Allagash 4本セットでLagerのホップしか入らなかった)ので、全行の和集合にした(2026-10-28)
+- **誤記の解消(2026-10-28)**: Southboundの日本語訳が「ブレマ」「X ７」と起こしていたため、Jester King Enigmatic Taxaのホップ欄が
+  "Brema / X7" になっていたが、同商品の英語原文は"Belma / X17"。Brema→Belma(`HOP_NAME_FIXES`、チャートに在る)、X7→X17(出典が乏しくチャート化しない)に直した
 
 ## 月次監査（scripts/audit_catalog.py）
 

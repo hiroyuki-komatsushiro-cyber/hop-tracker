@@ -43,7 +43,9 @@ REVIEW_PATH = ROOT / "data" / "audit_review.json"
 
 # 過去に出典を探しても見つからず、ユーザーも「分からない」と確認済みの品種名。
 # 月次レビューに毎回「新規発見」のように出てこないよう除外する(2026-09-22確認)。
-KNOWN_UNRESOLVED_HOPS = {"Brema", "Torpedo Hop", "X7"}
+KNOWN_UNRESOLVED_HOPS = {"Torpedo Hop", "X17"}
+# (2026-10-28) Brema=Belma、X7=X17 は誤記だった: 日本語訳「ブレマ」「X ７」を起こした綴りで、Enigmatic Taxaの英語原文は
+# "dry-hopped with Cascade, Belma, Mosaic, and X17"。BremaはHOP_NAME_FIXESでBelmaに寄せ、X17は出典が乏しくチャート化しない
 # Vertere(2026-10-16取り込み)で出てきた、品種としてチャート化しないホップ名。
 # Kohia Nelson=Freestyle Hopsの植物原料入りブレンド(NelsonとRakauにNZパッションフルーツ、品種ではない)、
 # Nelson Terpene/Maui Nelson Kief/Tropical Fusion=出典が見つからず製品の実体が不明

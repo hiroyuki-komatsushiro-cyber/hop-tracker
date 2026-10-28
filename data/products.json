@@ -187,7 +187,9 @@
       "style": "Pale Ale",
       "abv": "5.5%",
       "hops": [
-        "Citra"
+        "Citra",
+        "Cascade",
+        "Chinook"
       ],
       "url": "https://www.antenna-america.com/en/products/b083-b12006",
       "added": "2026-06-21",
@@ -678,7 +680,10 @@
       "style": "West Coast IPA",
       "abv": "7%",
       "hops": [
-        "Mosaic"
+        "Mosaic",
+        "Nectaron",
+        "Cascade",
+        "Mosaic Cryo"
       ],
       "url": "https://www.antenna-america.com/en/products/b109-c16029a",
       "added": "2026-06-27",
@@ -2126,7 +2131,9 @@
       "hops": [
         "Cashmere",
         "Mandarina Bavaria",
-        "Amarillo"
+        "Amarillo",
+        "Callista",
+        "Bravo"
       ],
       "url": "https://www.antenna-america.com/products/b080-c12001",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/FreshHaze202403.png?width=400",
@@ -2142,7 +2149,8 @@
       "abv": "6.4%",
       "hops": [
         "Citra",
-        "Mosaic"
+        "Mosaic",
+        "Nugget"
       ],
       "url": "https://www.antenna-america.com/en/products/b080-c12002",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/FreshSqueezed202403.png?width=400",
@@ -2593,7 +2601,8 @@
       "hops": [
         "Citra",
         "Mosaic",
-        "Galaxy"
+        "Galaxy",
+        "Amarillo"
       ],
       "url": "https://www.antenna-america.com/en/products/b055-c16037",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/DiscoNinja_1.png?width=400",
@@ -2808,7 +2817,8 @@
       "abv": "7.2%",
       "hops": [
         "Mosaic",
-        "Krush"
+        "Krush",
+        "Citra"
       ],
       "url": "https://www.antenna-america.com/products/b127-c16007",
       "added": "2026-08-17",
@@ -5419,9 +5429,9 @@
         "Loral",
         "Ekuanot",
         "Cascade",
-        "Brema",
+        "Belma",
         "Mosaic",
-        "X7"
+        "X17"
       ],
       "url": "https://southbound.jp/products/jk-enigmatictaxa-pkg",
       "added": "2026-08-17",
@@ -5815,7 +5825,8 @@
       "abv": "5.4%",
       "hops": [
         "Mosaic",
-        "Columbus"
+        "Columbus",
+        "Apollo"
       ],
       "url": "https://www.antenna-america.com/products/b098-c16003",
       "added": "2026-08-19",
@@ -13911,7 +13922,13 @@
         "Nugget",
         "Hallertauer Mittelfruher",
         "Loral",
-        "Saaz"
+        "Saaz",
+        "Crystal",
+        "Chinook",
+        "Mosaic",
+        "Citra",
+        "Idaho 7",
+        "El Dorado"
       ],
       "url": "https://www.antenna-america.com/products/set-34-oct-21",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/allagash_49a4da1a-6db7-4fde-96ac-fb1b33c82b19.jpg?width=400",
