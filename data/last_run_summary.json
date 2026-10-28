@@ -1,40 +1,6 @@
 {
   "date": "2026-10-28",
-  "new_products": [
-    {
-      "id": "set-34-oct-21",
-      "name": "＼購入特典あり／Allagashwhite2本入り各種4本セット",
-      "brewery": "Allagash Brewing Company",
-      "style": "Lager",
-      "abv": "5%",
-      "hops": [
-        "Nugget",
-        "Hallertauer Mittelfruher",
-        "Loral",
-        "Saaz"
-      ],
-      "url": "https://www.antenna-america.com/products/set-34-oct-21",
-      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/allagash_49a4da1a-6db7-4fde-96ac-fb1b33c82b19.jpg?width=400",
-      "description": "【10/27発売】①Brewing Company Allagash White (355ml) / アラガッシュ ホワイト世界で最も受賞回数の多いベルジャンスタイルウィートエールがこのAllagash White。オーツ麦、小麦麦芽、小麦を使い醸造され、色味は白濁した黄色。コリアンダーとキュラソーオレンジピールを副原料として使用しており、複雑でありつつもフルーティーで爽やかな味わい。仕上げは缶内二次発酵を行っており、時間が経過しても高い品質とフレッシュさが楽しめる名作。酵母や麦芽のタンパク質が缶底に沈殿しているため、開栓する前に缶を優しくひっくり返してください。",
-      "source": "antenna",
-      "added": "2026-10-28"
-    },
-    {
-      "id": "vertere-3210",
-      "name": "Vanitas",
-      "brewery": "Vertere",
-      "style": "Fig Sour w/Lemon Peel & Rosemary",
-      "abv": "6.5%",
-      "hops": [
-        "El Dorado"
-      ],
-      "url": "https://verterebrew.com/brewlog/vanitas/",
-      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/10/244_Vanitas-300x300.jpg",
-      "description": "京都醸造とのコラボレーションビール。Fig Cognac Smashというカクテルから着想を得たサワーエール。イチジクのほのかに甘い香りとコニャックの奥行きのあるアロマ。レモンピールの爽やかな柑橘感とローズマリーのハーバルなニュアンスがアクセント。果実の豊かな風味と軽やかな酸味が調和する一杯。",
-      "source": "vertere",
-      "added": "2026-10-28"
-    }
-  ],
+  "new_products": [],
   "recycled_handles": [],
   "hops_needing_aroma_review": [],
   "hops_from_description": [],
@@ -42,7 +8,7 @@
   "sources": {
     "antenna": {
       "status": "ok",
-      "added": 1
+      "added": 0
     },
     "southbound": {
       "status": "ok",
@@ -50,7 +16,7 @@
     },
     "vertere": {
       "status": "ok",
-      "added": 1
+      "added": 0
     },
     "westcoast": {
       "status": "ok",
