@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-27",
+  "last_updated": "2026-10-28",
   "products": [
     {
       "id": "b105-c16036",
@@ -13900,6 +13900,39 @@
       "description": "雲の上から、降りてきた？用宗のアートシーンを揺るがす、一大イベント。会場の中央に堂々とそびえ立つのは、あまりにも巨大な“Hop Oracle”の彫刻。 さすがは、雲の上に住まう伝説の仙人。Hop Dude界の名だたるアーティストたちが、彼をモチーフに制作した作品もずらりと勢ぞろい。その影響力、もはや地上に収まりきらないかも？ ……とはいえ、本人はいつだってマイペース。今日も雲の上で、うとうと、のんびり、夢うつつ。もしかすると、この展覧会そのものが、彼の見ている夢なのかもしれない。 NZ産のNectaronホップを主体に、US産のEl Doradoを組み合わせ。仕上げには、ホップ由来の“Nectaron Quantum”を投入！\n\n※＠abstraxhopsが開発したホップオイル製品。ホップ由来のアロマ成分を抽出・液化したもので、ビールに香りと風味を集中的に与えることを目的として使用。 パイナップルやパッションフルーツといった鮮やかでトロピカルなアロマ。味わいにはオレンジの柑橘ニュアンスが感じられ、桃やメロンの優しい印象も。なめらかな口当たりと、重さを感じさせない、するりと心地良い飲み口が魅力。",
       "source": "westcoast",
       "added": "2026-10-27"
+    },
+    {
+      "id": "set-34-oct-21",
+      "name": "＼購入特典あり／Allagashwhite2本入り各種4本セット",
+      "brewery": "Allagash Brewing Company",
+      "style": "Lager",
+      "abv": "5%",
+      "hops": [
+        "Nugget",
+        "Hallertauer Mittelfruher",
+        "Loral",
+        "Saaz"
+      ],
+      "url": "https://www.antenna-america.com/products/set-34-oct-21",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/allagash_49a4da1a-6db7-4fde-96ac-fb1b33c82b19.jpg?width=400",
+      "description": "【10/27発売】①Brewing Company Allagash White (355ml) / アラガッシュ ホワイト世界で最も受賞回数の多いベルジャンスタイルウィートエールがこのAllagash White。オーツ麦、小麦麦芽、小麦を使い醸造され、色味は白濁した黄色。コリアンダーとキュラソーオレンジピールを副原料として使用しており、複雑でありつつもフルーティーで爽やかな味わい。仕上げは缶内二次発酵を行っており、時間が経過しても高い品質とフレッシュさが楽しめる名作。酵母や麦芽のタンパク質が缶底に沈殿しているため、開栓する前に缶を優しくひっくり返してください。",
+      "source": "antenna",
+      "added": "2026-10-28"
+    },
+    {
+      "id": "vertere-3210",
+      "name": "Vanitas",
+      "brewery": "Vertere",
+      "style": "Fig Sour w/Lemon Peel & Rosemary",
+      "abv": "6.5%",
+      "hops": [
+        "El Dorado"
+      ],
+      "url": "https://verterebrew.com/brewlog/vanitas/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/10/244_Vanitas-300x300.jpg",
+      "description": "京都醸造とのコラボレーションビール。Fig Cognac Smashというカクテルから着想を得たサワーエール。イチジクのほのかに甘い香りとコニャックの奥行きのあるアロマ。レモンピールの爽やかな柑橘感とローズマリーのハーバルなニュアンスがアクセント。果実の豊かな風味と軽やかな酸味が調和する一杯。",
+      "source": "vertere",
+      "added": "2026-10-28"
     }
   ]
 }
