@@ -1,8 +1,9 @@
 {
-  "date": "2026-10-16",
+  "date": "2026-11-01",
   "auto_fixed": {
     "renormalized_hops": [],
-    "backfilled_from_live_source": []
+    "backfilled_from_live_source": [],
+    "hops_from_description": []
   },
   "needs_review": {
     "duplicate_candidates": [
@@ -171,28 +172,6 @@
           "abv"
         ],
         "relocation_candidates": []
-      },
-      {
-        "id": "b114-c16018",
-        "name": "Embolden Beer Co Brave the Haze Hazy DIPA",
-        "brewery": "Embolden Beer Co",
-        "source": "antenna",
-        "gaps": [
-          "hops",
-          "abv"
-        ],
-        "relocation_candidates": [
-          {
-            "handle": "b114-c16003",
-            "title": "Embolden Beer Co Brave the Haze Hazy DIPA (473ml) / ブレイブ ザ ヘイズ",
-            "available": false
-          },
-          {
-            "handle": "b114-c16003a",
-            "title": "Embolden Beer Co Brave the Haze Hazy DIPA (473ml) / ブレイブ ザ ヘイズ",
-            "available": false
-          }
-        ]
       },
       {
         "id": "rc-skullsizedkingdom-pkg",
@@ -370,6 +349,16 @@
         "relocation_candidates": []
       },
       {
+        "id": "su-beelini-pkg",
+        "name": "BeeLini",
+        "brewery": "Superstition",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ],
+        "relocation_candidates": []
+      },
+      {
         "id": "su-bapeanutbutterjellycrime-pkg",
         "name": "Bourbon Barrel Aged Peanut Butter Jelly Crime",
         "brewery": "Superstition",
@@ -403,6 +392,26 @@
         "id": "hw-kyxmasmorningcan-pkg",
         "name": "Kentucky Christmas Morning",
         "brewery": "Hardywood Park",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ],
+        "relocation_candidates": []
+      },
+      {
+        "id": "ax-herefordgold-pkg",
+        "name": "Hereford Gold",
+        "brewery": "ANXO",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ],
+        "relocation_candidates": []
+      },
+      {
+        "id": "nb-lemonelderflower-pkg",
+        "name": "Lemon & Elderflower Spritzer",
+        "brewery": "Noble Cider",
         "source": "southbound",
         "gaps": [
           "hops"
@@ -476,6 +485,16 @@
         "brewery": "Mix",
         "source": "antenna",
         "gaps": [
+          "abv"
+        ],
+        "relocation_candidates": []
+      },
+      {
+        "id": "b999-p929",
+        "name": "Halloween Special【スタッフが選ぶ不思議なビール】4本セット",
+        "brewery": "Mix",
+        "source": "antenna",
+        "gaps": [
           "hops",
           "abv"
         ],
@@ -483,6 +502,26 @@
       }
     ],
     "handle_reassigned_candidates": [
+      {
+        "id": "b114-c16018",
+        "stored_name": "Embolden Beer Co Brave the Haze Hazy DIPA",
+        "stored_brewery": "Embolden Beer Co",
+        "handle": "b114-c16018",
+        "live_name": "Room Service Hazy IPA",
+        "live_brewery": "Embolden Beer Co",
+        "relocation_candidates": [
+          {
+            "handle": "b114-c16003",
+            "title": "Embolden Beer Co Brave the Haze Hazy DIPA (473ml) / ブレイブ ザ ヘイズ",
+            "available": false
+          },
+          {
+            "handle": "b114-c16003a",
+            "title": "Embolden Beer Co Brave the Haze Hazy DIPA (473ml) / ブレイブ ザ ヘイズ",
+            "available": false
+          }
+        ]
+      },
       {
         "id": "b121-c16017",
         "stored_name": "Ambitious Ales Friends in High Places Hazy IPA",
@@ -511,25 +550,118 @@
         "relocation_candidates": []
       }
     ],
-    "hop_in_description_candidates": [
+    "recent_products_hop_words_without_names": [
       {
-        "id": "firestone-walker-mind-haze-setof6bottles",
-        "name": "Mind Haze 3種6本セット",
-        "found": [
-          "Galaxy"
+        "id": "b137-c16003",
+        "name": "Golden Riff Society West Coast IPA",
+        "added": "2026-10-13",
+        "snippets": [
+          "「人の心を動かし、常識に挑戦するビール造り」を掲げるElectric Eye Beer Co.らしく、力強く鮮やかなホップキャラクターを前面に押し出した仕上がりとなっています",
+          "「人の心を動かし、常識に挑戦するビール造り」を掲げるElectric Eye Beer Co.らしく、力強く鮮やかなホップキャラクターを前面に押し出した仕上がりとなっています"
         ]
       },
       {
-        "id": "deschutes4buttele-set",
-        "name": "《Patagoniaコラボ含む》 Deschutes Brewery 4本セット",
-        "found": [
-          "Amarillo",
-          "Cashmere",
-          "Mandarina Bavaria"
+        "id": "b055-c16156",
+        "name": "Shadow Hazy IPA",
+        "added": "2026-10-13",
+        "snippets": [
+          "ジューシーなシトラスのアロマに、完熟したストーンフルーツの味わいと、トロピカルなホップキャラクターが重なります",
+          "バランスの取れた苦味が後味をクリーンにまとめ、余韻にはミステリアスなホップアロマが残り、もう一口を誘います",
+          "ジューシーなシトラスのアロマに、完熟したストーンフルーツの味わいと、トロピカルなホップキャラクターが重なる"
+        ]
+      },
+      {
+        "id": "set-34-oct-14",
+        "name": "【数量限定XLサイズTシャツ付き！】Electric Eye Company　新作他3種のビール＋Tシャツ",
+        "added": "2026-10-13",
+        "snippets": [
+          "スタイル：West Coast Pale AleABV：5%IBU：--入数：1商品名：Electric Eye Beer Company Golden Riff Society West Coast IPA (473ml) / ゴールデン リフ ソサエティ商品説明：「人の心を動かし、常識に挑戦するビール造り」を掲げるElectric Eye Beer Co.らしく、力強く鮮やかなホップキャラクタ",
+          "商品説明：「人の心を動かし、常識に挑戦するビール造り」を掲げるElectric Eye Beer Co.らしく、力強く鮮やかなホップキャラクターを前面に押し出した仕上がり"
+        ]
+      },
+      {
+        "id": "set-34-oct-13",
+        "name": "【数量限定LサイズTシャツ付き！】Electric Eye Company　新作他3種のビール＋Tシャツ",
+        "added": "2026-10-13",
+        "snippets": [
+          "スタイル：West Coast Pale AleABV：5%IBU：--入数：1商品名：Electric Eye Beer Company Golden Riff Society West Coast IPA (473ml) / ゴールデン リフ ソサエティ商品説明：「人の心を動かし、常識に挑戦するビール造り」を掲げるElectric Eye Beer Co.らしく、力強く鮮やかなホップキャラクタ",
+          "商品説明：「人の心を動かし、常識に挑戦するビール造り」を掲げるElectric Eye Beer Co.らしく、力強く鮮やかなホップキャラクターを前面に押し出した仕上がり"
+        ]
+      },
+      {
+        "id": "set-34-oct-15",
+        "name": "《coozieつき》今夜は、香ばしいビール。アンバー＆コーヒーポーター飲み比べ4本セット",
+        "added": "2026-10-15",
+        "snippets": [
+          "シトラス（グレープフルーツなど）や松（パイン）、ダンクなホップアロマがしっかり効いた、クリーンで心地よい苦味スタイル：West Coast IPAABV：7.2%IBU：入数：1アンテナアメリカ Smog City 人気NO.２商品名：Sabre-Toothed Squirrel (473ml) / セイバートゥースド スクオロル商品説明：非常にポップで印象的なパッケージ（剣歯リス）と、ホップとモ",
+          "まるで高級エスプレッソのような香りと、ダークチョコレートやナッツを思わせる深みが特長スタイル：Robust Porter w/ CoffeeABV：6%IBU：入数：1商品名：Smog City Space Weather Hazy IPA (473ml) / スペース ウェザー商品説明：宇宙級のジューシー感（トロピカルフルーティー）マンゴー、パッションフルーツ、パイナップルを思わせる、弾けるほど",
+          "シトラス（グレープフルーツなど）や松（パイン）、ダンクなホップアロマがしっかり効いた、クリーンで心地よい苦味"
+        ]
+      },
+      {
+        "id": "b062-c12020",
+        "name": "New Zealand Pils",
+        "added": "2026-10-20",
+        "snippets": [
+          "ピルスナーのクリーンでキレの良い味わいはそのままに、ニュージーランド産ホップ特有の柑橘やトロピカルフルーツのような香りが加わっています",
+          "正統派でクラシックなピルスナーを、ニュージーランド産のトロピカルなホップでドライホッピング",
+          "ピルスナーのクリーンでキレの良い味わいはそのままに、ニュージーランド産ホップ特有の柑橘やトロピカルフルーツのような香りが加わっています"
+        ]
+      },
+      {
+        "id": "b999-stone01",
+        "name": "定番商品 568ml缶×3本セット",
+        "added": "2026-10-27",
+        "snippets": [
+          "苦味を抑えた味わいで、トロピカルなホップの個性を楽しめます",
+          "苦味を抑えた味わいで、トロピカルなホップの個性を楽しめます"
+        ]
+      },
+      {
+        "id": "set-34-oct-20",
+        "name": "【飲んで・着て楽しむ！】 Pizza Port 他IPA飲み比べ6本セット",
+        "added": "2026-10-27",
+        "snippets": [
+          "＜多面的でトロピカル・ダンクな最新ホップ表現が光る一品＞"
         ]
       }
     ],
     "unknown_hop_names": {},
-    "unregistered_wp_posts": []
+    "unregistered_items": [
+      {
+        "source": "westcoast",
+        "id": "fruitstories2",
+        "link": "https://www.westcoastbrewing.jp/beer/fruitstories2/",
+        "title": "#fruitstories 2 - The Citrus Games -",
+        "date": ""
+      },
+      {
+        "source": "westcoast",
+        "id": "nelson-south",
+        "link": "https://www.westcoastbrewing.jp/beer/nelson-south/",
+        "title": "Garston - Nelson South",
+        "date": ""
+      },
+      {
+        "source": "westcoast",
+        "id": "motueka-south",
+        "link": "https://www.westcoastbrewing.jp/beer/motueka-south/",
+        "title": "Garston - Motueka South",
+        "date": ""
+      },
+      {
+        "source": "westcoast",
+        "id": "local-alchemist-quantum",
+        "link": "https://www.westcoastbrewing.jp/beer/local-alchemist-quantum/",
+        "title": "Local Alchemist Quantum",
+        "date": ""
+      }
+    ],
+    "sources_without_completeness_check": []
+  },
+  "info": {
+    "unregistered_notes": {
+      "westcoast": "checked the newest 72 beers on the site; older archive beers are outside the weekly crawl's scope (not imported)"
+    }
   }
 }
