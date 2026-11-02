@@ -189,7 +189,9 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
 - hops[]に使われているが hops_tab.js のアロマチャートに未収録の品種名
 - ブルワリー公式サイト系(Vertere / West Coast Brewing)で、週次の収集が見る範囲(Vertere=最新30件、WCB=最新12件)を外れた取りこぼし
   (`needs_review.unregistered_items`。VertereはREST APIで全記事のID、WCBは一覧の先頭72銘柄を読んで照合する。
-  見つかったら `BACKFILL_SOURCES=<source_key> python scripts/update_products.py` で取り込む)。
+  見つかったら `BACKFILL_SOURCES=<source_key> python scripts/update_products.py` で取り込む。WCBは
+  `BACKFILL_SOURCES=westcoast BACKFILL_PAGES=6 BACKFILL_ONLY=<unregistered_itemsのid,...>` とidまで指定する。
+  `BACKFILL_ONLY`が無いと、6ページ内の未登録の過去分(取り込みはユーザー判断待ち)まで入ってしまう)。
   **検査が未実装の収集先は `sources_without_completeness_check` に列挙される**(「問題なし」と区別して必ず報告に出す)。
   Shopify系はライブカタログと全件照合する対象を`update_sources.json`から自動で決める
 

@@ -138,6 +138,7 @@ HOP_NAME_FIXES = {
     "Roasted Coconut": "",
     "Rum": "",
     "Vanilla Beans": "",
+    "Orange": "",  # WCB「#fruitstories 2」(Fruited Ale)の「w/」行。果実でホップではない(2026-11-02)
     # WCB「Westie Bois」の「w/」行は"Nectar"だが、同じ個別ページの本文に「Nectaronも採用」と明記(2026-10-16確認)
     "Nectar": "Nectaron",
     # 本来の綴りはStrisselspalt(アルザスのホップ)。アロマチャートの項目名は既存のStrisselspalterに合わせる
@@ -632,10 +633,13 @@ def wcb_list_items(source: dict, archive: bool = False, max_archive_pages: int =
 def collect_wcb_list(source: dict, known_ids: set, backfill: bool) -> list[dict]:
     """一覧から未登録のビールを見つけ、その個別ページだけ取得して説明文を補う。
     通常は /ourbeers/ の1ページのみ。アーカイブ(過去分)の取り込みは BACKFILL_SOURCES=westcoast で指定する
-    (全ページ=約530銘柄。環境変数 BACKFILL_PAGES=N で読むアーカイブのページ数を絞れる。1ページ=12銘柄で、
-    月次監査が見つけた取りこぼしの補充には BACKFILL_PAGES=6 が使える)。"""
+    (全ページ=約530銘柄。環境変数 BACKFILL_PAGES=N で読むアーカイブのページ数を絞れる。1ページ=12銘柄)。
+    月次監査が見つけた取りこぼしの補充は BACKFILL_ONLY=<id,id,...>(audit_review.json の unregistered_items の
+    id)も必ず付ける。BACKFILL_PAGES=6 だけだと、その6ページにある「登録済みの最も古い銘柄より古い」過去分まで
+    取り込んでしまう(2026-11-02に4件の補充のつもりで58件入った。過去分の取り込みはユーザー判断待ち)。"""
     key = source["source_key"]
     max_pages = int(os.environ.get("BACKFILL_PAGES") or 60)
+    only = {s.strip() for s in os.environ.get("BACKFILL_ONLY", "").split(",") if s.strip()}
     items = wcb_list_items(source, archive=backfill, max_archive_pages=max_pages)
     print(f"  {len(items)} beer(s) read from the list page(s).")
     if not items:
@@ -645,6 +649,8 @@ def collect_wcb_list(source: dict, known_ids: set, backfill: bool) -> list[dict]
     for it in reversed(items):  # 古い順に追記(一覧は新しい順)
         rid = f"{key}-{it['slug']}"
         if rid in known_ids:
+            continue
+        if only and it["slug"] not in only and rid not in only:
             continue
         detail = fetch_url(it["url"])
         time.sleep(REQUEST_DELAY)

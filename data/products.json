@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-01",
+  "last_updated": "2026-11-02",
   "products": [
     {
       "id": "b105-c16036",
@@ -1313,13 +1313,17 @@
       "source": "antenna"
     },
     {
-      "id": "b114-c16018",
+      "id": "b114-c16003",
       "name": "Embolden Beer Co Brave the Haze Hazy DIPA",
       "brewery": "Embolden Beer Co",
       "style": "Hazy DIPA",
-      "abv": "-",
-      "hops": [],
-      "url": "https://www.antenna-america.com/en/products/b114-c16018",
+      "abv": "8%",
+      "hops": [
+        "Citra",
+        "Mosaic",
+        "Cascade"
+      ],
+      "url": "https://www.antenna-america.com/products/b114-c16003",
       "image": "https://www.antenna-america.com/cdn/shop/files/BravetheHazeHazyDIPA.jpg?width=400",
       "description": "エンボールデン・ビア・カンパニーのヘイジーDIPA「Brave the Haze」。霞（ヘイズ）を勇敢に突き進むような力強さと、ジューシーで厚みのあるトロピカルフルーツのアロマが溢れ出す一杯。日本文化へのリスペクトを持つサンディエゴ発のブリュワリーならではの個性。",
       "added": "2026-07-03",
@@ -2171,23 +2175,6 @@
       "url": "https://www.antenna-america.com/en/products/b047-c12034",
       "image": "https://www.antenna-america.com/cdn/shop/files/DBA.png?width=400",
       "description": "「ダブル・バレル・エール」の略。ファイアーストーン・ウォーカーのシグネチャー製法であるオーク樽発酵で醸したイギリス風ペールエール。イースト・ケント・ゴールディング、フグルというイギリス伝統ホップを使用し、キャラメル・バニラ・モルトの温かみあるアロマが広がる。",
-      "source": "antenna",
-      "added": "2026-08-03"
-    },
-    {
-      "id": "b047-c12081",
-      "name": "Firestone Walker Easy Jack",
-      "brewery": "Firestone Walker",
-      "style": "IPA",
-      "abv": "4.5%",
-      "hops": [
-        "Mosaic",
-        "Mandarina Bavaria",
-        "Centennial"
-      ],
-      "url": "https://www.antenna-america.com/en/products/b047-c12081",
-      "image": "https://www.antenna-america.com/cdn/shop/files/EasyJack.png?width=400",
-      "description": "「Easy Jack（楽なジャック）」の名の通り、軽快で飲みやすいセッションIPA。モザイク、マンダリナ・ババリア、センテニアルのトロピカルかつ柑橘のアロマをたっぷり詰め込みながら、アルコール4.5%と低めで何杯でも飲みたくなる危険な一杯。",
       "source": "antenna",
       "added": "2026-08-03"
     },
@@ -13950,6 +13937,93 @@
       "description": "京都醸造とのコラボレーションビール。Fig Cognac Smashというカクテルから着想を得たサワーエール。イチジクのほのかに甘い香りとコニャックの奥行きのあるアロマ。レモンピールの爽やかな柑橘感とローズマリーのハーバルなニュアンスがアクセント。果実の豊かな風味と軽やかな酸味が調和する一杯。",
       "source": "vertere",
       "added": "2026-10-28"
+    },
+    {
+      "id": "set-34-oct-29",
+      "name": "Delicious Family 4本セット",
+      "brewery": "Stone Brewing",
+      "style": "Double IPA",
+      "abv": "9.4%",
+      "hops": [
+        "Columbus",
+        "Calypso",
+        "Lemondrop",
+        "El Dorado",
+        "Nelson Sauvin",
+        "Mosaic",
+        "Vista",
+        "Sabro",
+        "Azacca",
+        "Amarillo",
+        "Centennial"
+      ],
+      "url": "https://www.antenna-america.com/products/set-34-oct-29",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/set-34-oct-29.jpg?width=400",
+      "description": "本格派のホップフレーバーと【低グルテン】を両立した人気「デリシャス」シリーズ4種（IPA・Tropical・Hazy・Double）を飲み比べできるスペシャルパック。爽快なレモン感からトロピカルな南国風味、クリーミーな果汁感、そしてガツンと重厚な苦味まで、多彩なIPAの魅力を一箱で贅沢に楽しめます。Stone Stone Delicious IPA (355ml) / ストーン デリシャス アイピーエーレモンの皮を思わせるスパイシーさ、土のようなアーシーさとハーバルでシトラスなホップアロマが軽くローストされたモルトのアロマとバランスよく香る。ホップのフレイバーが舌の上で弾け、スターバーストキャンディーのレモン味のようなレモンフレイバーが支配的。ミディアムボディーのクリスピーな口当たり、フィニッシュはモルト由来のイエローロリポップキャンディーやほんのりとしたバニラ風味を感じ、ビターでドライ。",
+      "source": "antenna",
+      "added": "2026-11-02"
+    },
+    {
+      "id": "westcoast-local-alchemist-quantum",
+      "name": "Local Alchemist Quantum",
+      "brewery": "West Coast Brewing",
+      "style": "Hazy IPA",
+      "abv": "7%",
+      "hops": [
+        "El Dorado",
+        "Nectaron",
+        "Nectaron Quantum"
+      ],
+      "url": "https://www.westcoastbrewing.jp/beer/local-alchemist-quantum/",
+      "image": "https://www.westcoastbrewing.jp/wp/wp-content/uploads/2026/10/261021_LocalAlchemistQuantum_art-384x384.jpg",
+      "description": "WCB × 関町セラー Collaboration! 東京・練馬の端っこに、酒屋なのかビアバーなのか——。ローカルなHop Dudeたちがテラスに集い、ホップの魅力を語り合う場所がある。 創業110年、新店舗は9周年を迎える『関町セラー』。そのAnniversary Beerが、今年も錬金術師たちの手によって誕生する。 古のAlchemistが手にしたのは、Nectaronのホップオイル「Quantum」。ホップのポテンシャルを凝縮したその力が、鮮烈な香りを解き放つ。ホップの魔法は、さらなる次元へ。この街で、この一杯で、誰もがホップの世界に酔いしれる。 トロピカル感あふれるフルーティーで鮮やかなアロマ。爽やかな柑橘のニュアンスをベースに、桃やメロンを思わせる甘く優しい余韻。すっきりとなめらかな口当たりで、心地良く飲み進められる一杯に。 Your Local Alchemist \"Quantum\" いざ行かん、未知なるホップの世界へ！ ※Artwork by @kac_one ✅当ビールの取扱いは関町セラー限定（彼らと親交のあるお店でも取扱い予定！）。WCB公式ECや直営店での取扱いはありません。",
+      "source": "westcoast",
+      "added": "2026-11-02"
+    },
+    {
+      "id": "westcoast-motueka-south",
+      "name": "Garston - Motueka South",
+      "brewery": "West Coast Brewing",
+      "style": "Hazy IPA",
+      "abv": "7%",
+      "hops": [
+        "Motueka",
+        "Citra"
+      ],
+      "url": "https://www.westcoastbrewing.jp/beer/motueka-south/",
+      "image": "https://www.westcoastbrewing.jp/wp/wp-content/uploads/2026/10/261028_MotuekaSouth_art-384x384.jpg",
+      "description": "世界最南端のホップ農園、ニュージーランドの『Gartston Hops』。 南半球のさらに南、特別な環境で育つホップたち。WCBで初採用となるこのホップブランドは、なんと日本のブルワリーで使われるのも初めて。 今年、ホップ買い付けの際に現地を訪れたMr.D。そこで出合ったNelson SauvinとMotuekaの個性に感動し、日本への輸入を決めることに。 生産量が限られる中、幸運にも手に入れた貴重なホップ。今回は、それぞれをCitraと組み合わせた2液種が完成。その個性の違いをじっくり飲み比べて楽しんで（ホップ以外は同じレシピで仕込んでいます）！ 当ビールのドライホップには、Gartston Hopで育ったMotuekaとUS産のCitraをチョイス。マンゴーやパッションフルーツを思わせる鮮やかなトロピカルアロマに、ライムやレモンのような爽やかな柑橘の印象。さらに桃を連想させる柔らかなストーンフルーツのニュアンスが加わり、軽やかに香るハーバルなアクセントをプラス。 ※同時リリース「Garston - Nelson South」もチェック👀",
+      "source": "westcoast",
+      "added": "2026-11-02"
+    },
+    {
+      "id": "westcoast-nelson-south",
+      "name": "Garston - Nelson South",
+      "brewery": "West Coast Brewing",
+      "style": "Hazy IPA",
+      "abv": "7%",
+      "hops": [
+        "Nelson Sauvin",
+        "Citra"
+      ],
+      "url": "https://www.westcoastbrewing.jp/beer/nelson-south/",
+      "image": "https://www.westcoastbrewing.jp/wp/wp-content/uploads/2026/10/261028_NelsonSouth_art-384x384.jpg",
+      "description": "世界最南端のホップ農園、ニュージーランドの『Gartston Hops』。 南半球のさらに南、特別な環境で育つホップたち。WCBで初採用となるこのホップブランドは、なんと日本のブルワリーで使われるのも初めて。 今年、ホップ買い付けの際に現地を訪れたMr.D。そこで出合ったNelson SauvinとMotuekaの個性に感動し、日本への輸入を決めることに。 生産量が限られる中、幸運にも手に入れた貴重なホップ。今回は、それぞれをCitraと組み合わせた2液種が完成。その個性の違いをじっくり飲み比べて楽しんで（ホップ以外は同じレシピで仕込んでいます）！ 当ビールのドライホップには、Gartston Hopで育ったNelson SauvinとUS産のCitraをチョイス。グレープフルーツやパッションフルーツの清涼感ある香り。マスカットやコンコードグレープを思わせる鮮やかなアロマに、いちごのようなベリーの印象。爽やかでジューシーな風味がバランス良く調和している。\n\n\n\n※同時リリース「Garston - Motueka South」もチェック👀",
+      "source": "westcoast",
+      "added": "2026-11-02"
+    },
+    {
+      "id": "westcoast-fruitstories2",
+      "name": "#fruitstories 2 - The Citrus Games -",
+      "brewery": "West Coast Brewing",
+      "style": "Fruited Ale",
+      "abv": "5%",
+      "hops": [],
+      "url": "https://www.westcoastbrewing.jp/beer/fruitstories2/",
+      "image": "https://www.westcoastbrewing.jp/wp/wp-content/uploads/2026/10/261028_fruitstories2TheCitrusGames_art-384x384.jpg",
+      "description": "WCB × Be Easy Brewing × Black Tide Brewing\n\nFruit Collaboration Ver.2 静岡（用宗） - 青森（弘前） - 宮城（気仙沼）\n\n遠く離れた3つの街で再び動き出した、あのプロジェクト。そして今、シトラスをめぐる新たなゲームが火ぶたを切る🔥 各地のブルワリーで静かに闘志を燃やすHop Dudeたち。目の前に積み上がるシトラスを前に、彼らの気合いは十分。狙いを定めて、投げて、混ぜて、盛り上がる！ 前作では異なるトロピカルフルーツを使用した#fruitstories。そして今回(第2弾)のテーマには、各社でそれぞれ選んだ“シトラスフルーツ”をセレクト。\n\n-----------------\n\n■ West Coast Brewing →Orange & Tangerine\n\n■ Be Easy Brewing →Lemon & Lime\n\n■ Black Tide Brewing →Grapefruit & Lemon\n\n----------------- WCB版ではWhite Aleに、副原料としてオレンジ&タンジェリンを650kg投入！副原料の果汁感に加え、レモンやライムを思わせる明るい柑橘アロマが全開。さらに、ほのかに感じるハーブのようなニュアンスも。優しい甘みと爽やかな酸味が調和し、軽やかでキレのある飲み口に。 そのまま味わって終わりじゃ、もったいない？それぞれのビールを楽しんだら、次は3種のブレンドに挑戦を。勝負のカギを握るのは、あなたのひらめき。 あれこれ試して、自分だけの黄金比を探し出せ！",
+      "source": "westcoast",
+      "added": "2026-11-02"
     }
   ]
 }

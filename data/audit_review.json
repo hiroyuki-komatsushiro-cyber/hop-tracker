@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "auto_fixed": {
     "renormalized_hops": [],
     "backfilled_from_live_source": [],
@@ -18,12 +18,6 @@
         "a_name": "Emerald Bay IPA",
         "b": "b055-c12100",
         "b_name": "Emerald Bay IPA"
-      },
-      {
-        "a": "b047-c12081",
-        "a_name": "Firestone Walker Easy Jack",
-        "b": "b047-c12002",
-        "b_name": "Easy Jack"
       },
       {
         "a": "b010-c19173",
@@ -329,6 +323,16 @@
         "relocation_candidates": []
       },
       {
+        "id": "rc-islandtime-pkg",
+        "name": "Island Time",
+        "brewery": "Resident Culture",
+        "source": "southbound",
+        "gaps": [
+          "hops"
+        ],
+        "relocation_candidates": []
+      },
+      {
         "id": "su-peanutbutterjellycrime-pkg",
         "name": "Peanut Butter Jelly Crime",
         "brewery": "Superstition",
@@ -503,26 +507,6 @@
     ],
     "handle_reassigned_candidates": [
       {
-        "id": "b114-c16018",
-        "stored_name": "Embolden Beer Co Brave the Haze Hazy DIPA",
-        "stored_brewery": "Embolden Beer Co",
-        "handle": "b114-c16018",
-        "live_name": "Room Service Hazy IPA",
-        "live_brewery": "Embolden Beer Co",
-        "relocation_candidates": [
-          {
-            "handle": "b114-c16003",
-            "title": "Embolden Beer Co Brave the Haze Hazy DIPA (473ml) / ブレイブ ザ ヘイズ",
-            "available": false
-          },
-          {
-            "handle": "b114-c16003a",
-            "title": "Embolden Beer Co Brave the Haze Hazy DIPA (473ml) / ブレイブ ザ ヘイズ",
-            "available": false
-          }
-        ]
-      },
-      {
         "id": "b121-c16017",
         "stored_name": "Ambitious Ales Friends in High Places Hazy IPA",
         "stored_brewery": "Ambitious Ales",
@@ -627,36 +611,7 @@
       }
     ],
     "unknown_hop_names": {},
-    "unregistered_items": [
-      {
-        "source": "westcoast",
-        "id": "fruitstories2",
-        "link": "https://www.westcoastbrewing.jp/beer/fruitstories2/",
-        "title": "#fruitstories 2 - The Citrus Games -",
-        "date": ""
-      },
-      {
-        "source": "westcoast",
-        "id": "nelson-south",
-        "link": "https://www.westcoastbrewing.jp/beer/nelson-south/",
-        "title": "Garston - Nelson South",
-        "date": ""
-      },
-      {
-        "source": "westcoast",
-        "id": "motueka-south",
-        "link": "https://www.westcoastbrewing.jp/beer/motueka-south/",
-        "title": "Garston - Motueka South",
-        "date": ""
-      },
-      {
-        "source": "westcoast",
-        "id": "local-alchemist-quantum",
-        "link": "https://www.westcoastbrewing.jp/beer/local-alchemist-quantum/",
-        "title": "Local Alchemist Quantum",
-        "date": ""
-      }
-    ],
+    "unregistered_items": [],
     "sources_without_completeness_check": []
   },
   "info": {
