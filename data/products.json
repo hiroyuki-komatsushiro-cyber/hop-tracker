@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-02",
+  "last_updated": "2026-11-03",
   "products": [
     {
       "id": "b105-c16036",
@@ -14024,6 +14024,292 @@
       "description": "WCB × Be Easy Brewing × Black Tide Brewing\n\nFruit Collaboration Ver.2 静岡（用宗） - 青森（弘前） - 宮城（気仙沼）\n\n遠く離れた3つの街で再び動き出した、あのプロジェクト。そして今、シトラスをめぐる新たなゲームが火ぶたを切る🔥 各地のブルワリーで静かに闘志を燃やすHop Dudeたち。目の前に積み上がるシトラスを前に、彼らの気合いは十分。狙いを定めて、投げて、混ぜて、盛り上がる！ 前作では異なるトロピカルフルーツを使用した#fruitstories。そして今回(第2弾)のテーマには、各社でそれぞれ選んだ“シトラスフルーツ”をセレクト。\n\n-----------------\n\n■ West Coast Brewing →Orange & Tangerine\n\n■ Be Easy Brewing →Lemon & Lime\n\n■ Black Tide Brewing →Grapefruit & Lemon\n\n----------------- WCB版ではWhite Aleに、副原料としてオレンジ&タンジェリンを650kg投入！副原料の果汁感に加え、レモンやライムを思わせる明るい柑橘アロマが全開。さらに、ほのかに感じるハーブのようなニュアンスも。優しい甘みと爽やかな酸味が調和し、軽やかでキレのある飲み口に。 そのまま味わって終わりじゃ、もったいない？それぞれのビールを楽しんだら、次は3種のブレンドに挑戦を。勝負のカギを握るのは、あなたのひらめき。 あれこれ試して、自分だけの黄金比を探し出せ！",
       "source": "westcoast",
       "added": "2026-11-02"
+    },
+    {
+      "id": "set-50-nov-01",
+      "name": "8bit Brewingの世界観を味わうビール＆グラス/ステッカーセット",
+      "brewery": "8 bit Brewing",
+      "style": "New Zealand IPA",
+      "abv": "6.9%",
+      "hops": [
+        "-",
+        "Citra",
+        "Citra Cryo",
+        "Citra Dynaboost",
+        "Rakau",
+        "Riwaka"
+      ],
+      "url": "https://www.antenna-america.com/products/set-50-nov-01",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/bit.png?width=400",
+      "description": "【11/5出荷開始・数量限定】 8bit Brewingの最新バッチが全種類揃う！飲み比べグラスセット🎯 こんな方にピッタリのセットです！8bit Brewingの最新商品をまとめて味わいたい方 ウエストコーストIPA × ヘイジーIPAを飲み比べしたい方 （スタイルの違いを楽しみたいビール好きへ）レトロゲーム風のポップなデザイン＆限定グラスが気になる方 （インテリアやギフトにもおすすめ！）【商品紹介】定番再入荷①True Brewmance (473ml) / トゥルー ブルーマンス8 bitを代表する人気定番商品。モザイクホップ好きには是非試していただきたい一杯！🌿 Mosaic（モザイク）ホップとは？現代のIPAに欠かせないアメリカ産の超人気ホップ！モザイク画のようにマンゴー等のトロピカルフルーツ・柑橘・ベリー・ハーブなどの多層な香りが共存し、フルーティで華やかなアロマと心地よい苦味をもたらします。 モザイクホップを使ったほかのビールを見る ➔",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b124-c12006a",
+      "name": "Double Lush Puppy Juicy Double IPA",
+      "brewery": "Bootstrap Brewing Company",
+      "style": "Hazy Double IPA",
+      "abv": "9.2%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b124-c12006a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/DoubleLushPuppyJuicyIPA_0509_3774f48f-f5c8-4fba-9320-6904a75afe28.png?width=400",
+      "description": "人気のLush Puppyの度数と味わいを強化したHazy Double IPA。モルトのバックボーンを感じつつも果汁感たっぷりな柑橘フレーバーが癖になりそう",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b124-c12005a",
+      "name": "Boat Snack Hazy IPA",
+      "brewery": "Bootstrap Brewing Company",
+      "style": "Hazy IPA",
+      "abv": "6.2%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b124-c12005a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/BoatSnackHazyIPA_be7dda37-49e2-4088-b5fd-9e8ffe05933c.png?width=400",
+      "description": "苦みは控えめでオレンジ、パイナップル、グレープフルーツを思わせる味わいのHazy IPA。口当たりが優しく滑らかでグイグイ飲めてしまうビール",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b124-c12001a",
+      "name": "Insane Rush IPA",
+      "brewery": "Bootstrap Brewing Company",
+      "style": "American IPA",
+      "abv": "7.6%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b124-c12001a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/InsaneRushIPA_3.png?width=400",
+      "description": "5種類のホップで香りと味わいに奥深さをもたらしたBootstrapを代表するビール。柑橘や松を思わせるクラシックなアメリカンIPAフレーバー。",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b116-c16037",
+      "name": "No Fly Zone DDH WC IPA",
+      "brewery": "8 bit Brewing",
+      "style": "New Zealand IPA",
+      "abv": "6.9%",
+      "hops": [
+        "Mosaic",
+        "Nectaron",
+        "Riwaka",
+        "Citra",
+        "Citra Cryo"
+      ],
+      "url": "https://www.antenna-america.com/products/b116-c16037",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/NoFlyZone.png?width=400",
+      "description": "モザイク、ネクタロン、リワカ、シトラ、シトラ・クライオ、シトラ・ダイナブーストでダブルドライホップを施したWest Coast IPA。鮮烈なライチとパッションフルーツの圧倒的なアロマに続き、濃密なダンク感、完熟したシトラス、ほんのりスパイシーなホワイトペッパーや桃のニュアンスが重なります。味わいは驚くほどドライで抜群のキレ味。後味を引き締める心地よい樹脂のような苦味とともに、砂糖漬けのシトラスピール、濃厚な松ヤニ、そして妖艶なムスクを思わせるトロピカルフルーツポンチのような風味が押し寄せます。ホップの存在感を存分に楽しみながらも、スイスイ飲めてしまう驚異のドリンカビリティ。さあ、このビールと一緒に大空へ飛び立ちましょう！",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b116-c16036",
+      "name": "Calling In Sick DDH Hazy DIPA",
+      "brewery": "8 bit Brewing",
+      "style": "Hazy DIPA",
+      "abv": "8%",
+      "hops": [
+        "Citra",
+        "Citra Cryo",
+        "Citra Dynaboost",
+        "Rakau",
+        "Riwaka"
+      ],
+      "url": "https://www.antenna-america.com/products/b116-c16036",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/CallingInSick_2.png?width=400",
+      "description": "シトラ、シトラ・クライオ、シトラ・ダイナブースト、ラカウ、リワカホップでダブルドライホップを施したHazy DIPA。搾りたてのシトラス、完熟したトロピカルフルーツ、ピーチソルベ、そしてほんのり南国の風を感じるダンクなアロマに仕上がっています。「すみません。今日はちょっと会社に行けそうにありません…」これこそ、今のあなたに必要な時間。ゆったり腰を下ろし、押し寄せる波を眺めながら、「魚って喉が渇くのかな？」なんてくだらないことを考えてみたり。そんな最高の現実逃避のお供に、このCalling in Sick（会社を病欠します）をグッと一杯。おや、なんだか本当に体調が悪そうに見えてきましたね。よし、もう一杯いっておきましょう！",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b097-c16063",
+      "name": "Cricket Sweaters Hazy IPA",
+      "brewery": "Trademark Brewing",
+      "style": "Hazy IPA",
+      "abv": "6.8%",
+      "hops": [
+        "Sabro",
+        "El Dorado",
+        "Motueka"
+      ],
+      "url": "https://www.antenna-america.com/products/b097-c16063",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/CricketSweaterHazyIPA_2.png?width=400",
+      "description": "トロピカルフルーツのブーケを思わせる、ジューシーなHazy IPA。サブロ、エルドラド、モツエカが、パイナップル、パパイヤ、マンダリンオレンジを思わせる豊かな果実味を引き出します。ジューシーでフルーティーなホップの魅力をたっぷり楽しめる、爽快な一杯です。",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b039-c16010a",
+      "name": "Alaskan Blueberry",
+      "brewery": "49th State Brewing",
+      "style": "Blueberry Ale",
+      "abv": "5%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b039-c16010a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/AlaskaBlueberryAle.png?width=400",
+      "description": "アラスカ産ブルーベリーと天然香料を使用したケルシュスタイル・エール。手摘みのアラスカ産ブルーベリーがもたらす、明るくジューシーな果実味とケルシュならではの軽やかな飲み心地が調和しています。クリスプで鮮やかなフルーティーさが広がり、アラスカの開拓地を吹き抜ける冷たい風のように、フレッシュでクリーンな後味が楽しめます。",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b039-c14009a",
+      "name": "Nitro McCarthy Stout",
+      "brewery": "49th State Brewing",
+      "style": "Nitro Stout",
+      "abv": "4.2%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b039-c14009a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/NitroMcCarthyStout_2.png?width=400",
+      "description": "アラスカ州初の缶入りナイトロスタウト。ベルベットのようになめらかでクリーミーな口当たりが特徴のドライ・アイリッシュスタウトです。深くローストしたモルトを贅沢に使用し、チョコレートやコーヒーを思わせる力強い風味を引き出しています。濃厚な味わいながら、窒素ガスのおかげで驚くほどスムーズ！アルコール度数も低いため気軽に楽しめる一杯です。",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b039-c12008a",
+      "name": "Seward's Folly Russian Imperial Stout",
+      "brewery": "49th State Brewing",
+      "style": "Russian Imperial Stout",
+      "abv": "11.2%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b039-c12008a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Seward_sFollyRussianImperialStout.png?width=400",
+      "description": "粘度の高い濃厚なボディに、ダークチョコレート、コーヒー、ドライイチジクを思わせる豊かな風味があふれます。1867年にアメリカのウィリアム・スワード国務長官がロシアから720万ドルでアラスカを購入した際、その決断は高すぎる買い物だとして多くの批判を浴び、「スワードの愚行」と揶揄されました。Seward's Follyは、アラスカ誕生のきっかけとなったこの歴史的な取引に敬意を表して造られたロシアン・インペリアルスタウトです。数々の受賞歴を誇り、パシフィック・ノースウェスト（太平洋北西部）のクラフトビール界で非常に高い評価を得ています。",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b039-c12004a",
+      "name": "Golden Dall Tripel",
+      "brewery": "49th State Brewing",
+      "style": "Belgian style Tripel",
+      "abv": "9%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b039-c12004a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/GoldenDallTripel_6c64e0d2-d6f9-491f-9b97-d758c39219e8.png?width=400",
+      "description": "熟したバナナやバブルガム、クローブを思わせる風味に加え、エジプト産コリアンダー由来の爽やかなシトラス感が特徴。美しいクリアなゴールドカラーで、フルボディでありながらクリーンかつエレガントに仕上がっています。その力強い個性は、デナリ国立公園を見守るとされる伝説の野生動物、ゴールデン・ドール・シープにも重なります。49th Stateの直営パブでも熱狂的なファンを持つ人気商品。このビールの売上の一部は、The Conservation Alliance（環境保護同盟）に寄付され、未来の世代に向けてアラスカの美しい野生エリアや自然環境を保護g・維持する活動に役立てられています。",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b039-c12003a",
+      "name": "Tiger’s Blood Sour",
+      "brewery": "49th State Brewing",
+      "style": "Blonde Sour Ale",
+      "abv": "6.1%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b039-c12003a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Tiger_sBloodSour_2d15345a-16f8-40c0-b386-907935a5f9c1.png?width=400",
+      "description": "イチゴ、スイカ、ココナッツをブレンドしたハワイの伝統的なかき氷フレーバー「タイガーズブラッド」に着想を得たサワーブロンドエール。アメリカ合衆国50番目の州であるハワイへのオマージュとして誕生しました。豊かな風味とトロピカルな酸味が全体を引き締め、南国らしい魅力を存分に楽しめる仕上がりです。もともとは夏季限定の超人気商品でしたが、ファンからの熱烈な要望に応え定番商品としてラインナップに加わりました。",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b116-c16029",
+      "name": "Pillars of Kings",
+      "brewery": "8 bit Brewing",
+      "style": "DDH WC IPA",
+      "abv": "8%",
+      "hops": [
+        "Citra",
+        "Mosaic",
+        "Simcoe"
+      ],
+      "url": "https://www.antenna-america.com/products/b116-c16029",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/PillarsofKings_3.png?width=400",
+      "description": "シトラ、モザイク、モザイク・クライオを使用したダブルドライホップドWest Coast Double IPA。このビールはアルゴナスの像のように堂々とそびえ立つ存在。柑橘の皮、ジューシーなピーチ、キャンディのようなパイナップルの風味に、レジン感のある松とほのかにアーシーなダンク感が骨格を与えています。シトラホップは、搾りたてのオレンジやグレープフルーツピールのような鮮やかな柑橘の波を生み出し、モザイクは完熟ブルーベリーやマンゴーを思わせるニュアンスをプラス。シムコーがクリスプでパイニーな余韻で全体をまとめ上げ、さらにハチミツをひと垂らししたストーンフルーツのようなほのかな甘みがバランスを整えます。大胆でクリーン、そして威厳に満ちた味わい。まさに古の王たちにふさわしい一本です。",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b116-c16022",
+      "name": "Local Katana",
+      "brewery": "8 bit Brewing",
+      "style": "Japanese style Lager",
+      "abv": "3.8%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b116-c16022",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/LocalKatana.png?width=400",
+      "description": "シーフード料理に合うよう設計されたこの「Local Katana」は、ライムの皮やレモングラスを思わせる爽やかな風味。色味は超クリアで、アルコール度数も低く、軽やかでリフレッシュ感のある飲み口が特徴です。ランチにもディナーにも、あるいはリラックスタイムにもぴったりの一杯です。",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b116-c16007",
+      "name": "God of Pour",
+      "brewery": "8 bit Brewing",
+      "style": "DDH Hazy IPA",
+      "abv": "7.1%",
+      "hops": [
+        "Citra",
+        "Hallertau Blanc",
+        "Nelson Sauvin"
+      ],
+      "url": "https://www.antenna-america.com/products/b116-c16007",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/GodofPour.jpg?width=400",
+      "description": "シトラ、ハラタウブラン、ネルソンソーヴィンを使ったダブルドライホップドHazy IPA",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b106-c16005",
+      "name": "Gold IPA",
+      "brewery": "East Brother Beer",
+      "style": "American IPA",
+      "abv": "7.3%",
+      "hops": [
+        "Simcoe"
+      ],
+      "url": "https://www.antenna-america.com/products/b106-c16005",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/GoldIPA.png?width=400",
+      "description": "アメリカ西海岸で生まれた偉大なスタイルであるWest Coast IPAをベースに、モルト群に小麦を混ぜ込むことによって柔らかな飲み口にしているのがこのGold IPA。Simcoeホップとモルトフレーバーのバランスを追求した一杯です。柑橘や松のアロマ、ミディアムボディ、そして溌剌としたカーボネーション。",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b106-c16002",
+      "name": "Bo Pils",
+      "brewery": "East Brother Beer",
+      "style": "Bohemian style Pilsner",
+      "abv": "5%",
+      "hops": [
+        "Aurora",
+        "Tettnanger"
+      ],
+      "url": "https://www.antenna-america.com/products/b106-c16002",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/BoPils.png?width=400",
+      "description": "ボヘミアンスタイル・ピルスナーを略してBo Pils。ノーブルホップのレモンのような爽やかな香りと仄かな柑橘感もあるフレーバー。柔らかなカーボネーションとクリーンで軽く穀物感のあるフィニッシュ。GABF銀賞に輝いた傑作",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b106-c16001",
+      "name": "Blonde Ale",
+      "brewery": "East Brother Beer",
+      "style": "Blonde Ale",
+      "abv": "4.2%",
+      "hops": [
+        "East Kent Golding",
+        "Loral"
+      ],
+      "url": "https://www.antenna-america.com/products/b106-c16001",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/BlondeAle.png?width=400",
+      "description": "パンとハチミツに加え微かなノーブルホップのアロマ。口に含むとモルトの優しい穀物感と藁のような風味が鼻を抜け、控えめな苦みとアーシーさが舌に残る。一口啜るごとに心地良く穏やかな気持ちになるブロンドエール",
+      "source": "antenna",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "b010-c16004",
+      "name": "Arrogant Bastard Ale",
+      "brewery": "Arrogant Consortia",
+      "style": "American Strong Ale",
+      "abv": "7.2%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b010-c16004",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/Arrogant.png?width=400",
+      "description": "力強く、攻撃的でシャープな苦味とフレッシュかつフルーティな強い香り、ローストモルトによる重厚な味わいが混ざり合い、強烈な印象を残します。ホップ由来のグレープフルーツやオレンジのシトラス系のアロマから、キャラメルやハニーなどの甘みを感じるモルトフレイバーへと続き、余韻もしっかりと感じられます。2015年10月よりArrogant BastardシリーズはArrogant Bastard Brewingと呼ばれるStoneとは別のブランドで展開されることとなりましたが、販売当時この商品は市場に流通していた他のクラフトビールと比べ味わいが大きくかけ離れていました。そのためStoneは当時この商品を紹介する際に「これは攻撃的なビールだ。恐らく気に入ることは無いだろう。」「この味が理解できないのであれば、味のない“ヤワで黄色いビール”を飲んでいるのがお似合いだ。」「我々はただ自分達が飲みたいビールを造るだけ。」などと、非常に強烈な文言を使用しました。今ではビールスタイルの一つとして認識されたアメリカンストロングエールの先駆けとも言えるこのArrogant Bastardは、まさにこのスタイルの開拓者と言っても過言ではありません。",
+      "source": "antenna",
+      "added": "2026-11-03"
     }
   ]
 }
