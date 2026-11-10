@@ -86,8 +86,24 @@ NEGATIVE = [
 ]
 
 
+# Antennaのスペック欄(<li>ラベル：値</li>)の解析: セット商品は「ホップ：」が銘柄ごとに並ぶので和集合にする。
+# 「ホップ：-」(非公開の印)はホップ名として混入させない(2026-11-10に先頭が「-」のセットで混入した実例)
+SPEC_CASES = [
+    ("<ul><li>ABV：5%</li><li>ホップ：Citra, Mosaic</li></ul>", ["Citra", "Mosaic"]),
+    ("<li>ホップ：Nugget, Crystal</li><li>ホップ：Nugget, Chinook, Mosaic</li>", ["Nugget", "Crystal", "Chinook", "Mosaic"]),
+    ("<li>ホップ：-</li><li>ホップ：Citra, Rakau</li>", ["Citra", "Rakau"]),
+    ("<li>ホップ：Citra, Rakau</li><li>ホップ：-</li>", ["Citra", "Rakau"]),
+    ("<li>ホップ：-</li>", []),
+    ("<li>ABV：5%</li>", []),
+]
+
+
 def main():
     failures = []
+    for html, expected in SPEC_CASES:
+        got = list(dict.fromkeys(up.split_hops(up.antenna_spec_fields(html).get("ホップ") or "")))
+        if got != expected:
+            failures.append(f"SPEC expected {expected} got {got}: {html[:60]}")
     for text, expected in POSITIVE:
         got = extract(text)
         if got != expected:
@@ -96,7 +112,7 @@ def main():
         got = extract(text)
         if got:
             failures.append(f"NEGATIVE expected [] got {got}: {text[:60]}")
-    total = len(POSITIVE) + len(NEGATIVE)
+    total = len(POSITIVE) + len(NEGATIVE) + len(SPEC_CASES)
     if failures:
         print(f"FAILED {len(failures)}/{total}")
         for f in failures:

@@ -143,6 +143,8 @@ HOP_NAME_FIXES = {
     "Nectar": "Nectaron",
     # 本来の綴りはStrisselspalt(アルザスのホップ)。アロマチャートの項目名は既存のStrisselspalterに合わせる
     "Strisselspalt": "Strisselspalter",
+    # New Belgium Fat Tire等の"Goldings"(複数形)。既存の"Golding"→East Kent Goldingと同じ扱い(2026-11-10)
+    "Goldings": "East Kent Golding",
     # Jester King Enigmatic Taxa: 日本語訳の「ブレマ」を"Brema"と起こしていたが、同じ商品の英語原文は"Belma"(2026-10-28確認)
     "Brema": "Belma",
     # Vertereの古い記事の綴りミス(大文字小文字の違いだけのものは下のcanonical化で自動的に直る)
@@ -224,7 +226,7 @@ def split_hops(raw: str) -> list[str]:
     out = []
     for part in re.split(r",|、|\s+and\s+|&|•", raw):
         part = part.strip()
-        if not part:
+        if not part or re.fullmatch(r"[-–—ー.・\s]+", part):  # 空や「-」だけの断片はホップ名ではない
             continue
         if part in HOP_TOKEN_EXPANSIONS:
             out.extend(n for n in (normalize_hop(x) for x in HOP_TOKEN_EXPANSIONS[part]) if n)
@@ -337,12 +339,18 @@ def antenna_spec_fields(body_html: str) -> dict:
         m = re.match(r"^([^：:]+)[：:]\s*(.*)$", line)
         if m:
             label, value = m.group(1).strip(), m.group(2).strip()
-            if label == "ホップ" and fields.get(label) and value not in ("", "-"):
+            if label == "ホップ":
                 # 複数のビールを含むセット商品は「ホップ：」の行が銘柄ごとに並ぶ。上書きすると最後の銘柄のホップだけになる
-                # (2026-10-28: Allagash 4本セットでLagerのホップしか入っていなかった)ので、全行を連結して和集合にする
-                fields[label] = fields[label] + ", " + value
-            elif label == "ホップ" and fields.get(label) and value in ("", "-"):
-                pass  # 後続の「ホップ：-」で、先に読んだ記載を消さない
+                # (2026-10-28: Allagash 4本セットでLagerのホップしか入っていなかった)ので、全行を連結して和集合にする。
+                # 「ホップ：-」(非公開の印)は実際の記載を消さず、記載の前後どちらにあっても連結しない
+                # (2026-11-10: 先頭が「-」のセットで"-"がホップ名として混入した)
+                prev = fields.get(label, "")
+                if value in ("", "-"):
+                    fields.setdefault(label, value)
+                elif prev in ("", "-"):
+                    fields[label] = value
+                else:
+                    fields[label] = prev + ", " + value
             else:
                 fields[label] = value
     return fields
