@@ -35,6 +35,7 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+import style_class  # noqa: E402  スタイルの細分類(画面の絞り込み用)。分類できなかった最近の商品を報告する
 import update_products as up  # noqa: E402
 
 ROOT = Path(__file__).parent.parent
@@ -342,6 +343,14 @@ def main():
     duplicate_candidates = find_duplicate_candidates(products, shopify_keys)
     unregistered_items, unchecked_sources, unregistered_notes = find_unregistered_items(known_ids)
 
+    # スタイル欄が既存のどの細分類にも当てはまらず「その他のビール」に落ちた最近の商品(新しい表記の発見用)。
+    # 見つけたら scripts/style_class.py の RULES に足し、test_style_class.py に例を追加する
+    unclassified_styles = [
+        {"id": p["id"], "name": p["name"], "style": p.get("style"), "added": p.get("added")}
+        for p in products
+        if recently_added(p) and style_class.classify_style(p.get("style", ""), p.get("name", ""))[1] == style_class.FALLBACK
+    ]
+
     data["last_updated"] = str(date.today())
     with open(DATA_PATH, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
@@ -358,6 +367,7 @@ def main():
             "stale_handle_candidates": stale_handle_candidates,
             "handle_reassigned_candidates": handle_reassigned_candidates,
             "recent_products_hop_words_without_names": recent_hop_words_unparsed,
+            "recent_products_unclassified_style": unclassified_styles,
             "unknown_hop_names": dict(sorted(unknown_hop_names.items())),
             "unregistered_items": unregistered_items,
             "sources_without_completeness_check": unchecked_sources,
@@ -374,6 +384,7 @@ def main():
     print(f"  - {len(stale_handle_candidates)} stale-handle candidate(s) (id/url no longer resolves live)")
     print(f"  - {len(handle_reassigned_candidates)} handle-reassigned candidate(s) (handle now resolves to a different brewery)")
     print(f"  - {len(recent_hop_words_unparsed)} recent product(s) mention hops in the description but no variety was extracted")
+    print(f"  - {len(unclassified_styles)} recent product(s) whose style fell back to 'その他のビール' (see style_class.py)")
     print(f"  - {len(unknown_hop_names)} hop name(s) not yet in hops_tab.js's aroma chart")
     print(f"  - {len(unregistered_items)} beer(s) listed on a brewery site but missing from products.json")
     if unchecked_sources:

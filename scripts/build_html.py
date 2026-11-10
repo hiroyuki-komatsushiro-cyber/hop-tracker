@@ -1,6 +1,11 @@
 import json
+import sys
+from collections import Counter
 from html import escape as html_escape
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+import style_class  # noqa: E402  スタイルの細分類・度数帯(画面の絞り込み用)
 
 DATA_PATH       = Path(__file__).parent.parent / "data" / "products.json"
 SOURCES_PATH    = Path(__file__).parent / "update_sources.json"
@@ -66,10 +71,22 @@ h2{font-size:16px;font-weight:700;margin-bottom:8px;}
 .back-to-products-btn:active{background:#e5e3de;}
 
 /* TAB2 PRODUCTS */
-.t2-header{display:flex;gap:6px;margin-bottom:6px;align-items:center;}
-.t2-header input[type=search]{flex:1;padding:8px 10px;font-size:14px;border:1px solid #ccc;border-radius:8px;}
-.t2-header select{padding:8px 6px;font-size:13px;border:1px solid #ccc;border-radius:8px;background:#fff;max-width:110px;}
-#prod-count{font-size:11px;color:#888;margin-bottom:6px;}
+.t2-filters{display:flex;flex-direction:column;gap:8px;margin-bottom:8px;}
+.t2-filters input[type=search]{width:100%;padding:9px 10px;font-size:14px;border:1px solid #ccc;border-radius:8px;}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.fsel{display:flex;flex-direction:column;gap:2px;min-width:0;}
+.fsel.wide{grid-column:1/-1;}
+.fsel>span,.flabel{font-size:10px;font-weight:700;color:#888780;letter-spacing:.04em;}
+.fsel select{width:100%;min-width:0;padding:8px 6px;font-size:13px;border:1px solid #ccc;border-radius:8px;background:#fff;}
+.flabel{margin-bottom:3px;}
+.chips{display:flex;flex-wrap:wrap;gap:5px;}
+.chip{font-size:11.5px;padding:4px 8px;border:1px solid #d6d3c9;border-radius:16px;background:#fff;color:#444;cursor:pointer;white-space:nowrap;}
+.fmore summary{font-size:12px;color:#5f5e5a;cursor:pointer;padding:2px 0;}
+.fmore select{width:100%;margin-top:6px;padding:8px 6px;font-size:13px;border:1px solid #ccc;border-radius:8px;background:#fff;}
+.chip.active{background:#2c2c2a;color:#fff;border-color:#2c2c2a;}
+.count-row{display:flex;justify-content:space-between;align-items:center;min-height:24px;}
+#prod-count{font-size:11px;color:#888;}
+#fclear{display:none;font-size:11px;padding:3px 10px;border:1px solid #ccc;border-radius:12px;background:#fff;color:#555;cursor:pointer;}
 .updated-line{font-size:11px;color:#aaa;margin-bottom:6px;}
 #prod-list{display:flex;flex-direction:column;gap:0;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07);}
 
@@ -87,9 +104,10 @@ h2{font-size:16px;font-weight:700;margin-bottom:8px;}
 .prod-row-name{font-size:13px;font-weight:600;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .prod-row-brewery{font-size:11px;color:#639922;font-weight:500;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .prod-row-sub{font-size:10px;color:#aaa;margin-top:3px;display:flex;gap:5px;align-items:center;}
-.sbadge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:6px;background:#e3eef8;color:#1a4a7a;white-space:nowrap;}
+.sbadge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:6px;background:#e3eef8;color:#1a4a7a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;max-width:100%;}
 .new-badge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:6px;background:#E24B4A;color:#fff;white-space:nowrap;}
-.abv-text{color:#bbb;}
+.abv-text{color:#5f5e5a;font-weight:600;flex-shrink:0;}
+.m-subcat{font-size:11px;color:#888780;margin-top:3px;}
 
 /* 右: ホップ名 + 矢印 */
 .prod-row-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;max-width:38%;min-width:80px;}
@@ -158,29 +176,42 @@ HTML_TEMPLATE = """\
 <div id="t2" class="tab-panel">
   <h2>製品別ホップ成分表 — {shop_names}</h2>
   <div class="updated-line">最終更新: {last_updated}</div>
-  <div class="t2-header">
-    <input type="search" id="psrch" placeholder="製品名・ブリュワリーで検索...">
-    <select id="sfil">
-      <option value="">全スタイル</option>
-      <option value="IPA">IPA / Hazy</option>
-      <option value="DIPA">DIPA</option>
-      <option value="Pale Ale">Pale Ale</option>
-      <option value="Sour">Sour / Saison</option>
-      <option value="Stout">Stout / Porter</option>
-      <option value="Lager">Lager</option>
-      <option value="Other">その他</option>
-    </select>
-    <select id="shopfil">
-      <option value="">全ショップ</option>
+  <div class="t2-filters">
+    <input type="search" id="psrch" placeholder="製品名・ブリュワリー・ホップ・スタイルで検索...">
+    <div class="fgrid">
+      <label class="fsel wide"><span>スタイル</span>
+        <select id="sfil"><option value="">全スタイル</option></select>
+      </label>
+    </div>
+    <div class="abv-row">
+      <div class="flabel">アルコール度数（タップで絞り込み、もう一度タップで解除）</div>
+      <div class="chips" id="abv-chips"></div>
+    </div>
+    <div class="fgrid">
+      <label class="fsel"><span>並び順</span>
+        <select id="sortsel">
+          <option value="std">標準（登録順）</option>
+          <option value="new">新着順</option>
+          <option value="abv_desc">度数が高い順</option>
+          <option value="abv_asc">度数が低い順</option>
+          <option value="name">名前順（A→Z）</option>
+        </select>
+      </label>
+      <label class="fsel"><span>ショップ</span>
+        <select id="shopfil">
+          <option value="">全ショップ</option>
 {shop_options}
-    </select>
-    <select id="bfil">
-      <option value="">全ブルワリー</option>
-    </select>
+        </select>
+      </label>
+    </div>
+    <details class="fmore" id="fmore">
+      <summary id="fmore-sum">ブルワリーで絞り込む</summary>
+      <select id="bfil"><option value="">全ブルワリー</option></select>
+    </details>
+    <div class="count-row"><div id="prod-count"></div><button type="button" id="fclear">条件をクリア</button></div>
   </div>
-  <div id="prod-count"></div>
   <div id="prod-list"></div>
-  <p class="note">※ 商品をタップすると成分表が表示されます。一度登録した商品はサイトから消えても削除しません。直近7日以内の新商品にはNEWバッジが付きます。{shop_note}</p>
+  <p class="note">※ 商品をタップすると成分表が表示されます。スタイルは各社の表記ゆれを36種類に分類し直したもので、選択肢の数字は「ほかの条件を満たす商品数」です。一度登録した商品はサイトから消えても削除しません。直近7日以内の新商品にはNEWバッジが付きます。{shop_note}</p>
 </div>
 
 </div>
@@ -212,6 +243,7 @@ function switchTab(id,btn){{
 </script>
 <script>var hopYCH = {hop_ych_json};</script>
 <script>var SHOPS = {shops_json};</script>
+<script>var TREE = {tree_json};</script>
 <script>{hops_tab_js}</script>
 <script>var products = {products_json};</script>
 <script>{products_tab_js}</script>
@@ -244,16 +276,26 @@ def main():
                 (f"{breweries}はブルワリー公式サイトに掲載された銘柄（過去の醸造分を含む場合があります）で、"
                  f"販売状況は反映していません。" if breweries else "")
 
+    # 画面の絞り込み用に、スタイルの細分類(ss/sg)・度数(av)・度数帯(ab)をビルド時に付ける。
+    # products.json には書かない(ルールを直せば全商品に反映されるように、派生値は毎回作り直す)
+    products = [{**p, **style_class.derive(p)} for p in data["products"]]
+    unclassified = Counter(p["style"] for p in products if p["ss"] == style_class.FALLBACK)
+    if unclassified:
+        print(f"[note] {sum(unclassified.values())} product(s) fell back to 'その他のビール' "
+              f"(add rules to scripts/style_class.py if these are a recognisable style): "
+              f"{dict(unclassified.most_common(10))}")
+
     html = HTML_TEMPLATE.format(
         css             = CSS.replace("/*SHOP_CSS*/", shop_css),
         shop_names      = " / ".join(s["name"] for s in sources),
         shop_options    = shop_options,
         shop_note       = shop_note,
         shops_json      = json.dumps(shops, ensure_ascii=False, separators=(",", ":")),
+        tree_json       = json.dumps(style_class.tree_for_js(), ensure_ascii=False, separators=(",", ":")),
         last_updated    = data.get("last_updated", "-"),
         hop_ych_json    = json.dumps(hop_ych, ensure_ascii=False, separators=(",", ":")),
         hops_tab_js     = HOPS_TAB_JS,
-        products_json   = json.dumps(data["products"], ensure_ascii=False),
+        products_json   = json.dumps(products, ensure_ascii=False),
         products_tab_js = PRODUCTS_TAB_JS,
     )
 
