@@ -9,6 +9,7 @@ var hopDesc = {
   "Adeena":                   "ハーブ・セロリシード・ラベンダー・レモン・パインが調和するノーブル系新品種。Summit×イギリス系品種の交配(Latitude 46)。",
   "Ahtanum":                  "グレープフルーツ・フローラルが主体。カスケードに似た柑橘感を持ちながら、より松脂のニュアンスが強い。",
   "Ales for ALS":             "ALS研究支援のためのチャリティーブレンド。トロピカル・シトラス・ベリーが複合的に香る。",
+  "Alora":                    "米国Hopsteiner社の育種プログラム生まれのアロマ品種。同社データシートの香りは「ピーチ、ゆず、甘いメロン、アプリコット」で、完熟したストーンフルーツと和柑橘が中心。α酸7.0〜10.0%。",
   "Amarillo":                 "オレンジ・グレープフルーツのシトラスと甘いフローラルが特徴。現代IPAの定番品種。",
   "Amarillo CGX":             "元品種の香りキャラクターを凝縮した濃縮加工品・抽出物(Cryo/CGX/Lupomax/Spectrum/Quantum/Prysma/Incognito/Kief等)。基本的なアロマ傾向は元品種(Amarillo)と同じ。",
   "Apollo":                   "グレープフルーツ・ライム・オレンジのシトラスに、力強いパイン・樹脂感。高α酸ホップ。",
@@ -85,6 +86,7 @@ var hopDesc = {
   "Hallertauer Tradition":    "フローラル・アーシー・グラッシーのクラシックドイツ品種。ミッテルフリューの後継。",
   "HBC 1134":                 "John I. Haas / Yakima Chief Ranchesのラガー向け実験品種。ローズ・パイン・レモン・グレープフルーツにハーブが重なる、ノーブルホップにアメリカ的柑橘を加えた複合香。",
   "HBC 472":                  "トロピカル・シトラス・フローラルが複合的に香る実験的品種。",
+  "HBC 522":                  "Hop Breeding Company(John I. Haas / Yakima Chief Ranches)の実験品種(試験栽培中、米国植物特許PP29894)。Columbus × 雄株986-2の交配で、特許記載の香りは「シトラス、フローラル」。α酸9.9〜11.7%。",
   "HBC 630":                  "ベリー（チェリー・ラズベリー）・トロピカル・シトラスのフルーティな実験品種。",
   "HBC 638":                  "マンゴー・パイナップル・チェリー・ストロベリーのトロピカルかつベリー感が特徴の実験品種。",
   "HBC 682":                  "ハーブ・アーシー・フローラル・ミャルドシトラスを持つ実験品種。",
@@ -221,7 +223,7 @@ var hopDesc = {
 
 var hops = [
 {name:"Adeena",v:[0,2,0,2,2,4]},{name:"Ahtanum",v:[1,5,0,3,4,3]},
-{name:"Ales for ALS",v:[3,3,3,1,2,2]},{name:"Amarillo",v:[4,5,1,3,1,2]},
+{name:"Ales for ALS",v:[3,3,3,1,2,2]},{name:"Alora",v:[2,3,5,1,0,0]},{name:"Amarillo",v:[4,5,1,3,1,2]},
 {name:"Amarillo CGX",v:[4,5,1,3,1,2]},{name:"Apollo",v:[0,4,0,0,3,4]},
 {name:"Aramis",v:[0,2,0,2,0,5]},{name:"Audacia",v:[2,1,4,4,0,1]},
 {name:"Aurora",v:[1,3,0,3,1,3]},{name:"Aurora Cryo",v:[1,3,0,3,1,3]},
@@ -258,7 +260,7 @@ var hops = [
 {name:"Galaxy Prysma",v:[4,4,2,0,1,1]},{name:"Galena",v:[2,4,3,0,1,3]},
 {name:"Glacier",v:[1,2,3,1,0,3]},{name:"Hallertau Blanc",v:[4,4,2,3,0,1]},
 {name:"Hallertauer Mittelfruher",v:[0,2,0,3,0,4]},{name:"Hallertauer Tradition",v:[0,2,1,3,0,4]},
-{name:"HBC 1134",v:[0,3,2,3,3,4]},{name:"HBC 472",v:[3,3,2,3,1,3]},
+{name:"HBC 1134",v:[0,3,2,3,3,4]},{name:"HBC 472",v:[3,3,2,3,1,3]},{name:"HBC 522",v:[0,4,0,4,1,1]},
 {name:"HBC 630",v:[3,3,4,2,0,1]},{name:"HBC 638",v:[4,4,3,2,0,1]},
 {name:"HBC 682",v:[0,2,1,2,0,3]},{name:"Helga",v:[0,1,0,3,0,4]},
 {name:"Helios",v:[1,3,0,3,4,2]},{name:"Herkules",v:[1,3,1,1,3,3]},

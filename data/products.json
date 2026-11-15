@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-10",
+  "last_updated": "2026-11-16",
   "products": [
     {
       "id": "b105-c16036",
@@ -22,7 +22,7 @@
       "name": "Hop Reach IPA",
       "brewery": "Allagash Brewing",
       "style": "IPA",
-      "abv": "6.2%",
+      "abv": "6.8%",
       "hops": [
         "Nugget",
         "Mosaic",
@@ -532,7 +532,7 @@
       "id": "stone-ruination",
       "name": "Stone Ruination IPA",
       "brewery": "Stone Brewing",
-      "style": "IPA",
+      "style": "West Coast DIPA",
       "abv": "8.2%",
       "hops": [
         "Magnum",
@@ -695,7 +695,7 @@
       "id": "b109-c16011a",
       "name": "Cellarmaker Brewing Coffee and Cigarettes",
       "brewery": "Cellarmaker Brewing",
-      "style": "Stout / Porter",
+      "style": "Smoked Coffee Porter",
       "abv": "7.7%",
       "hops": [],
       "url": "https://www.antenna-america.com/en/products/b109-c16011a",
@@ -981,7 +981,7 @@
       "id": "b055-c16024",
       "name": "Revision Smoke & Mirrors Hazy IPA",
       "brewery": "Revision Brewing",
-      "style": "Hazy IPA",
+      "style": "Northeast-Style hazy DIPA",
       "abv": "8%",
       "hops": [
         "Citra",
@@ -998,7 +998,7 @@
       "id": "b060-c16040",
       "name": "Smog City Watt Strike IPA",
       "brewery": "Smog City",
-      "style": "IPA",
+      "style": "West Coast IPA",
       "abv": "6.1%",
       "hops": [
         "El Dorado",
@@ -1041,7 +1041,7 @@
       "id": "b060-c16026",
       "name": "Smog City Weather Machine IPA",
       "brewery": "Smog City",
-      "style": "IPA",
+      "style": "Hazy IPA",
       "abv": "6.8%",
       "hops": [
         "Ekuanot",
@@ -1141,7 +1141,7 @@
       "id": "b041-c12018a",
       "name": "Sierra Nevada Celebration IPA",
       "brewery": "Sierra Nevada",
-      "style": "IPA",
+      "style": "Fresh Hop IPA",
       "abv": "6.8%",
       "hops": [
         "Centennial",
@@ -1157,7 +1157,7 @@
       "id": "b041-c12093",
       "name": "Sierra Nevada Dankful IPA",
       "brewery": "Sierra Nevada",
-      "style": "IPA",
+      "style": "West Coast-style IPA",
       "abv": "7.4%",
       "hops": [],
       "url": "https://www.antenna-america.com/en/products/b041-c12093",
@@ -1433,7 +1433,7 @@
       "id": "ur-fromcaliforniawithlove-pkg",
       "name": "From California With Love",
       "brewery": "Urban Roots",
-      "style": "IPA",
+      "style": "West Coast IPA",
       "abv": "6.9%",
       "hops": [
         "Mosaic",
@@ -1490,7 +1490,7 @@
       "id": "hw-cosmicsheepmullet-pkg",
       "name": "Cosmic Sheep Mullet",
       "brewery": "Hardywood Park",
-      "style": "IPA",
+      "style": "Juicy Double IPA",
       "abv": "9.0%",
       "hops": [
         "Mosaic",
@@ -1506,7 +1506,7 @@
       "id": "hw-greatreturn-pkg",
       "name": "Great Return",
       "brewery": "Hardywood Park",
-      "style": "IPA",
+      "style": "West Coast IPA",
       "abv": "7.5%",
       "hops": [
         "Apollo",
@@ -1525,7 +1525,7 @@
       "id": "hw-tropication-pkg",
       "name": "Tropication",
       "brewery": "Hardywood Park",
-      "style": "IPA",
+      "style": "Juicy IPA with Citra & Mosaic Hops",
       "abv": "7.0%",
       "hops": [
         "Citra",
@@ -1558,7 +1558,7 @@
       "id": "sa-westly-pkg",
       "name": "Westly",
       "brewery": "Sante Adairius",
-      "style": "Saison",
+      "style": "Barrel-Aged Wild Ale with Apricots",
       "abv": "8.5%",
       "hops": [],
       "url": "https://southbound.jp/products/sa-westly-pkg",
@@ -1597,7 +1597,7 @@
       "id": "sa-saisonbernice-pkg",
       "name": "Saison Bernice",
       "brewery": "Sante Adairius",
-      "style": "Saison",
+      "style": "Farmhouse Ale with Brettanomyces",
       "abv": "6.5%",
       "hops": [],
       "url": "https://southbound.jp/products/sa-saisonbernice-pkg",
@@ -1623,7 +1623,7 @@
       "id": "sa-cask200-pkg",
       "name": "Cask 200",
       "brewery": "Sante Adairius",
-      "style": "Sour",
+      "style": "Solera-Style Saison",
       "abv": "6.5%",
       "hops": [],
       "url": "https://southbound.jp/products/sa-cask200-pkg",
@@ -1649,7 +1649,7 @@
       "id": "sa-summersapling-pkg",
       "name": "Summer Sapling",
       "brewery": "Sante Adairius",
-      "style": "Sour",
+      "style": "Hoppy Belgian-Style Blonde",
       "abv": "5.7%",
       "hops": [],
       "url": "https://southbound.jp/products/sa-summersapling-pkg",
@@ -1662,7 +1662,7 @@
       "id": "sa-chasingwindmills-pkg",
       "name": "Chasing Windmills",
       "brewery": "Sante Adairius",
-      "style": "Sour",
+      "style": "Oak-Aged Saison With Pomegranate Juice",
       "abv": "7.6%",
       "hops": [],
       "url": "https://southbound.jp/products/sa-chasingwindmills-pkg",
@@ -1716,7 +1716,7 @@
       "id": "jo-brightshine-pkg",
       "name": "Brightshine",
       "brewery": "Jackie O's",
-      "style": "Sour",
+      "style": "Belgian Witbier (Oak-Barrel-Aged)",
       "abv": "6.1%",
       "hops": [],
       "url": "https://southbound.jp/products/jo-brightshine-pkg",
@@ -1729,7 +1729,7 @@
       "id": "jk-queensorder-pkg",
       "name": "Queen's Order",
       "brewery": "Jester King",
-      "style": "Sour",
+      "style": "Farmhouse Ale with Honey and Lemon Peel",
       "abv": "4.8%",
       "hops": [
         "Perle"
@@ -1744,7 +1744,7 @@
       "id": "jk-eezypeel-pkg",
       "name": "EEZY PEEL*",
       "brewery": "Jester King",
-      "style": "Sour",
+      "style": "Farmhouse Ale Refermented with Mangoes",
       "abv": "7.2%",
       "hops": [
         "East Kent Golding"
@@ -1759,7 +1759,7 @@
       "id": "jk-hibernaldichotomous-pkg",
       "name": "Hibernal Dichotomous",
       "brewery": "Jester King",
-      "style": "Sour",
+      "style": "Oak-Aged Wild Ale Refermented with Beets and Coffee Grounds",
       "abv": "5.8%",
       "hops": [],
       "url": "https://southbound.jp/products/jk-hibernaldichotomous-pkg",
@@ -1848,10 +1848,10 @@
     },
     {
       "id": "b121-c16016",
-      "name": "Ambitious Ales Soccer Pants WC IPA",
+      "name": "Soccer Pants DDH Hazy DIPA",
       "brewery": "Ambitious Ales",
-      "style": "West Coast IPA",
-      "abv": "6.5%",
+      "style": "DDH Hazy DIPA",
+      "abv": "8%",
       "hops": [
         "Strata",
         "Mosaic",
@@ -2117,7 +2117,7 @@
       "id": "b002-c16008",
       "name": "North Coast Old Rasputin",
       "brewery": "North Coast",
-      "style": "Stout / Porter",
+      "style": "Russian Imperial Stout",
       "abv": "9%",
       "hops": [],
       "url": "https://www.antenna-america.com/products/b002-c16008",
@@ -2444,7 +2444,7 @@
       "id": "b015-c16004",
       "name": "Coronado Nado Premium Lager",
       "brewery": "Coronado",
-      "style": "Lager / Pilsner",
+      "style": "Japanese Lager",
       "abv": "4.5%",
       "hops": [
         "Hallertauer Mittelfruher"
@@ -2498,11 +2498,9 @@
       "id": "b041-c12125",
       "name": "Sierra Nevada Rye Torpedo IPA",
       "brewery": "Sierra Nevada",
-      "style": "IPA",
+      "style": "Rye IPA",
       "abv": "6.2%",
       "hops": [
-        "Torpedo Hop",
-        "Centennial",
         "Chinook"
       ],
       "url": "https://www.antenna-america.com/en/products/b041-c12125",
@@ -2518,8 +2516,8 @@
       "style": "Hazy IPA",
       "abv": "7%",
       "hops": [
-        "Citra",
-        "Mosaic"
+        "Alora",
+        "Magnum"
       ],
       "url": "https://www.antenna-america.com/en/products/b041-c12115",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/PeachyLittleThing_2.png?width=400",
@@ -2534,9 +2532,11 @@
       "style": "Hazy IPA",
       "abv": "7%",
       "hops": [
+        "Bravo",
+        "Chinook",
         "Citra",
-        "Mosaic",
-        "Galaxy"
+        "Crystal",
+        "Magnum"
       ],
       "url": "https://www.antenna-america.com/en/products/b041-c12112",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/RadLittleThing.png?width=400",
@@ -2551,10 +2551,9 @@
       "style": "Hazy DIPA",
       "abv": "8%",
       "hops": [
-        "Citra",
-        "Mosaic",
-        "Simcoe",
-        "Galaxy"
+        "Comet",
+        "Strata",
+        "Helios"
       ],
       "url": "https://www.antenna-america.com/en/products/b041-c12109",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/CosmicLittleThing.png?width=400",
@@ -2569,9 +2568,10 @@
       "style": "DIPA",
       "abv": "9.2%",
       "hops": [
-        "Simcoe",
-        "Citra",
-        "Centennial"
+        "Cascade",
+        "Centennial",
+        "Mosaic",
+        "Magnum"
       ],
       "url": "https://www.antenna-america.com/en/products/b041-c12100",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/AtomicTorpedo202312oz.png?width=400",
@@ -2604,7 +2604,6 @@
       "style": "DIPA",
       "abv": "8%",
       "hops": [
-        "Citra",
         "Simcoe",
         "Mosaic"
       ],
@@ -2621,10 +2620,7 @@
       "style": "IPA",
       "abv": "6.5%",
       "hops": [
-        "Cascade",
-        "Centennial",
-        "Chinook",
-        "Citra"
+        "Simcoe"
       ],
       "url": "https://www.antenna-america.com/en/products/b055-c12006",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/5e688c79-6584-406b-b3f6-35d7fd5ad003_72ae79ea-4597-4f30-bed6-ad412a78b2dc.jpg?width=400",
@@ -11949,9 +11945,9 @@
       "style": "West Coast IPA",
       "abv": "7%",
       "hops": [
-        "Centennial",
-        "Chinook Lupomax",
         "Chinook",
+        "Chinook Lupomax",
+        "Cascade",
         "Audacia",
         "Strata CGX"
       ],
@@ -14759,6 +14755,294 @@
       "description": "残る石を求め、10代目Alchemistは再び街へと繰り出していた。その途中、ひとりで泣いている子どもを見つける。どうやら親とはぐれてしまったらしい。周囲を見渡しても、それらしい姿は見当たらない。彼は子供に声をかけ、安心させながら一緒に親を探すことにした。 時間をかけ街の人々にも尋ね歩き、しばらくして、ようやく子供の親を見つけ出すことができた。我が子を抱きしめ、安堵する親。何度も礼を告げたあと、ふと思い出したように懐から小さな石を取り出した。 「これは我が家に代々伝わる家宝なんです。大切にしてきたものですが、あなたに受け取ってほしい」 差し出された石を手にした瞬間、10代目Alchemistは気づいた。 ――またひとつ、欠落した術式の石だった。 誰かを助けようとした、彼の何気ない行動。その先に、またひとつ失われた力が戻ってきた。石に込められた意味は、まだ分からない。しかし、五つの欠落を埋める道筋は、少しずつ見え始めていた。 ドライホップには相性が良いとされているKrushとNectaronをセレクト。さらにMosaicを投入しダンク感を注入し、華やかさの強化にはEl Dorado CGXをチョイス。熟したストーンフルーツやオレンジの表現力豊かなジューシーアロマに、いちごやメロンの柔らかなニュアンス。甘さと心地良い濃厚さを感じられる仕上がりに。 ※Artwork by @kac_one",
       "source": "westcoast",
       "added": "2026-11-10"
+    },
+    {
+      "id": "set-50-nov-06",
+      "name": "Embolden新商品 The Warrior含む人気ビール4本セット",
+      "brewery": "Embolden Beer Co",
+      "style": "Blonde Ale",
+      "abv": "5%",
+      "hops": [
+        "Nelson Sauvin",
+        "Mosaic",
+        "Waimea"
+      ],
+      "url": "https://www.antenna-america.com/products/set-50-nov-06",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/481b066a8071fbe41c950239f128d51a_0ea7a373-0ade-4252-93ad-0a9ddf54681a.png?width=400",
+      "description": "シークヮーサー果汁と米を使用し、キレのある軽やかなボディに仕上げたライスラガー。ハリウッドをはじめ世界で活躍する日本の俳優、平岳大氏との特別なコラボレーションによって誕生しました。「The Warrior Series」は、規律と謙虚さ、確かな目的意識を持ち、常に高みを目指す人々に敬意を表するシリーズです。武士道の精神である「名誉・勇気・敬意・自己鍛錬」に着想を得て、現代を生きる戦士たちを称えます。缶には墨絵を思わせるオリジナルアートをあしらい、真の強さは自分自身の内面から生まれることを表現しています。優れたビールと同じように、人の人格も一朝一夕には磨かれません。忍耐によって形づくられ、困難を乗り越えることで磨かれ、そして人々と分かち合うことで深まっていきます。",
+      "source": "antenna",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "b114-c16019a",
+      "name": "Shogun - The Warrior Rice Lager",
+      "brewery": "Embolden Beer Co",
+      "style": "Shikuwasa Rice Lager",
+      "abv": "5%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b114-c16019a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/WarriorLager.png?width=400",
+      "description": "シークヮーサー果汁と米を使用し、キレのある軽やかなボディに仕上げたライスラガー。ハリウッドをはじめ世界で活躍する日本の俳優、平岳大氏との特別なコラボレーションによって誕生しました。「The Warrior Series」は、規律と謙虚さ、確かな目的意識を持ち、常に高みを目指す人々に敬意を表するシリーズです。武士道の精神である「名誉・勇気・敬意・自己鍛錬」に着想を得て、現代を生きる戦士たちを称えます。缶には墨絵を思わせるオリジナルアートをあしらい、真の強さは自分自身の内面から生まれることを表現しています。優れたビールと同じように、人の人格も一朝一夕には磨かれません。忍耐によって形づくられ、困難を乗り越えることで磨かれ、そして人々と分かち合うことで深まっていきます。",
+      "source": "antenna",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "b071-c16061",
+      "name": "Fast Friends WC IPA (Societeコラボ)",
+      "brewery": "Topa Topa",
+      "style": "West Coast IPA",
+      "abv": "6.9%",
+      "hops": [
+        "Motueka",
+        "Krush",
+        "Citra",
+        "Mosaic Cryo"
+      ],
+      "url": "https://www.antenna-america.com/products/b071-c16061",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/FastFriend_2.png?width=400",
+      "description": "サンディエゴの名門ブリュワリー、Societeとの友情で生まれたWest Coast IPA。Freestyle Hops社のモツエカを使用したダブルドライホッピングに加え、クラッシュ、シトラ、モザイク・クライオを贅沢に投入しました。爽やかな飲み心地が魅力の、仲間と楽しい時間を過ごすのにぴったりな一杯です。",
+      "source": "antenna",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "b071-c12064",
+      "name": "Azacca IPA",
+      "brewery": "Topa Topa",
+      "style": "Single Hop IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Azacca"
+      ],
+      "url": "https://www.antenna-america.com/products/b071-c12064",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/AzaccaIPA.png?width=400",
+      "description": "同じレシピと製法でホップのみを変えたシングルホップシリーズの一つ。今作はアザッカホップを使用し、マンゴー、タンジェリン、松のニュアンスが感じられます。※缶裏記載の使用ホップ情報に印字不良があります。",
+      "source": "antenna",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "b071-c12063",
+      "name": "Krush IPA",
+      "brewery": "Topa Topa",
+      "style": "Single Hop IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Krush"
+      ],
+      "url": "https://www.antenna-america.com/products/b071-c12063",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/KrushIPA.png?width=400",
+      "description": "同じレシピと製法でホップのみを変えたシングルホップシリーズの一つ。今作はクラッシュホップを使用し、ブラッドオレンジやレッドベリー、ライチを思わせる味わいが楽しめます。※缶裏記載の使用ホップ情報に印字不良があります。",
+      "source": "antenna",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "b071-c12062",
+      "name": "El Dorado IPA",
+      "brewery": "Topa Topa",
+      "style": "Single Hop IPA",
+      "abv": "6.5%",
+      "hops": [
+        "El Dorado"
+      ],
+      "url": "https://www.antenna-america.com/products/b071-c12062",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/ElDoradoIPA.png?width=400",
+      "description": "同じレシピと製法でホップのみを変えたシングルホップシリーズの一つ。今作はエルドラドホップのみを使用し、スイカや洋梨、ストーンフルーツを思わせる甘くフルーティーな味わいを楽しめます。※缶裏記載の使用ホップ情報に印字不良があります。",
+      "source": "antenna",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "b036-b37134",
+      "name": "Black Tuesday 2026 (入数12)",
+      "brewery": "The Bruery",
+      "style": "Barrel-aged Imperial Stout",
+      "abv": "19.3%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b036-b37134",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/BlackTuesday2026.png?width=400",
+      "description": "大胆で妥協のない樽熟成へのこだわりを象徴するビール。The Brueryを代表するフラッグシップのインペリアルスタウトは、厳選したバーボン樽で熟成した原酒を丁寧にブレンドしています。2026年ヴィンテージでは、Four Gate、Buffalo Trace、Four Roses、Elijah Craig、Wilderness Trail、Henry McKenna、Jim Beam、Rod & Hammer’sの樽を使用。凝縮されたダークモルトの風味に、バーボンの温かなニュアンスと、長期の樽熟成によって育まれた幾重ものオークの風味が重なります。圧倒的な奥行きと、ひと口で感じられる「Black Tuesday」ならではの個性を備えた、15年以上にわたる伝統を受け継ぐ一本です。",
+      "source": "antenna",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "b036-b37133",
+      "name": "12 Days of Christmas(入数12)",
+      "brewery": "The Bruery",
+      "style": "Belgian-style Dubbel Ale with Spices",
+      "abv": "7.1%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b036-b37133",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/12DaysofChristmas.png?width=400",
+      "description": "今年のホリデーシーズンに向けて、新たな限定ビール「12 Days of Christmas Ale」をお届けします。フレンチオークで発酵させたベルジャンスタイル・ダブルエールに、ホリデーシーズンを彩るスパイスを加えた、季節限定の一杯です。これまでの「12 Days of Christmas」シリーズでは、12種類の異なるビールを詰め合わせたバラエティパックを展開してきましたが、今年は趣向を変え、ひとつの季節限定ビールに集約しました。レーズンブランやバナナピールを思わせる香りに続いて、ドライクランベリー、リコリス、トーストしたシナモンのニュアンスが広がります。",
+      "source": "antenna",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "b071-c12002",
+      "name": "Level Line Pale Ale",
+      "brewery": "Topa Topa",
+      "style": "Pale Ale",
+      "abv": "5%",
+      "hops": [
+        "Cascade",
+        "Centennial",
+        "Chinook",
+        "Magnum"
+      ],
+      "url": "https://www.antenna-america.com/products/b071-c12002",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/5e71d03e-0bc4-4442-a2f2-0578fd5ad003_511f8e00-9ebd-423c-aaf7-4c1c081f4da3.jpg?width=400",
+      "description": "水の流れに釣竿をたらせば、平日の仕事も徐々に忘れられる。何かをヒットし釣り糸が動き始めた瞬間、意識が今に没入する。リフレッシングな柑橘と森林や松のようなホップの味わいが森を流れる小川を思わせる。蜂蜜やビスケット、トーストを連想させるモルトのキャラクターも心地よい。ウエストコーストのライフスタイルに合わせて造られた、ウエストコーストPale Ale。2022年Great American Beer Festivalにて金賞受賞。",
+      "source": "antenna",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "b068-c16002",
+      "name": "Relax",
+      "brewery": "Offshoot",
+      "style": "Hazy IPA",
+      "abv": "6.8%",
+      "hops": [
+        "Citra",
+        "Centennial",
+        "Simcoe",
+        "Amarillo"
+      ],
+      "url": "https://www.antenna-america.com/products/b068-c16002",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Relax.jpg?width=400",
+      "description": "期間限定ビールしか発売してこなかったOffshoot Beer Co.が初めてリリースした年間リリース商品。パッケージに「ただのヘイジーIPAです」（“IT’S JUST A HAZY IPA”）と書くほどリラックス感を前面に打ち出しているが、中身はパトリック・ルー率いるThe Brueryグループの実力が十分に発揮された無濾過Hazy IPAである。フレッシュなホップの味わいとアロマが最大限に発揮され、ジューシーだが苦みは控えめ。フルーティーでトロピカル、シトラス感のあるアロマが、酵母由来の角のとれた柔らかな口当たりを引き立たせている。アロマにはレモンやオレンジピール、パイナップル、松のような香りがある。味わいにはグレープフルーツなど柑橘の味わいも加わり、フィニッシュはクリーン。苦みのないスムースなIPAなので、危険なほど飲みやすくリラックスできること間違いない。",
+      "source": "antenna",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "b113-c16014",
+      "name": "Vanilla Coffee Underbrown",
+      "brewery": "Heavy Riff Brewing",
+      "style": "Brown Ale",
+      "abv": "6.5%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b113-c16014",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/VanillaCoffeeUnderbrown_1a9d21c2-7fb0-4d5c-be8a-1e954c273abc.png?width=400",
+      "description": "2015年の販売開始以来、ビール評価サイトUntappdで「世界で最も優れたブラウンエール」と評価され続けている伝説的なビール。深いチョコレートとコーヒーのようなフレーバーに滑らかなバニラフィニッシュ。",
+      "source": "antenna",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "b999-p923",
+      "name": "Mix Pack",
+      "brewery": "49th State Brewing",
+      "style": "Mix",
+      "abv": "-",
+      "hops": [
+        "Mosaic",
+        "Citra"
+      ],
+      "url": "https://www.antenna-america.com/products/b999-p923",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/49th_2.png?width=400",
+      "description": "49th State Brewing Spruceplosion (473ml) / スプルースプロージョンアラスカらしさを表現したIPA。 手摘みしたアラスカ産トウヒの新芽由来のレッドベリーを思わせる風味に、モザイクとシトラホップによるシトラスやトロピカルフルーツのキャラクターが重なります。 アラスカならではの素材とホップの魅力を楽しめる仕上がりです。",
+      "source": "antenna",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "nb-dabinett-pkg",
+      "name": "Dabinett - Single Varietal",
+      "brewery": "Noble Cider",
+      "style": "Single Varietal Hard Cider",
+      "abv": "6.9%",
+      "hops": [],
+      "url": "https://southbound.jp/products/nb-dabinett-pkg",
+      "image": "https://cdn.shopify.com/s/files/1/0269/3677/0662/files/NB-product-dabinett_bottle-1440x1800.jpg?width=400",
+      "description": "1900年代初頭にサマセットの生垣で発見されたダビネットは、イングランドのウェスト・カントリーにおけるサイダーの伝統において、甘みと苦みの絶妙なバランスを特徴とする代表的なリンゴの一つです。タンニン含有量が極めて高いことで知られ、生食にはあまり適していませんが、深みのある表現力豊かでコクのあるサイダーを醸造するのに最適です。この単一品種サイダーは、豊かで複雑な味わいを持ち、焼きリンゴ、キャラメル、ダークベリーの力強い風味に加え、干し草や革のような、ビタースイート特有のニュアンスを醸し出しています。",
+      "source": "southbound",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "vertere-3256",
+      "name": "Lunaria",
+      "brewery": "Vertere",
+      "style": "Hazy Pale Ale",
+      "abv": "5.5%",
+      "hops": [
+        "Nelson Sauvin",
+        "Idaho 7 CGX",
+        "Riwaka",
+        "Citra Cryo"
+      ],
+      "url": "https://verterebrew.com/brewlog/lunaria/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/11/245_Lunaria-300x300.jpg",
+      "description": "マンゴー、パッションフルーツ、パイン、ほのかに白ぶどうを思わせる香り。軽快なボディながらオーツ由来の滑らかな口当たりと、全体を締めるシトラスのニュアンス。飲みやすく、ホップの立体感を楽しめる一杯。",
+      "source": "vertere",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "vertere-3255",
+      "name": "Christmas Beer 2026 Botanical Saison",
+      "brewery": "Vertere",
+      "style": "Botanical Saison",
+      "abv": "6%",
+      "hops": [
+        "Lorien"
+      ],
+      "url": "https://verterebrew.com/brewlog/christmas-beer-2026-botanical-saison/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/11/247_Botanical-Saison-300x300.jpg",
+      "description": "クリスマスに合わせて冬の森をイメージしたセゾン。クロモジとコリアンダーを使用。清涼感のあるウッディな香りと、柑橘を思わせる爽やかでハーバルなアロマ。ドライで軽快な飲み口で食卓にも自然に寄り添う一杯。",
+      "source": "vertere",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "vertere-3251",
+      "name": "Christmas Beer 2026 Barley Wine",
+      "brewery": "Vertere",
+      "style": "Barley Wine",
+      "abv": "10%",
+      "hops": [
+        "Tettnanger"
+      ],
+      "url": "https://verterebrew.com/brewlog/christmas-beer-2026-barley-wine/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/11/246_Christmas-2026-Barley-Wine-300x300.jpg",
+      "description": "クリスマスに向けて醸造したBarley Wine。豊かなモルトの甘みと複雑な香ばしさと、ほのかに焼きバナナを思わせるアロマ。スパイスとオークチップのニュアンスが重なる奥行きのある味わい。濃厚でありながらもバランスの取れた、冬の夜にゆっくりと楽しみたい一杯。",
+      "source": "vertere",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "westcoast-bohemian-pils",
+      "name": "Bohemian Pils",
+      "brewery": "West Coast Brewing",
+      "style": "Bohemian Pils",
+      "abv": "5%",
+      "hops": [],
+      "url": "https://www.westcoastbrewing.jp/beer/bohemian-pils/",
+      "image": "https://www.westcoastbrewing.jp/wp/wp-content/uploads/2026/11/261111_BohemianPils_art-384x384.jpg",
+      "description": "すっかり季節が深まり、どこか澄みきった秋の空気。深く色づく木々をかき分け、Hop Dudeが辿り着いたのは、陽の光が差し込むように、煌々と輝く琥珀色の一杯。 クラシックなビアスタイルをテーマに造り続ける“WCBシンプルロゴシリーズ”記念すべき第10弾！今回はクリスピー全開の『Bohemian Pils』が新登場。同シリーズ前作「Mckenzie Pils」をベースに麦芽調整し、Bohemian Pilsner Maltを使用し軽やかでシャープな口当たりへ。ホップにはMckenzieとMittelfrühをセレクト。 モルト由来のシリアルやトースト、クラッカーのようなアロマ。ほのかに感じる、はちみつのような控えめな甘さと、草やフローラル、ハーブの繊細な香り。ライトボディでドリンカブル、優しい苦みが心地良い新作ラガーが完成！",
+      "source": "westcoast",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "westcoast-black-light",
+      "name": "Black Light",
+      "brewery": "West Coast Brewing",
+      "style": "CBD & TERPENE-Infused American Pale Ale",
+      "abv": "6%",
+      "hops": [
+        "Comet",
+        "Simcoe",
+        "Cascade"
+      ],
+      "url": "https://www.westcoastbrewing.jp/beer/black-light/",
+      "image": "https://www.westcoastbrewing.jp/wp/wp-content/uploads/2021/11/261111_BlackLight_art-384x384.jpg",
+      "description": "ホップ学の歴史書に隠されていた秘密。そこに記されていたのは、ダークサイドに伝わる禁断の計画だった。かねてよりNemesisに心酔していた、とあるHop Dudeは、知らず知らずのうちに、闇の深淵へ足を踏み入れていた。「これで自分も一人前の悪党だ。」 未だNemesis本人の姿を見たことはない。唯一の接点は、闇のネットワークを介したメッセージだけ。Hop Dudeは指示役として用宗の街を奔走し、彼の背後で多くの作業員Dudeたちが暗躍する。人目を忍んで、着々と設置されていく、4つ目の信号。緑・黄・赤……そして黒。すべての準備は整った。 前回のバッチからドライホップの組み合わせを再構築し、よりグラッシーなアロマをイメージ。仕上げにはCBDに加え、2種のテルペンを投入。湿り気のある草や緑の葉、ハーブを思わせるテルペン由来の強烈ダンクアロマ。レモンやライムのような柑橘の風味も感じられ、持続性のあるマイルドでバランスの取れた苦みの余韻へ。 【1缶（510mL）あたり、CBDの含有量は50mgです】 🔖TERPENEとは\n\n幅広い植物の精油に含まれる天然の芳香成分。今回のバッチでは従来の「OG Kush」に加え「King Louis XIII」を使用（リキッド製品）。 ▼CBDについて詳しくはこちら\n\nhttps://www.westcoastbrewing.jp/news/cbd2025/",
+      "source": "westcoast",
+      "added": "2026-11-16"
+    },
+    {
+      "id": "westcoast-guava-chill",
+      "name": "Guava & Chill",
+      "brewery": "West Coast Brewing",
+      "style": "Smoothie Sour",
+      "abv": "5.5%",
+      "hops": [],
+      "url": "https://www.westcoastbrewing.jp/beer/guava-chill/",
+      "image": "https://www.westcoastbrewing.jp/wp/wp-content/uploads/2026/11/261111_GuavaChill_art-384x384.jpg",
+      "description": "急ぐ理由も、やらなきゃいけないこともない。……いや、正確にはあるけれど、今はひとまず何も考えないことにしよう。流れる雲でも眺めながら、のんびりひと休み。 もう少ししたら動き出そう。そう思っているうちに、また時間が過ぎていく。気付けば手元の『Guava & Chill』も2杯目に突入。これを飲み終わるまでは、休憩ということで。こうして今日も、予定はゆっくり後ろへとずれていく。 トロピカルで楽しい、Smoothie Sourが完成！グァバ・アプリコット・ココナッツのピューレをメインに、ブラッドオレンジとライムもセレクト。さらにトンカビーンズ（バニラのような甘い香り）でアクセント。 副原料のフルーツを存分に感じられる、明るく表現力豊かなアロマ。飲み進めるたびに複雑に変化する華やかな風味には、ミルキー感のあるココナッツやグァバ、さらには甘酸っぱく爽やかな酸味とほろ苦さ。ジューシー全開、濃厚でなめらかな満足感あふれる一杯。",
+      "source": "westcoast",
+      "added": "2026-11-16"
     }
   ]
 }

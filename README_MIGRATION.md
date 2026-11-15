@@ -5,16 +5,17 @@
 ```
 hop-automation/
 ├── data/
-│   └── products.json          # 全商品データ（824件、2026-10-16時点。画像・説明文・ホップ・ABV）
+│   └── products.json          # 全商品データ（969件、2026-11-16時点。画像・説明文・ホップ・ABV）
 ├── docs/
 │   └── index.html             # 公開用Webページ（GitHub Pages用）
 ├── scripts/
 │   ├── build_html.py          # products.json → index.html を生成するビルドスクリプト（収集元の表示はupdate_sources.jsonから生成）
-│   ├── hops_tab.js            # ホップアロマチャート（208品種・説明文付き）
+│   ├── hops_tab.js            # ホップアロマチャート（213品種・説明文付き）
 │   ├── products_tab.js        # 製品成分表タブ（スタイル/度数/並び順の絞り込み・モーダル・戻る機能）
 │   ├── style_class.py         # スタイルの細分類(36種)と度数帯。画面の絞り込み用（test_style_class.pyでテスト）
 │   ├── hop_text.py            # 説明文からのホップ抽出（test_hop_text.pyでテスト）
-│   ├── update_products.py     # 全収集元の自動巡回スクリプト（収集先ごとの収集関数はCOLLECTORS）
+│   ├── update_products.py     # 全収集元の自動巡回スクリプト（新商品の追加+登録済み商品の更新。収集先ごとの収集関数はCOLLECTORS/REFRESHERS。test_refresh.pyでテスト）
+│   ├── coverage_check.py      # 登録漏れ・更新漏れの総チェック（読み取り専用。python scripts/coverage_check.py）
 │   ├── update_sources.json    # 巡回対象サイトの一覧（ここに1件足すと週次で自動巡回される）
 │   └── hops_aroma_data.js     # ホップアロマデータ（旧バージョン・参考用）
 ├── .github/workflows/
@@ -100,7 +101,8 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
 4. **構造が新しいサイトだけ**: `update_products.py` に収集関数 `collect_xxx(source, known_ids, backfill) -> list[dict]` を書き、`COLLECTORS` に登録する
    (レコードは `id`=`<source_key>-…` / `name` / `brewery` / `style` / `abv` / `hops` / `url` / `image` / `description` / `source` / `added`)。
    **0件は「新着なし」でなく障害**なので例外を投げる(1ソースの失敗は他へ波及せず `source_errors` に記録される)。
-   typeが未登録のままだとその回は失敗として報告される(黙って飛ばされない)
+   typeが未登録のままだとその回は失敗として報告される(黙って飛ばされない)。
+   登録済み銘柄の更新点検をしたい収集先は、`refresh_xxx(source, stored) -> [ライブのレコード]` を書いて `REFRESHERS` にも登録する(任意。無ければ更新点検を飛ばすだけ)
 5. **月次監査の対応**: `audit_catalog.py` の `UNREGISTERED_CHECKS` に「サイトにあって未登録の銘柄」の検査関数を足す
    (足し忘れても、月次の`audit_review.json`に`sources_without_completeness_check`として出るので見逃さない)。Shopify系は自動で全件ライブ照合される
 6. **ホップ名の整備**: ドライランで出る「[review needed] hop varieties not yet in the aroma chart」を処理する。表記ゆれ・副原料・商標は
@@ -137,7 +139,7 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
 - ホップはアロマチャートに未収録のものがあれば hops_tab.js の hops配列と hopDesc オブジェクトにも追加。ただしアロマの0〜5スコアは感覚評価が必要なため自動生成せず、実在確認(BeerMaverick/Hopsteiner/Yakima Chief等の一次情報源)を取った上で追加すること。`data/audit_review.json`の`needs_review.unknown_hop_names`に溜まったものがレビュー対象
 - ブルワリー名・ホップ名の表記ゆれは`update_products.py`の`BREWERY_ALIASES`/`HOP_NAME_FIXES`に追記していく方式。新しいゆれを見つけたら必ずそこに追記する(2箇所以上に同じ正規化ロジックを書き写さない)
 - 週次の新商品検出は「ハンドルが既知か」ではなく「ハンドルが既知 **かつ** 同一商品か(`same_product`、ブリュワリー・商品名の一致)」で判定する。Shopifyは廃盤商品のハンドル(連番URL)を別商品へ再利用するため、ハンドルだけで判定すると再利用ハンドル上の新商品を永久に取りこぼす(2026-10-06にAmbitious AlesのPorch Rack Mexican Lagerで実害を確認)。再利用ハンドル上の新商品は `<handle>-recycledN` というidで追加され(旧レコードには触らない)、urlが本来のハンドルを保持する。idがハンドルと一致しない商品が存在するのは正常
-- Antenna Americaの非ビール商品(ハードセルツァー等)は`ANTENNA_EXCLUDE_VENDORS`/`ANTENNA_EXCLUDE_TAGS`で除外する。vendor欄がスタイル名(ビール)またはカテゴリ名(それ以外)になっているため、新しい非ビールカテゴリが混入したらここに追記する(2026-10-06にHard Seltzer 4件が混入して発覚)
+- Antenna Americaの非ビール商品(ハードセルツァー等)は`ANTENNA_EXCLUDE_VENDORS`/`ANTENNA_EXCLUDE_TAGS`で除外する。vendor欄がスタイル名(ビール)またはカテゴリ名(それ以外)になっているため、新しい非ビールカテゴリが混入したらここに追記する(2026-10-06にHard Seltzer 4件が混入して発覚)。逆に、除外ルールがビールを落としていないかは総チェックのA2(`coverage_check.py`)で目視する(2026-11-16に`Mix`=ミックスパックの誤除外を発見)
 - 出力ファイル名は `docs/index.html` 固定（GitHub Pages公開用）
 
 ## 製品別ホップ成分表の絞り込み（スタイル36分類・度数帯、2026-11-10導入）
@@ -188,19 +190,56 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
   「…ホップ」と直後に書かれているときだけ採用する(`JP_NEEDS_SUFFIX`。「オーロラのようにホップアロマが輝く」を品種と誤認した実例がある)
 - **辞書にない新しい日本語表記は拾えない**(取りこぼし=ホップ空のまま)。月次監査が`recent_products_hop_words_without_names`に
   「ホップの語が列挙の形である最近の商品」を出すので、月次のClaudeタスクが読み、新しい表記を `hop_text.py` に足してテストを追加する
-- **注意**: 「スペック欄の記載」と「説明文の記載」が食い違う商品がある(例: WCB Campfire Storiesは「w/」行がCentennial、本文はChinook。
-  Sierra Nevada Rad Little Thingは保存済みのスペックと現在のページで品種が違う)。欄に記載がある商品は書き換えず、食い違いは報告に残す。
+- **注意**: 「スペック欄の記載」と「説明文の記載」が食い違う商品がある(例: WCB Campfire Storiesは「w/」行がCentennial、本文はChinook)。
+  欄に記載がある商品の、説明文にだけある品種は、欄を書き換えず食い違いを報告に残す。
   例外として、ページ側が**追加で**品種を挙げていて保存済みの品種と矛盾しない場合は追記する(2026-10-28に8商品。例: Deschutes Fresh Haze IPAに
-  Callista/Bravoを追記)。ページ側でホップが変わっている商品(Sierra Nevada Rad/Peachy/Cosmic Little Thing、Atomic Torpedo、Revision DIPA/IPA等。
-  新しいバッチ/ヴィンテージの可能性)は書き換えず、ユーザーに報告する
+  Callista/Bravoを追記)。**ページ側でホップが一新された商品**(Sierra Nevada Rad/Peachy/Cosmic Little Thing、Atomic Torpedo、Rye Torpedo IPA、
+  Revision DIPA/IPA。新しいバッチ/ヴィンテージ)は、2026-11-16から週次の更新点検が自動で追従する(次章「登録済み商品の更新」)
 - **セット商品のスペック**: Antennaのセット商品は「ホップ：」の行が銘柄ごとに並ぶ。`antenna_spec_fields`は以前は最後の行で上書きしていた
   (Allagash 4本セットでLagerのホップしか入らなかった)ので、全行の和集合にした(2026-10-28)
 - **誤記の解消(2026-10-28)**: Southboundの日本語訳が「ブレマ」「X ７」と起こしていたため、Jester King Enigmatic Taxaのホップ欄が
   "Brema / X7" になっていたが、同商品の英語原文は"Belma / X17"。Brema→Belma(`HOP_NAME_FIXES`、チャートに在る)、X7→X17(出典が乏しくチャート化しない)に直した
 
+## 登録漏れ・更新漏れの対策と総チェック（2026-11-16導入）
+
+ユーザー依頼「登録漏れ、更新漏れがないか総チェック」で、4収集元の全件をライブのサイトと突き合わせた(`scripts/coverage_check.py`)。
+見つかった構造的な穴を週次の本体(`update_products.py`)で塞いだ。
+
+- **売り切れでも直近に公開された商品は登録する**(`RECENT_SOLDOUT_DAYS`、既定14日)。週次は火曜朝に在庫を1回見るだけなので、
+  公開後その週のうちに売り切れた限定品・予約枠は「在庫あり」の判定だけだと永久に見えない(Topa Topa/The Bruery等の予約枠8件が公開4日で完売、
+  Heavy Riffの1件は登録されないまま26日経っていた)。公開から古い売り切れ品(過去の廃盤・完売)は従来どおり登録しない。
+  該当したidは `last_run_summary.json` の `new_products_sold_out`。取りこぼしを一括補充するときは `HOP_RECENT_SOLDOUT_DAYS=45` のように広げて1回だけ実行する
+- **vendor="Mix"の除外を外した**。実体はビールのミックスパックで、大文字の`MIX`(14件)や`set-`のセットは元から収集対象だったのに、
+  綴りが違うだけの`Mix`だけ除外されていた(49th State Brewing Mix Packが在庫ありで未登録)。Southboundの`Set`型(Eclipse瓶セット・Tシャツ付きセット)は
+  中身が個別に登録済みの銘柄かグッズなので、従来どおり収集しない
+- **登録済み商品の更新**(`refresh_changes`)。以前の週次は追加だけで、登録後にサイト側で変わった事実は二度と読み直されなかった。
+  次の項目だけを、サイト自身の記載を根拠に自動で直す(ルールは`update_products.py`の該当コメントが正):
+  - **abv**: サイトに%の数値があり保存値と違う。サイトが空なら保存値を消さない
+  - **style**: サイトのスタイル欄が短い名詞句(70字未満・「。」「！」なし・英字あり)で、`style_class`の細分類が保存値と変わるとき。
+    言い換えだけ(同じ細分類)・分類できない欄・販売注記が入った欄(「Southbound限定の商品！…」)は採らない
+  - **hops**(`refresh_hops`): サイトの記載=スペック欄、無ければ説明文から読めた品種。保存値が空なら埋める。保存値にサイトの記載に無い品種があるときは、
+    スペック欄が根拠なら「スペック欄にも説明文にも無い保存値」がある場合だけ、説明文が根拠なら保存値と完全に食い違う場合だけ置き換え、それ以外は追記のみ
+    (説明文には書かれているがスペック欄から漏れている品種=ユーザー指示で補ったものは消さない)。追加する名前がアロマチャートに無ければ適用せず確認へ
+  - **name**: 触らない(ブリュワリー名の有無・【再入荷】等の飾りはノイズ)。例外は再発売(細分類と度数が同時に変わる=別レシピ。Ambitious Ales Soccer Pants)
+  - 説明文・画像は触らない(言い換え・写真の差し替えは事実の更新ではない。2026-11-16時点でAntennaの95件・Southboundの18件が言い換えで違う)
+  - **歯止め**: 1回で更新するのは最大`MAX_REFRESH_PER_RUN`(60)件。超えるのは「サイト構造が変わって解析が全体にずれた」ときなので、超えた分は適用せず
+    `last_run_summary.json`の`refresh_review`へ。**適用した変更は全て`refreshed`に旧→新で残る**
+  - 収集元ごとの根拠: Shopifyは取得済みのカタログ(追加リクエストなし)、VertereはWP記事の`modified`が直近`WP_MODIFIED_DAYS`(14)日以内のものだけ個別ページを読み直す
+    (`refresh_wp_brewlog`)、WCBは`/ourbeers/`の一覧(最新12銘柄、`refresh_wcb_list`。説明文が無いのでホップは追記のみ)
+  - 初回(2026-11-16)の適用: 32件(スタイル24・ホップ8・度数2、Revision DIPA/IPA、Sierra Nevadaの5品、Vertere Achillea等)。
+    旧→新は当日のコミットメッセージと`last_run_summary.json`にある
+- **商品名の整形**: 先頭の販促タグ(`【再入荷】`等)は英字の銘柄名が続くときだけ除く(タグがあるとブリュワリー名の接頭辞除去も効かなかった)。セット名はそのまま
+- **売り切れ商品も読むため**、解析できない1商品でソース全体が止まらないよう、商品ごとにtry/exceptし`parse_errors`に記録する
+- **総チェック**: `python scripts/coverage_check.py [--json 出力先]`(読み取り専用)。A=登録漏れ(A1在庫あり未登録/A2除外条件で外れた在庫あり商品の目視用/A3売り切れ最近公開の未登録/A4公式サイト系の未登録)、
+  B=更新漏れ(B1・B2=次回の週次が直す差、B3=ハンドル失効と別ハンドルでの再掲載、B4=チャートに無いホップ、B5=公開ページとの一致)。
+  更新の判定は週次と同じ`refresh_changes`を呼ぶので食い違わない。修正後の状態では A1/A3/A4/B1/B2/B4 が全て0、B3は廃盤(再掲載の疑い0件)になる
+- **HBC 522 / Alora**: B4で見つかったチャート未収録のホップ。HBC 522は米国植物特許PP29894(Hop Breeding Company、Columbus×986-2、香り「シトラス、フローラル」、α酸9.9〜11.7%)、
+  AloraはHopsteiner社のデータシート(香り「ピーチ、ゆず、甘いメロン、アプリコット」、α酸7.0〜10.0%)を根拠に、`hops_tab.js`へ追加した
+  (0〜5スコアは出典の香りの語からの感覚評価。Peacharine等の既存品種に合わせた)
+
 ## 月次監査（scripts/audit_catalog.py）
 
-週次の`update_products.py`は「新商品の検出」専用の軽量処理であり、以下は拾えない。これを毎月1日に
+週次の`update_products.py`は「新商品の検出」と、登録済み商品のスタイル・ABV・ホップの更新(前章)だけを行う軽量処理であり、以下は拾えない。これを毎月1日に
 `monthly-audit.yml`が自動実行して点検する(2026-10-02導入、きっかけは同日に発見した実例: Shopify側のURL変更で
 5商品のIDが無効化し、次週の週次実行が「新商品」と誤認して重複追加する一歩手前だった事象):
 

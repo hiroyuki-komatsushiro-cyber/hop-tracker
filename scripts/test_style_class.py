@@ -25,6 +25,8 @@ CASES = [
     ("DIPA", "", "ipa_double"), ("Hazy DIPA", "", "ipa_double"), ("Double IPA", "", "ipa_double"), ("TIPA", "", "ipa_double"),
     ("Hazy Triple IPA", "", "ipa_double"), ("Imperial Red IPA", "", "ipa_double"), ("NE-Style Hazy Double IPA", "", "ipa_double"),
     ("Fruited IIPA", "", "ipa_double"), ("DIPA / Imperial", "", "ipa_double"),
+    ("DDH QIPA", "", "ipa_double"), ("Quad IPA", "", "ipa_double"), ("Quadruple Hazy IPA", "", "ipa_double"),
+    ("TDH Hazy TIPA", "", "ipa_double"), ("Belgian Quadrupel", "", "bel_strong"),
     ("Session IPA", "", "ipa_session"), ("Session Hazy", "", "ipa_session"), ("CBD & TERPENE-Infused West Coast Session IPA", "", "ipa_session"),
     ("Cold IPA", "", "ipa_cold_brut"), ("Brut IPA", "", "ipa_cold_brut"),
     ("Red IPA", "", "ipa_color"), ("Black IPA", "", "ipa_color"), ("Belgian IPA", "", "ipa_color"), ("Cascadian Dark Ale", "", "ipa_color"),

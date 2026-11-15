@@ -24,6 +24,12 @@ products.jsonフィードは商品ページと全く同じ構造化スペック(
 これに伴いANTHROPIC_API_KEYは必須ではなくなった。設定されていれば、構造化スペック欄が
 「ホップ:-」になっている商品について、説明文中にホップ品種名が埋もれていないかの追加チェックに
 のみ使う(未設定でも収集・追記の本体機能は問題なく動作する)。
+
+2026-11-16(ユーザー依頼「登録漏れ、更新漏れがないか総チェック」の結果):
+- 売り切れでも直近(RECENT_SOLDOUT_DAYS日)に公開された未登録商品は登録する。週次の合間に売り切れた商品は
+  在庫ありの判定だけだと永久に見えなかった(Topa Topa/The Bruery等、公開後4日で完売した予約枠9件が実例)
+- 登録済み商品の「更新」を加えた(refresh_changes。方針はそこのコメント)。以前は追加だけで、登録後にサイト側で
+  変わったスタイル・ABV・ホップは二度と読み直されなかった
 """
 
 import html
@@ -32,7 +38,7 @@ import os
 import re
 import sys
 import time
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
@@ -44,6 +50,7 @@ except ImportError:
 
 sys.path.insert(0, str(Path(__file__).parent))
 import hop_text  # noqa: E402  説明文からのホップ抽出(辞書と判定ルールはhop_text.py)
+import style_class as sc  # noqa: E402  スタイルの細分類・ABVの数値化(更新の判定にも同じ分類を使う)
 
 ROOT = Path(__file__).parent.parent
 DATA_PATH = ROOT / "data" / "products.json"
@@ -58,12 +65,26 @@ REQUEST_DELAY = 1.2  # seconds between requests - be polite to small retail site
 # Antenna側ではvendorがスタイル名(ビールの場合)またはカテゴリ名(それ以外)になっている。
 # ハードセルツァーはvendor="Hard Seltzer"だがタグが付いていない個体もあるため、vendorとtagsの両方で判定する
 # (2026-10-06: Belching Beaverのセルツァー4件が除外されずに追加された実例)。
-ANTENNA_EXCLUDE_VENDORS = {"Merchandise", "Cheese", "Food&sauce", "Food", "Liquor", "Mix", "Pickles",
+#  ※"Mix"は2026-11-16に外した。vendor="Mix"の実体はビールのミックスパック(49th State Brewing Mix Pack、
+#    Trademark ミリーちゃん Mix Pack等)で、大文字の"MIX"(14件)や"set-"のセット商品は元から収集対象なのに、
+#    綴りが違うだけの"Mix"だけ除外されていた(総チェックで在庫あり1件の登録漏れを発見)。
+ANTENNA_EXCLUDE_VENDORS = {"Merchandise", "Cheese", "Food&sauce", "Food", "Liquor", "Pickles",
                            "Hard Seltzer", "Hard Sparkling Tea"}
 ANTENNA_EXCLUDE_TAGS = {"RTD", "Non Alcohol", "Food", "Food & Sauces", "Hard Seltzer"}
 _EXCLUDE_TAGS_LOWER = {t.lower() for t in ANTENNA_EXCLUDE_TAGS}
-# Southboundはproduct_typeがそのままカテゴリ(Beer/Cider/Mead/Accessories/Apparel/Set)
+# Southboundはproduct_typeがそのままカテゴリ(Beer/Cider/Mead/Accessories/Apparel/Set)。
+# "Set"(現在2件: Eclipse 2024の瓶セットとTシャツ付きセット)は、中身が個別に登録済みの銘柄かグッズなので収集しない(2026-11-16確認)
 SOUTHBOUND_INCLUDE_TYPES = {"Beer", "Cider", "Mead"}
+
+# 売り切れでも、公開から何日以内の未登録商品なら登録するか。週次は火曜朝の1回だけ在庫を見るため、
+# 公開後その週のうちに売り切れた商品(限定・予約枠)は在庫ありの判定だけだと一度も見えない。
+# 通常は週次1回分+余裕で14日。取りこぼしの一括補充は環境変数 HOP_RECENT_SOLDOUT_DAYS=45 のように広げて1回だけ実行する
+RECENT_SOLDOUT_DAYS = int(os.environ.get("HOP_RECENT_SOLDOUT_DAYS") or 14)
+# Vertereの登録済み記事を、WP側のmodified(更新日時)が何日以内なら再取得して読み直すか(HOP_WP_MODIFIED_DAYSで広げられる)
+WP_MODIFIED_DAYS = int(os.environ.get("HOP_WP_MODIFIED_DAYS") or 14)
+# 1回の実行で更新してよい登録済み商品の数。これを超えるのは「サイトの構造が変わって解析結果が全体にずれた」ときなので、
+# 超えた分は適用せず確認(refresh_review)へ回す。大規模な一括補充は HOP_MAX_REFRESH=100 のように広げて1回だけ実行する
+MAX_REFRESH_PER_RUN = int(os.environ.get("HOP_MAX_REFRESH") or 60)
 
 # 既知のブリュワリー名の表記ゆれ正規化(README_MIGRATION.md「更新ルール」より)。
 # キーは小文字・空白除去したゆれ表記、値はデータセットで使う正式表記。
@@ -117,6 +138,7 @@ HOP_NAME_FIXES = {
     "US Tettnanger": "Tettnanger",  # 米国産のTettnanger(品種名は同じ)
     "NZ Cascade": "Cascade",  # NZ産Cascade(2016年からNZ Hopsが「Taiheke」名で販売。品種としてはCascade)
     "Idaho7": "Idaho 7",
+    "Idaho7 CGX": "Idaho 7 CGX",  # Vertere Lunaria(2026-11-16)。チャートには"Idaho 7 CGX"がある
     "Motueka Hop Kief": "Motueka Kief",
     "Motueka hop Kief": "Motueka Kief",
     "SImcoe Quantum": "Simcoe Quantum",  # 大文字小文字の打ち間違い
@@ -139,6 +161,10 @@ HOP_NAME_FIXES = {
     "Rum": "",
     "Vanilla Beans": "",
     "Orange": "",  # WCB「#fruitstories 2」(Fruited Ale)の「w/」行。果実でホップではない(2026-11-02)
+    # WCB「Guava & Chill」の「w/ Guava, Apricot, Coconut」も果実・副原料でホップではない(2026-11-16)
+    "Guava": "",
+    "Apricot": "",
+    "Coconut": "",
     # WCB「Westie Bois」の「w/」行は"Nectar"だが、同じ個別ページの本文に「Nectaronも採用」と明記(2026-10-16確認)
     "Nectar": "Nectaron",
     # 本来の綴りはStrisselspalt(アルザスのホップ)。アロマチャートの項目名は既存のStrisselspalterに合わせる
@@ -176,6 +202,14 @@ HOP_NAME_FIXES = {
     "Cascade LP": "Cascade Lupomax",
     "Lupomax Mosaic": "Mosaic Lupomax",
     "Citra Incognite": "Citra Incognito",
+    # Antenna America表記のゆれ(2026-11-16、総チェックで発見)。品種名はアロマチャートの表記に揃える
+    "German Tettnang": "Tettnanger",  # Cellarmaker 10 Forty(独産Tettnang)
+    "German Mittelfruh": "Hallertauer Mittelfruher",
+    "Hersbrucker": "Hersbrucker Spat",  # Oktoberfest 2026。Hersbruckerは独Hersbruck産の晩生種(Spat)のこと
+    # ホップの品種名ではない記載(注記・抽出物)。「Mosaic, Simcoe, Saaz, Cascade & Varying」(The Coachman)の"Varying"は
+    # 「品種は時期により変わる」の意味、"Citrulicious Hop Oil"はホップオイル(抽出物)で、品種は別に記載がある
+    "Varying": "",
+    "Citrulicious Hop Oil": "",
 }
 
 # 区切り文字が抜けて1語になっている記載(Vertereの入力ミス)を、複数のホップに展開する
@@ -184,6 +218,8 @@ HOP_TOKEN_EXPANSIONS = {
     "BelmaEl Dorado": ["Belma", "El Dorado"],
     "Simcoe Cascade": ["Simcoe", "Cascade"],
     "Citra LP Citra": ["Citra Lupomax", "Citra"],
+    # El Segundo Hop Tankerのスペック欄「Citra, Nelson Simcoe」。同じ商品の説明文は「Nelson Sauvin, Citra, Simcoe, Chinook」(2026-11-16確認)
+    "Nelson Simcoe": ["Nelson Sauvin", "Simcoe"],
 }
 
 _HOP_TABLES = {}
@@ -331,6 +367,138 @@ def in_stock(p: dict) -> bool:
     return any(v.get("available") for v in p.get("variants", []))
 
 
+def shopify_scope(p: dict, source_key: str) -> tuple[bool, str]:
+    """Shopify系ソースの商品が収集対象か。(対象か, 対象外の理由)を返す。在庫の有無は in_stock() で別に見る。
+    週次の収集(main)と、登録漏れの点検(coverage_check.py)で同じ判定を使うため、ここ1か所にだけ書く。"""
+    if source_key == "antenna":
+        if p.get("vendor") in ANTENNA_EXCLUDE_VENDORS:
+            return False, f"vendor={p.get('vendor')}"
+        excluded_tags = {t.lower() for t in p.get("tags", [])} & _EXCLUDE_TAGS_LOWER
+        if excluded_tags:
+            return False, f"tag={sorted(excluded_tags)[0]}"
+        if not p.get("product_type"):
+            return False, "product_type empty"
+        return True, ""
+    if p.get("product_type") not in SOUTHBOUND_INCLUDE_TYPES:
+        return False, f"product_type={p.get('product_type')}"
+    return True, ""
+
+
+def recently_published(p: dict, days=None) -> bool:
+    """商品の公開日(published_at)が直近days日以内か(省略時はRECENT_SOLDOUT_DAYS)。
+    売り切れでも直近に公開された未登録商品を登録するための判定。"""
+    days = RECENT_SOLDOUT_DAYS if days is None else days
+    if days <= 0:
+        return False
+    try:
+        pub = date.fromisoformat((p.get("published_at") or "")[:10])
+    except ValueError:
+        return False
+    return (date.today() - pub).days <= days
+
+
+# ---------------------------------------------------------------------------
+# 登録済み商品の更新(2026-11-16導入)。
+# 以前の週次は「未登録の新商品を足す」だけで、登録後にサイト側で変わった事実(スタイル・ABV・ホップ)は
+# 二度と読み直されなかった。総チェックで、保存値がサイトの現在の記載と食い違う商品が多数見つかった
+# (Sierra Nevada Rad Little Thingのホップ、Ambitious Ales Soccer Pantsの度数とスタイル、
+# 古い記録の「Sour」表記のままのウィットビア等)。自動で直すのは、サイト自身の記載が根拠になる
+# 機械的な変更だけにする:
+#   abv   : サイトに%の数値があり、保存値と違う -> サイトの値(度数の訂正・再発売)。サイトが空なら保存値を消さない
+#   style : サイトのスタイル欄が短い名詞句で、細分類(style_class)が保存値と変わる -> サイトの値。
+#           言い換えだけ(同じ細分類)は触らない。説明文や販売注記が入っている欄・分類できない欄は採らない
+#   hops  : refresh_hops の注釈を参照(スペック欄 > 説明文の順に根拠を取り、サイトに裏付けの無い保存値だけを置き換える)
+#   name  : 触らない(ブリュワリー名の有無・「【再入荷】」等の飾りの差はノイズ)。例外は再発売
+#           (細分類と度数が同時に変わる=別レシピ)で、商品名も新しい記載に合わせる
+# 説明文・画像は触らない(言い換えや写真の差し替えは事実の更新ではない)。
+# 適用した変更はすべて data/last_run_summary.json の refreshed に旧->新で残る(人の確認が要るものは refresh_review)。
+# ---------------------------------------------------------------------------
+STYLE_TEXT_MAX_LEN = 70
+
+
+def hop_core(h: str) -> str:
+    """供給元の括弧書きと加工品の接尾を除いた、比較用のホップ名(Citra CryoとCitraを同じ品種として比べる)"""
+    h = re.sub(r"\s*\(.*?\)$", "", h)
+    return re.sub(r"\s+(Cryo|CGX|Lupomax|Incognito|Spectrum|Quantum|Prysma|HyperBoost|Lupocore|Abstrax|Dynaboost|Kief)$", "", h)
+
+
+def clean_style_text(s: str) -> bool:
+    """ページのスタイル欄が「スタイル名」として採れる短い名詞句か。
+    Southboundには、この欄に「Southbound限定の商品！お一人様1本まで。…」の販売注記が入る商品がある。"""
+    s = (s or "").strip()
+    return 0 < len(s) < STYLE_TEXT_MAX_LEN and not re.search(r"[。！!？?]", s) and bool(re.search(r"[A-Za-z]", s))
+
+
+def refresh_hops(stored_hops: list, live_spec_hops: list, live_desc_hops, known_hops):
+    """保存済みのホップを、サイトの現在の記載に合わせる案を返す: (新しいホップ または None, 人の確認が要る理由 または None)。
+    - サイトの記載 = スペック欄があればそれ、無ければ説明文から読めた品種(live_desc_hops。取れない収集元はNone)
+    - 保存値が空なら、サイトの記載で埋める
+    - 保存値にサイトの記載に無い品種があるとき: スペック欄が根拠なら「スペック欄にも説明文にも無い保存値」がある場合だけ、
+      説明文が根拠なら保存値と完全に食い違う(共通の品種が無い)場合だけ、サイトの記載に置き換える。それ以外は追記のみ。
+      Sierra Nevada Rad Little ThingやRevision DIPAのように、保存値にサイトのどこにも無い品種が残っている商品は置き換わり、
+      説明文には書かれているがスペック欄から漏れている品種(ユーザー指示「説明に記載があれば成分として追記する」で補ったもの)は消えない。
+      説明文が取れない収集元(live_desc_hops=None)は、根拠を確かめられないので置き換えず追記のみ
+    - 追加する名前がアロマチャートに無い品種は適用せず、理由を返す(注記や綴り違いを品種として入れない。新品種はチャートに足してから)"""
+    if live_spec_hops:
+        live, basis = list(live_spec_hops), "spec"
+    elif live_desc_hops:
+        live, basis = list(live_desc_hops), "description"
+    else:
+        return None, None
+    sk, lk = {hop_core(h) for h in stored_hops}, {hop_core(h) for h in live}
+    gone = [h for h in stored_hops if hop_core(h) not in lk]  # 保存値にあって、サイトの記載に無い品種
+    added = list(dict.fromkeys(h for h in live if hop_core(h) not in sk))
+    if not gone and not added:
+        return None, None
+    if not stored_hops:
+        replace = True
+    elif basis == "spec":
+        dk = {hop_core(h) for h in (live_desc_hops or [])}
+        replace = live_desc_hops is not None and any(hop_core(h) not in dk for h in gone)
+    else:
+        replace = not (sk & lk)
+    new = list(live) if replace else list(stored_hops) + added
+    unknown_added = [h for h in added if h not in known_hops]
+    if unknown_added and new != list(stored_hops):
+        return None, f"サイトの記載に未知の名前 {unknown_added}(保存={stored_hops}、サイト={live})"
+    return new, None
+
+
+def refresh_changes(stored: dict, live: dict, live_desc_hops=None, known_hops=frozenset()):
+    """保存済みレコードを、サイトの現在のレコードに合わせて安全に直せる項目を返す: (changes, review)。
+    changes={項目: (旧, 新)}、review=[人の確認が要る理由]。方針は上のコメントを参照。"""
+    changes, review = {}, []
+    sa, la = sc.parse_abv(stored.get("abv")), sc.parse_abv(live.get("abv"))
+    abv_changed = la is not None and (sa is None or abs(sa - la) > 0.05)
+    if abv_changed:
+        changes["abv"] = (stored.get("abv"), live["abv"])
+
+    style_changed = False
+    l_style = (live.get("style") or "").strip()
+    if l_style and l_style.lower() != (stored.get("style") or "").strip().lower() and clean_style_text(l_style):
+        name = stored.get("name", "")
+        l_sub = sc.classify_style(l_style, name)[1]
+        if l_sub != sc.classify_style(stored.get("style", ""), name)[1] and l_sub != sc.FALLBACK:
+            changes["style"] = (stored.get("style"), l_style)
+            style_changed = True
+
+    if style_changed and abv_changed and sa is not None and live.get("name") and live["name"] != stored.get("name"):
+        changes["name"] = (stored.get("name"), live["name"])  # 再発売(別レシピ)。商品名も新しい記載に合わせる
+
+    stored_hops = list(stored.get("hops") or [])
+    new_hops, why = refresh_hops(stored_hops, list(live.get("hops") or []), live_desc_hops, known_hops)
+    if new_hops is not None and new_hops != stored_hops:
+        changes["hops"] = (stored_hops, new_hops)
+    if why:
+        review.append(why)
+    return changes, review
+
+
+def apply_refresh(rec: dict, changes: dict) -> None:
+    for field, (_old, new) in changes.items():
+        rec[field] = new
+
+
 def antenna_spec_fields(body_html: str) -> dict:
     """<li>ラベル：値</li> 形式のスペック欄(ABV/ホップ/ブリュワリー/スタイル等)を辞書化する。"""
     fields = {}
@@ -368,6 +536,12 @@ def parse_antenna_product(p: dict, source_key: str, base_url: str) -> dict:
     # 商品名: タイトルから "/日本語名" と "(NNNml)" とブリュワリー名の重複プレフィックスを除去
     title = p["title"]
     name = title.split(" / ")[0].strip()
+    # 先頭の販促タグ(【再入荷】【完売】【ACBE2026でも大注目！】等)は商品名ではない。英字の銘柄名だけが続くときに除く
+    # (セットは「飲み比べ○本セット」のように日本語が続くので対象外=登録済みのセット名と同じ形のまま)。
+    # タグがあるとブリュワリー名の接頭辞除去も効かなくなる
+    tagged = re.match(r"^(?:【[^】]*】\s*)+(?=[A-Za-z0-9])(.*)$", name)
+    if tagged and not re.search(r"[぀-ヿ一-龯]", tagged.group(1)):
+        name = tagged.group(1)
     name = re.sub(r"\s*\(\d+\s*ml\).*$", "", name).strip()
     if brewery and name.startswith(brewery):
         name = name[len(brewery):].strip()
@@ -687,6 +861,61 @@ def collect_wcb_list(source: dict, known_ids: set, backfill: bool) -> list[dict]
 COLLECTORS = {"wp_brewlog": collect_wp_brewlog, "wcb_list": collect_wcb_list}
 
 
+# 登録済み銘柄の更新(refresh_changes)用に、公式サイト系ソースの「ライブの現在の値」を返す関数。
+# refresh_xxx(source, stored: そのソースの登録済みレコード) -> [ライブのレコード(idは登録済みと同じ)]。
+# 無いtypeは更新点検を飛ばすだけ(収集には影響しない)。Shopify系は取得済みのカタログをそのまま使う。
+def refresh_wp_brewlog(source: dict, stored: list[dict]) -> list[dict]:
+    """Vertere: WP側のmodified(更新日時)が直近WP_MODIFIED_DAYS日以内の登録済み記事だけ、個別ページを読み直す。
+    記事の公開後にブルワリーが直すこと(ホップの訂正等)があり、実例はAchillea(2026-10-27更新、Centennial→Cascade)。
+    一覧を更新が新しい順に取るので、窓の外に出た時点で打ち切れる(小さな醸造所のサーバーへのアクセスを最小にする)。"""
+    base_url, key = source["base_url"], source["source_key"]
+    stored_ids = {r["id"] for r in stored}
+    url = (f"{base_url}/wp-json/wp/v2/{source['post_type']}?per_page=30&orderby=modified&order=desc"
+           f"&_fields=id,slug,link,title,date,modified")
+    raw = fetch_url(url)
+    time.sleep(REQUEST_DELAY)
+    try:
+        posts = json.loads(raw) if raw else []
+    except json.JSONDecodeError:
+        posts = []
+    if not posts:
+        raise RuntimeError(f"REST list (by modified) returned no posts ({base_url}); site down or API changed")
+    cutoff = date.today() - timedelta(days=WP_MODIFIED_DAYS)
+    live = []
+    for post in posts:
+        try:
+            modified = date.fromisoformat((post.get("modified") or "")[:10])
+        except ValueError:
+            continue
+        if modified < cutoff:
+            break
+        if f"{key}-{post['id']}" not in stored_ids:
+            continue
+        page_html = fetch_url(post["link"])
+        time.sleep(REQUEST_DELAY)
+        record = parse_vertere_page(page_html, post, key, source["brewery"]) if page_html else None
+        if record:
+            live.append(record)
+    return live
+
+
+def refresh_wcb_list(source: dict, stored: list[dict]) -> list[dict]:
+    """West Coast Brewing: /ourbeers/ の一覧(最新12銘柄)に載る登録済み銘柄の、スタイル・ABV・ホップの現在の値。
+    一覧ページ1枚だけを読む(説明文は個別ページにあるので返さない=ホップの置き換えは行わず追記のみになる)。"""
+    key = source["source_key"]
+    stored_ids = {r["id"] for r in stored}
+    live = []
+    for it in wcb_list_items(source, archive=False):
+        rid = f"{key}-{it['slug']}"
+        if rid in stored_ids:
+            live.append({"id": rid, "name": it["name"], "style": it["style"], "abv": it["abv"],
+                         "hops": list(dict.fromkeys(split_hops(it["hops_raw"]))), "description": ""})
+    return live
+
+
+REFRESHERS = {"wp_brewlog": refresh_wp_brewlog, "wcb_list": refresh_wcb_list}
+
+
 def backfill_requested(source_key: str) -> bool:
     """全件(過去分)取り込みの指定。環境変数 BACKFILL_SOURCES にソースキーのカンマ区切り(または all)。
     旧名 VERTERE_BACKFILL=1 も受け付ける。"""
@@ -786,10 +1015,44 @@ def main():
             records_by_handle.setdefault(key, []).append(rec)
     known_hops = known_hop_names()
 
+    # HOP_NAME_FIXESは随時追記されるため、追記時点より前に収集した既存商品が古い表記のまま残らないよう、
+    # 毎回全商品に再正規化をかける(安全・決定的な処理のみ)。更新点検(refresh_changes)がサイトの値と比べる前に行い、
+    # 表記ゆれだけの差を「サイトで変わった」と誤認しないようにする。
+    renormalized = 0
+    for p in data["products"]:
+        old_hops = p.get("hops", [])
+        if not old_hops:
+            continue
+        new_hops = [h for h in (normalize_hop(h) for h in old_hops) if h]
+        if new_hops != old_hops:
+            p["hops"] = new_hops
+            renormalized += 1
+
     added = []
     recycled_handles: list[str] = []
     unknown_hops_seen: set[str] = set()
     hops_from_description_log: list[dict] = []  # スペック欄が空で、説明文から補ったホップ(確認用に要約へ残す)
+    new_sold_out: list[str] = []  # 売り切れだが直近に公開されたため登録した商品のid
+    refreshed_log: list[dict] = []  # 登録済み商品に適用した更新(旧->新)
+    refresh_review_log: list[dict] = []  # 更新したいが人の確認が要るもの
+    refresh_errors: dict[str, str] = {}
+    parse_errors: list[dict] = []
+    ids_before = set(known_ids)  # 今回の追加分を更新点検の対象にしないため
+    by_id = {r["id"]: r for r in data["products"]}
+
+    def refresh_record(rec: dict, live: dict, live_desc_hops) -> None:
+        changes, review = refresh_changes(rec, live, live_desc_hops, known_hops)
+        if changes and len(refreshed_log) >= MAX_REFRESH_PER_RUN:
+            review = review + [f"1回の更新上限({MAX_REFRESH_PER_RUN}件)を超えたため適用せず(サイト構造の変更を疑う): "
+                               + ", ".join(f"{k}: {old} -> {new}" for k, (old, new) in changes.items())]
+            changes = {}
+        if changes:
+            apply_refresh(rec, changes)
+            refreshed_log.append({"id": rec["id"], "name": rec["name"], "source": rec.get("source"),
+                                  "changes": {k: [old, new] for k, (old, new) in changes.items()}})
+        if review:
+            refresh_review_log.append({"id": rec["id"], "name": rec["name"], "source": rec.get("source"), "reasons": review})
+            unknown_hops_seen.update(h for h in live.get("hops", []) if h not in known_hops)
 
     print(f"[{date.today()}] Scanning {len(sources)} source site(s) listed in update_sources.json...")
     source_errors: dict[str, str] = {}
@@ -819,6 +1082,22 @@ def main():
                     data["products"].append(record)
                     added.append(record)
                     known_ids.add(record["id"])
+
+                refresher = REFRESHERS.get(source_type)
+                if refresher:
+                    # 登録済み銘柄の更新点検。失敗しても収集(上で完了済み)は成功扱いのまま、warningとして要約に残す
+                    try:
+                        stored_here = [r for r in data["products"] if r.get("source") == source_key and r["id"] in ids_before]
+                        for live in refresher(source, stored_here):
+                            rec = by_id.get(live["id"])
+                            if rec is not None:
+                                live_desc = (hops_from_description(live["description"], known_hops)
+                                             if live.get("description") else None)
+                                refresh_record(rec, live, live_desc)
+                    except Exception as e:
+                        refresh_errors[source_key] = f"{type(e).__name__}: {e}"
+                        print(f"[warn] {source_key}: refresh of registered items failed ({type(e).__name__}: {e}) - "
+                              f"new-item collection above is unaffected", file=sys.stderr)
                 continue
 
             print(f"[{source['name']}] fetching full catalog feed...")
@@ -831,25 +1110,30 @@ def main():
 
             for p in catalog:
                 handle = p["handle"]
-                if not in_stock(p):
+                if not shopify_scope(p, source_key)[0]:
                     continue
 
-                if source_key == "antenna":
-                    if p.get("vendor") in ANTENNA_EXCLUDE_VENDORS:
-                        continue
-                    if {t.lower() for t in p.get("tags", [])} & _EXCLUDE_TAGS_LOWER:
-                        continue
-                    if not p.get("product_type"):
-                        continue
-                    record = parse_antenna_product(p, source_key, base_url)
-                else:
-                    if p.get("product_type") not in SOUTHBOUND_INCLUDE_TYPES:
-                        continue
-                    record = parse_southbound_product(p, base_url, source_key)
+                try:
+                    if source_key == "antenna":
+                        record = parse_antenna_product(p, source_key, base_url)
+                    else:
+                        record = parse_southbound_product(p, base_url, source_key)
+                except Exception as e:  # 売り切れ商品も読むようになったので、解析できない1商品でソース全体を止めない
+                    parse_errors.append({"source": source_key, "handle": handle, "error": f"{type(e).__name__}: {e}"})
+                    continue
 
                 existing = records_by_handle.get(handle, [])
-                if any(same_product(r, record) for r in existing):
+                matched = [r for r in existing if same_product(r, record)]
+                if matched:
+                    # 登録済み。在庫の有無を問わず、サイトの現在の記載とスタイル・ABV・ホップを突き合わせる
+                    live_desc = hops_from_description(body_full_text(p.get("body_html", "")), known_hops)
+                    for rec in matched:
+                        refresh_record(rec, record, live_desc)
                     continue
+
+                instock = in_stock(p)
+                if not instock and not recently_published(p):
+                    continue  # 売り切れで、直近の公開でもない(=過去の廃盤・完売品)は登録しない
                 if existing:
                     # 同じハンドルを別商品の旧レコードが使っている(=ハンドル再利用)。旧レコードには
                     # 一切触れず、新商品は衝突しない別IDで追加する(urlが本来のハンドルを保持するので、
@@ -881,23 +1165,13 @@ def main():
                 added.append(record)
                 known_ids.add(record["id"])
                 records_by_handle.setdefault(handle, []).append(record)
+                if not instock:
+                    new_sold_out.append(record["id"])
         except Exception as e:  # 1サイトの不具合(通信エラー・サイト構造の変更)で他の収集元の更新を止めない
             key = source.get("source_key") or source.get("name", "?")
             source_errors[key] = f"{type(e).__name__}: {e}"
             print(f"[ERROR] {key}: collection failed ({type(e).__name__}: {e}) - "
                   f"the other sources are still processed", file=sys.stderr)
-
-    # HOP_NAME_FIXESは随時追記されるため、追記時点より前に収集した既存商品が
-    # 古い表記のまま残らないよう、毎回全商品に再正規化をかける(安全・決定的な処理のみ)。
-    renormalized = 0
-    for p in data["products"]:
-        old_hops = p.get("hops", [])
-        if not old_hops:
-            continue
-        new_hops = [h for h in (normalize_hop(h) for h in old_hops) if h]
-        if new_hops != old_hops:
-            p["hops"] = new_hops
-            renormalized += 1
 
     data["last_updated"] = str(date.today())
     save_data(data)
@@ -906,6 +1180,22 @@ def main():
     if renormalized:
         print(f"Re-normalized hop names on {renormalized} existing product(s) "
               f"(HOP_NAME_FIXES updated since they were first collected).")
+    if new_sold_out:
+        print(f"[note] {len(new_sold_out)} of the new product(s) were sold out but published within the last "
+              f"{RECENT_SOLDOUT_DAYS} days (registered so that limited releases that sell out between weekly runs "
+              f"are not missed): {', '.join(new_sold_out)}")
+    if refreshed_log:
+        print(f"\nRefreshed {len(refreshed_log)} registered product(s) to match the site's current listing:")
+        for e in refreshed_log:
+            for field, (old, new) in e["changes"].items():
+                print(f"  - {e['name']} [{e['id']}] {field}: {old} -> {new}")
+    if refresh_review_log:
+        print(f"\n[review needed] {len(refresh_review_log)} registered product(s) differ from the site but were NOT changed automatically:")
+        for e in refresh_review_log:
+            print(f"  - {e['name']} [{e['id']}]: {'; '.join(e['reasons'])}")
+    if parse_errors:
+        print(f"\n[warn] {len(parse_errors)} product(s) could not be parsed and were skipped: "
+              f"{', '.join(e['handle'] for e in parse_errors)}", file=sys.stderr)
     if recycled_handles:
         print(f"[note] {len(recycled_handles)} new product(s) sit on a handle previously used by a "
               f"different product (Shopify recycled it); added under '<handle>-recycledN' ids: "
@@ -932,6 +1222,7 @@ def main():
         s.get("source_key") or s.get("name", "?"): {
             "status": "error" if (s.get("source_key") or s.get("name", "?")) in source_errors else "ok",
             "added": sum(1 for r in added if r.get("source") == s.get("source_key")),
+            "refreshed": sum(1 for e in refreshed_log if e.get("source") == s.get("source_key")),
         }
         for s in sources
     }
@@ -950,6 +1241,11 @@ def main():
                 "hops_needing_aroma_review": sorted(unknown_hops_seen),
                 "hops_from_description": hops_from_description_log,
                 "new_products_without_hops": no_hops_new,
+                "new_products_sold_out": new_sold_out,
+                "refreshed": refreshed_log,
+                "refresh_review": refresh_review_log,
+                "refresh_errors": refresh_errors,
+                "parse_errors": parse_errors,
                 "sources": sources_summary,
                 "source_errors": source_errors,
             },

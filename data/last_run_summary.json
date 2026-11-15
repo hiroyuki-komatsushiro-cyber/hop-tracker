@@ -1,26 +1,35 @@
 {
-  "date": "2026-11-10",
+  "date": "2026-11-16",
   "new_products": [],
   "recycled_handles": [],
   "hops_needing_aroma_review": [],
   "hops_from_description": [],
   "new_products_without_hops": [],
+  "new_products_sold_out": [],
+  "refreshed": [],
+  "refresh_review": [],
+  "refresh_errors": {},
+  "parse_errors": [],
   "sources": {
     "antenna": {
       "status": "ok",
-      "added": 0
+      "added": 0,
+      "refreshed": 0
     },
     "southbound": {
       "status": "ok",
-      "added": 0
+      "added": 0,
+      "refreshed": 0
     },
     "vertere": {
       "status": "ok",
-      "added": 0
+      "added": 0,
+      "refreshed": 0
     },
     "westcoast": {
       "status": "ok",
-      "added": 0
+      "added": 0,
+      "refreshed": 0
     }
   },
   "source_errors": {}

@@ -106,7 +106,9 @@ RULES = [
     # --- ホッピーラガー(IPLはIPAではなくラガー)
     ("lager_hoppy", r"\bipl\b|\btipl\b|hoppy lager|west coast lager"),
     # --- IPA系(ダブル > セッション > コールド/ブリュット > 色付き > 特殊 > ヘイジー > ウエストコースト > その他)
-    ("ipa_double", r"\bd ?ipa\b|dipa|tipa|iipa|\b(double|triple|imperial)\s+(?:[a-z]+\s+)?(?:\w*ipa|india)"),
+    # QIPA/Quad IPAも強いIPAなのでダブル系(2026-11-16: "DDH QIPA"がipa_plainに落ちていた)。ベルジャンの"Quadrupel"は上のbel_strongでなく
+    # ここより後ろなので、"quad"単独ではなく IPA が続く形だけを拾う
+    ("ipa_double", r"\bd ?ipa\b|dipa|tipa|iipa|qipa|\b(double|triple|imperial|quad|quadruple)\s+(?:[a-z]+\s+)?(?:\w*ipa|india)"),
     ("ipa_session", r"session.*(ipa|hazy|ale)"),
     ("ipa_cold_brut", r"cold ipa|brut ipa"),
     ("ipa_color", r"black ipa|cascadian|red ipa|belgian ipa|rye ipa|brown ipa|white ipa"),
