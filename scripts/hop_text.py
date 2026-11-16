@@ -118,6 +118,7 @@ EN_COMMON = {
     "Lorien", "Mistral", "Moutere", "Mt. Hood", "Mt. Rainier", "Northdown", "Northern Brewer", "Pekko", "Perle",
     "Fuggle", "Challenger", "Bobek", "Celeia", "Audacia", "Aramis", "Adeena", "Belma", "Delta", "Elani", "Erebus",
     "Endeavour", "Equinox", "First Gold", "Progress", "Zythos Blend", "Pink Boots Blend", "Veterans' Blend",
+    "Anchovy",  # 食べ物のアンチョビと同形(2026-11-16にチャートへ追加)。「hop」が近くにあるときだけ採用する
 }
 # 英語表記で、ブルワリー名の一部になる場合の除外
 EN_EXCLUDE_AFTER = re.compile(r"^\s*(?:Brewing|Brewery|Brewers|Brewhouse|Beer Co|Barrel House|Ales\b|Cellars)", re.I)

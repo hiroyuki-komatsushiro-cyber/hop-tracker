@@ -210,6 +210,19 @@ HOP_NAME_FIXES = {
     # 「品種は時期により変わる」の意味、"Citrulicious Hop Oil"はホップオイル(抽出物)で、品種は別に記載がある
     "Varying": "",
     "Citrulicious Hop Oil": "",
+    # West Coast Brewingの過去分(2026-11-16、全540銘柄の「w/」行を調べて整理)。綴りミス・別名・改名・ホップではない記載
+    "Lemon Drop": "Lemondrop",
+    "Citara": "Citra",  # 「Citara, Rakau & Wakatu」。Citraの綴りミス
+    "Cacade": "Cascade",
+    "Garaxy": "Galaxy",
+    "Saltana": "Sultana",
+    "Hallerteau Mittlefruh": "Hallertauer Mittelfruher",
+    "Bruce": "The Bruce",  # Freestyle Hops社のブレンドホップ「The Bruce」(Southboundの説明文: ネルソン・ソーヴィン、モツエカ、ラカウ)
+    "Juniper Cashmere": "Cashmere",  # 「Cardamon and Juniper, Cashmere」のカンマ抜け(副原料のJuniperとホップのCashmere)
+    "Denali": "Sultana",  # Hopsteiner 06277の旧商品名Denali(現在の品種名はSultana。HopsConnectの品種表)
+    "TRI2304CR": "Cryo Pop",  # Yakima Chiefの試験ブレンド名。2021年にCryo Pop Original Blendとして発売
+    "Nelson Kief": "Nelson Sauvin Kief",  # 同じ行群の「Nelson Sauvin Hop Kief」の略記
+    "Modern Times Idea Machine": "",  # 別のビール(ブレンド用)の名前で、ホップではない
 }
 
 # 区切り文字が抜けて1語になっている記載(Vertereの入力ミス)を、複数のホップに展開する
@@ -337,6 +350,23 @@ def fetch_url_with_headers(url: str, timeout: int = 20):
 def fetch_url(url: str, timeout: int = 20) -> str:
     """Fetch a URL's content as text."""
     return fetch_url_with_headers(url, timeout)[0]
+
+
+def fetch_url_retry(url: str, tries: int = 3, delay: float = 3.0) -> str:
+    """個別ページのように「取れなくても収集全体は止めない」ページ用。読み取りタイムアウト(fetch_urlが拾わない例外)も含め、
+    失敗したら間隔を空けて再試行し、それでも取れなければ空文字を返す。カタログのように「欠けたら困る」取得には使わない
+    (黙って欠けると、サイトの障害が「在庫なし」に見えてしまうため)。"""
+    for i in range(tries):
+        try:
+            text = fetch_url(url)
+        except OSError as e:
+            print(f"  [warn] {url}: {type(e).__name__}: {e}", file=sys.stderr)
+            text = ""
+        if text:
+            return text
+        if i + 1 < tries:
+            time.sleep(delay)
+    return ""
 
 
 def fetch_catalog(base_url: str) -> list[dict]:
@@ -786,6 +816,91 @@ def parse_wcb_description(page: str) -> str:
     return " ".join(p for p in paras if p)
 
 
+# --- 「w/」行の解析(2026-11-16、過去分540銘柄の全行を調べて整理) ---
+# 最近の銘柄は「w/ Citra, Mosaic & Mosaic CRYO」のような素直な列挙だが、過去分には次が混ざる:
+#  - 副原料(果実・香辛料・乳糖・ナッツ・コーヒー等)と、「Dry Hopped with ...」の文(それより前は副原料の列挙)
+#  - 供給元・ロットの修飾: Freestyle/EG/Crosby/YCH(供給元)、YM23・PM19・KM09・25QL・X51X(ロット符号)、
+#    Pikimai(NZの農場名。Riwaka/Rakauの産地)、Diesel(Haze Allianceの「Riwaka, Riwaka Diesel」=2社のRiwaka)、
+#    Bliss(Freestyleが早摘み・遅摘みのNelson Sauvinを組み合わせた製品)、Lupulin(ルプリン加工品)
+#  - 加工品の表記ゆれ(CRYO/Hyper Boost、語順違いのQuantum Nectaron、Quantum(El Dorado))と、全角記号(＆・ｗ/・「・」)
+# ホップ名の判定はアロマチャートの名前が先で、チャートに無く副原料の語に当たるものだけを捨てる(Lemon Drop等の実在ホップを捨てないため)。
+# どちらでもない名前はそのまま残り、週次の要約の hops_needing_aroma_review に出る。
+WCB_TRANSLATE = str.maketrans({"＆": "&", "ｗ": "w", "Ｗ": "W", "／": "/", "，": ",", "・": ","})
+WCB_LEADIN_RE = re.compile(r"(?:(?:dry|late|cold|whirlpool|kettle)[ -]?hopp?ed|dry[ -]?hopping|dry[ -]?hop|hopped)\s*(?:with|using|w/|:)?\s*", re.I)
+WCB_PREFIX_RE = re.compile(r"^(?:Freestyle|EG|Crosby|YCH\d*|GR|Selected\s+\d{4}\s+Indie)\s+", re.I)
+WCB_LOT_SUFFIX_RE = re.compile(r"\s+(?:[A-Z]{2}\d{2}|[A-Z]{3}\d{3}|X\d{2}X|(?:19|20)\d{2})$")
+WCB_DESCRIPTOR_SUFFIX_RE = re.compile(r"\s+(?:Bliss(?:\s+Process)?|Diesel|Pikimai|(?:Liquid\s+)?Lupulin)$", re.I)
+WCB_FORM_WORDS = "Quantum|Cryo|CGX|Kief|Lupomax|Incognito|Spectrum|Prysma|HyperBoost|Lupocore|Abstrax|Dynaboost"
+WCB_FORM_FIRST_RE = re.compile(rf"^({WCB_FORM_WORDS})\s+(.+)$", re.I)
+WCB_FORM_PAREN_RE = re.compile(rf"^({WCB_FORM_WORDS})\s*\((.+)\)$", re.I)
+WCB_CODE_BEFORE_SUFFIX_RE = re.compile(r"\b(?:HBC|ADHA|USDA|ID|NZ|X|YCH|TRI)$", re.I)  # "HBC 1019"の数字をロット/年として削らない
+WCB_ADJUNCT_RE = re.compile(
+    r"\b(?:\w*berr(?:y|ies)|cherr(?:y|ies)|vanilla|coconut|cacao|cocoa|coffee|chocolate|mango|peach(?:es)?|plums?|pineapple|"
+    r"guava|passion\s*fruit|\w*fruit|citrus|lemon|lime|oranges?|yuzu|grapefruit|tangerine|banana|ginger|cinnamon|nutmeg|"
+    r"cloves?|anise|cardamo[nm]|honey|sugar|lactose|salt|\w*nuts?|pecans?|macadamia|almonds?|hazelnuts?|pistachio|wheat|"
+    r"oats?|grapes?|skins?|pur[ée]es?|juice|zest|peel|spice|pepper|reapers?|habanero|chipotle|matcha|lavender|"
+    r"elderflower|rhubarb|cucumber|watermelon|melon|figs?|raisins?|apricot|a[cç]a[ií]|agave|maple|caramel|biscuits?|"
+    r"marshmallows?|candy|praline|flavou?ring|juniper|cedar|sudachi|dekopon|ao-?mikan|zakuro|kuromitsu|kinako|"
+    r"pi[ñn]a|durazno|maracuy[aá]|\w*currants?|prickly\s*pear|sichuan|phantasm|clean\s*fusion|powder|tart|sweet|roasted|"
+    r"toasted|raw|malted|flaked|dried|beans?|nibs?|merlot|koshu|muscat|delaware|potat\w*)\b", re.I)
+
+
+def _wcb_split_tokens(seg: str) -> list[str]:
+    """括弧の中の区切りは分けずに、ホップ名の列挙を1語ずつに分ける。"""
+    out, depth = [], 0
+    for ch in seg:
+        depth += (ch == "(") - (ch == ")" and depth > 0)
+        out.append("\x00" if depth and ch in ",&" else ch)
+    protected = "".join(out)
+    return [p.replace("\x00", ",").strip() for p in re.split(r",|、|\s+and\s+|&|•", protected) if p.strip()]
+
+
+def wcb_clean_token(tok: str) -> str:
+    """「w/」行の1語 -> 正規化したホップ名(ホップでない注記は空文字)。供給元・ロットの修飾は外し、加工品の表記を揃える。"""
+    t = re.sub(r"\s+", " ", tok).strip(" .　")
+    t = re.sub(r"^w\s*/\s*", "", t, flags=re.I)
+    m = WCB_FORM_PAREN_RE.match(t)
+    if m:  # 「Quantum(El Dorado)」= El Dorado Quantum
+        t = f"{m.group(2).strip()} {m.group(1)}"
+    t = re.sub(r"\s*\([^)]*\)?", "", t).strip()  # Nelson Sauvin(25QL) / Pink Boots Blend(構成ホップ) の括弧書き
+    prev = None
+    while prev != t:  # 修飾が重なる語(EG Crosby Comet、Freestyle Nelson Sauvin PM24)は外側から順に
+        prev = t
+        t = WCB_PREFIX_RE.sub("", t)
+        t = WCB_DESCRIPTOR_SUFFIX_RE.sub("", t)
+        m = WCB_LOT_SUFFIX_RE.search(t)
+        if m and not WCB_CODE_BEFORE_SUFFIX_RE.search(t[:m.start()]):
+            t = t[:m.start()]
+    t = re.sub(r"\bIdaho7\b", "Idaho 7", t)
+    t = re.sub(r"\bHBC\s*(\d+)\b", r"HBC \1", t)
+    t = re.sub(r"Hyper\s+Boost", "HyperBoost", t, flags=re.I)
+    m = WCB_FORM_FIRST_RE.match(t)
+    if m and normalize_hop(m.group(2)) in _hop_tables()[1].values():  # 「Quantum Nectaron」→「Nectaron Quantum」(元の品種がチャートに在るときだけ)
+        t = f"{m.group(2)} {m.group(1)}"
+    return normalize_hop(t.strip())
+
+
+def wcb_hops(raw: str) -> list[str]:
+    """West Coast Brewingの「w/」行 -> ホップ名のリスト(出現順、重複なし)。解析ルールは上のコメントを参照。"""
+    text = re.sub(r"\s+", " ", (raw or "").translate(WCB_TRANSLATE).replace("\xa0", " ")).strip()
+    text = re.sub(r"^w\s*/\s*", "", text, flags=re.I)
+    segments = []
+    for sent in (s for s in re.split(r"\.\s+|;|\n", text) if s.strip()):
+        leadins = list(WCB_LEADIN_RE.finditer(sent))
+        segments.append((bool(leadins), sent[leadins[-1].end():] if leadins else sent))
+    if any(has_leadin for has_leadin, _ in segments):
+        segments = [s for s in segments if s[0]]  # 「Dry Hopped with」の文があれば、ホップはそれ以降だけ(前は副原料の列挙)
+    chart = set(_hop_tables()[1].values())
+    hops: list[str] = []
+    for _, seg in segments:
+        for tok in _wcb_split_tokens(seg):
+            name = wcb_clean_token(tok)
+            if not name or (name not in chart and WCB_ADJUNCT_RE.search(name)) or name in hops:
+                continue
+            hops.append(name)
+    return hops
+
+
 def wcb_list_items(source: dict, archive: bool = False, max_archive_pages: int = 60) -> list[dict]:
     """/ourbeers/ の一覧のアイテムを返す。archive=Trueならアーカイブ(/beer/page/N/)も全ページ読む。"""
     pages = [source["base_url"] + source["list_path"]]
@@ -812,13 +927,40 @@ def wcb_list_items(source: dict, archive: bool = False, max_archive_pages: int =
     return items
 
 
+def wcb_rest_dates(source: dict) -> dict:
+    """WP REST APIの全銘柄の公開日 {slug: 'YYYY-MM-DD'}(per_page=100で数リクエスト。2026-11-16時点で540銘柄=6リクエスト)。
+    過去分の取り込みで added に使う(今日にすると全件にNEWバッジが付く)。サイト側の公開日(CMSの日付)なので、
+    使い回した投稿は実際の醸造より古い日付のことがある。完全性の点検(coverage_check.py)にも使える(全銘柄のslugが取れる)。"""
+    base_url, post_type = source["base_url"], source.get("post_type", "beer")
+    dates, page = {}, 1
+    while True:
+        raw, headers = fetch_url_with_headers(
+            f"{base_url}/wp-json/wp/v2/{post_type}?per_page=100&page={page}&_fields=slug,date&orderby=date&order=desc")
+        time.sleep(REQUEST_DELAY)
+        if not raw:
+            break
+        try:
+            rows = json.loads(raw)
+        except json.JSONDecodeError:
+            break
+        for r in rows:
+            dates[r["slug"]] = (r.get("date") or "")[:10]
+        total_pages = int(headers.get("X-WP-TotalPages", "1") or 1) if headers else 1
+        if page >= total_pages or not rows:
+            break
+        page += 1
+    return dates
+
+
 def collect_wcb_list(source: dict, known_ids: set, backfill: bool) -> list[dict]:
     """一覧から未登録のビールを見つけ、その個別ページだけ取得して説明文を補う。
     通常は /ourbeers/ の1ページのみ。アーカイブ(過去分)の取り込みは BACKFILL_SOURCES=westcoast で指定する
-    (全ページ=約530銘柄。環境変数 BACKFILL_PAGES=N で読むアーカイブのページ数を絞れる。1ページ=12銘柄)。
+    (全ページ=約540銘柄。環境変数 BACKFILL_PAGES=N で読むアーカイブのページ数を絞れる。1ページ=12銘柄。
+    個別ページを1.2秒間隔で取るので、全件は約15分かかる)。過去分の added はWP REST APIの公開日にする(NEWバッジの洪水を避ける。
+    日付が取れない銘柄があれば、時間のかかる取得を始める前に失敗させる)。
     月次監査が見つけた取りこぼしの補充は BACKFILL_ONLY=<id,id,...>(audit_review.json の unregistered_items の
     id)も必ず付ける。BACKFILL_PAGES=6 だけだと、その6ページにある「登録済みの最も古い銘柄より古い」過去分まで
-    取り込んでしまう(2026-11-02に4件の補充のつもりで58件入った。過去分の取り込みはユーザー判断待ち)。"""
+    取り込んでしまう(2026-11-02に4件の補充のつもりで58件入った)。"""
     key = source["source_key"]
     max_pages = int(os.environ.get("BACKFILL_PAGES") or 60)
     only = {s.strip() for s in os.environ.get("BACKFILL_ONLY", "").split(",") if s.strip()}
@@ -827,31 +969,35 @@ def collect_wcb_list(source: dict, known_ids: set, backfill: bool) -> list[dict]
     if not items:
         raise RuntimeError(f"no beers found on {source['base_url']}{source['list_path']}; "
                            f"site down or page layout changed")
+    todo = [it for it in reversed(items)  # 古い順に追記(一覧は新しい順)
+            if f"{key}-{it['slug']}" not in known_ids and (not only or it["slug"] in only or f"{key}-{it['slug']}" in only)]
+    dates = wcb_rest_dates(source) if backfill and todo else {}
+    missing = [it["slug"] for it in todo if backfill and not dates.get(it["slug"])]
+    if missing:
+        raise RuntimeError(f"no publication date from the REST API for {len(missing)} beer(s) ({', '.join(missing[:5])}...); "
+                           f"refusing to backfill with today's date (it would flood the list with NEW badges)")
     records = []
-    for it in reversed(items):  # 古い順に追記(一覧は新しい順)
-        rid = f"{key}-{it['slug']}"
-        if rid in known_ids:
-            continue
-        if only and it["slug"] not in only and rid not in only:
-            continue
-        detail = fetch_url(it["url"])
+    for n, it in enumerate(todo, 1):
+        detail = fetch_url_retry(it["url"])
         time.sleep(REQUEST_DELAY)
         description = parse_wcb_description(detail) if detail else ""
         if not description:
             print(f"  [warn] no description found for {it['url']} (record added without it)", file=sys.stderr)
         records.append({
-            "id": rid,
+            "id": f"{key}-{it['slug']}",
             "name": it["name"],
             "brewery": source["brewery"],
             "style": it["style"],
             "abv": it["abv"],
-            "hops": list(dict.fromkeys(split_hops(it["hops_raw"]))),
+            "hops": wcb_hops(it["hops_raw"]),
             "url": it["url"],
             "image": it["image"],
             "description": description,
             "source": key,
-            "added": str(date.today()),
+            "added": dates[it["slug"]] if backfill else str(date.today()),
         })
+        if backfill and n % 25 == 0:
+            print(f"  ... {n}/{len(todo)} beers fetched", flush=True)
     return records
 
 
@@ -909,7 +1055,7 @@ def refresh_wcb_list(source: dict, stored: list[dict]) -> list[dict]:
         rid = f"{key}-{it['slug']}"
         if rid in stored_ids:
             live.append({"id": rid, "name": it["name"], "style": it["style"], "abv": it["abv"],
-                         "hops": list(dict.fromkeys(split_hops(it["hops_raw"]))), "description": ""})
+                         "hops": wcb_hops(it["hops_raw"]), "description": ""})
     return live
 
 

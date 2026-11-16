@@ -121,7 +121,7 @@ RULES = [
     ("bel_strong", r"tripel|quad|dubbel|belgian.*strong|strong dark|abbey"),
     ("bel_ale", r"belgian"),
     ("sai_farm", r"saison|saizon|saiosn|farmhouse|grisette|biere de garde"),
-    ("wheat", r"wheat|weizen|hefe|weiss"),
+    ("wheat", r"wheat|weizen|hefe|weiss|grodziskie|gratzer"),  # Grodziskie/Grätzer=ポーランドの燻製小麦ビール(WCB、2026-11-16)
     # --- ラガー(ペールエールの "Pale Lager" より先に)。"unfiltered lager"が"red lager"に部分一致しないよう単語境界を付ける
     ("lager_pils", r"pils|bohemian"),
     ("lager_mexican", r"mexican|baja"),

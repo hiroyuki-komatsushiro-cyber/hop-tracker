@@ -10,7 +10,7 @@ A. 登録漏れ
   A2 [Shopify] 除外条件(vendor/タグ/product_type)で外れている在庫ありの商品 → ビールを誤って除外していないかの目視確認用
   A3 [Shopify] 売り切れだが最近公開された収集対象の商品 → 週次の合間に売り切れた限定品。週次は直近update_products.RECENT_SOLDOUT_DAYS日
      (既定14日)の公開分を売り切れでも登録する。それより古く、一度も登録されなかった分がここに出る
-  A4 [公式サイト系] サイトに載っているのに未登録の銘柄(Vertere=全記事、WCB=一覧の先頭72銘柄のうち登録済みより新しい位置)
+  A4 [公式サイト系] サイトに載っているのに未登録の銘柄(Vertere=全記事、WCB=WP REST APIの全銘柄。2026-11-16に過去分を全件取り込んだので0が正常)
 B. 更新漏れ(判定は週次と同じ update_products.refresh_changes。ここに出る=次回の週次が自動で直す、またはreviewは人の確認が要る)
   B1 [Shopify] 登録済み商品のうち、サイトの現在の記載とスタイル・度数・ホップが食い違うもの(商品名・説明文・画像の差は仕様上更新しない)
   B2 [公式サイト系] 登録後にサイト側で更新された銘柄(Vertere=WP記事のmodifiedから再取得して比較、WCB=先頭72銘柄)
@@ -159,22 +159,22 @@ def check_vertere(source: dict, products: list, report: dict, known: set):
 def check_wcb(source: dict, products: list, report: dict, known: set):
     key = source["source_key"]
     stored = {p["id"]: p for p in products if p["source"] == key}
+    # A4(登録漏れ)は、WP REST APIの全銘柄(540件=6リクエスト)と照合する。一覧のHTMLを読む窓と違い、過去分も漏れなく見られる
+    dates = up.wcb_rest_dates(source)
+    if not dates:
+        raise RuntimeError(f"{key}: REST API returned no beers")
     items = up.wcb_list_items(source, archive=True, max_archive_pages=ac.WCB_AUDIT_ARCHIVE_PAGES)
     if not items:
         raise RuntimeError(f"{key}: list/archive returned no beers")
-    registered_at = [i for i, it in enumerate(items) if f"{key}-{it['slug']}" in stored]
-    limit = max(registered_at) if registered_at else len(items)
-    r = {"live_window": len(items), "registered": len(stored), "A4": [], "B2": [],
-         "older_not_imported": sum(1 for it in items[limit + 1:] if f"{key}-{it['slug']}" not in stored)}
-    for i, it in enumerate(items):
-        rid = f"{key}-{it['slug']}"
-        rec = stored.get(rid)
+    r = {"live_total": len(dates), "live_window": len(items), "registered": len(stored), "A4": [], "B2": []}
+    for slug, published in sorted(dates.items(), key=lambda kv: kv[1], reverse=True):
+        if f"{key}-{slug}" not in stored:
+            r["A4"].append({"id": f"{key}-{slug}", "title": f"{slug} ({published})"})
+    for it in items:  # B2(更新漏れ)は先頭の窓(約半年分)の値を比べる
+        rec = stored.get(f"{key}-{it['slug']}")
         if rec is None:
-            if i < limit:
-                r["A4"].append({"id": rid, "title": it["name"][:60]})
             continue
-        live = {"abv": it["abv"], "style": it["style"], "name": it["name"],
-                "hops": list(dict.fromkeys(up.split_hops(it["hops_raw"])))}
+        live = {"abv": it["abv"], "style": it["style"], "name": it["name"], "hops": up.wcb_hops(it["hops_raw"])}
         row = pending(rec, live, None, known)  # 一覧には説明文が無いので、ホップは追記だけが対象(週次のrefresh_wcb_listと同じ)
         if row:
             r["B2"].append(row)
@@ -282,10 +282,10 @@ def main():
                 show("!! 解析できなかった商品(週次の失敗原因になる)", r["parse_errors"], lambda x: f"{x['handle']}: {x['error']}")
         else:  # 公式サイト系
             total = r.get("live_total") or r.get("live_window")
-            print(f"\n----- {key}: サイト{total}件{'(先頭の窓)' if 'live_window' in r else ''} / 登録{r['registered']}件 -----")
+            window = f"(うち値の比較は先頭{r['live_window']}件の窓)" if "live_total" in r and "live_window" in r else \
+                ("(先頭の窓)" if "live_window" in r else "")
+            print(f"\n----- {key}: サイト{total}件{window} / 登録{r['registered']}件 -----")
             show("A4 サイトにあるのに未登録", r["A4"], lambda x: f"{x['id']} {x['title']}")
-            if "older_not_imported" in r:
-                print(f"   (窓の中で、登録済みより古く未取り込み = 仕様: {r['older_not_imported']}件)")
             show("B2 登録後にサイト側で変わった銘柄(次回の週次が直す/要確認)", r["B2"], fmt_pending)
             if "refetched" in r:
                 print(f"   (サイト側で更新された記事を再取得して比較: {r['refetched']}件)")

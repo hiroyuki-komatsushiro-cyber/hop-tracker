@@ -5,17 +5,18 @@
 ```
 hop-automation/
 ├── data/
-│   └── products.json          # 全商品データ（969件、2026-11-16時点。画像・説明文・ホップ・ABV）
+│   └── products.json          # 全商品データ（1486件、2026-11-16時点。画像・説明文・ホップ・ABV）
 ├── docs/
 │   └── index.html             # 公開用Webページ（GitHub Pages用）
 ├── scripts/
 │   ├── build_html.py          # products.json → index.html を生成するビルドスクリプト（収集元の表示はupdate_sources.jsonから生成）
-│   ├── hops_tab.js            # ホップアロマチャート（213品種・説明文付き）
+│   ├── hops_tab.js            # ホップアロマチャート（233品種・説明文付き）
 │   ├── products_tab.js        # 製品成分表タブ（スタイル/度数/並び順の絞り込み・モーダル・戻る機能）
 │   ├── style_class.py         # スタイルの細分類(36種)と度数帯。画面の絞り込み用（test_style_class.pyでテスト）
 │   ├── hop_text.py            # 説明文からのホップ抽出（test_hop_text.pyでテスト）
 │   ├── update_products.py     # 全収集元の自動巡回スクリプト（新商品の追加+登録済み商品の更新。収集先ごとの収集関数はCOLLECTORS/REFRESHERS。test_refresh.pyでテスト）
 │   ├── coverage_check.py      # 登録漏れ・更新漏れの総チェック（読み取り専用。python scripts/coverage_check.py）
+│   ├── test_wcb.py            # West Coast Brewingの「w/」行(ホップ欄)の解析のテスト（wcb_hops）
 │   ├── update_sources.json    # 巡回対象サイトの一覧（ここに1件足すと週次で自動巡回される）
 │   └── hops_aroma_data.js     # ホップアロマデータ（旧バージョン・参考用）
 ├── .github/workflows/
@@ -74,16 +75,25 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
   `/ourbeers/` の一覧(新しい順に最新12銘柄。`/beer/` アーカイブの1ページ目と同じ内容)から、名前・「スタイル / ABV」・画像・
   **「w/ …」の行(=ホップ。ユーザー指定)** を取り、未登録の銘柄だけ個別ページ(`/beer/<slug>/`)の日本語説明文を取得する
   (`collect_wcb_list`/`parse_wcb_list`)。idは `westcoast-<slug>`、`source`は `westcoast`。
-  **「w/」の行にはホップ以外(副原料: Roasted Coconut / Rum / Vanilla Beans等)が載ることがある**ので、`HOP_NAME_FIXES`の
-  空文字マッピングで除外する(新しい副原料が出たら追記。月次監査の`unknown_hop_names`に出る)。「w/」行が空の銘柄(Seabreeze等)は、
-  説明文に品種名があれば補い(「説明文からのホップ抽出」)、無ければホップ空のまま(推測で埋めない)。ブルワリー表記のゆれ("Nectar"=Westie Boisの個別ページ本文が「Nectaron」と明記)は
-  `HOP_NAME_FIXES`で寄せる。**一覧の「w/」行と個別ページ本文で食い違う例**: Campfire Storiesは「w/」行がCascade/Centennial/Columbusだが、
+  **「w/」の行の解析は `wcb_hops`(`test_wcb.py`でテスト)**。過去分の行には、副原料(果実・香辛料・乳糖・ナッツ・コーヒー等)、
+  「Dry Hopped with …」の文(それより前は副原料の列挙)、供給元・ロットの修飾(Freestyle/EG/Crosby/YCH、PM19・YM23・KM09・25QL・X51X、
+  Pikimai=NZの農場名、Diesel、Bliss、Lupulin)、加工品の表記ゆれ(CRYO/Hyper Boost/語順違いのQuantum)、全角記号(＆・ｗ/・「・」)が混ざる。
+  ホップ名の判定は**アロマチャートの名前が先**で、チャートに無く副原料の語(`WCB_ADJUNCT_RE`)に当たるものだけを捨てる(Lemon Drop等の実在ホップを捨てないため)。
+  どちらでもない名前はそのまま残り、週次の`hops_needing_aroma_review`に出る(新しい副原料が出たら`HOP_NAME_FIXES`の空文字か`WCB_ADJUNCT_RE`に足す)。
+  「w/」行が空の銘柄(Seabreeze等)は、説明文に品種名があれば補い(「説明文からのホップ抽出」)、無ければホップ空のまま(推測で埋めない)。
+  **WCB固有の落とし穴(2026-11-16に調べて確定)**: ①`Kohia Nelson`はFreestyle Hops社の「ボタニカル・ブレンド」(ホップ+乾燥パッションフルーツ、配合は年で変わる)で、
+  Nelson Sauvinとは別物なのでチャートに別項目で追加した。②`Anchovy`は副原料ではなく実在のホップ(Segal Ranch育成の実験品種24B-05)。
+  ③`Clean Fusion`はホップではなく製法(発酵後に酵母を除いてドライホップ)。④`Denali`は現在のSultana(Hopsteiner 06277の旧商品名)、`TRI2304CR`はCryo Pop(Yakima Chiefの試験ブレンド名)。
+  ⑤`Nelson Sauvin Bliss`はFreestyleが早摘み・遅摘みのNelson Sauvinを組み合わせた製品、`Pikimai`は農場名なので、いずれも元の品種に寄せる。
+  出典が見つからず、書かれたとおりに保存している名前(The Bruce / Tropical Fusion / Maui Nelson Kief / NZ04 / HBC 1019 / ADHA 1631 / Jackson Pink / Special X / Super Sauvin / ID158 / 7270 / USDA074 / Mi Copper)は
+  `audit_catalog.KNOWN_UNRESOLVED_HOPS`に入れて月次監査に毎回出ないようにしてある(出典が見つかったら外してチャートへ)。
+  **一覧の「w/」行と個別ページ本文で食い違う例**: Campfire Storiesは「w/」行がCascade/Centennial/Columbusだが、
   本文(10バッチ目)はChinookを挙げている。ユーザー指定どおり「w/」行を採用している。
-  **範囲は「`/ourbeers/`に載っている銘柄を毎週取り込み続ける」**(Antennaが「販売中の商品を取り込み続ける」のと同じ考え方)。
-  アーカイブの過去分(`/beer/page/N/`、2026-10-16時点で45ページ・約530銘柄)は未取り込みで、
-  取り込む場合は `BACKFILL_SOURCES=westcoast`(個別ページを約530回取得するため1.2秒間隔で10分以上かかる)。
+  **範囲は全銘柄**: 週次は`/ourbeers/`(最新12銘柄)から新作を取り込み続ける。**過去分(アーカイブ45ページ・540銘柄)は2026-11-16に全件取り込み済み**
+  (`BACKFILL_SOURCES=westcoast`。個別ページを1.2秒間隔で約500回取得するので約15分。`added`はWP REST API(`/wp-json/wp/v2/beer`)のCMS公開日にしてNEWバッジの洪水を避けた。
+  CMSの日付なので、投稿を使い回した銘柄は実際の醸造より古い日付のことがある。日付が取れない銘柄があれば取得を始める前に失敗する)。
   `robots.txt`は`/wp/wp-admin/`以外を許可。小規模サイトなので1ページ/1.2秒以上の間隔を守る(`REQUEST_DELAY`)。
-  月次監査は先頭72銘柄(約半年分)を読み、「登録済みの最も古い銘柄より新しい位置にあるのに未登録」のものだけを取りこぼしとして報告する
+  月次監査・総チェックは、WP REST APIの全銘柄(6リクエスト)と照合するので、未登録は全て取りこぼしとして出る
 
 ## 新しい収集先の追加チェックリスト
 
@@ -236,6 +246,16 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
 - **HBC 522 / Alora**: B4で見つかったチャート未収録のホップ。HBC 522は米国植物特許PP29894(Hop Breeding Company、Columbus×986-2、香り「シトラス、フローラル」、α酸9.9〜11.7%)、
   AloraはHopsteiner社のデータシート(香り「ピーチ、ゆず、甘いメロン、アプリコット」、α酸7.0〜10.0%)を根拠に、`hops_tab.js`へ追加した
   (0〜5スコアは出典の香りの語からの感覚評価。Peacharine等の既存品種に合わせた)
+- **West Coast Brewingの過去分を全件取り込み**(2026-11-16、ユーザー依頼「取り込んで」。540銘柄のうち未登録だった517件。商品は969→1486件):
+  実行は `BACKFILL_SOURCES=westcoast python -u scripts/update_products.py`(約15分)。結果: 説明文・画像は全件あり、ABV不明3件、ホップ空136件
+  (副原料だけの行・「w/」行なし。説明文から補えた10件を除く)、`added`はCMS公開日(2015-10〜2021-11)なのでNEWバッジは1件も付かない。既存レコードへの影響0。
+  解析ルールは前述の`wcb_hops`。この過程で**チャートに20項目を追加**(233品種): 実在確認済みの本体=Anchovy(Segal Ranchの実験品種)・Kohia Nelson(Freestyle Hopsのブレンド)・
+  Wai-iti・Ramosa(Segal Ranch、2026年に命名)・Cryo Pop(Yakima Chiefのブレンド)、加工品=El Dorado Cryo/Incognito/Quantum、Talus Cryo、Sabro Cryo、Idaho 7 Cryo、
+  Comet/Nelson Sauvin/Motueka/Riwaka/Cashmere CGX、Nelson Sauvin/Waimea/Wai-iti/Rakau Kief(元品種のベクトルと共通の説明文を機械的に写した)。
+  Yakima Chiefの成分パネル(`ych_map.json`)は、これらの新項目を未登録のまま(同社サイトはPythonから取れないので、必要ならアプリ内ブラウザ経由。「成分データ」の節)。
+  `hop_text.py`の`EN_COMMON`にAnchovyを追加(食べ物のアンチョビと同形のため、説明文からは「hop」が近くにあるときだけ採用)。
+  スタイル分類にGrodziskie(ポーランドの燻製小麦ビール)を追加。残る「その他のビール」7件はFruited Ale/Fruit/Blueberry Ale/Milkshake/Winter Ale/Low ABV Brews(0.5%)
+- **画面の確認(1486件)**: 検索の再描画は約20〜40ミリ秒、DOMは約1.9万ノード、ページは1.9MB。ブラウザのコンソールエラーなし
 
 ## 月次監査（scripts/audit_catalog.py）
 
@@ -250,10 +270,10 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
   列挙の形である最近60日の商品は `needs_review.recent_products_hop_words_without_names`(辞書に無い日本語表記の発見用)に出す
 - hops[]に使われているが hops_tab.js のアロマチャートに未収録の品種名
 - ブルワリー公式サイト系(Vertere / West Coast Brewing)で、週次の収集が見る範囲(Vertere=最新30件、WCB=最新12件)を外れた取りこぼし
-  (`needs_review.unregistered_items`。VertereはREST APIで全記事のID、WCBは一覧の先頭72銘柄を読んで照合する。
+  (`needs_review.unregistered_items`。Vertere・WCBとも、REST APIの全記事/全銘柄のID(WCBは540件=6リクエスト)と照合する。
   見つかったら `BACKFILL_SOURCES=<source_key> python scripts/update_products.py` で取り込む。WCBは
-  `BACKFILL_SOURCES=westcoast BACKFILL_PAGES=6 BACKFILL_ONLY=<unregistered_itemsのid,...>` とidまで指定する。
-  `BACKFILL_ONLY`が無いと、6ページ内の未登録の過去分(取り込みはユーザー判断待ち)まで入ってしまう)。
+  `BACKFILL_SOURCES=westcoast BACKFILL_ONLY=<unregistered_itemsのid(slug),...>` とidまで指定する(`added`はREST公開日になる)。
+  `BACKFILL_ONLY`が無いと、一覧の対象ページ内の未登録を全て取り込んでしまう)。
   **検査が未実装の収集先は `sources_without_completeness_check` に列挙される**(「問題なし」と区別して必ず報告に出す)。
   Shopify系はライブカタログと全件照合する対象を`update_sources.json`から自動で決める
 

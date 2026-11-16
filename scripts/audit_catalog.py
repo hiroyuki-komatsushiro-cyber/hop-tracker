@@ -45,6 +45,10 @@ REVIEW_PATH = ROOT / "data" / "audit_review.json"
 # 過去に出典を探しても見つからず、ユーザーも「分からない」と確認済みの品種名。
 # 月次レビューに毎回「新規発見」のように出てこないよう除外する(2026-09-22確認)。
 KNOWN_UNRESOLVED_HOPS = {"X17"}  # "Torpedo Hop"は2026-11-16にRye Torpedo IPAがサイトの記載(Chinook)に更新され、どの商品にも無くなったので外した
+# (2026-11-16) West Coast Brewingの過去分に出る、ブルワリーが書いたとおりに保存しているが出典が見つからずチャート化していない名前。
+# 試験ブレンド・育種コード・Freestyle Hops社の独自名など。新しい出典が見つかったら外してチャートへ(hops_tab.js)
+KNOWN_UNRESOLVED_HOPS |= {"NZ04", "ID158", "7270", "USDA074", "Special X", "Jackson Pink", "Super Sauvin", "Mi Copper",
+                          "Tropical Fusion", "The Bruce", "Maui Nelson Kief", "HBC 1019", "ADHA 1631"}
 # (2026-10-28) Brema=Belma、X7=X17 は誤記だった: 日本語訳「ブレマ」「X ７」を起こした綴りで、Enigmatic Taxaの英語原文は
 # "dry-hopped with Cascade, Belma, Mosaic, and X17"。BremaはHOP_NAME_FIXESでBelmaに寄せ、X17は出典が乏しくチャート化しない
 # Vertere(2026-10-16取り込み)で出てきた、品種としてチャート化しないホップ名。
@@ -190,21 +194,18 @@ WCB_AUDIT_ARCHIVE_PAGES = 6  # 先頭72銘柄(約半年分)。アーカイブ全
 
 
 def unregistered_wcb_items(source: dict, known_ids: set) -> tuple[list[dict], str]:
-    """West Coast Brewing(wcb_list)。サイトの一覧は新しい順で、/ourbeers/ は先頭12件(=アーカイブの1ページ目と同じ)。
-    週次は先頭12件だけ見て、載ったものを取り込み続ける方針なので、過去分(アーカイブの奥)が未登録なのは仕様。
-    取りこぼしとして拾うのは「登録済みの最も古い銘柄より新しい位置にあるのに未登録のもの」だけ
-    (週次が何週も止まった/1週間に12件超の新作が出て一覧から押し出された、がこれに当たる)。
-    窓(先頭72銘柄)内に登録済みが1件も無い場合は、週次が長期間止まっているとみなして窓内の全件を出す。"""
+    """West Coast Brewing(wcb_list)。WP REST APIの全銘柄(約540件=6リクエスト)と照合する。
+    2026-11-16に過去分(アーカイブ)を全件取り込んだので、未登録はすべて取りこぼし
+    (週次が何週も止まった/1週間に12件超の新作が出て一覧から押し出された、等)。
+    それ以前は一覧の先頭72銘柄の窓だけを見て「登録済みより古い過去分は仕様」としていたが、全件取り込み後は不要になった。
+    補充は BACKFILL_SOURCES=westcoast BACKFILL_ONLY=<このidのslug,...> で(addedはREST公開日になる。README_MIGRATION.md参照)。"""
     key = source["source_key"]
-    items = up.wcb_list_items(source, archive=True, max_archive_pages=WCB_AUDIT_ARCHIVE_PAGES)
-    if not items:
-        raise RuntimeError(f"{key}: list/archive returned no beers; cannot verify completeness")
-    registered_at = [i for i, it in enumerate(items) if f"{key}-{it['slug']}" in known_ids]
-    limit = max(registered_at) if registered_at else len(items)
-    missing = [{"source": key, "id": it["slug"], "link": it["url"], "title": it["name"], "date": ""}
-               for i, it in enumerate(items) if i < limit and f"{key}-{it['slug']}" not in known_ids]
-    return missing, (f"checked the newest {len(items)} beers on the site; older archive beers are outside "
-                     f"the weekly crawl's scope (not imported)")
+    dates = up.wcb_rest_dates(source)
+    if not dates:
+        raise RuntimeError(f"{key}: REST API returned no beers; cannot verify completeness")
+    missing = [{"source": key, "id": slug, "link": f"{source['base_url']}{source['archive_path']}{slug}/", "title": slug, "date": published}
+               for slug, published in dates.items() if f"{key}-{slug}" not in known_ids]
+    return missing, f"checked all {len(dates)} beers listed by the WP REST API"
 
 
 # source.type -> 「サイトに載っているのに未登録の銘柄」の検査。新しい収集先(COLLECTORS)を足したら、

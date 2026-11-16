@@ -59,6 +59,7 @@ POSITIVE = [
     ("エクイノックスホップを使用したIPA", ["Ekuanot"]),
     ("ペッコ、アデーナ、マニリタホップを使用", ["Pekko", "Adeena", "Manilita"]),
     ("リバティホップとオパールホップを使用", ["Liberty", "Opal"]),  # 日常語と同形の名前は「…ホップ」と続くときだけ
+    ("Dry Hopped with Anchovy hops and Strata", ["Anchovy", "Strata"]),  # 実在のホップ(Segal Ranchの実験品種)
 ]
 
 # 拾ってはいけない例(すべて空リストが期待値)
@@ -83,6 +84,7 @@ NEGATIVE = [
     "プログレスバーのように少しずつ苦味が増していく。",  # 一般名詞
     "「オーロラのようにホップアロマが輝く」新サンディエゴスタイルIPA",  # 比喩のオーロラ(実例: Karl Strauss Aurora Hoppyalis)
     "ホップにはリバティ号のような自由さがある。",  # 日常語のリバティ(ホップ語は同じ文にあるが名前の直後に「ホップ」が無い)
+    "This hoppy lager pairs well with a pizza topped with Anchovy and olives.",  # 食べ物のanchovy(ホップ語は近くに無い)
 ]
 
 
