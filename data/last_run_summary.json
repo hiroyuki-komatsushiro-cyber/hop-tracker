@@ -1,11 +1,875 @@
 {
-  "date": "2026-11-17",
-  "new_products": [],
+  "date": "2026-11-24",
+  "new_products": [
+    {
+      "id": "set-50-nov-08",
+      "name": "＼新宿西口店オープン記念ビール入り／Monkish 満喫8本セット【11/26出荷】",
+      "brewery": "Monkish",
+      "style": "Belgian Blonde",
+      "abv": "5.3%",
+      "hops": [
+        "Citra",
+        "Rakau",
+        "Krush",
+        "Motueka",
+        "Simcoe",
+        "Mosaic",
+        "Nelson Sauvin"
+      ],
+      "url": "https://www.antenna-america.com/products/set-50-nov-08",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/monkish_set.png?width=400",
+      "description": "①＼新宿店オープン記念1本購入でラベル1枚プレゼント／Monkish Shinjuku DDH Hazy IPA (473ml) / 新宿 DDH Hazy IPA【11/26出荷】2026年11月28日に新たに新宿西口店をオープンするアンテナアメリカ。そのオープン記念を祝い、Monkishが特別に醸造してくれたHazy IPA。シトラ、ラカウ、クラッシュホップを使用。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "set-50-nov-09",
+      "name": "Evil Twin 《ブルワリーコラボ2本》 アートとビールを楽しむ5種飲み比べセット（473ml×5本）【11/26出荷】",
+      "brewery": "Evil Twin Brewing",
+      "style": "DDH QIPA",
+      "abv": "12%",
+      "hops": [
+        "Tettnanger",
+        "Citra",
+        "Citra Dynaboost",
+        "Southern Cross (NZ Hops)",
+        "Riwaka",
+        "Nelson Sauvin",
+        "Mosaic",
+        "Nectaron"
+      ],
+      "url": "https://www.antenna-america.com/products/set-50-nov-09",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/EvilTwin_8e5b5888-ba5d-4e1b-b2a7-7e6bd4a5400e.png?width=400",
+      "description": "①Evil Twin Brewing Greenhouse Helles Lager Conditioned On American Oak Foudre (473ml) / グリーンハウス ヘレス ラガー【11/26出荷】クラシックなテトナンガーホップを使用。醸造後にアメリカンオークフーダー樽でコンディショニングさせ、クリスプで軽やか、爽やかな飲み心地のヘレスラガーです。やわらかなモルトの風味に、繊細なフローラルのニュアンスが重なり、いつまでも飲み続けたくなるような軽快な後味が楽しめます。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "set-50-nov-10",
+      "name": "4本セット【11/26出荷】",
+      "brewery": "Beachwood",
+      "style": "West Coast-Style India Pale Ale",
+      "abv": "7.1%",
+      "hops": [
+        "Citra",
+        "Warrior",
+        "Columbus",
+        "Simcoe"
+      ],
+      "url": "https://www.antenna-america.com/products/set-50-nov-10",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/TopaTopa_a547db53-c45e-498d-ac53-17d2c819e506.png?width=400",
+      "description": "①Beachwood Intervals WC IPA (473ml) / インターバルズ【11/26出荷】Downtown Runners – Long Beachとのコラボレーションで生まれた、限定醸造のWest Coast IPA。力強いペースと確かな目的意識を込めて醸造された一杯で、力を出し切ってゴールした瞬間の爽快感をイメージ。クリスプでキレのある飲み口に、ウェストコーストIPAらしいホップの存在感が加わっています。NZカスケード、ピーチャリン、トロピカルフュージョン(Freestyle Hops社のホップブレンド）、モザイク・ダイナブーストを使用。シトラスや熟した桃、トロピカルフルーツを思わせる華やかなホップアロマが広がり、爽やかで躍動感のある味わいに仕上がっています。ランニング後のご褒美にはもちろん、何かに向かって一歩を踏み出しているときにも寄り添ってくれる、力強く爽快なIPAです。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b115-c16012",
+      "name": "Sluice Light",
+      "brewery": "Bent Water",
+      "style": "Session New England IPA",
+      "abv": "3.5%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b115-c16012",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SluiceLight.png?width=400",
+      "description": "Sluiceシリーズに新たに加わったアルコール3.5％の軽快な一本。Bent Waterの人気定番商品「Sluice Juice」の飲み心地はそのままに、翌朝に重さを感じさせない仕上がりです。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b112-c16076",
+      "name": "If You See Something, Sip Something",
+      "brewery": "Evil Twin Brewing",
+      "style": "Belgian-style Saison",
+      "abv": "6.5%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b112-c16076",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/IFYOUSEESOMETHING_SIPSOMETHING.png?width=400",
+      "description": "クラシックなファームハウスエール。フローラルなホップの香りに、ベルジャン酵母由来の伝統的なエステル香と、クローブを思わせるスパイシーなニュアンスが感じられます。軽やかでドライな味わいと、きめ細やかで豊かな炭酸が特徴です。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b112-c16075",
+      "name": "Greenhouse Helles Lager Conditioned On American Oak Foudre",
+      "brewery": "Evil Twin Brewing",
+      "style": "Helles style Lager",
+      "abv": "5%",
+      "hops": [
+        "Tettnanger"
+      ],
+      "url": "https://www.antenna-america.com/products/b112-c16075",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/GreenhouseBlackLager.png?width=400",
+      "description": "クラシックなテトナンガーホップを使用。醸造後にアメリカンオークフーダー樽でコンディショニングさせ、クリスプで軽やか、爽やかな飲み心地のヘレスラガーです。やわらかなモルトの風味に、繊細なフローラルのニュアンスが重なり、いつまでも飲み続けたくなるような軽快な後味が楽しめます。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b112-c16072",
+      "name": "Spicy Canary (Root + Branchコラボ)",
+      "brewery": "Evil Twin Brewing",
+      "style": "Fruited Sour",
+      "abv": "8%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b112-c16072",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SpicyCanary_Root_Branch__2.png?width=400",
+      "description": "Root + Branch Brewingとのコラボレーションで生まれた、マンゴー、ライム、アガベ、チレ・ピキンを使用したサワーエールです。完熟マンゴーの濃厚な甘みとライムの爽やかな酸味に、アガベのやさしい甘さが重なり、メキシコ産唐辛子「チレ・ピキン」がほのかなスパイシーさをプラス。甘味・酸味・辛味が絶妙なバランスで調和した、個性豊かな一杯に仕上がっています。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b112-c16071",
+      "name": "Tickets to the Sunset (TESTコラボ)",
+      "brewery": "Evil Twin Brewing",
+      "style": "DDH TIPA",
+      "abv": "10%",
+      "hops": [
+        "Citra",
+        "Citra Dynaboost",
+        "Southern Cross (NZ Hops)",
+        "Riwaka",
+        "Nelson Sauvin"
+      ],
+      "url": "https://www.antenna-america.com/products/b112-c16071",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/TicketstotheSunset_2.png?width=400",
+      "description": "Evil Twinと同じニューヨークのマイクロブリュワリー、TESTとのコラボレーションで醸造された特別な一杯。TESTが得意とする濃密でホップを大胆に使用したHazy IPAをテーマに、両ブリュワリーがホップの使用量の限界に挑んだ意欲作です。ワールプールではシトラとシトラ・ダイナブーストを使用し、トロピカルフルーツや柑橘を思わせる風味の土台を形成。その後、ドライホッピングでフリースタイルホップのサザンクロスとリワカを大量に投入し、さらにネルソン・ソーヴィンのコールドプレス・ホップジュースを加えています。やわらかな口当たりに、トロピカルフルーツや柑橘、ダンクなニュアンスが重なる、ホップの個性が凝縮された味わい。サザンクロスとリワカが深みのあるトロピカルな風味と青々しいニュアンスをもたらし、ネルソン・ソーヴィンが華やかな香りを加えます。最後までホップの存在感を存分に楽しめる、圧倒的なホップ使いが印象的な仕上がり。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b112-c16070",
+      "name": "Make it fruity Red Grape, Hawthorn, Pomegranate",
+      "brewery": "Evil Twin Brewing",
+      "style": "Fruited Sour",
+      "abv": "4.5%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b112-c16070",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/MakeItFruityBlueberry_ConcordGrapes_49672221-8809-410f-a5d9-e494f39f9f71.png?width=400",
+      "description": "赤ブドウ、サンザシ、ザクロを使用したフルーツサワーエールです。赤ブドウの芳醇な果実味に、サンザシのほのかな甘酸っぱさ、ザクロの鮮やかな酸味が重なり、奥行きのあるフルーティーな味わいに仕上がっています。心地よい酸味と豊かな果実感が調和した、華やかで飲みやすい一杯です。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b112-c16068",
+      "name": "This IPA Doesn’t Care About Your Feelings",
+      "brewery": "Evil Twin Brewing",
+      "style": "WC IPA",
+      "abv": "6.7%",
+      "hops": [
+        "Simcoe",
+        "Amarillo",
+        "Citra"
+      ],
+      "url": "https://www.antenna-america.com/products/b112-c16068",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/ThisIPADoesn_tCareAboutYourFeelingsWCIPA_2.png?width=400",
+      "description": "力強いホップの風味としっかりとした苦味を存分に楽しめる一方で、絶妙なバランスと飲みやすさも兼ね備えた一本。シムコー、アマリロ、シトラの3種のホップを使用し、柑橘や松を思わせる風味と、ウエストコーストスタイルならではの魅力を引き出しています。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b112-c16067",
+      "name": "Comrade Marlon",
+      "brewery": "Evil Twin Brewing",
+      "style": "DDH QIPA",
+      "abv": "12%",
+      "hops": [
+        "Mosaic",
+        "Nectaron"
+      ],
+      "url": "https://www.antenna-america.com/products/b112-c16067",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/ComradeMarlonDDHQIPA_2.png?width=400",
+      "description": "Evil Twinのマスコット猫、マーロンちゃんのQIPAシリーズ最新作。モザイクとネクタロンホップをふんだんに使用。それぞれ異なるアプローチでホップの存在感を極限まで高めました。非常に飲みごたえのある一杯でありながら、驚くほどなめらかな飲み口が特徴。12％のアルコールやボリュームを忘れてしまいそうな、危険なほどスムーズな仕上がりです。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b112-c16064",
+      "name": "I wish DUMBO had more tourists, it’s way too quiet under the bridge",
+      "brewery": "Evil Twin Brewing",
+      "style": "DDH TIPA",
+      "abv": "10%",
+      "hops": [
+        "Nectaron",
+        "Nelson Sauvin",
+        "Riwaka"
+      ],
+      "url": "https://www.antenna-america.com/products/b112-c16064",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/IwishDUMBOhadmoretourists_it_swaytooquietunderthebridgdeDDHTIPA.png?width=400",
+      "description": "ネクタロン、ネルソン・ソーヴィン、リワカの3種類のニュージーランドホップをダブルドライホップで使用。トロピカルフルーツや白ブドウ、シトラス、凝縮感のあるパッションフルーツの風味が広がり、爽やかで奥行きのあるホップキャラクターを楽しめます。「DUMBO」は、ニューヨーク・ブルックリンにある人気のウォーターフロントエリアです。石畳の街並みや歴史あるレンガ造りの倉庫、美しいマンハッタンのスカイラインを望む景観で知られています。名称は「Down Under the Manhattan Bridge Overpass（マンハッタン橋高架下地区）」の頭文字に由来しています。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b112-b50074",
+      "name": "The Great Northern Barrel Aged Series 59",
+      "brewery": "Evil Twin Brewing",
+      "style": "Imperial Stout",
+      "abv": "14.4%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b112-b50074",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/TheGreatNorthernBarrelAgedSeries59ImperialStout.png?width=400",
+      "description": "24か月間熟成させた2種類のインペリアルスタウトをブレンドした、重厚なバレルエイジドスタウトです。ひとつはBlis社のメープルシロップ・バーボン・シナモン樽、もうひとつはBlis社のメープルシロップ・バーボン・ワイルドタイバナナ樽で、それぞれ24か月間じっくり熟成。さらに、バナナとシナモンを加えてコンディショニングすることで、濃厚で複雑な味わいに仕上げています。バーボン樽由来の芳醇な樽香に、メープルシロップの甘く深みのあるニュアンス、熟したバナナの豊かな果実味、そしてシナモンの温かみのあるスパイスが重なり合う、贅沢な一杯です。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b108-c16017",
+      "name": "Opening Act Hefeweizen",
+      "brewery": "SingleCut Beersmiths",
+      "style": "Hefeweizen",
+      "abv": "5.2%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b108-c16017",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/OpeningActHefeweizen_3.png?width=400",
+      "description": "ドイツの伝統的なヘーフェヴァイツェンを忠実に再現しながら、独自のアレンジを加えた一杯。発酵の最終段階にシャンパン酵母を使用することで、非常にクリスプですっきりとした後味に仕上げています。何度でも飲みたくなる心地よい味わいで、セッションビールの新たな可能性を感じさせる一本です。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b108-c16016",
+      "name": "End Game Cartridge IPA",
+      "brewery": "SingleCut Beersmiths",
+      "style": "IPA",
+      "abv": "7%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b108-c16016",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/EndGameCartridgeIPA_3.png?width=400",
+      "description": "ホップの魅力を極限まで引き出し、最高峰の味わいを目指した究極の一本！アプリコット、ピーチ、洋梨が織りなす個性的な風味に、鮮やかなタンジェリンや穏やかなレモンのニュアンス、さらに甘くダンクな香りが重なります。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b027-c16103",
+      "name": "Sunset Viper",
+      "brewery": "Beachwood",
+      "style": "West Coast IPA",
+      "abv": "7.1%",
+      "hops": [
+        "Nelson Sauvin",
+        "Citra",
+        "Ekuanot",
+        "Simcoe"
+      ],
+      "url": "https://www.antenna-america.com/products/b027-c16103",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SunsetViper.png?width=400",
+      "description": "五感に深く食い込む、鋭いアロマが特徴のウェストコーストIPAです。トロピカルフルーツのジューシーな香りにグレープフルーツの皮、そして甘く濃厚なレジン香が重なります。ネルソン・ソーヴィン、シトラ、エクアノット・クライオ、シムコーの4種類のホップを使用。鮮烈なホップアロマが牙をむく、インパクトのある一杯です。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b027-c16102",
+      "name": "Intervals WC IPA",
+      "brewery": "Beachwood",
+      "style": "West Coast IPA",
+      "abv": "6%",
+      "hops": [
+        "Cascade",
+        "Peacharine",
+        "Mosaic Dynaboost"
+      ],
+      "url": "https://www.antenna-america.com/products/b027-c16102",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/IntervalsWCIPA.png?width=400",
+      "description": "Downtown Runners – Long Beachとのコラボレーションで生まれた、限定醸造のWest Coast IPA。力強いペースと確かな目的意識を込めて醸造された一杯で、力を出し切ってゴールした瞬間の爽快感をイメージ。クリスプでキレのある飲み口に、ウェストコーストIPAらしいホップの存在感が加わっています。NZカスケード、ピーチャリン、トロピカルフュージョン(Freestyle Hops社のホップブレンド）、モザイク・ダイナブーストを使用。シトラスや熟した桃、トロピカルフルーツを思わせる華やかなホップアロマが広がり、爽やかで躍動感のある味わいに仕上がっています。ランニング後のご褒美にはもちろん、何かに向かって一歩を踏み出しているときにも寄り添ってくれる、力強く爽快なIPAです。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b077-c16092a",
+      "name": "Supra Speed Hoppy Belgian Blonde",
+      "brewery": "Monkish",
+      "style": "Hoppy Belgian Blonde",
+      "abv": "4.6%",
+      "hops": [
+        "Mosaic",
+        "Motueka"
+      ],
+      "url": "https://www.antenna-america.com/products/b077-c16092a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SupraSpeedHoppyBelgianBlonde.png?width=400",
+      "description": "伝統的なベルジャンブロンドとアメリカのホップ技術を掛け合わせた一杯。モザイクとモツエカホップを使用。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b077-c16091a",
+      "name": "Large Shadows TIPA",
+      "brewery": "Monkish",
+      "style": "TIPA",
+      "abv": "10.1%",
+      "hops": [
+        "Rakau",
+        "Citra"
+      ],
+      "url": "https://www.antenna-america.com/products/b077-c16091a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/LargeShadowsTIPA_1.png?width=400",
+      "description": "ラカウとシトラホップを使ったTriple IPA",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b077-c16090a",
+      "name": "Monk Magic Dynasty DDH DIPA",
+      "brewery": "Monkish",
+      "style": "DDH DIPA",
+      "abv": "8.6%",
+      "hops": [
+        "Citra",
+        "Nelson Sauvin",
+        "Mosaic"
+      ],
+      "url": "https://www.antenna-america.com/products/b077-c16090a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/MonkMagicDynasty.png?width=400",
+      "description": "シトラ、ネルソンソーヴィン、モザイクを使ったDDH Double IPA",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b077-c16089a",
+      "name": "Poke-ito DIPA",
+      "brewery": "Monkish",
+      "style": "DIPA",
+      "abv": "8.6%",
+      "hops": [
+        "Citra"
+      ],
+      "url": "https://www.antenna-america.com/products/b077-c16089a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Poke-itoDIPA.png?width=400",
+      "description": "シトラホップの魅力を存分に引き出したDouble IPA。2026年収穫のシトラホップから、厳選したロットをハンドセレクト。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b077-c16088a",
+      "name": "WIP WC IPA",
+      "brewery": "Monkish",
+      "style": "WC IPA",
+      "abv": "7%",
+      "hops": [
+        "Mosaic",
+        "Motueka",
+        "Simcoe"
+      ],
+      "url": "https://www.antenna-america.com/products/b077-c16088a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/WIP.png?width=400",
+      "description": "モザイク、モツエカ、シムコーホップを使用したWest Coast IPA",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b077-c16087a",
+      "name": "＼新宿店オープン記念1本購入でラベル1枚プレゼント／Monkish Shinjuku DDH Hazy IPA",
+      "brewery": "Monkish",
+      "style": "DDH Hazy IPA",
+      "abv": "7%",
+      "hops": [
+        "Citra",
+        "Rakau",
+        "Krush"
+      ],
+      "url": "https://www.antenna-america.com/products/b077-c16087a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/ShinjukuIPA_1.png?width=400",
+      "description": "2026年11月28日に新たに新宿西口店をオープンするアンテナアメリカ。そのオープン記念を祝い、Monkishが特別に醸造してくれたHazy IPA。シトラ、ラカウ、クラッシュホップを使用。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b077-c16083a",
+      "name": "Joint Force Kobra DDH IPA",
+      "brewery": "Monkish",
+      "style": "DDH IPA",
+      "abv": "7.1%",
+      "hops": [
+        "Motueka",
+        "Citra",
+        "Simcoe"
+      ],
+      "url": "https://www.antenna-america.com/products/b077-c16083a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/JointForceKobraDDHIPA_2.png?width=400",
+      "description": "モツエカ、シトラ、シムコーホップを使ったDouble Dry Hop IPA",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b115-c16010",
+      "name": "Chill",
+      "brewery": "Bent Water",
+      "style": "American Light Lager",
+      "abv": "4.2%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b115-c16010",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Chill16oz.png?width=400",
+      "description": "クリーンでクリスプな飲み口が魅力のアメリカンライトラガー。「最も軽やかなビールはどれか」という問いへの答えとなる一杯で、主張しすぎない味わいが特徴です。クラフトビールファンからラガー派まで幅広く楽しめます。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b108-c16011",
+      "name": "Kim Hibiscus Sour",
+      "brewery": "SingleCut Beersmiths",
+      "style": "Sour",
+      "abv": "4.2%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b108-c16011",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/KimHibiscusSour_2.png?width=400",
+      "description": "ラガー酵母で低温熟成させることで、ファンキーさよりも雑味のないクリーンな後味を実現したフルーツサワー。アクセントにハイビスカスの花とクロスグリを使用。鮮やかなネオンピンクの色合いにきめ細かな白い泡が立ち、ドライでレモネードのようなシャープな酸味、ハイビスカスのフレッシュな風味とフローラルな香りが広がり、クロスグリと小麦の余韻も長く続きます。ビールだけでも、ペアリングとしても楽しめる一本です。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b108-c16001",
+      "name": "18 Watt IPA",
+      "brewery": "SingleCut Beersmiths",
+      "style": "IPA",
+      "abv": "5%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b108-c16001",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/18WattIPA_2.png?width=400",
+      "description": "SingleCutを代表するIPA。オレンジの皮、松脂、トロピカルフルーツを思わせるホップフレーバー。アルコール度数5%とは思えないほどのしっかりとした飲みごたえとホップの豊かな香りと味わい。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b115-c16008",
+      "name": "Bent Water Pilsner",
+      "brewery": "Bent Water",
+      "style": "Pilsner",
+      "abv": "5.2%",
+      "hops": [
+        "Magnum",
+        "Perle",
+        "Saaz"
+      ],
+      "url": "https://www.antenna-america.com/products/b115-c16008",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/Pilsner.png?width=400",
+      "description": "伝統的な製法で丁寧に醸造し長めに熟成させたピルスナー。マグナム、パール、ザーツホップのハーブや花のような香りと溌剌とした炭酸、そして淡麗な後口",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b077-c16052a",
+      "name": "Song of Silence Belgian Blonde",
+      "brewery": "Monkish",
+      "style": "Belgian Blonde",
+      "abv": "5.3%",
+      "hops": [],
+      "url": "https://www.antenna-america.com/products/b077-c16052a",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SongofSilence_2.jpg?width=400",
+      "description": "モンキッシュの原点とも言えるベルジャンブロンドエール。軽やかな口当たりとベルジャン酵母の芳醇なアロマ。もともと神学者である創業者のヘンリー氏が一番時間をかけて開発したレシピ。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b115-c16001",
+      "name": "Double Thunder Funk DIPA",
+      "brewery": "Bent Water",
+      "style": "DIPA",
+      "abv": "9.2%",
+      "hops": [
+        "Mosaic",
+        "Simcoe",
+        "Cascade",
+        "Columbus"
+      ],
+      "url": "https://www.antenna-america.com/products/b115-c16001",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/DoubleThunderFunkDoubleIPA.png?width=400",
+      "description": "人気定番商品Thunder Funkの兄貴分にあたるこのDouble IPAは、Thunder Funkのレシピで使用しているモルトとホップの量を大幅増量させたもの。モザイク、シムコー、カスケード、コロンブスホップの柑橘の皮や松脂のような香りが大暴れ！度数の高さの割には怖いくらいドリンカブル。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b115-c16002",
+      "name": "Super Sluice NE DIPA",
+      "brewery": "Bent Water",
+      "style": "New England DIPA",
+      "abv": "8.5%",
+      "hops": [
+        "Citra",
+        "Strata",
+        "Calypso",
+        "Mandarina Bavaria",
+        "Cascade"
+      ],
+      "url": "https://www.antenna-america.com/products/b115-c16002",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SuperSluiceNEDIPA_db728a8c-7c31-430a-a24b-3a9a544785f6.png?width=400",
+      "description": "人気定番商品Sluice Juiceを進化させたNew England DIPA。高めの度数を感じさせないよう、ホップの構成を大幅に変更して味わいを調整。シトラ、ストラータ、カリプソ、マンダリーナバーヴァリア、カスケードといった5種類のホップによる夢のようにトロピカルでジューシーな体験をあなたに。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b115-c16003",
+      "name": "Sluice Juice NE IPA",
+      "brewery": "Bent Water",
+      "style": "New England IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Galaxy",
+        "Citra",
+        "Simcoe",
+        "Motueka",
+        "Waimea"
+      ],
+      "url": "https://www.antenna-america.com/products/b115-c16003",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/SluiceJuiceNEIPA_3_db635a4e-d1b6-4108-9f3e-e25b9f8acf2c.png?width=400",
+      "description": "Bent Waterで人気トップ3に入るNew England IPA。ギャラクシー、モツエカ、ワイメア、シムコー、シトラホップを使用し、オレンジ、タンジェリンミカン、ライムピール、そしてダンク感と滑らかな口当たり。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b115-c16005",
+      "name": "Thunder Funk IPA",
+      "brewery": "Bent Water",
+      "style": "IPA",
+      "abv": "7.3%",
+      "hops": [
+        "Mosaic",
+        "Simcoe",
+        "Amarillo",
+        "Columbus"
+      ],
+      "url": "https://www.antenna-america.com/products/b115-c16005",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/ThunderFunkIPA_d3ac2a71-e96a-4cd9-99b5-e80b954eabfa.png?width=400",
+      "description": "モヤがかかった液面にしっかりとしたヘッド。グラスに注ぐとマンゴー、ミカン、松、ハチミツのような香り。口に含むとマンゴー、パッションフルーツ、柑橘、ほんのりビスケットのような味わいが稲妻のように走り抜けてゆく。モルトには2-Row、Caramalt、T-50、Foam。ホップにはモザイク、シムコー、アマリロ、コロンブスを使用。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "b027-c12013",
+      "name": "Hayabusa Lager",
+      "brewery": "Beachwood",
+      "style": "Japanese-style Lager",
+      "abv": "4.8%",
+      "hops": [
+        "German Hallertau Mittelfruh"
+      ],
+      "url": "https://www.antenna-america.com/products/b027-c12013",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/Hayabusa.png?width=400",
+      "description": "アメリカ産の二条大麦麦芽、カナダ産のピルスナーモルト、粉砕した米、そしてドイツ産の Hallertau Mittelfruhホップを使ったJapanese-style Lager。味わいは非常にシャープでキレがあり、ホップの爽やかな香りが楽しめます。\rBeachwoodの醸造責任者であるJulian Shrago氏は大の日本好きで、このビールのレシピは某ス〇パードライから着想を得たとのこと。また、ネーミングは日本のバイクの名前から取ったとか。\r2019年のSan Diego International Beer CompetitionのAmerican-style Lager部門にて銀賞受賞。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "set-50-nov-07",
+      "name": "＼ホップの味比べ／TopaTopa Solitude Series Variety Pack３本セット",
+      "brewery": "Topa Topa",
+      "style": "Single Hop IPA",
+      "abv": "6.5%",
+      "hops": [
+        "El Dorado",
+        "Azacca",
+        "Krush"
+      ],
+      "url": "https://www.antenna-america.com/products/set-50-nov-07",
+      "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/files/TopaTopa_73c83a67-b936-4773-bf0c-98dbee2a8a90.png?width=400",
+      "description": "同じレシピと製法でホップのみを変えたシングルホップシリーズ！味の違いを楽しめる３本セットになっています！①エルドラドホップスイカや洋梨、ストーンフルーツを思わせる甘くフルーティーな味わいを楽しめます。※缶裏記載の使用ホップ情報に印字不良があります。",
+      "source": "antenna",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "vertere-3261",
+      "name": "Preslia",
+      "brewery": "Vertere",
+      "style": "Bohemian Pilsner",
+      "abv": "5.5%",
+      "hops": [
+        "Aurora"
+      ],
+      "url": "https://verterebrew.com/brewlog/preslia/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/11/248_Preslia-300x300.jpg",
+      "description": "ほのかにパンやビスケット、ハチミツを思わせるモルトの風味。口に含むとホップ由来のフローラルなアロマが広がる。きめ細かな泡と滑らかな口当たり。すっきりとしたキレのある後味。",
+      "source": "vertere",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "vertere-3263",
+      "name": "Scabiosa",
+      "brewery": "Vertere",
+      "style": "American Pale Ale",
+      "abv": "5%",
+      "hops": [
+        "Pekko",
+        "Lorien"
+      ],
+      "url": "https://verterebrew.com/brewlog/scabiosa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/11/249_Scabiosa-300x300.jpg",
+      "description": "柑橘やハーバルなアロマ。ほのかにドライフルーツや干し草のニュアンス。柔らかなモルトの風味と穏やかなスパイス感。すっきりとした後味に爽やかな苦味の余韻。華やかでありながら落ち着きのあるAmerican Pale Ale。",
+      "source": "vertere",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "westcoast-marzen",
+      "name": "Marzen",
+      "brewery": "West Coast Brewing",
+      "style": "Merzen",
+      "abv": "5%",
+      "hops": [],
+      "url": "https://www.westcoastbrewing.jp/beer/marzen/",
+      "image": "https://www.westcoastbrewing.jp/wp/wp-content/uploads/2026/11/261118_Marzen_art-384x384.jpg",
+      "description": "静岡・浜松のWCB直営店『OASIS』5周年記念！ ひんやりと澄んだ夜風に、パチパチと爆ぜる炎の音。 揺らめく灯りに誘われ、Hop Dudeが辿り着いたのは、 焚き火を囲み、仲間とグラスを傾けるあの心地よい時間。 世界中で造られてきたクラシカルなビールを展開する“WCBシンプルロゴシリーズ”第11弾。今作はOASISスタッフからのリクエストを元に、香ばしくリッチなドイツ発祥のMarzenビールが完成。 トーストやシリアル、キャラメルのようにアンバーなアロマ。甘いモルトの香りがたっぷりと重なり、ハーブのような心地良い苦みと調和のとれた味わいのバランスが、非常に飲みやすい仕上がりに。 いつもの時間をちょっと特別にしてくれる名脇役？主役はいつだって、この場所を支えてくれる皆さまに。これからも続く楽しいひとときに、感謝を込めて乾杯！",
+      "source": "westcoast",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "westcoast-dankmasters",
+      "name": "Dankmasters",
+      "brewery": "West Coast Brewing",
+      "style": "CBD & TERPENE-Infused Hazy Double IPA",
+      "abv": "8.5%",
+      "hops": [
+        "Krush",
+        "Peacharine",
+        "Citra"
+      ],
+      "url": "https://www.westcoastbrewing.jp/beer/dankmasters/",
+      "image": "https://www.westcoastbrewing.jp/wp/wp-content/uploads/2026/11/261118_Dankmasters_art-384x384.jpg",
+      "description": "WCB × pot Collaboration! 京都・烏丸御池にある、おでんとクラフトビールのお店『pot』。その1周年を祝うAnniversary Beerが、WCBとのコラボレーションによって誕生する。 京都のビアシーンで出会い、積み重ねてきた関係。今回、“Dank”を究極に追い求めるHop Chefが仕掛けたのは、Hazy Double IPAにテルペンとCBDを融合させる、WCBでも初となるぶっ飛んだ試み……！ potの1周年を祝う、特別なAnniversary Beer。おでんとビールを愛する者たちへ、そして未知なるDankの世界を求めるHop Dudeたちへ。 マンゴーやパッションフルーツ、パイナップルを思わせるトロピカルフルーツの香りが広がり、果汁感を思わせる甘い印象も。ゼラニウムやフローラル、ハーブのような繊細なニュアンスが加わり、ほろ苦さやキレの良さも◎スムースに飲める仕上がりに。 ホップ本来が持つダンクな個性に、テルペンの深みをさらに加えていく。既存の枠にとらわれないアプローチで、Dankの可能性をとことん追求した一杯が完成。 ※Artwork by @kac_one 【1缶（510mL）あたり、CBDの含有量は50mgです】 🔖TERPENEとは\n\n幅広い植物の精油に含まれる天然の芳香成分。今作では「Gelato」に加え「OG Kush」を使用（リキッド製品）。 ▼CBDについて詳しくはこちら\n\nhttps://www.westcoastbrewing.jp/news/cbd2025/ ✅当ビールの取扱いはpotに加え、彼らと交流のある下記の店舗、WCB直営店限定です。\n\n関町セラー / Danky Beer Store / BEER&CRAFT / Binge Craft Beer Nagoya / サイオウガウマ / FRONT(078) / Canal brewing / Bar FUKURO / BEERKICHI / ビールと肴 びあらゔぁ / びあマ北千住 / とめ河酒店 / オナジアナノムジナ / SANITY / torne / 日本酒・クラフトビール サケオタ /  EVOLVE BEER&KITCHEN / THUMBS UP / KARAKURI / 餐事（sanZi）/ BEERBOMB / アスタマニャーナ！ / FRANK'S BARBE(E)R THE STAND. / THE LIFE / OKEI TAPROOM / クラフトビア食堂 VOLTA\n\n※順不同",
+      "source": "westcoast",
+      "added": "2026-11-24"
+    },
+    {
+      "id": "westcoast-hop-chef",
+      "name": "Hop Chef",
+      "brewery": "West Coast Brewing",
+      "style": "Hazy Double IPA",
+      "abv": "8.5%",
+      "hops": [
+        "Krush",
+        "Peacharine",
+        "Citra"
+      ],
+      "url": "https://www.westcoastbrewing.jp/beer/hop-chef/",
+      "image": "https://www.westcoastbrewing.jp/wp/wp-content/uploads/2026/11/261118_HopChef_art-384x384.jpg",
+      "description": "どこからともなく、いい匂い。その気配を辿っていくと、そこには秘密のスタジオが。一見、普通のキッチンのようにも見えるけれど、腕自慢のHop Chefたちが集い競い合う、前代未聞のバトルが連日連夜で繰り広げられている。 彼らを待ち受けるのは、絶対的なマスター・Alchemistによる、容赦ない審査。ただし、ここで生み出されるのは料理ではなく、マスターのお眼鏡にかなう、最高の一杯。 ドライホップにPeacharineを使用することで、ピーチを思わせるストーンフルーツの存在感をUP。表現力豊かなトロピカルフルーツやシトラスの印象はKrushから。さらにこれらのニュアンスを支えるためCitraも投入。口当たりはシルキーながら、フルボディの満足感。ほのかな甘みと、ほろ苦さがアクセントに。 ここは、数々のチャレンジが繰り広げられる舞台であり、新たなレシピが生まれる実験の場でもある。今日もまた、未知なる味わいを求めて挑戦は続く。 ※Artwork by @kac_one",
+      "source": "westcoast",
+      "added": "2026-11-24"
+    }
+  ],
   "recycled_handles": [],
-  "hops_needing_aroma_review": [],
-  "hops_from_description": [],
-  "new_products_without_hops": [],
-  "new_products_sold_out": [],
+  "hops_needing_aroma_review": [
+    "German Hallertau Mittelfruh"
+  ],
+  "hops_from_description": [
+    {
+      "id": "set-50-nov-08",
+      "name": "＼新宿西口店オープン記念ビール入り／Monkish 満喫8本セット【11/26出荷】",
+      "hops": [
+        "Citra",
+        "Rakau",
+        "Krush",
+        "Motueka",
+        "Simcoe",
+        "Mosaic",
+        "Nelson Sauvin"
+      ]
+    },
+    {
+      "id": "set-50-nov-09",
+      "name": "Evil Twin 《ブルワリーコラボ2本》 アートとビールを楽しむ5種飲み比べセット（473ml×5本）【11/26出荷】",
+      "hops": [
+        "Tettnanger",
+        "Citra",
+        "Citra Dynaboost",
+        "Southern Cross (NZ Hops)",
+        "Riwaka",
+        "Nelson Sauvin",
+        "Mosaic",
+        "Nectaron"
+      ]
+    },
+    {
+      "id": "b112-c16075",
+      "name": "Greenhouse Helles Lager Conditioned On American Oak Foudre",
+      "hops": [
+        "Tettnanger"
+      ]
+    },
+    {
+      "id": "b112-c16071",
+      "name": "Tickets to the Sunset (TESTコラボ)",
+      "hops": [
+        "Citra",
+        "Citra Dynaboost",
+        "Southern Cross (NZ Hops)",
+        "Riwaka",
+        "Nelson Sauvin"
+      ]
+    },
+    {
+      "id": "b112-c16068",
+      "name": "This IPA Doesn’t Care About Your Feelings",
+      "hops": [
+        "Simcoe",
+        "Amarillo",
+        "Citra"
+      ]
+    },
+    {
+      "id": "b112-c16067",
+      "name": "Comrade Marlon",
+      "hops": [
+        "Mosaic",
+        "Nectaron"
+      ]
+    },
+    {
+      "id": "b112-c16064",
+      "name": "I wish DUMBO had more tourists, it’s way too quiet under the bridge",
+      "hops": [
+        "Nectaron",
+        "Nelson Sauvin",
+        "Riwaka"
+      ]
+    },
+    {
+      "id": "b027-c16103",
+      "name": "Sunset Viper",
+      "hops": [
+        "Nelson Sauvin",
+        "Citra",
+        "Ekuanot",
+        "Simcoe"
+      ]
+    },
+    {
+      "id": "b027-c16102",
+      "name": "Intervals WC IPA",
+      "hops": [
+        "Cascade",
+        "Peacharine",
+        "Mosaic Dynaboost"
+      ]
+    },
+    {
+      "id": "b077-c16092a",
+      "name": "Supra Speed Hoppy Belgian Blonde",
+      "hops": [
+        "Mosaic",
+        "Motueka"
+      ]
+    },
+    {
+      "id": "b077-c16091a",
+      "name": "Large Shadows TIPA",
+      "hops": [
+        "Rakau",
+        "Citra"
+      ]
+    },
+    {
+      "id": "b077-c16090a",
+      "name": "Monk Magic Dynasty DDH DIPA",
+      "hops": [
+        "Citra",
+        "Nelson Sauvin",
+        "Mosaic"
+      ]
+    },
+    {
+      "id": "b077-c16089a",
+      "name": "Poke-ito DIPA",
+      "hops": [
+        "Citra"
+      ]
+    },
+    {
+      "id": "b077-c16088a",
+      "name": "WIP WC IPA",
+      "hops": [
+        "Mosaic",
+        "Motueka",
+        "Simcoe"
+      ]
+    },
+    {
+      "id": "b077-c16087a",
+      "name": "＼新宿店オープン記念1本購入でラベル1枚プレゼント／Monkish Shinjuku DDH Hazy IPA",
+      "hops": [
+        "Citra",
+        "Rakau",
+        "Krush"
+      ]
+    },
+    {
+      "id": "b077-c16083a",
+      "name": "Joint Force Kobra DDH IPA",
+      "hops": [
+        "Motueka",
+        "Citra",
+        "Simcoe"
+      ]
+    },
+    {
+      "id": "set-50-nov-07",
+      "name": "＼ホップの味比べ／TopaTopa Solitude Series Variety Pack３本セット",
+      "hops": [
+        "El Dorado",
+        "Azacca",
+        "Krush"
+      ]
+    }
+  ],
+  "new_products_without_hops": [
+    {
+      "id": "b115-c16012",
+      "name": "Sluice Light",
+      "source": "antenna"
+    },
+    {
+      "id": "b112-c16076",
+      "name": "If You See Something, Sip Something",
+      "source": "antenna"
+    },
+    {
+      "id": "b112-c16072",
+      "name": "Spicy Canary (Root + Branchコラボ)",
+      "source": "antenna"
+    },
+    {
+      "id": "b112-c16070",
+      "name": "Make it fruity Red Grape, Hawthorn, Pomegranate",
+      "source": "antenna"
+    },
+    {
+      "id": "b112-b50074",
+      "name": "The Great Northern Barrel Aged Series 59",
+      "source": "antenna"
+    },
+    {
+      "id": "b108-c16017",
+      "name": "Opening Act Hefeweizen",
+      "source": "antenna"
+    },
+    {
+      "id": "b108-c16016",
+      "name": "End Game Cartridge IPA",
+      "source": "antenna"
+    },
+    {
+      "id": "b115-c16010",
+      "name": "Chill",
+      "source": "antenna"
+    },
+    {
+      "id": "b108-c16011",
+      "name": "Kim Hibiscus Sour",
+      "source": "antenna"
+    },
+    {
+      "id": "b108-c16001",
+      "name": "18 Watt IPA",
+      "source": "antenna"
+    },
+    {
+      "id": "b077-c16052a",
+      "name": "Song of Silence Belgian Blonde",
+      "source": "antenna"
+    },
+    {
+      "id": "westcoast-marzen",
+      "name": "Marzen",
+      "source": "westcoast"
+    }
+  ],
+  "new_products_sold_out": [
+    "b112-c16064"
+  ],
   "refreshed": [],
   "refresh_review": [],
   "refresh_errors": {},
@@ -13,7 +877,7 @@
   "sources": {
     "antenna": {
       "status": "ok",
-      "added": 0,
+      "added": 35,
       "refreshed": 0
     },
     "southbound": {
@@ -23,12 +887,12 @@
     },
     "vertere": {
       "status": "ok",
-      "added": 0,
+      "added": 2,
       "refreshed": 0
     },
     "westcoast": {
       "status": "ok",
-      "added": 0,
+      "added": 3,
       "refreshed": 0
     }
   },
