@@ -62,7 +62,10 @@ def check_shopify(source: dict, products: list, report: dict, last_updated: date
     key, base_url = source["source_key"], source["base_url"]
     catalog = up.fetch_catalog(base_url)
     if not catalog:
-        raise RuntimeError(f"{key}: live catalog is empty")
+        # 2026-11-25: この端末のIPがCloudflareのボット確認(HTTP 403 challenge / 429)で止まり、Antenna/Southboundが取れなかった。
+        # 突破しない(UA偽装・ブラウザ自動化・Cookie流用はしない)。GitHub Actionsの週次実行(data/last_run_summary.json)で代替する
+        raise RuntimeError(f"{key}: live catalog is empty (HTTP 403/429 = bot protection, or the site is down). "
+                           f"Do not bypass it; use the scheduled CI run's data/last_run_summary.json (gh run list) instead")
     stored = [p for p in products if p["source"] == key]
     by_handle = {}
     for rec in stored:

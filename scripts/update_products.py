@@ -205,6 +205,7 @@ HOP_NAME_FIXES = {
     # Antenna America表記のゆれ(2026-11-16、総チェックで発見)。品種名はアロマチャートの表記に揃える
     "German Tettnang": "Tettnanger",  # Cellarmaker 10 Forty(独産Tettnang)
     "German Mittelfruh": "Hallertauer Mittelfruher",
+    "German Hallertau Mittelfruh": "Hallertauer Mittelfruher",  # Hayabusa Lager(2026-11-24の週次で未知名として出た)
     "Hersbrucker": "Hersbrucker Spat",  # Oktoberfest 2026。Hersbruckerは独Hersbruck産の晩生種(Spat)のこと
     # ホップの品種名ではない記載(注記・抽出物)。「Mosaic, Simcoe, Saaz, Cascade & Varying」(The Coachman)の"Varying"は
     # 「品種は時期により変わる」の意味、"Citrulicious Hop Oil"はホップオイル(抽出物)で、品種は別に記載がある
@@ -566,10 +567,10 @@ def parse_antenna_product(p: dict, source_key: str, base_url: str) -> dict:
     # 商品名: タイトルから "/日本語名" と "(NNNml)" とブリュワリー名の重複プレフィックスを除去
     title = p["title"]
     name = title.split(" / ")[0].strip()
-    # 先頭の販促タグ(【再入荷】【完売】【ACBE2026でも大注目！】等)は商品名ではない。英字の銘柄名だけが続くときに除く
-    # (セットは「飲み比べ○本セット」のように日本語が続くので対象外=登録済みのセット名と同じ形のまま)。
-    # タグがあるとブリュワリー名の接頭辞除去も効かなくなる
-    tagged = re.match(r"^(?:【[^】]*】\s*)+(?=[A-Za-z0-9])(.*)$", name)
+    # 先頭の販促タグ(【再入荷】【完売】【ACBE2026でも大注目！】、＼新宿店オープン記念…／、《…》等)は商品名ではない。
+    # 英字の銘柄名だけが続くときに除く(セットは「飲み比べ○本セット」のように日本語が続くので対象外=登録済みのセット名と同じ形のまま)。
+    # タグがあるとブリュワリー名の接頭辞除去も効かなくなる(2026-11-24、Monkishの「＼新宿店オープン記念…／Monkish Shinjuku…」で発生)
+    tagged = re.match(r"^(?:(?:【[^】]*】|＼[^／]*／|《[^》]*》)\s*)+(?=[A-Za-z0-9])(.*)$", name)
     if tagged and not re.search(r"[぀-ヿ一-龯]", tagged.group(1)):
         name = tagged.group(1)
     name = re.sub(r"\s*\(\d+\s*ml\).*$", "", name).strip()

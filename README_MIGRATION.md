@@ -256,6 +256,12 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
   `hop_text.py`の`EN_COMMON`にAnchovyを追加(食べ物のアンチョビと同形のため、説明文からは「hop」が近くにあるときだけ採用)。
   スタイル分類にGrodziskie(ポーランドの燻製小麦ビール)を追加。残る「その他のビール」7件はFruited Ale/Fruit/Blueberry Ale/Milkshake/Winter Ale/Low ABV Brews(0.5%)
 - **画面の確認(1486件)**: 検索の再描画は約20〜40ミリ秒、DOMは約1.9万ノード、ページは1.9MB。ブラウザのコンソールエラーなし
+- **手元から取れなくなったとき(2026-11-25)**: この端末のIPからAntenna/Southboundの`products.json`がCloudflareのボット確認
+  (HTTP 403 `cf-mitigated: challenge`。直前に429)で取れなくなった(Vertere・WCBは取れる)。GitHub Actionsの週次実行(11/17・11/24)は成功していた。
+  **突破しない**(User-Agent偽装・ブラウザ自動化・Cookie流用はしない。Anny CMSと同じ方針)。総チェックはこの2つを「点検できなかった収集元」として出し(「問題なし」にしない)、
+  代わりにCIの結果(`gh run list`・`data/last_run_summary.json`・`gh workflow run weekly-update.yml`)で見る。
+  見立て: 11/16に全カタログ(各約12リクエスト)を手元から何度も取った(総チェック3回・調査・試走)ことが引き金の可能性が高い。
+  **全カタログを手元から短時間に繰り返し取らない**(調べ物は一度取ってキャッシュして使う)
 
 ## 月次監査（scripts/audit_catalog.py）
 

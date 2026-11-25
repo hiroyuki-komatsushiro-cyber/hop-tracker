@@ -126,7 +126,7 @@ RULES = [
     ("lager_pils", r"pils|bohemian"),
     ("lager_mexican", r"mexican|baja"),
     ("lager_special", r"smoked|rauch|\brice\b|japanese|hojicha|pseudo"),
-    ("lager_dark_amber", r"\bdark lager\b|schwarz|\bvienna\b|\bamber lager\b|\bred lager\b|marzen|festbier|oktoberfest|\bbock\b|doppelbock|dunkel"),
+    ("lager_dark_amber", r"\bdark lager\b|schwarz|\bvienna\b|\bamber lager\b|\bred lager\b|m[ae]rzen|festbier|oktoberfest|\bbock\b|doppelbock|dunkel"),  # "Merzen"=WCBのMärzenの綴り(2026-11-24)
     ("lager_light", r"lager|helles|american beer"),
     # --- ペールエール・エール系
     ("pale_hazy_nz", r"hazy pale|nz pale|new zealand pale|nz hazy|tdh"),
