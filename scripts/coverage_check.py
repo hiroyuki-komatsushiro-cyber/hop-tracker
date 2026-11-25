@@ -162,17 +162,17 @@ def check_vertere(source: dict, products: list, report: dict, known: set):
 def check_wcb(source: dict, products: list, report: dict, known: set):
     key = source["source_key"]
     stored = {p["id"]: p for p in products if p["source"] == key}
-    # A4(登録漏れ)は、WP REST APIの全銘柄(540件=6リクエスト)と照合する。一覧のHTMLを読む窓と違い、過去分も漏れなく見られる
-    dates = up.wcb_rest_dates(source)
+    # A4(登録漏れ)は、全銘柄(WP REST API=6リクエスト。GitHubのIPからは403なのでアーカイブのHTML全ページで代替)と照合する
+    dates = up.wcb_all_slugs(source)
     if not dates:
-        raise RuntimeError(f"{key}: REST API returned no beers")
+        raise RuntimeError(f"{key}: no beers listed by the REST API or the archive pages")
     items = up.wcb_list_items(source, archive=True, max_archive_pages=ac.WCB_AUDIT_ARCHIVE_PAGES)
     if not items:
         raise RuntimeError(f"{key}: list/archive returned no beers")
     r = {"live_total": len(dates), "live_window": len(items), "registered": len(stored), "A4": [], "B2": []}
     for slug, published in sorted(dates.items(), key=lambda kv: kv[1], reverse=True):
         if f"{key}-{slug}" not in stored:
-            r["A4"].append({"id": f"{key}-{slug}", "title": f"{slug} ({published})"})
+            r["A4"].append({"id": f"{key}-{slug}", "title": f"{slug} ({published})" if published else slug})
     for it in items:  # B2(更新漏れ)は先頭の窓(約半年分)の値を比べる
         rec = stored.get(f"{key}-{it['slug']}")
         if rec is None:

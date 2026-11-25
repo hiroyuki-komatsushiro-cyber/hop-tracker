@@ -200,12 +200,12 @@ def unregistered_wcb_items(source: dict, known_ids: set) -> tuple[list[dict], st
     それ以前は一覧の先頭72銘柄の窓だけを見て「登録済みより古い過去分は仕様」としていたが、全件取り込み後は不要になった。
     補充は BACKFILL_SOURCES=westcoast BACKFILL_ONLY=<このidのslug,...> で(addedはREST公開日になる。README_MIGRATION.md参照)。"""
     key = source["source_key"]
-    dates = up.wcb_rest_dates(source)
+    dates = up.wcb_all_slugs(source)  # RESTが読めなければ(GitHubのIPは403)アーカイブのHTML全ページで代替する
     if not dates:
-        raise RuntimeError(f"{key}: REST API returned no beers; cannot verify completeness")
+        raise RuntimeError(f"{key}: no beers listed by the REST API or the archive pages; cannot verify completeness")
     missing = [{"source": key, "id": slug, "link": f"{source['base_url']}{source['archive_path']}{slug}/", "title": slug, "date": published}
                for slug, published in dates.items() if f"{key}-{slug}" not in known_ids]
-    return missing, f"checked all {len(dates)} beers listed by the WP REST API"
+    return missing, f"checked all {len(dates)} beers (WP REST API, or the archive pages when the API is blocked)"
 
 
 # source.type -> 「サイトに載っているのに未登録の銘柄」の検査。新しい収集先(COLLECTORS)を足したら、

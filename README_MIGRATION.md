@@ -93,7 +93,10 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
   (`BACKFILL_SOURCES=westcoast`。個別ページを1.2秒間隔で約500回取得するので約15分。`added`はWP REST API(`/wp-json/wp/v2/beer`)のCMS公開日にしてNEWバッジの洪水を避けた。
   CMSの日付なので、投稿を使い回した銘柄は実際の醸造より古い日付のことがある。日付が取れない銘柄があれば取得を始める前に失敗する)。
   `robots.txt`は`/wp/wp-admin/`以外を許可。小規模サイトなので1ページ/1.2秒以上の間隔を守る(`REQUEST_DELAY`)。
-  月次監査・総チェックは、WP REST APIの全銘柄(6リクエスト)と照合するので、未登録は全て取りこぼしとして出る
+  月次監査・総チェックは、WP REST APIの全銘柄(6リクエスト)と照合するので、未登録は全て取りこぼしとして出る。
+  **GitHubのIPからはREST APIだけが403で止められる**(2026-11-25に総チェックのCI実行で確認。手元のPCからは読める。HTMLのページは両方から読める)ので、
+  読めなければアーカイブのHTML全ページ(45リクエスト)で代替する(`wcb_all_slugs`。REST頼みにすると月次監査がGitHub上で止まる)。
+  過去分の取り込みの`added`も、RESTが読めなければ個別ページのJSON-LD(`datePublished`)を使う(`parse_wcb_published`)
 
 ## 新しい収集先の追加チェックリスト
 
@@ -276,7 +279,7 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
   列挙の形である最近60日の商品は `needs_review.recent_products_hop_words_without_names`(辞書に無い日本語表記の発見用)に出す
 - hops[]に使われているが hops_tab.js のアロマチャートに未収録の品種名
 - ブルワリー公式サイト系(Vertere / West Coast Brewing)で、週次の収集が見る範囲(Vertere=最新30件、WCB=最新12件)を外れた取りこぼし
-  (`needs_review.unregistered_items`。Vertere・WCBとも、REST APIの全記事/全銘柄のID(WCBは540件=6リクエスト)と照合する。
+  (`needs_review.unregistered_items`。Vertere・WCBとも、全記事/全銘柄のIDと照合する(VertereはREST API、WCBは540件超=REST 6リクエスト。WCBのRESTがGitHubから403なら、アーカイブのHTML全ページで代替)。
   見つかったら `BACKFILL_SOURCES=<source_key> python scripts/update_products.py` で取り込む。WCBは
   `BACKFILL_SOURCES=westcoast BACKFILL_ONLY=<unregistered_itemsのid(slug),...>` とidまで指定する(`added`はREST公開日になる)。
   `BACKFILL_ONLY`が無いと、一覧の対象ページ内の未登録を全て取り込んでしまう)。

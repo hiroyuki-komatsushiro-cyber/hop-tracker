@@ -954,12 +954,31 @@ def wcb_rest_dates(source: dict) -> dict:
     return dates
 
 
+def wcb_all_slugs(source: dict) -> dict:
+    """全銘柄の {slug: 公開日(読めなければ空文字)}。完全性の点検(月次監査・総チェック)用。
+    WP REST API(6リクエスト・日付付き)を先に試し、読めなければアーカイブのHTML全ページ(45リクエスト・日付なし)で代替する。
+    GitHubのIPからはRESTだけが403で止められる(2026-11-25に総チェックのCI実行で確認。手元のPCからは読める)ため、
+    REST頼みにすると月次監査がGitHub上で止まる。"""
+    dates = wcb_rest_dates(source)
+    if dates:
+        return dates
+    print("  [note] WP REST API not readable; falling back to the archive pages (slower, no dates)", file=sys.stderr)
+    items = wcb_list_items(source, archive=True, max_archive_pages=60)
+    return {it["slug"]: "" for it in items}
+
+
+def parse_wcb_published(page: str) -> str:
+    """個別ページ(JSON-LD)の公開日 'YYYY-MM-DD'。無ければ空文字。RESTが読めないときの代替(UTC表記なので日本時間と1日ずれうる)。"""
+    m = re.search(r'"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})', page or "")
+    return m.group(1) if m else ""
+
+
 def collect_wcb_list(source: dict, known_ids: set, backfill: bool) -> list[dict]:
     """一覧から未登録のビールを見つけ、その個別ページだけ取得して説明文を補う。
     通常は /ourbeers/ の1ページのみ。アーカイブ(過去分)の取り込みは BACKFILL_SOURCES=westcoast で指定する
     (全ページ=約540銘柄。環境変数 BACKFILL_PAGES=N で読むアーカイブのページ数を絞れる。1ページ=12銘柄。
     個別ページを1.2秒間隔で取るので、全件は約15分かかる)。過去分の added はWP REST APIの公開日にする(NEWバッジの洪水を避ける。
-    日付が取れない銘柄があれば、時間のかかる取得を始める前に失敗させる)。
+    RESTが読めなければ個別ページのJSON-LDの公開日を使い、どちらも無い銘柄があれば失敗させる)。
     月次監査が見つけた取りこぼしの補充は BACKFILL_ONLY=<id,id,...>(audit_review.json の unregistered_items の
     id)も必ず付ける。BACKFILL_PAGES=6 だけだと、その6ページにある「登録済みの最も古い銘柄より古い」過去分まで
     取り込んでしまう(2026-11-02に4件の補充のつもりで58件入った)。"""
@@ -974,10 +993,6 @@ def collect_wcb_list(source: dict, known_ids: set, backfill: bool) -> list[dict]
     todo = [it for it in reversed(items)  # 古い順に追記(一覧は新しい順)
             if f"{key}-{it['slug']}" not in known_ids and (not only or it["slug"] in only or f"{key}-{it['slug']}" in only)]
     dates = wcb_rest_dates(source) if backfill and todo else {}
-    missing = [it["slug"] for it in todo if backfill and not dates.get(it["slug"])]
-    if missing:
-        raise RuntimeError(f"no publication date from the REST API for {len(missing)} beer(s) ({', '.join(missing[:5])}...); "
-                           f"refusing to backfill with today's date (it would flood the list with NEW badges)")
     records = []
     for n, it in enumerate(todo, 1):
         detail = fetch_url_retry(it["url"])
@@ -985,6 +1000,12 @@ def collect_wcb_list(source: dict, known_ids: set, backfill: bool) -> list[dict]
         description = parse_wcb_description(detail) if detail else ""
         if not description:
             print(f"  [warn] no description found for {it['url']} (record added without it)", file=sys.stderr)
+        # 過去分の added はCMSの公開日(REST API。読めなければ個別ページのJSON-LD=追加のリクエスト無し)。
+        # どちらも無いときに「今日」で登録するとNEWバッジが付くので、そのときは取り込みを失敗させる
+        published = dates.get(it["slug"]) or parse_wcb_published(detail)
+        if backfill and not published:
+            raise RuntimeError(f"no publication date for {it['slug']} (REST API and page both lack it); "
+                               f"refusing to backfill with today's date (it would flood the list with NEW badges)")
         records.append({
             "id": f"{key}-{it['slug']}",
             "name": it["name"],
@@ -996,7 +1017,7 @@ def collect_wcb_list(source: dict, known_ids: set, backfill: bool) -> list[dict]
             "image": it["image"],
             "description": description,
             "source": key,
-            "added": dates[it["slug"]] if backfill else str(date.today()),
+            "added": published if backfill else str(date.today()),
         })
         if backfill and n % 25 == 0:
             print(f"  ... {n}/{len(todo)} beers fetched", flush=True)

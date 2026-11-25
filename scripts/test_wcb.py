@@ -60,12 +60,41 @@ CASES = [
 ]
 
 
+def check_completeness_fallback(failures):
+    """WP REST APIがGitHubのIPから403で止められても(2026-11-25に確認)、全銘柄の照合(月次監査・総チェック)が止まらない"""
+    import audit_catalog as ac
+    source = {"source_key": "westcoast", "base_url": "https://example.test", "archive_path": "/beer/"}
+    saved = (up.wcb_rest_dates, up.wcb_list_items)
+    try:
+        up.wcb_rest_dates = lambda s: {}  # REST: 403で空
+        up.wcb_list_items = lambda s, archive=False, max_archive_pages=60: [
+            {"slug": "a", "url": "u/a", "name": "A"}, {"slug": "b", "url": "u/b", "name": "B"}]
+        slugs = up.wcb_all_slugs(source)
+        if slugs != {"a": "", "b": ""}:
+            failures.append(f"wcb_all_slugs fallback: got {slugs}")
+        missing, _note = ac.unregistered_wcb_items(source, {"westcoast-a"})
+        if [m["id"] for m in missing] != ["b"]:
+            failures.append(f"unregistered_wcb_items fallback: got {[m['id'] for m in missing]}")
+        up.wcb_rest_dates = lambda s: {"a": "2021-11-02", "b": "2021-10-01"}  # RESTが読めるとき
+        slugs = up.wcb_all_slugs(source)
+        if slugs != {"a": "2021-11-02", "b": "2021-10-01"}:
+            failures.append(f"wcb_all_slugs via REST: got {slugs}")
+    finally:
+        up.wcb_rest_dates, up.wcb_list_items = saved
+    page = '<script type="application/ld+json">{"@graph":[{"datePublished":"2021-10-01T14:07:00+00:00"}]}</script>'
+    if up.parse_wcb_published(page) != "2021-10-01":
+        failures.append(f"parse_wcb_published: got {up.parse_wcb_published(page)!r}")
+    if up.parse_wcb_published("<html></html>") != "":
+        failures.append("parse_wcb_published should be empty without JSON-LD")
+
+
 def main():
     failures = []
     for raw, want in CASES:
         got = up.wcb_hops(raw)
         if got != want:
             failures.append(f"{raw!r}\n      got  {got}\n      want {want}")
+    check_completeness_fallback(failures)
     if failures:
         print(f"FAILED {len(failures)}")
         for f in failures:
