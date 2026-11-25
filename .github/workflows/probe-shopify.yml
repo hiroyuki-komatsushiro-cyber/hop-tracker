@@ -1,0 +1,43 @@
+name: Probe a Shopify source (manual, read-only)
+
+# 新しいShopify系の収集先の下見。products.json を1回だけ取得して構造の要約をログに出し、生データをartifactに保存する。
+# 何も登録しない・コミットしない。手元のPCから全カタログを繰り返し取らずに済ませるためのもの(scripts/probe_shopify.py参照)。
+# 実行: gh workflow run probe-shopify.yml -f base_url=https://example.com
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: 'Shopify store base URL (https://...)'
+        required: true
+        default: 'https://kyotobrewing.com'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Probe the store
+        env:
+          PYTHONUTF8: '1'
+          BASE_URL: ${{ inputs.base_url }}
+        run: python scripts/probe_shopify.py
+
+      - name: Upload the raw catalog
+        uses: actions/upload-artifact@v4
+        with:
+          name: probe-products
+          path: probe_out/products.json
+          retention-days: 7
