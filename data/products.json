@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-24",
+  "last_updated": "2026-11-25",
   "products": [
     {
       "id": "b105-c16036",
@@ -23909,7 +23909,7 @@
       "style": "Japanese-style Lager",
       "abv": "4.8%",
       "hops": [
-        "German Hallertau Mittelfruh"
+        "Hallertauer Mittelfruher"
       ],
       "url": "https://www.antenna-america.com/products/b027-c12013",
       "image": "https://cdn.shopify.com/s/files/1/0464/5673/3857/products/Hayabusa.png?width=400",
@@ -24011,6 +24011,41 @@
       "description": "どこからともなく、いい匂い。その気配を辿っていくと、そこには秘密のスタジオが。一見、普通のキッチンのようにも見えるけれど、腕自慢のHop Chefたちが集い競い合う、前代未聞のバトルが連日連夜で繰り広げられている。 彼らを待ち受けるのは、絶対的なマスター・Alchemistによる、容赦ない審査。ただし、ここで生み出されるのは料理ではなく、マスターのお眼鏡にかなう、最高の一杯。 ドライホップにPeacharineを使用することで、ピーチを思わせるストーンフルーツの存在感をUP。表現力豊かなトロピカルフルーツやシトラスの印象はKrushから。さらにこれらのニュアンスを支えるためCitraも投入。口当たりはシルキーながら、フルボディの満足感。ほのかな甘みと、ほろ苦さがアクセントに。 ここは、数々のチャレンジが繰り広げられる舞台であり、新たなレシピが生まれる実験の場でもある。今日もまた、未知なる味わいを求めて挑戦は続く。 ※Artwork by @kac_one",
       "source": "westcoast",
       "added": "2026-11-24"
+    },
+    {
+      "id": "vertere-3268",
+      "name": "Window to WCB 2026 Hazy DIPA",
+      "brewery": "Vertere",
+      "style": "Hazy DIPA",
+      "abv": "8%",
+      "hops": [
+        "Citra",
+        "Motueka",
+        "Nelson Sauvin",
+        "Nectaron2026",
+        "Citra Cryo",
+        "Mosaic Cryo"
+      ],
+      "url": "https://verterebrew.com/brewlog/window-to-wcb-2026-hazy-dipa/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/11/250_WCBcollab2026_Hazy-DIPA-300x300.jpg",
+      "description": "West Coast Brewingとのコラボ第6弾。 お互いに共通の酵母と2026年収穫のNZ産Nectaronホップをメインに使用。発酵由来のアロマとホップのアロマが融合し、熟した黄桃やアプリコット、パイナップル、マンゴーなどのトロピカルな世界が広がる。ほのかに香る白ぶどうやレモンのニュアンス、滑らかな口当たりが重なり、濃密ながらも軽やかに全体をまとめる。",
+      "source": "vertere",
+      "added": "2026-11-25"
+    },
+    {
+      "id": "vertere-3271",
+      "name": "Window to WCB 2026 Peach Sour w/Lime & Dill",
+      "brewery": "Vertere",
+      "style": "Peach Sour w/Lime & Dill",
+      "abv": "6%",
+      "hops": [
+        "Lorien"
+      ],
+      "url": "https://verterebrew.com/brewlog/window-to-wcb-2026-peach-sour-w-lime-dill/",
+      "image": "https://verterebrew.com/wp/wp-content/uploads/2026/11/251_WCBcollab2026_Sour-300x300.jpg",
+      "description": "West Coast Brewingとのコラボ第6弾。 白桃、ライムピール、フレッシュディルを合わせたフルーティーでハーバルなSour Ale。白桃の柔らかな甘味と乳酸菌由来の引き締まった酸味。漬け込んだライムピールの柑橘香とフレッシュなディルの香りが鼻に抜け余韻となる。",
+      "source": "vertere",
+      "added": "2026-11-25"
     }
   ]
 }
