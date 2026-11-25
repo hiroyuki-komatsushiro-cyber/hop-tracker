@@ -30,6 +30,18 @@ def main():
     OUT_DIR.mkdir(exist_ok=True)
     (OUT_DIR / "products.json").write_text(json.dumps(catalog, ensure_ascii=False), encoding="utf-8")
 
+    # 任意: 商品ページのHTMLも数件だけ保存する(ABV等が商品説明ではなくページ側の別の場所に出ていないかを見る用)。
+    # 環境変数 PAGES=handle1,handle2(最大5件)。1.2秒間隔
+    import re as _re
+    handles = [h.strip() for h in os.environ.get("PAGES", "").split(",") if h.strip()][:5]
+    for h in handles:
+        page = up.fetch_url(f"{base}/products/{h}")
+        up.time.sleep(up.REQUEST_DELAY)
+        (OUT_DIR / "pages").mkdir(exist_ok=True)
+        (OUT_DIR / "pages" / f"{h}.html").write_text(page, encoding="utf-8")
+        print(f"[page {h}] {len(page)} bytes; lines mentioning ABV/アルコール/ホップ/HOP:")
+        for m in list(_re.finditer(r"[^<>\n]{0,60}(?:ABV|アルコール|ホップ|HOP|IBU|スタイル)[^<>\n]{0,80}", page))[:12]:
+            print("    ", m.group(0).strip())
     instock = [p for p in catalog if up.in_stock(p)]
     print(f"{base}: {len(catalog)} products, {len(instock)} in stock")
     print("product_type:", Counter(p.get("product_type") for p in catalog).most_common())

@@ -10,6 +10,10 @@ on:
         description: 'Shopify store base URL (https://...)'
         required: true
         default: 'https://kyotobrewing.com'
+      pages:
+        description: 'Optional: up to 5 product handles whose HTML page is also saved (comma separated)'
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -33,11 +37,12 @@ jobs:
         env:
           PYTHONUTF8: '1'
           BASE_URL: ${{ inputs.base_url }}
+          PAGES: ${{ inputs.pages }}
         run: python scripts/probe_shopify.py
 
-      - name: Upload the raw catalog
+      - name: Upload the raw catalog (and any saved pages)
         uses: actions/upload-artifact@v4
         with:
           name: probe-products
-          path: probe_out/products.json
+          path: probe_out
           retention-days: 7
