@@ -139,6 +139,7 @@ HOP_NAME_FIXES = {
     "NZ Cascade": "Cascade",  # NZ産Cascade(2016年からNZ Hopsが「Taiheke」名で販売。品種としてはCascade)
     "Idaho7": "Idaho 7",
     "Idaho7 CGX": "Idaho 7 CGX",  # Vertere Lunaria(2026-11-16)。チャートには"Idaho 7 CGX"がある
+    "Nectaron2026": "Nectaron",  # Vertere Window to WCB 2026 Hazy DIPA(2026-11-25)。「Nectaron 2026」(収穫年)のスペース抜け
     "Motueka Hop Kief": "Motueka Kief",
     "Motueka hop Kief": "Motueka Kief",
     "SImcoe Quantum": "Simcoe Quantum",  # 大文字小文字の打ち間違い

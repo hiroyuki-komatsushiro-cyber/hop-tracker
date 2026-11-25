@@ -1,0 +1,32 @@
+name: Coverage Check (manual, read-only)
+
+# 「総チェック」(scripts/coverage_check.py)をGitHub上で実行して、結果をログに出す。何も書き換えない・コミットしない。
+# 手元のPCから全カタログを繰り返し取ると、AntennaとSouthboundのCloudflareにボット確認で止められることがある
+# (2026-11-25に発生。突破はしない)ので、総チェックはここで実行できるようにした。
+# 実行: Actions -> Coverage Check -> Run workflow、または gh workflow run coverage-check.yml
+# 読む: gh run view <id> --log (「Run coverage check」の出力)。週次のような定期実行はしない(サイトへのアクセスを増やさないため)
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run coverage check
+        env:
+          PYTHONUTF8: '1'
+        run: python scripts/coverage_check.py

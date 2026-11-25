@@ -142,6 +142,7 @@ check("japanese set name keeps tag", antenna_name("【Pilsロゴグラス付き�
 check("banner stripped from a single beer", antenna_name("＼新宿店オープン記念1本購入でラベル1枚プレゼント／Monkish Shinjuku DDH Hazy IPA (473ml) / 新宿", "Monkish"), "Shinjuku DDH Hazy IPA")
 check("banner kept on a Japanese set name", antenna_name("＼新宿西口店オープン記念ビール入り／Monkish 満喫8本セット【11/26出荷】", "Monkish"), "＼新宿西口店オープン記念ビール入り／Monkish 満喫8本セット【11/26出荷】")
 check("normalize German Hallertau Mittelfruh", up.split_hops("German Hallertau Mittelfruh"), ["Hallertauer Mittelfruher"])
+check("normalize Nectaron2026 (harvest year glued on)", up.split_hops("Citra, Nectaron2026"), ["Citra", "Nectaron"])
 
 if failures:
     print(f"FAILED {len(failures)}")
