@@ -39,6 +39,9 @@ LIVE_SITE = "https://hiroyuki-komatsushiro-cyber.github.io/hop-tracker/"
 RECENT_DAYS = 45                  # A3: 「最近公開された」とみなす日数
 VERTERE_IMPORT_DATE = "2026-10-16"  # Vertereの全件取り込み日。これ以降にサイト側で更新された記事を「登録後の更新」とみなす
 DETAIL_LIMIT = 12                 # 各項目の詳細表示の上限
+# B3で「別ハンドルで再掲載(二重登録の疑い)」と出たが、目で確かめて別の銘柄だったもの(偽陽性)。毎回の失敗通知を避けるため除外する。
+# Wormtown Be Juicy Hazy IPAは、候補のBe Wild/Be Smoothが別のビール(2026-11-26確認)。確認したら理由つきで足す
+NOT_RELOCATED = {"b131-c12003"}
 
 
 def parse_date(s: str):
@@ -121,6 +124,8 @@ def check_shopify(source: dict, products: list, report: dict, last_updated: date
         if h not in live_handles and rec["id"] not in live_handles:
             # 別ハンドルで同じ銘柄が再掲載されていれば、廃盤ではなく移転(週次が新商品として二重登録する一歩手前)
             moved = [x for x in ac.find_relocation_candidates(rec, catalog, known_ids) if x["handle"] not in registered_handles]
+            if rec["id"] in NOT_RELOCATED:
+                moved = []
             r["B3"].append({"id": rec["id"], "name": rec["name"][:50], "relocated_to": [x["handle"] for x in moved[:3]]})
             if moved:
                 r.setdefault("_catalog_hits", {})[rec["id"]] = moved[:3]  # 表示用(新しいハンドルのタイトル)

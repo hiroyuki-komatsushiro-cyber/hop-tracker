@@ -5,22 +5,27 @@
 ```
 hop-automation/
 ├── data/
-│   └── products.json          # 全商品データ（1486件、2026-11-16時点。画像・説明文・ホップ・ABV）
+│   └── products.json          # 全商品データ（1661件、2026-11-26時点。画像・説明文・ホップ・ABV）
 ├── docs/
 │   └── index.html             # 公開用Webページ（GitHub Pages用）
 ├── scripts/
 │   ├── build_html.py          # products.json → index.html を生成するビルドスクリプト（収集元の表示はupdate_sources.jsonから生成）
-│   ├── hops_tab.js            # ホップアロマチャート（233品種・説明文付き）
+│   ├── hops_tab.js            # ホップアロマチャート（240品種・説明文付き）
 │   ├── products_tab.js        # 製品成分表タブ（スタイル/度数/並び順の絞り込み・モーダル・戻る機能）
 │   ├── style_class.py         # スタイルの細分類(36種)と度数帯。画面の絞り込み用（test_style_class.pyでテスト）
 │   ├── hop_text.py            # 説明文からのホップ抽出（test_hop_text.pyでテスト）
 │   ├── update_products.py     # 全収集元の自動巡回スクリプト（新商品の追加+登録済み商品の更新。収集先ごとの収集関数はCOLLECTORS/REFRESHERS。test_refresh.pyでテスト）
-│   ├── coverage_check.py      # 登録漏れ・更新漏れの総チェック（読み取り専用。python scripts/coverage_check.py）
+│   ├── coverage_check.py      # 登録漏れ・更新漏れの総チェック（読み取り専用。GitHub上のcoverage-check.ymlで実行する）
+│   ├── probe_shopify.py       # 新しいShopify系の収集先の下見（GitHub上のprobe-shopify.ymlで実行。products.jsonを1回だけ取って構造を要約）
 │   ├── test_wcb.py            # West Coast Brewingの「w/」行(ホップ欄)の解析のテスト（wcb_hops）
+│   ├── test_kyoto.py          # 京都醸造の解析のテスト（scripts/fixtures/の実物の抜粋を使う）
 │   ├── update_sources.json    # 巡回対象サイトの一覧（ここに1件足すと週次で自動巡回される）
 │   └── hops_aroma_data.js     # ホップアロマデータ（旧バージョン・参考用）
 ├── .github/workflows/
-│   └── weekly-update.yml      # 毎週火曜9時(JST)自動実行ワークフロー
+│   ├── weekly-update.yml      # 毎週火曜9時(JST)自動実行ワークフロー
+│   ├── monthly-audit.yml      # 毎月1日の監査
+│   ├── coverage-check.yml     # 総チェック(2週間に1回の定期実行+手動。人が見るべきものがあると失敗=通知メール)
+│   └── probe-shopify.yml      # 新しいShopify系の収集先の下見(手動)
 ├── requirements.txt           # Python依存パッケージ
 └── README.md                  # 元のセットアップガイド
 
@@ -97,6 +102,20 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
   **GitHubのIPからはREST APIだけが403で止められる**(2026-11-25に総チェックのCI実行で確認。手元のPCからは読める。HTMLのページは両方から読める)ので、
   読めなければアーカイブのHTML全ページ(45リクエスト)で代替する(`wcb_all_slugs`。REST頼みにすると月次監査がGitHub上で止まる)。
   過去分の取り込みの`added`も、RESTが読めなければ個別ページのJSON-LD(`datePublished`)を使う(`parse_wcb_published`)
+- **Kyoto Brewing（京都醸造、Shopify製のブルワリー自身のオンラインショップ）**: https://kyotobrewing.com/ （2026-11-26追加、ユーザー依頼「次回から京都醸造もお願い」）。
+  `products.json`(179件)のうち、`product_type`が`Beer`の単品131件を登録(セット・グッズ・定期便・ギフト・手数料は対象外=`scope`)。**ブルワリーのラインナップが目的なので売り切れも対象**
+  (`scope.include_sold_out`)で、`added`は商品の公開日(`added_from: published_at`。初回の一括登録でNEWバッジが全件に付かない)。
+  **ホップ・度数・スタイルの所在**(2026-11-26に全139件のBeerを調べた): 新しい商品72件はfeedの本文に一行の紹介文(`<h4>`)しか無く、商品ページ(HTML)の
+  「スペック」タブ(`panel-specs`の「ホップ:/スタイル:/度数:/IBU:」の行。metafields由来)にだけある。そこで**未登録の商品の商品ページを1ページずつ読む**
+  (`parse_kyoto_page`、1.2秒間隔。読めなければ登録を見送り次回に再試行=`page_fetch_failed`)。古い商品の本文のスペックは書き方が4通り
+  (`kyoto_body_spec`: dt/dd・属性つきdt・1行ごとのdiv・全連結)で、いずれも読める(ホップの行があるものはホップも取れる)。
+  登録済みで度数・スタイル・ホップのどれかが空の商品は、商品ページを読み直して埋める(1回40件まで=`PAGE_REFRESH_MAX`)。
+  日本語のスタイル名は`kyoto_style_en`で英語にする(辞書に無い日本語は原文のまま)。度数は「6.5%」「6.5％」(全角)「9.0」(記号なし)のどれも読む(`kyoto_abv`)。
+  ホップ欄は「T-45」(ペレットの種類)・「ビタリング - Merkur」(苦味づけ)・「Dynaboost simcoe」(語順違い)・綴りミス(Poralis等)を`wcb_hops`と共通の整形で直す。
+  **Flexは品種ではなくホップエキス(クリーンな苦味づけ)**なので除外、Lubelski/Merkur/McKenzie/Aurumは実在の品種なのでチャートに追加した。
+  **日本語のハンドルを持つ商品がある**ので、`fetch_url_with_headers`は非ASCIIをパーセントエンコードする(しないと`UnicodeEncodeError`で収集が途中で止まる)。
+  結果: 131件(度数不明1・スタイル空1・ホップ空7=サワー等でホップの記載なし)。**GitHubのIPからは読めるが、手元のPCからはShopifyのレート制限(HTTP 429)で止められる**
+  ので、調べ物はGitHub上(`probe-shopify.yml`)で1回だけ取って手元で解析する。テストは`scripts/test_kyoto.py`(実物の抜粋は`scripts/fixtures/`)
 
 ## 新しい収集先の追加チェックリスト
 
@@ -109,7 +128,10 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
    (例: WCBは「w/」の行、Vertereは個別ページのHop欄、Antennaはスペック欄)ので、ユーザーに場所を確認する
 3. **`scripts/update_sources.json` に1件足す**: `name` / `base_url` / `source_key`(idの接頭辞、重複不可) / `kind`(`retailer`=販売中の商品 /
    `brewery`=公式サイト掲載銘柄、見出しと注記の文言が変わる) / `ui`(`filter`=絞り込み名、`badge`/`badge_bg`/`badge_fg`=バッジ、`link`=詳細リンクの文言) / `notes`。
-   Shopifyなら`type`省略(ただしAntenna以外のShopifyは`parse_southbound_product`で解析し、除外条件は`update_products.py`の`main()`に足す)。
+   Shopifyなら`type`省略。解析器は`parser`(`antenna`/`kyoto`、無ければsource_key。それ以外はSouthbound形式)、収集対象は`scope`
+   (`include_types`/`exclude_tags`/`exclude_title_regex`/`include_sold_out`。`scope`が無いAntenna/Southboundは`update_products.shopify_scope`の固定ルール)、
+   商品ページを読む収集先は`page_parser`、公開日で登録するなら`added_from: published_at`(京都醸造の設定が見本)。
+   **まず`gh workflow run probe-shopify.yml -f base_url=...`で構造を下見する**(`gh run download`で生データを手元に取り、オフラインで解析できる)。
    それ以外は`type`を決めて次へ。公式サイト系は`brewery`も必須
 4. **構造が新しいサイトだけ**: `update_products.py` に収集関数 `collect_xxx(source, known_ids, backfill) -> list[dict]` を書き、`COLLECTORS` に登録する
    (レコードは `id`=`<source_key>-…` / `name` / `brewery` / `style` / `abv` / `hops` / `url` / `image` / `description` / `source` / `added`)。
@@ -259,6 +281,17 @@ Shopify系(Antenna America / Southbound)は、各サイトが公開しているS
   `hop_text.py`の`EN_COMMON`にAnchovyを追加(食べ物のアンチョビと同形のため、説明文からは「hop」が近くにあるときだけ採用)。
   スタイル分類にGrodziskie(ポーランドの燻製小麦ビール)を追加。残る「その他のビール」7件はFruited Ale/Fruit/Blueberry Ale/Milkshake/Winter Ale/Low ABV Brews(0.5%)
 - **画面の確認(1486件)**: 検索の再描画は約20〜40ミリ秒、DOMは約1.9万ノード、ページは1.9MB。ブラウザのコンソールエラーなし
+- **総チェックは2週間に1回、GitHub上で自動実行する**(2026-11-26、ユーザー提案「月次だと、在庫が無くなるとWEB表示が消える。2週間に1回はどうか」):
+  `coverage-check.yml`が毎週水曜10:00 JST(週次の巡回の翌日)に起動し、偶数週だけ`coverage_check.py --strict`を実行する。
+  人が見るべきもの(未登録・登録後の食い違い・二重登録の疑い・チャートに無いホップ・公開ページの不一致・読めない収集元)が1つでもあれば失敗扱いになり、
+  GitHubの通知メールで気づける。何も無ければ静かに成功する。直前の週次より後(同日含む)に公開された未登録は、次の週次が入れるだけなので数えない。
+  **「在庫が無くなるとWEB表示が消える」件**: Shopifyのフィード(このツールが読む裏側)には、売り切れ商品も残っている(2026-11-26時点でAntennaは在庫あり297件に対し
+  売り切れ2,693件がフィードに残り、うち1年超が2,105件。京都醸造は売り切れ103件)。表示から消えるのは店頭の一覧だけで、フィードからは消えない。
+  フィードから消えるのは廃盤(Antenna42件・Southbound62件)だけで、これらは削除せず残す。取りこぼすのは「公開されて週次の前に完全に消えた商品」だけなので、
+  確認の頻度を上げるより、週次の巡回(売り切れでも公開14日以内なら登録)で足りている。月次の監査(`audit_catalog.py`)は従来どおり月1回
+- **二重登録の疑い(B3)の処理**: 同じ銘柄が別ハンドルで再掲載されたとき(缶サイズ違いの再掲載等)は、旧レコードのidは変えずurlだけ新しいハンドルへ付け替える
+  (旧URLはリンク切れで、付け替えないと在庫が戻ったとき新商品として二重登録される)。2026-11-26にAntennaのKing Sue・Pseudo Sueで実施。
+  目で確かめて別の銘柄だったもの(Wormtown Be Juicy Hazy IPA。候補のBe Wild/Be Smoothは別のビール)は`coverage_check.NOT_RELOCATED`に入れて、毎回の失敗通知を避ける
 - **手元から取れなくなったとき(2026-11-25)**: この端末のIPからAntenna/Southboundの`products.json`がCloudflareのボット確認
   (HTTP 403 `cf-mitigated: challenge`。直前に429)で取れなくなった(Vertere・WCBは取れる)。GitHub Actionsの週次実行(11/17・11/24)は成功していた。
   **突破しない**(User-Agent偽装・ブラウザ自動化・Cookie流用はしない。Anny CMSと同じ方針)。総チェックはこの2つを「点検できなかった収集元」として出し(「問題なし」にしない)、
