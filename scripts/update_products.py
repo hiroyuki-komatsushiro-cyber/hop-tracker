@@ -736,6 +736,48 @@ def kyoto_style_en(text: str) -> str:
     return text
 
 
+KYOTO_SPEC_LABELS = ["スタイル", "シリーズ", "ABV", "IBU", "ガスボリューム", "モルト", "ホップ", "酵母", "副原料", "品目", "JAN",
+                     "出荷開始日", "出荷日について", "賞味期限"]  # 本文のスペックの並び(古い商品)。有る/無いはあっても順序は同じ
+
+
+def kyoto_glued_spec(text: str) -> dict:
+    """ラベルと値が区切りなしで連結したスペック('スタイルIPAシリーズKBC2.0ABV6.0%IBU35…ホップPolaris, Aramis酵母Belgian Ale…') -> {ラベル: 値}。
+    ラベルを決まった順序で前から探し、次のラベルの手前までを値とする(値の中に他のラベルの語があっても、順序が先に進むだけで壊れない)。"""
+    out, pos, found = {}, 0, []
+    for label in KYOTO_SPEC_LABELS:
+        i = text.find(label, pos)
+        if i >= 0:
+            found.append((label, i))
+            pos = i + len(label)
+    for n, (label, i) in enumerate(found):
+        end = found[n + 1][1] if n + 1 < len(found) else len(text)
+        out[label] = text[i + len(label): end].strip()
+    return out
+
+
+def kyoto_body_spec(body: str) -> dict:
+    """products.jsonの本文(body_html)にあるスペック -> {ラベル: 値}。古い商品で書き方が4通りある(2026-11-26に全139件を調べた):
+    ①<dt>ラベル</dt><dd>値</dd>(<div class="spec">の中。46件)、②属性つきの<dt style=..>ラベル:</dt><dd ..>値</dd>(コロンつき。9件)、
+    ③<div class="spec">が1行ごとに複数(「ABV6.0%」のようなラベル+値の連結。1件)、④1つの<div class="spec">に全部が連結(11件)。
+    新しい商品(72件)は本文にスペックが無く、商品ページ側にだけある。"""
+    spec = {}
+    for dt, dd in re.findall(r"<dt[^>]*>(.*?)</dt>\s*<dd[^>]*>(.*?)</dd>", body, re.S):
+        label = re.sub(r"\s*[（(].*?[）)]\s*$", "", strip_tags(dt).strip().rstrip(":：").strip())  # 「ガスボリューム (炭酸ガス含有量):」
+        if label and not label.startswith("【"):  # 【味わいの特徴】等は説明の見出しでスペックではない
+            spec.setdefault(label, strip_tags(dd).strip())
+    if spec:
+        return spec
+    blocks = [strip_tags(b).strip() for b in re.findall(r'<div class="spec">(.*?)</div>', body, re.S)]
+    if len(blocks) > 1:
+        for b in blocks:
+            for label in KYOTO_SPEC_LABELS:
+                if b.startswith(label):
+                    spec.setdefault(label, b[len(label):].strip())
+                    break
+        return spec
+    return kyoto_glued_spec(blocks[0]) if blocks else {}
+
+
 def kyoto_abv(text: str) -> str:
     """京都醸造の度数欄 -> '6.5%'。表記は「6.5%」「6.5％」(全角)「9.0」(記号なし)のどれもある(2026-11-26、全角と記号なしを読めず
     登録した78件のうち34件で度数が空になった)。度数の行の値だけに使う(数字だけの欄を読む)。0以下・30超は度数とみなさない。"""
@@ -761,12 +803,8 @@ def parse_kyoto_product(p: dict, base_url: str, source_key: str, brewery: str = 
     body = re.sub(r"<style\b.*?</style>", "", p.get("body_html", "") or "", flags=re.S | re.I)
     h4 = re.search(r"<h4[^>]*>(.*?)</h4>", body, re.S)
     blurb = strip_tags(h4.group(1)).strip() if h4 else ""
-    spec = {}
-    sm = re.search(r'<div class="spec">(.*?)</div>', body, re.S)
-    if sm:
-        for dt, dd in re.findall(r"<dt>(.*?)</dt>\s*<dd>(.*?)</dd>", sm.group(1), re.S):
-            spec[strip_tags(dt).strip()] = strip_tags(dd).strip()
-    feel = re.search(r"<dt>【味わいの特徴】</dt>\s*<dd>(.*?)</dd>", body, re.S)
+    spec = kyoto_body_spec(body)
+    feel = re.search(r"<dt[^>]*>【味わいの特徴】</dt>\s*<dd[^>]*>(.*?)</dd>", body, re.S)
     description = " ".join(x for x in (blurb, strip_tags(feel.group(1)).strip() if feel else "") if x)
     abv = kyoto_abv(spec.get("ABV", "") or spec.get("度数", "")) or "-"
     image = ""
@@ -778,7 +816,7 @@ def parse_kyoto_product(p: dict, base_url: str, source_key: str, brewery: str = 
         "brewery": brewery,
         "style": kyoto_style_en(spec.get("スタイル", "")),
         "abv": abv,
-        "hops": [],
+        "hops": wcb_hops(spec.get("ホップ", "")),  # 古い商品の本文スペックにはホップの行があるものがある
         "url": f"{base_url}/products/{p['handle']}",
         "image": image,
         "description": description,

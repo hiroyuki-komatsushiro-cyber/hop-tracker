@@ -209,5 +209,151 @@
     "height": 1700
    }
   ]
+ },
+ {
+  "handle": "ichi-bottle",
+  "title": "壱 (Ichi)",
+  "product_type": "Beer",
+  "tags": [],
+  "vendor": "Kyoto Brewing Co. - Online Store",
+  "published_at": "2020-09-29T19:00:01+09:00",
+  "body_html": "<p>同じベースから、シングルドライホップ/ダブルドライホップの2種類のビールを造る。そんな面白くて勉強にもなる仕込みのアイディアを以前にもお知らせしました。残念なことに前回の仕込みではドライホップの工程で問題が生じ、廃棄をすることとなりました。この挑戦は諦めたくないと思い、レシピやホップの選定に手を加え、当初予定していた時期よりも1か月遅れましたがKBCらしいビールたちが仕上がりました！<br><br>コンセプトは以前と同じです。同じビールを2つのタンクに分けてドライホップを行いました。1つは通常（4g/L）のドライホップを行い、もつ1つにはさらに2度目のドライホップ（合計8g/L）を行います。使用したホップレシピの品種割合は同じです。<br><br>アルコール度数は6.5％に落とし、モルトレシピを変更してIPA特有のホップの香りと苦味を強く出すようにしました。ホップの品種はCascade、Simcoe、Citra、Sabroにし、ドライホップではCitraとSabroを1:1の割合で使用しました。その結果、飲みやすくバランスの取れたトロピカルな「壱」と、より強いホップの香りと刺激を楽しめる強烈な「弐」が出来上がりました。どうしてもこのコンセプトでビールを仕上げたかったので、皆さんにはぜひこの違いを、シングルとダブルのドライホップの違いを味わっていただきたいです！<br><br></p>\n<p>名前の由来: この実験的な２つの面白いIPAの違いは、ドライホップを一度だけにするか、2度するか、これだけです。どのような違いが出ているかは、２つを飲んでのお楽しみです！</p>\n<div style=\"padding-top: 10px; padding-bottom: 20px;\">\n<dl>\n<dt style=\"float: left; padding-top: 5px; padding-bottom: 5px;\">スタイル:</dt>\n<dd style=\"padding-left: 80px; padding-top: 5px; padding-bottom: 5px;\">シングルドライホップIPA</dd>\n<dt style=\"float: left; padding-top: 5px; padding-bottom: 5px;\">モルト:</dt>\n<dd style=\"padding-left: 80px; padding-top: 5px; padding-bottom: 5px;\">Pilsner, Wheat, Carapils</dd>\n<dt style=\"float: left; padding-top: 5px; padding-bottom: 5px;\">ホップ:</dt>\n<dd style=\"padding-left: 80px; padding-top: 5px; padding-bottom: 5px;\">ビタリング - Columbus</dd>\n<dd style=\"padding-left: 80px; padding-top: 5px; padding-bottom: 5px;\">味・アロマ - Cascade, Simcoe, Citra, Sabro</dd>\n<dt style=\"float: left; padding-top: 5px; padding-bottom: 5px;\">酵母:</dt>\n<dd style=\"padding-left: 80px; padding-top: 5px; padding-bottom: 5px;\">American Ale</dd>\n<dt style=\"float: left; padding-top: 5px; padding-bottom: 5px;\">ABV:</dt>\n<dd style=\"padding-left: 80px; padding-top: 5px; padding-bottom: 5px;\">6.5%</dd>\n<dt style=\"float: left; padding-top: 5px; padding-bottom: 5px;\">IBU:</dt>\n<dd style=\"padding-left: 80px; padding-top: 5px; padding-bottom: 5px;\">38.5</dd>\n<dt style=\"float: left; padding-top: 5px; padding-bottom: 5px;\">ガスボリューム (炭酸ガス含有量):</dt>\n<dd style=\"padding-top: 5px; padding-bottom: 5px; padding-left: 250px;\">2.4</dd>\n<dt style=\"float: left; padding-top: 5px; padding-bottom: 5px;\">ボトルJANコード:</dt>\n<dd style=\"padding-top: 5px; padding-bottom: 5px; padding-left: 250px;\">4589718740324</dd>\n<dt style=\"float: left; padding-top: 5px; padding-bottom: 5px;\">賞味期限:</dt>\n<dd style=\"padding-top: 5px; padding-bottom: 5px; padding-left: 250px;\">３ヶ月</dd>\n</dl>\n</div>",
+  "variants": [
+   {
+    "title": "Bottle - 330ml 6 Pack",
+    "available": false
+   }
+  ],
+  "images": [
+   {
+    "id": 16458729390160,
+    "created_at": "2020-09-25T12:40:40+09:00",
+    "position": 1,
+    "updated_at": "2020-09-25T12:40:40+09:00",
+    "product_id": 4798474125392,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/01.png?v=1601005240",
+    "width": 1400,
+    "height": 1700
+   }
+  ]
+ },
+ {
+  "handle": "rahr-collab",
+  "title": "揚々喜々 (Positive Vibes)",
+  "product_type": "Beer",
+  "tags": [],
+  "vendor": "Kyoto Brewing Co. - Online Store",
+  "published_at": "2025-03-10T17:00:03+09:00",
+  "body_html": "\n<h4>Rahrの高品質な麦芽だからこそできる超絶ホッピーでご機嫌なホワイトIPA</h4>\n<p>【味わいの特徴】北米の老舗麦芽メーカーRahr Malting社のモルトを贅沢に使ったホワイトIPA。ピルスナーモルトとホワイトウィートモルトを使って、柔らかな口当たりをもたせ、さらにGambrinusハニーモルトを少し加えることで、ほのかな甘みも感じられ、ホップの味わいを余すことなく満喫できるベースを築いています。SimcoeとNelson Blissのホップを組み合わせることで、トロピカルなフレーバーとねっとりとした樹脂感やダンク（湿り気を帯びたホップ由来のクセになるアロマ）が調和した仕上がりになっています。【相性の良い食事】ビールのトロピカル＆シトラス系の香り、白ワインのような風味、軽めのスパイシーさを引き立てる料理と相性◎<br>・トマト＆モッツァレラ＆バジルのカプレーゼ<br>・豚フィレのグリル（マスタード＆ハーブを添えて）<br>・チーズ（パルミジャーノ・レッジャーノ・ヤギ乳のチーズ\"シェーブル\"など）【名前の由来】人が目的を達成した時の高揚感というのは、一時的とはいえ、全てのよしなしごとから解放され、向かうところ敵なしの万能感に酔わせ、「快」そのもの。チーム・集団でこの喜びを共有できれば、尚更盛り上がりを見せるものでしょう。麦芽とホップの息が合うとここまで完成度の高いIPAができる、というひとつの到達点を示したこのIPAには、高揚感と喜びを感じさせる名前を付けることにしました。【醸造家の声】最高のIPAを造るためには、もちろんホップのセレクトも重要ですが、そのホップが光るための土台となる、モルトの存在が実は結構大切。この度、縁があり、北米の老舗モルトメーカーRahr Maltingとのコラボレーションとして醸造されたこのホワイトIPAは、同社の高品質なモルトが持つ力を最大限に引き出したIPAを造ることを目的としています。 <br><br>ベースには、NorthStarピルスナー麦芽を使用し、非常にクリーンでニュートラルな味わいを持たせながら、適度な甘みを引き出すことで、幅広いビアスタイルに対応できる汎用性の高い土台を造りました。<br><br>もうひとつ、このビールの個性を形作るのは、Rahrのホワイトウィート麦芽です。ほのかにパンのような芳醇な風味を加えつつ、適度なボディ感と口当たりの良さをもたらします。さらに、強めのホップキャラクターとのバランスを取るために、少量のGambrinusハニーモルトを加え、ほんのり甘いハチミツのようなニュアンスをプラスしました。<br><br>ホップには、SimcoeとNelson Blissのブレンドを使用し、力強い樹脂（レジン）系の個性を軸に、弾けるような柑橘やトロピカルフルーツのフレーバーをふんだんに加えました。クリーンでソフトな設計のモルトの個性と組み合わせることで、飲みやすさと同時にインパクトを兼ね備えた最高のIPAに仕上がりました。</p>\n<div class=\"spec\">スタイルIPAシリーズKBC2.0ABV6.0%IBU35ガスボリューム2.65副原料小麦フレーク品目ビールJAN4589718742533出荷開始日2025/03/13出荷日について同オーダーに含まれるすべての商品は、出荷開始日以降に出荷されますので、予めご了承ください。賞味期限2025/09/11</div>",
+  "variants": [
+   {
+    "title": "Can - 350ml",
+    "available": false
+   }
+  ],
+  "images": [
+   {
+    "id": 33332785676368,
+    "created_at": "2025-03-01T23:28:13+09:00",
+    "position": 1,
+    "updated_at": "2025-03-01T23:28:15+09:00",
+    "product_id": 7158963634256,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_38d3b605-d5a8-44a0-9ecf-4bd6669d2124.png?v=1740839295",
+    "width": 1400,
+    "height": 1700
+   }
+  ]
+ },
+ {
+  "handle": "kyoto-wit",
+  "title": "あらはれ (ARAWARE)",
+  "product_type": "Beer",
+  "tags": [
+   "bundleable"
+  ],
+  "vendor": "Kyoto Brewing Co. - Online Store",
+  "published_at": "2025-02-06T12:25:50+09:00",
+  "body_html": "<style><!--\ndt{padding-top: 5px; padding-bottom: 5px}dd{padding-top: 0px; padding-bottom: 5px}.spec {padding-top: 30px;}.spec > dt{float: left; padding-top: 5px; padding-bottom: 5px}.spec > dd{padding-left: 90px; padding-top: 5px; padding-bottom: 5px;}\n--></style>\n<h4>オーツと小麦の柔らかな口当たりにゆずの香りをあわせた爽快な二次熟成ベルジャンウィット</h4>\n【味わいの特徴】飲みやすさを追求した爽快なベルジャンウィット。オーツ麦と小麦の柔らかな印象に国産ゆずのすっきりとした柑橘のキャラクターが合わさり、毎日飲んでも飽きず、日常をほのかに彩るビール。【相性の良い食事】バターの効いた白ネギの白ワイン蒸し、ワカサギの天ぷら,レモン塩、鶏モモ肉の香草パン粉焼【名前の由来】万物は永遠に同じ状態であることはなく、常に移り変わり、また生まれては消滅するを繰り返す。目に見える状態はほんのひと刹那で、気づけばすぐ姿を消してしまう存在。私たちを活かす実や穂を自然界からの恵み、ひとつの現れとして受け取り、多くの人の前に差し出し、ともに喜びを分かち合うようなイメージから、この名前をつけました。【醸造家の声】今回造った「あらはれ」では、伝統的なベルギービールの中でも、オレンジピールと香辛料やお茶を使った、ウィットのレシピをベースにしました。といっても、これはあくまでも土台で、いくつか伝統にはないようなアレンジメントを加えることにしました。<br><br>まず、オレンジの皮ではなく、ゆずの皮を採用することにしました。ゆずは世界中で日本食の代名詞となるほど認知される食材になりました。柑橘類の中でも独特のシャープな味と香りが特徴で、やはり日本料理のアクセントとして使われます。また、もうひとつのアレンジとして、ウィットの重さを感じさせる甘みは抑え目にし、軽やかで爽快に飲みやすい点に照準を合わせ麦芽のブレンドに調整を加えました。<br><br>そして、仕上がったビールは私たちの狙いに素直に応えるような味わいでした。うっすらの靄がかかったようににごりがあり、やや繊細さを帯びたソフトなボディ、そこにパンのような香ばしさを感じさせる甘みがついてくる。そこに、けっして主張し過ぎることなくグラスのなかのビールを爽快にまとめ上げるゆずの香り。つまりは、繊細さと品、そして成熟した落ち着きを感じさせる京都の街のどこと合わせてもバッチリ決まる、京都らしいビールが、またひとつできました！\n<div class=\"spec\">スタイルベルジャンウィットシリーズ限定ABV5.0％IBU11ガスボリューム2.4モルトPilsner, Wheat, OatsホップPolaris, Aramis酵母Belgian Ale副原料ゆずピール、大麦フレーク、糖類品目発泡酒JAN4589718741451賞味期限2024/04/30</div>",
+  "variants": [
+   {
+    "title": "Can - 350ml",
+    "available": false
+   }
+  ],
+  "images": [
+   {
+    "id": 31613694804048,
+    "created_at": "2024-01-17T11:29:35+09:00",
+    "position": 1,
+    "updated_at": "2024-01-17T11:29:37+09:00",
+    "product_id": 6920801452112,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_c425d89f-7136-422b-932a-709cce346a5c.png?v=1705458577",
+    "width": 1400,
+    "height": 1700
+   }
+  ]
+ },
+ {
+  "handle": "2024-dragon",
+  "title": "上昇気竜 (Rising Dragon)",
+  "product_type": "Beer",
+  "tags": [
+   "bundleable"
+  ],
+  "vendor": "Kyoto Brewing Co. - Online Store",
+  "published_at": "2025-02-06T12:26:16+09:00",
+  "body_html": "<style><!--\ndt{padding-top: 5px; padding-bottom: 5px}dd{padding-top: 0px; padding-bottom: 5px}.spec {padding-top: 30px;}.spec > dt{float: left; padding-top: 5px; padding-bottom: 5px}.spec > dd{padding-left: 90px; padding-top: 5px; padding-bottom: 5px;}\n--></style>\n<h4>品を感じさせるコクと柑橘ホップのシャープな香りが特長のレッドIPA</h4>\n<h5>※商品の発送開始日は12/7(木)です。</h5>\n<h5>※本商品を含むご注文分はすべて、発送開始日以降の発送となります。</h5>\n【味わいの特徴】軽めのカラメル、ロースト感に柑橘のシャープな香りとキレのある苦味とボディ【相性の良い食事】スパイスの効いたゴボウのフリット、ハーブを効かせたタルタルで食べるタラのフィッシュ＆チップス、柑橘ジャムでたべる粗びきソーセージ【名前の由来】2024年が、私たち一人ひとりはもちろん、日本、そして世界にとってよりよい1年になることを祈り、記念のレッドIPAを造りました。高度経済成長真っ只中で新幹線が登場し、東京オリンピックが開催された1964年から60年ぶりの「甲辰（きのえたつ）」。時を経て、2024年の世にもたくさんの明るい報せをまき散らしながら大空へ駆け上っていく赤竜をイメージし、命名しました。さぁ、乾杯しましょう！【醸造家の声】『辰年』そのフレーズから連想したのは深紅の鱗に身を包み、強靭な顎から猛火を放つ赤竜でした。そこから安直ではありますがRedIPAを造らせて頂くことに。モルト感はありますがアンバーほどの厚みはなくキレがあり、ホップ由来の柑橘や裏に感じるトロピカルなアロマやフレーバーが麦芽のカラメル感と上手くマッチし、バランスの良い仕上がりになりました。程よい苦味が杯を進めてくれるこのビール片手に年の瀬に思い耽りつつ、来る新年のための活力にして頂きたい。そんな思いで醸造させて頂きました。\n<div class=\"spec\">スタイルレッドIPAシリーズ限定ABV6.5%IBU54ガスボリューム2.4モルトPilsner, RED X, Red Rye Crystal, Crystal MediumホップColumbus, Idaho7, Mosaic, Talus, Chinook, Citra, Riwaka, Cascade酵母American　Ale品目ビールJAN4589718741475賞味期限2024/03/05</div>",
+  "variants": [
+   {
+    "title": "Can - 350ml",
+    "available": false
+   }
+  ],
+  "images": [
+   {
+    "id": 31476248150096,
+    "created_at": "2023-11-23T11:42:25+09:00",
+    "position": 1,
+    "updated_at": "2023-11-23T11:42:27+09:00",
+    "product_id": 6901696921680,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_c13aad89-f935-4cd7-be2e-06652bccf917.png?v=1700707347",
+    "width": 1400,
+    "height": 1700
+   }
+  ]
+ },
+ {
+  "handle": "wc_nakama_citra",
+  "title": "シトラの黄金比 (Citra's Golden Ratio)",
+  "product_type": "Beer",
+  "tags": [
+   "bundleable"
+  ],
+  "vendor": "Kyoto Brewing Co. - Online Store",
+  "published_at": "2025-02-06T12:23:26+09:00",
+  "body_html": "<p>※商品の発送開始日は7/4(木)です。<br>※本商品を含むご注文分はすべて、発送開始日以降の発送となります。</p>\n<style><!--dt{padding-top: 5px; padding-bottom: 5px}dd{padding-top: 0px; padding-bottom: 5px}.spec {padding-top: 30px;}.spec > dt{float: left; padding-top: 5px; padding-bottom: 5px}.spec > dd{padding-left: 90px; padding-top: 5px; padding-bottom: 5px;}--></style>\n<h4>WCとのコラボは最新ホップ製品でCitraに焦点を当てたシングルホップヘイジーIPA</h4>\n<p>【味わいの特徴】</p>\n<p>Citraホップの持つ、柑橘とトロピカルの香りを爆発させるようなシングルホップIPA。西海岸と東海岸のスタイルのいいところを上手くブレンドし、ヘイジーな見た目にソフトでドライな飲み口を兼ね持った飲み心地最強のIPA。</p>\n<p>【相性の良い食事】鶏せせりの柚子胡椒焼き、白菜とお揚げの辛子味噌和え、辛みの効いた豚キムチ素麺</p>\n<p>【名前の由来】直感的に訴えかけてくるような心地よさには法則が存在するという。それは、理屈ではなく、感覚的なもので、それもこの地球上に存在する幾億もの人が同じように快と感じるような法則。パルテノン神殿を造った古代ギリシャの時代に、すでに研究され、ひとつの解「黄金比」を導き出している。では、人々を魅了する最高に美味しいビールに潜む黄金比とは？と究極に迫ったIPAのシトラ版を召し上がれ！【醸造家の声】West Coast Brewingとのコラボレーションの続編として、シングルホップIPAの第二弾「シトラの黄金比」をお届けします！先のビールでエルドラドホップに焦点をあてたように、最先端のホップ製品をフルに活用してシトラホップの個性を最大限に押し出したビールを造りました。ホップペレット、クライオホップ、濃縮ホップエキスを絶妙な割合でブレンドし、さらにシトラの潜在能力を引き出すために、特別な醸造工程を設計しました。シンプルながらもしっかりした味わいのピルスナー麦芽と小麦麦芽のブレンドに、カラピルスを少し加えてボディを整えました。その結果、柑橘やトロピカルフルーツ、ストーンフルーツのような風味と香りが豊かに表現されていて、クリーンな麦芽ベースがそれを支えるような仕上がりです。この素晴らしいシトラホップを他のホップに影響されることなく、リッチでピュアなシトラの風味をそのままお楽しみいただける黄金比、ぜひご堪能ください。</p>\n<div class=\"spec\">スタイルヘイジーIPA</div>\n<div class=\"spec\">シリーズ仲間</div>\n<div class=\"spec\">ABV6.0%</div>\n<div class=\"spec\">IBU40</div>\n<div class=\"spec\">ガスボリューム2.6</div>\n<div class=\"spec\">モルトPilsner, Wheat Malt, Carapils</div>\n<div class=\"spec\">ホップCitra (Pellets, Cryo, Incognito, Spectrum)</div>\n<div class=\"spec\">酵母Foggy London</div>\n<div class=\"spec\">品目ビール</div>\n<div class=\"spec\">JAN4589718741802</div>\n<div class=\"spec\">賞味期限2024/10/02</div>",
+  "variants": [
+   {
+    "title": "Can - 350ml",
+    "available": false
+   }
+  ],
+  "images": [
+   {
+    "id": 32134843433040,
+    "created_at": "2024-06-26T11:57:26+09:00",
+    "position": 1,
+    "updated_at": "2024-06-26T11:57:36+09:00",
+    "product_id": 7070036131920,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_d357ee2e-9c4c-4e25-9ac0-59a7d5126af4.png?v=1719370656",
+    "width": 1400,
+    "height": 1700
+   }
+  ]
  }
 ]

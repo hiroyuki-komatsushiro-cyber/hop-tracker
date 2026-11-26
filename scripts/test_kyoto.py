@@ -54,6 +54,25 @@ check("new style empty before the page", new["style"], "")
 check("new abv unknown before the page", new["abv"], "-")
 check("new description = the blurb", new["description"], "コメットホップの柑橘香にライ麦のスパイシーなニュアンスをまとったドライでスパイシーな西海岸IPA")
 
+# ---- 本文のスペックの4通りの書き方(全139件を調べた。画面の実物の抜粋) ----
+for handle, style, abv, hops in (
+        ("denko-sekka", "West Coast IPA", "7%", []),                       # ①<dt>/<dd>(ホップの行なし)
+        ("ichi-bottle", "IPA", "6.5%", None),                               # ②属性つき<dt style>ラベル:</dt>(コロンつき)
+        ("rahr-collab", "IPA", "6%", []),                                   # ④1つの<div class="spec">に連結(ホップの行なし)
+        ("kyoto-wit", "Witbier", "5%", ["Polaris", "Aramis"]),              # ④連結(モルト/ホップ/酵母の行あり)
+        ("2024-dragon", "Red IPA", "6.5%", ["Columbus", "Idaho 7", "Mosaic", "Talus", "Chinook", "Citra", "Riwaka", "Cascade"]),
+        ("wc_nakama_citra", "Hazy IPA", "6%", ["Citra"])):                  # ③<div class="spec">が1行ごとに複数
+    if handle not in feed:
+        continue
+    r = up.parse_shopify_product(feed[handle], src)
+    check(f"body spec {handle} style", r["style"], style)
+    check(f"body spec {handle} abv", r["abv"], abv)
+    if hops is not None:
+        check(f"body spec {handle} hops", r["hops"], hops)
+check("body spec: narrative headings are not spec rows", "【味わいの特徴】" in up.kyoto_body_spec(feed["denko-sekka"]["body_html"]), False)
+check("glued spec parser", up.kyoto_glued_spec("スタイルIPAシリーズKBC2.0ABV6.0%IBU35モルトPilsnerホップCitra, Mosaic酵母Belgian Ale"),
+      {"スタイル": "IPA", "シリーズ": "KBC2.0", "ABV": "6.0%", "IBU": "35", "モルト": "Pilsner", "ホップ": "Citra, Mosaic", "酵母": "Belgian Ale"})
+
 # ---- 商品ページの解析と補完 ----
 page = (FIX / "kyoto_page_comet.html").read_text(encoding="utf-8")
 info = up.parse_kyoto_page(page)
