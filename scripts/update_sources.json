@@ -60,6 +60,30 @@
         "link": "🍺 West Coast Brewing公式ページへ"
       },
       "notes": "静岡のブルワリー公式サイト(WordPress)。/ourbeers/ の一覧(最新12銘柄)から名前・スタイル/ABV・画像・「w/…」行(=ホップ。副原料が混ざる場合はHOP_NAME_FIXESで除外)を取り、未登録のビールだけ個別ページの日本語説明を取得する。通常実行は一覧1ページ+新規の個別ページのみ。過去分のアーカイブ(/beer/page/N/、45ページ・540銘柄)は2026-11-16に全件取り込み済み(BACKFILL_SOURCES=westcoast。addedはWP REST API=post_typeのbeerの公開日)。以後の取りこぼし補充はBACKFILL_SOURCES=westcoast BACKFILL_PAGES=Nとid指定のBACKFILL_ONLY=<id,...>で対象を限定する(1ページ=12銘柄)。小規模サイトなので1ページ/1.5秒以上の間隔を守る(REQUEST_DELAY)。在庫の概念が無いため、一覧に載っている銘柄を全て対象にする。"
+    },
+    {
+      "name": "Kyoto Brewing",
+      "base_url": "https://kyotobrewing.com",
+      "source_key": "kyoto",
+      "parser": "kyoto",
+      "page_parser": "kyoto",
+      "brewery": "Kyoto Brewing",
+      "kind": "brewery",
+      "added_from": "published_at",
+      "scope": {
+        "include_types": ["Beer"],
+        "exclude_tags": ["Beer Set"],
+        "exclude_title_regex": "セット|\\bSet\\b|パック|\\bPack\\b|コース|\\bCourse\\b",
+        "include_sold_out": true
+      },
+      "ui": {
+        "filter": "Kyoto Brewing",
+        "badge": "KBC",
+        "badge_bg": "#dcfce7",
+        "badge_fg": "#166534",
+        "link": "🍺 京都醸造の商品ページへ"
+      },
+      "notes": "京都醸造(Kyoto Brewing Co.)のオンラインショップ(Shopify)。2026-11-26追加(ユーザー依頼)。products.jsonフィードで商品を一覧し(product_typeがBeerのうちセット・パックを除く。ブルワリーのラインナップが目的なので売り切れも対象)、未登録の商品の商品ページ(HTML)を1ページずつ読む(1.2秒間隔)。ホップ・度数・スタイルは商品ページの「スペック」タブ(ホップ:/スタイル:/度数:の行)にだけあり、feedの本文には紹介文(<h4>)しか無い。日本語のスタイル表記はkyoto_style_enで英語にする。addedは商品の公開日(published_at)にして、初回の一括登録でNEWバッジが全件に付くのを避ける。GitHubのIPからは取得できるが、手元のPCからは全カタログを繰り返し取るとShopifyのレート制限(HTTP 429)で止められる(2026-11-26に確認)ので、確認はGitHub上(probe-shopify.yml等)で行う。"
     }
   ],
   "update_rules": [

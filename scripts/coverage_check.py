@@ -75,6 +75,16 @@ def check_shopify(source: dict, products: list, report: dict, last_updated: date
 
     r = {"live_total": len(catalog), "registered": len(stored), "A1": [], "A2": Counter(), "A2_titles": {}, "A3": [],
          "B1": [], "B3": [], "parse_errors": []}
+    # フィードの中身(登録対象かを問わない全体): 売り切れ商品がどれだけ長くフィードに残っているか。
+    # 「在庫が無くなるとWEB表示が消える」商品でも、フィード(裏)には残っているかの確認用(2026-11-26、ユーザーの指摘)
+    today = date.today()
+    sold = [p for p in catalog if not up.in_stock(p)]
+    ages = Counter()
+    for p in sold:
+        d = parse_date(p.get("published_at", ""))
+        n = (today - d).days if d else 99999
+        ages["30日以内" if n <= 30 else "31〜90日" if n <= 90 else "91〜365日" if n <= 365 else "1年超"] += 1
+    r["feed"] = {"in_stock": len(catalog) - len(sold), "sold_out": len(sold), "sold_out_by_age": dict(ages)}
     cutoff = date.today() - timedelta(days=RECENT_DAYS)
     for p in catalog:
         handle = p["handle"]
@@ -86,8 +96,7 @@ def check_shopify(source: dict, products: list, report: dict, last_updated: date
                 r["A2_titles"].setdefault(reason, []).append(p["title"][:60])
             continue
         try:
-            rec = (up.parse_antenna_product(p, key, base_url) if key == "antenna"
-                   else up.parse_southbound_product(p, base_url, key))
+            rec = up.parse_shopify_product(p, source)
         except Exception as e:  # 解析できない商品があると、週次はそのソース全体が失敗する。ここで見つけておく
             r["parse_errors"].append({"handle": handle, "error": f"{type(e).__name__}: {e}"})
             continue
@@ -96,8 +105,8 @@ def check_shopify(source: dict, products: list, report: dict, last_updated: date
         if not matches:
             item = {"handle": handle, "title": p["title"][:70], "published": str(pub) if pub else None,
                     "vendor": p.get("vendor"), "type": p.get("product_type"), "in_stock": instock}
-            if instock:
-                item["after_last_run"] = bool(pub and pub > last_updated)
+            if instock or up.include_sold_out(key):  # ブルワリー自身のショップ(京都醸造)は売り切れも登録対象
+                item["after_last_run"] = bool(pub and pub >= last_updated)  # 同じ日の公開は、週次の後か前か分からないので「次の週次が入れる」側に倒す
                 r["A1"].append(item)
             elif pub and pub >= cutoff:
                 r["A3"].append(item)
@@ -172,7 +181,7 @@ def check_wcb(source: dict, products: list, report: dict, known: set):
     r = {"live_total": len(dates), "live_window": len(items), "registered": len(stored), "A4": [], "B2": []}
     for slug, published in sorted(dates.items(), key=lambda kv: kv[1], reverse=True):
         if f"{key}-{slug}" not in stored:
-            r["A4"].append({"id": f"{key}-{slug}", "title": f"{slug} ({published})" if published else slug})
+            r["A4"].append({"id": f"{key}-{slug}", "title": f"{slug} ({published})" if published else slug, "date": published})
     for it in items:  # B2(更新漏れ)は先頭の窓(約半年分)の値を比べる
         rec = stored.get(f"{key}-{it['slug']}")
         if rec is None:
@@ -235,9 +244,48 @@ def show(title: str, rows: list, fmt):
         print(f"   ... and {len(rows) - DETAIL_LIMIT} more")
 
 
+def attention_items(report: dict, last_updated: date) -> list[str]:
+    """人が見るべきもの(--strict のとき、1つでもあれば終了コード1=GitHubの失敗通知メール)。
+    直前の週次より後に公開された未登録(A1・A4)は、次の週次が入れるだけなので数えない(週次の直後に走らせれば普通は0)。"""
+    out = []
+    last = str(last_updated)
+    for key, r in report.items():
+        if not isinstance(r, dict):
+            continue
+        if "A1" in r:  # Shopify系
+            real = [x for x in r["A1"] if not x.get("after_last_run")]
+            if real:
+                out.append(f"{key}: A1 登録漏れ(公開が前回更新より前) {len(real)}件 例: {real[0]['title'][:40]}")
+            if r["A3"]:
+                out.append(f"{key}: A3 売り切れで最近公開された未登録 {len(r['A3'])}件")
+            if r["B1"]:
+                out.append(f"{key}: B1 サイトの記載と食い違う登録済み {len(r['B1'])}件 例: {r['B1'][0]['id']}")
+            moved = [x for x in r["B3"] if x["relocated_to"]]
+            if moved:
+                out.append(f"{key}: B3 別ハンドルで再掲載(二重登録の疑い) {len(moved)}件 例: {moved[0]['id']}")
+            if r["parse_errors"]:
+                out.append(f"{key}: 解析できない商品 {len(r['parse_errors'])}件")
+        elif "A4" in r:  # 公式サイト系
+            real = [x for x in r["A4"] if not (x.get("date") and x["date"] >= last)]
+            if real:
+                out.append(f"{key}: A4 サイトにあるのに未登録 {len(real)}件 例: {real[0]['id']}")
+            if r["B2"]:
+                out.append(f"{key}: B2 登録後にサイトで変わった銘柄 {len(r['B2'])}件 例: {r['B2'][0]['id']}")
+    if report.get("B4"):
+        out.append(f"B4 アロマチャートに無いホップ名 {sorted(report['B4'])[:5]}")
+    for label, b in (report.get("B5") or {}).items():
+        if isinstance(b, dict) and label in ("docs_file", "github_pages"):
+            if "error" in b or not b.get("ids_equal") or b.get("hops_differ"):
+                out.append(f"B5 公開ページ({label})がproducts.jsonと一致しない: {b}")
+    for key, why in (report.get("errors") or {}).items():
+        out.append(f"点検できなかった収集元 {key}: {why[:120]}")
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", help="結果をJSONで書き出す先")
+    ap.add_argument("--strict", action="store_true", help="人が見るべきものが1つでもあれば終了コード1(GitHub上の定期実行用)")
     args = ap.parse_args()
     data = json.loads(DATA_PATH.read_text(encoding="utf-8"))
     products = data["products"]
@@ -268,8 +316,11 @@ def main():
         if not isinstance(r, dict) or "live_total" not in r and "live_window" not in r:
             continue
         if "A1" in r:  # Shopify
+            feed = r["feed"]
             print(f"\n----- {key}: ライブ{r['live_total']}件 / 登録{r['registered']}件 -----")
-            show("A1 収集対象なのに未登録(在庫あり)", r["A1"],
+            print(f"   フィードの中身: 在庫あり{feed['in_stock']}件 / 売り切れ{feed['sold_out']}件(公開からの日数別 {feed['sold_out_by_age']})"
+                  f" … 売り切れ商品もフィード(裏)には残っている")
+            show("A1 収集対象なのに未登録", r["A1"],
                  lambda x: f"{'[公開が前回更新の後]' if x['after_last_run'] else '[前回更新より前に公開]'} {x['published']} {x['title']} ({x['vendor']})")
             print(f"\nA2 除外条件で外れている在庫あり商品: {sum(r['A2'].values())}件  内訳: {dict(r['A2'])}")
             for reason, titles in r["A2_titles"].items():
@@ -299,6 +350,12 @@ def main():
     if args.json:
         Path(args.json).write_text(json.dumps(report, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
         print(f"\n(詳細JSON: {args.json})")
+    problems = attention_items(report, last_updated)
+    print("\nRESULT: " + ("OK(人が見るべきものは無し)" if not problems else f"ATTENTION {len(problems)}件"))
+    for line in problems:
+        print("  - " + line)
+    if args.strict and problems:
+        sys.exit(1)
 
 
 if __name__ == "__main__":

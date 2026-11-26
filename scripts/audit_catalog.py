@@ -242,9 +242,10 @@ def main():
     # ライブ照合の対象 = update_sources.json のShopify系ソース全部(新しいShopifyソースを足せば自動で入る)
     print(f"[{date.today()}] fetching live catalogs for full audit...")
     shopify_sources = [s for s in up.load_sources() if s.get("type", "shopify") == "shopify"]
-    catalog_by_source, by_handle, base_urls = {}, {}, {}
+    catalog_by_source, by_handle, base_urls, source_cfgs = {}, {}, {}, {}
     for s in shopify_sources:
         key = s["source_key"]
+        source_cfgs[key] = s
         catalog = up.fetch_catalog(s["base_url"])
         if not catalog:
             # 空のまま進めると、そのソースの全商品を「ハンドル失効」と誤判定してレビューを汚染する
@@ -277,10 +278,8 @@ def main():
         raw = by_handle[source].get(handle) if source in by_handle else None
 
         if raw is not None:
-            # update_products.main() と同じ振り分け(antenna専用パーサ、それ以外のShopifyはsouthbound形式)
-            reparsed = (up.parse_antenna_product(raw, source, base_urls[source])
-                        if source == "antenna" else
-                        up.parse_southbound_product(raw, base_urls[source], source))
+            # update_products.main() と同じ振り分け(source.parser: antenna / kyoto / それ以外はsouthbound形式)
+            reparsed = up.parse_shopify_product(raw, source_cfgs[source])
 
             # ハンドルが実在しても、同一商品とは限らない。Shopifyは商品削除後に同じ
             # ハンドル(連番URL)を全く別の商品へ再利用することがある(2026-10-02の監査で

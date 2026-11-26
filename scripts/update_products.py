@@ -224,6 +224,7 @@ HOP_NAME_FIXES = {
     "Denali": "Sultana",  # Hopsteiner 06277の旧商品名Denali(現在の品種名はSultana。HopsConnectの品種表)
     "TRI2304CR": "Cryo Pop",  # Yakima Chiefの試験ブレンド名。2021年にCryo Pop Original Blendとして発売
     "Nelson Kief": "Nelson Sauvin Kief",  # 同じ行群の「Nelson Sauvin Hop Kief」の略記
+    "Nelson Sauv": "Nelson Sauvin",  # 京都醸造の「Nelson Sauv T-45」(T-45はペレットの種類。2026-11-26)
     "Modern Times Idea Machine": "",  # 別のビール(ブレンド用)の名前で、ホップではない
 }
 
@@ -399,9 +400,37 @@ def in_stock(p: dict) -> bool:
     return any(v.get("available") for v in p.get("variants", []))
 
 
+_SOURCE_CFG: dict = {}
+
+
+def source_cfg(source_key: str) -> dict:
+    """update_sources.json のソース定義(source_keyで引く)。scope/parser/added_from等の設定を読むのに使う。"""
+    if not _SOURCE_CFG:
+        _SOURCE_CFG.update({s.get("source_key"): s for s in load_sources()})
+    return _SOURCE_CFG.get(source_key) or {}
+
+
+def include_sold_out(source_key: str) -> bool:
+    """売り切れでも収集対象にするソースか(ブルワリー自身のオンラインショップ=ラインナップが目的)。update_sources.jsonのscope.include_sold_out"""
+    return bool((source_cfg(source_key).get("scope") or {}).get("include_sold_out"))
+
+
 def shopify_scope(p: dict, source_key: str) -> tuple[bool, str]:
     """Shopify系ソースの商品が収集対象か。(対象か, 対象外の理由)を返す。在庫の有無は in_stock() で別に見る。
-    週次の収集(main)と、登録漏れの点検(coverage_check.py)で同じ判定を使うため、ここ1か所にだけ書く。"""
+    週次の収集(main)と、登録漏れの点検(coverage_check.py)で同じ判定を使うため、ここ1か所にだけ書く。
+    update_sources.json に scope があるソース(京都醸造等)は、その設定(include_types/exclude_tags/exclude_title_regex)で判定する。"""
+    cfg = source_cfg(source_key).get("scope")
+    if cfg:
+        types = cfg.get("include_types")
+        if types and p.get("product_type") not in types:
+            return False, f"product_type={p.get('product_type')}"
+        excluded = {t.lower() for t in cfg.get("exclude_tags", [])} & {t.lower() for t in p.get("tags", [])}
+        if excluded:
+            return False, f"tag={sorted(excluded)[0]}"
+        rx = cfg.get("exclude_title_regex")
+        if rx and re.search(rx, p.get("title", ""), re.I):
+            return False, "title looks like a set/pack"
+        return True, ""
     if source_key == "antenna":
         if p.get("vendor") in ANTENNA_EXCLUDE_VENDORS:
             return False, f"vendor={p.get('vendor')}"
@@ -654,6 +683,160 @@ def parse_southbound_product(p: dict, base_url: str, source_key: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# 京都醸造(Kyoto Brewing Co.、https://kyotobrewing.com)。Shopify製のブルワリー自身のオンラインショップ。2026-11-26追加。
+# products.json の本文(body_html)には、ほとんどの商品で一行の紹介文(<h4>)しか無い。ホップ・度数・スタイルは商品ページ(HTML)の
+# 「スペック」タブ(metafields由来。ホップ:/スタイル:/度数:/IBU:の行)にだけあるので、未登録の商品の商品ページを1ページずつ読む
+# (1.2秒間隔。初回は約135銘柄で数分、以後は新商品の分だけ)。古い商品は本文にも<div class="spec">のスペックがある。
+# ブルワリーのラインナップが目的なので売り切れも対象(scope.include_sold_out)。セット・グッズ・定期便は対象外(scope)。
+# ---------------------------------------------------------------------------
+KYOTO_STYLE_RULES = [
+    (r"サワー\s*IPA", "Sour IPA"), (r"ホワイト\s*IPA", "White IPA"), (r"ベルジャン\s*IPA|ベルギー\s*IPA", "Belgian IPA"),
+    (r"コールド\s*IPA", "Cold IPA"), (r"ブラック\s*IPA", "Black IPA"), (r"ライ\s*IPA", "Rye IPA"),
+    (r"(ダブル|インペリアル|トリプル)\s*IPA", "Double IPA"), (r"セッション\s*IPA", "Session IPA"),
+    (r"(ヘイジー|ニューイングランド|NE)\s*IPA", "Hazy IPA"), (r"(ウェスト|ウエスト)コースト\s*IPA|西海岸\s*IPA", "West Coast IPA"),
+    (r"IPA", "IPA"),
+    (r"ヘイジー.*ペール", "Hazy Pale Ale"), (r"アメリカン.*ペール", "American Pale Ale"), (r"ペール", "Pale Ale"),
+    (r"(ウェスト|ウエスト)コースト.*(ピルス|ラガー)|ホッピー.*(ラガー|ピルス)", "Hoppy Lager"),
+    (r"メキシカン.*ラガー", "Mexican Lager"), (r"ヘレス", "Helles"), (r"ピルスナー|ピルス", "Pilsner"),
+    (r"フェスト|メルツェン|メルツェン|ウィンナ|ウィーン", "Festbier"), (r"ダーク.*ラガー|シュヴァルツ", "Dark Lager"), (r"ラガー", "Lager"),
+    (r"ヴァイツェン|ヴァイス|ヘフェ|白ビール|ヴァイツェン", "Hefeweizen"), (r"ケルシュ", "Kolsch"),
+    (r"ヴィット|ウィット|ベルジャン.*ホワイト", "Witbier"), (r"トリペル|トリプル(?!.*IPA)", "Belgian Tripel"), (r"クアッド|クワッド", "Belgian Quad"),
+    (r"ストロング|ダブベル|デュベル", "Belgian Strong Ale"), (r"ベルジャン.*ブロンド|ブロンド", "Blonde Ale"),
+    (r"ベルジャン.*(シングル|ペール)|ベルジャン", "Belgian Ale"),
+    (r"セゾン", "Saison"), (r"ゴーゼ", "Gose"), (r"ベルリナー", "Berliner Weisse"), (r"サワー", "Sour Ale"),
+    (r"インペリアル.*スタウト", "Imperial Stout"), (r"スタウト", "Stout"), (r"ポーター", "Porter"),
+    (r"ブラウン", "Brown Ale"), (r"ESB|エクストラ.*ビター|ビター", "ESB"), (r"アンバー", "Amber Ale"), (r"レッド", "Red Ale"),
+    (r"ゴールデン", "Golden Ale"), (r"バーレイ|バーレー", "Barley Wine"),
+]
+
+
+def kyoto_style_en(text: str) -> str:
+    """京都醸造の「スタイル」(日本語またはEnglish)をstyle_classが分類できる英語表記にする。英語はそのまま、
+    日本語はKYOTO_STYLE_RULESで引き、当てはまらなければ原文のまま返す(後から辞書に足せるよう、勝手に捨てない)。"""
+    text = (text or "").strip()
+    if not text or text.isascii():
+        return text
+    for pattern, english in KYOTO_STYLE_RULES:
+        if re.search(pattern, text, re.I):
+            return english
+    return text
+
+
+def _kyoto_lines(html_fragment: str) -> list[str]:
+    """HTML断片 -> 空行を除いた表示テキストの行リスト(script/style/svgは除く)。"""
+    t = re.sub(r"<(script|style)\b[^>]*>.*?</\1>", "", html_fragment or "", flags=re.S | re.I)
+    t = re.sub(r"<svg\b.*?</svg>", "", t, flags=re.S | re.I)
+    t = re.sub(r"</(p|li|div|h\d|dt|dd|tr|button|span)>", "\n", t, flags=re.I)
+    t = re.sub(r"<br\s*/?>", "\n", t, flags=re.I)
+    return [ln.strip() for ln in html.unescape(re.sub(r"<[^>]+>", "", t)).splitlines() if ln.strip()]
+
+
+def parse_kyoto_product(p: dict, base_url: str, source_key: str, brewery: str = "Kyoto Brewing") -> dict:
+    """products.json の1商品 -> レコード(商品ページを読む前の状態)。紹介文(<h4>)と、古い商品にある本文のスペック(<div class="spec">)だけを使う。
+    新しい商品のホップ・度数・スタイルは商品ページ側にだけあるので、未登録のときに parse_kyoto_page / enrich_kyoto_record で補う。"""
+    body = re.sub(r"<style\b.*?</style>", "", p.get("body_html", "") or "", flags=re.S | re.I)
+    h4 = re.search(r"<h4[^>]*>(.*?)</h4>", body, re.S)
+    blurb = strip_tags(h4.group(1)).strip() if h4 else ""
+    spec = {}
+    sm = re.search(r'<div class="spec">(.*?)</div>', body, re.S)
+    if sm:
+        for dt, dd in re.findall(r"<dt>(.*?)</dt>\s*<dd>(.*?)</dd>", sm.group(1), re.S):
+            spec[strip_tags(dt).strip()] = strip_tags(dd).strip()
+    feel = re.search(r"<dt>【味わいの特徴】</dt>\s*<dd>(.*?)</dd>", body, re.S)
+    description = " ".join(x for x in (blurb, strip_tags(feel.group(1)).strip() if feel else "") if x)
+    abv = "-"
+    am = re.search(r"(\d+(?:\.\d+)?)\s*%", spec.get("ABV", "") or spec.get("度数", ""))
+    if am:
+        abv = f"{float(am.group(1)):g}%"
+    image = ""
+    if p.get("images"):
+        image = re.sub(r"\?.*$", "", p["images"][0]["src"]) + "?width=400"
+    return {
+        "id": f"{source_key}-{p['handle']}",
+        "name": p["title"].strip(),
+        "brewery": brewery,
+        "style": kyoto_style_en(spec.get("スタイル", "")),
+        "abv": abv,
+        "hops": [],
+        "url": f"{base_url}/products/{p['handle']}",
+        "image": image,
+        "description": description,
+        "source": source_key,
+    }
+
+
+def parse_kyoto_page(page: str) -> dict:
+    """商品ページのHTML -> {style, abv, hops_raw, feel, notes}。無い項目は空文字。
+    - 上部の特徴ブロック(beer-features-wrapper): スタイル / 度数 / IBU
+    - 「スペック」タブ(panel-specs): ラベル行(末尾が「:」)と次の行の値。ホップ:の行がホップ欄(例: "Comet, Simcoe, Dynaboost simcoe, Citra T-45")
+    - 「説明」タブ(panel-description)の「味わいの特徴:」と、「ノート」タブ(panel-other)の「ブルワーの声:」(ホップ名が書かれていることが多い)"""
+    t = page or ""
+    feats = {}
+    for label, value in re.findall(r"<div class='body-2'>(.*?)</div>\s*<span class='heading-s medium'>(.*?)</span>", t, re.S):
+        feats[strip_tags(label).strip()] = strip_tags(value).strip()
+
+    def panel(pid):
+        m = re.search(rf"id='{pid}'[^>]*>(.*)", t, re.S)
+        if not m:
+            return []
+        rest = m.group(1)
+        nxt = re.search(r"id='panel-", rest)
+        return _kyoto_lines(rest[: nxt.start()] if nxt else rest[:12000])
+
+    def labeled(lines):
+        """['ラベル:', '値', 'ラベル:', '値', ...] -> {ラベル: 値(複数行は連結)}。「上に戻る」(フッターの始まり)で終わる"""
+        out, cur = {}, None
+        for ln in lines:
+            if ln == "上に戻る":
+                break
+            if re.fullmatch(r"[^:：]{1,20}[:：]", ln):
+                cur = ln[:-1]
+                out.setdefault(cur, "")
+            elif cur:
+                out[cur] = (out[cur] + " " + ln).strip()
+        return out
+
+    specs = labeled(panel("panel-specs"))
+    desc = labeled(panel("panel-description"))
+    other = labeled(panel("panel-other"))
+    abv_text = specs.get("度数") or feats.get("度数") or specs.get("ABV") or ""
+    am = re.search(r"(\d+(?:\.\d+)?)\s*%", abv_text)
+    return {
+        "style": specs.get("スタイル") or feats.get("スタイル") or "",
+        "abv": f"{float(am.group(1)):g}%" if am else "",
+        "hops_raw": specs.get("ホップ", ""),
+        "feel": desc.get("味わいの特徴", ""),
+        "notes": other.get("ブルワーの声", ""),
+    }
+
+
+def enrich_kyoto_record(record: dict, info: dict, known: set) -> None:
+    """parse_kyoto_page の結果で、未登録の京都醸造レコードを埋める。ホップは「ホップ:」の行が根拠(wcb_hopsと同じ整形)、
+    行が空なら説明・ノートに書かれた品種名から補う(ユーザー指示「説明に記載があれば成分として追記する」)。"""
+    if info.get("style"):
+        record["style"] = kyoto_style_en(info["style"])
+    if info.get("abv"):
+        record["abv"] = info["abv"]
+    if info.get("feel") and info["feel"] not in record["description"]:
+        record["description"] = " ".join(x for x in (record["description"], info["feel"]) if x)
+    hops = wcb_hops(info.get("hops_raw", ""))
+    if not hops:
+        hops = hops_from_description(" ".join(x for x in (record["description"], info.get("notes", "")) if x), known)
+    record["hops"] = hops
+
+
+def parse_shopify_product(p: dict, source: dict) -> dict:
+    """Shopify系ソースの1商品 -> レコード。解析器は source.parser(無ければsource_key): antenna / kyoto / それ以外はsouthbound形式。
+    週次の収集・月次監査・総チェックで同じ振り分けを使うため、ここ1か所にだけ書く。"""
+    key, base_url = source["source_key"], source["base_url"]
+    parser = source.get("parser") or key
+    if parser == "antenna":
+        return parse_antenna_product(p, key, base_url)
+    if parser == "kyoto":
+        return parse_kyoto_product(p, base_url, key, source.get("brewery", "Kyoto Brewing"))
+    return parse_southbound_product(p, base_url, key)
+
+# ---------------------------------------------------------------------------
 # Vertere(バテレ、奥多摩のブルワリー公式サイト)。WordPressの「brewlog」記事が1銘柄=1記事で、
 # 個別ページにStyle / Alc / Malt / Hop / Yeastが載る(ブルワリー自身の公開情報)。
 # 一覧はWP REST API(認証不要の公開API)、詳細は個別ページのHTMLから取る。
@@ -830,7 +1013,7 @@ def parse_wcb_description(page: str) -> str:
 WCB_TRANSLATE = str.maketrans({"＆": "&", "ｗ": "w", "Ｗ": "W", "／": "/", "，": ",", "・": ","})
 WCB_LEADIN_RE = re.compile(r"(?:(?:dry|late|cold|whirlpool|kettle)[ -]?hopp?ed|dry[ -]?hopping|dry[ -]?hop|hopped)\s*(?:with|using|w/|:)?\s*", re.I)
 WCB_PREFIX_RE = re.compile(r"^(?:Freestyle|EG|Crosby|YCH\d*|GR|Selected\s+\d{4}\s+Indie)\s+", re.I)
-WCB_LOT_SUFFIX_RE = re.compile(r"\s+(?:[A-Z]{2}\d{2}|[A-Z]{3}\d{3}|X\d{2}X|(?:19|20)\d{2})$")
+WCB_LOT_SUFFIX_RE = re.compile(r"\s+(?:[A-Z]{2}\d{2}|[A-Z]{3}\d{3}|X\d{2}X|T-?\d{2}|(?:19|20)\d{2})$")  # T-45/T90=ペレットの種類(京都醸造のホップ欄)
 WCB_DESCRIPTOR_SUFFIX_RE = re.compile(r"\s+(?:Bliss(?:\s+Process)?|Diesel|Pikimai|(?:Liquid\s+)?Lupulin)$", re.I)
 WCB_FORM_WORDS = "Quantum|Cryo|CGX|Kief|Lupomax|Incognito|Spectrum|Prysma|HyperBoost|Lupocore|Abstrax|Dynaboost"
 WCB_FORM_FIRST_RE = re.compile(rf"^({WCB_FORM_WORDS})\s+(.+)$", re.I)
@@ -877,8 +1060,12 @@ def wcb_clean_token(tok: str) -> str:
     t = re.sub(r"\bHBC\s*(\d+)\b", r"HBC \1", t)
     t = re.sub(r"Hyper\s+Boost", "HyperBoost", t, flags=re.I)
     m = WCB_FORM_FIRST_RE.match(t)
-    if m and normalize_hop(m.group(2)) in _hop_tables()[1].values():  # 「Quantum Nectaron」→「Nectaron Quantum」(元の品種がチャートに在るときだけ)
-        t = f"{m.group(2)} {m.group(1)}"
+    if m and normalize_hop(m.group(2)) in _hop_tables()[1].values():
+        # 「Quantum Nectaron」→「Nectaron Quantum」、「Dynaboost simcoe」→「Simcoe Dynaboost」(元の品種がチャートに在るときだけ。品種名の大文字小文字も揃える)
+        t = f"{normalize_hop(m.group(2))} {m.group(1)}"
+    # 末尾の加工品の語(CRYO/cryo等)の大文字小文字をチャートの表記(Cryo/CGX/Kief...)に揃える(チャートに無い組み合わせでも綴りが割れないように)
+    t = re.sub(rf"\s+({WCB_FORM_WORDS})$", lambda mm: " " + next(w for w in WCB_FORM_WORDS.split("|") if w.lower() == mm.group(1).lower()),
+               t.strip(), flags=re.I)
     return normalize_hop(t.strip())
 
 
@@ -1147,7 +1334,8 @@ def body_full_text(body_html: str) -> str:
     """Shopifyの商品説明(body_html)の全文。ブロック要素の終わりを改行にしてタグを除く。
     保存用のdescriptionはAntennaなら最初の<ul>(スペック欄)より前、Southboundなら日本語段落だけに絞っているため、
     ホップ品種名がそれ以外の部分(セット商品の個別説明、英語の説明文)に書かれていることがある。抽出にはこちらを使う。"""
-    return strip_tags(re.sub(r"</(p|li|h\d|div)>", "\n", body_html or "", flags=re.I))
+    body_html = re.sub(r"<style\b.*?</style>", "", body_html or "", flags=re.S | re.I)  # 京都醸造の説明にはCSSが入っている
+    return strip_tags(re.sub(r"</(p|li|h\d|div|dt|dd)>", "\n", body_html, flags=re.I))
 
 
 def hops_from_description(text: str, chart_names=None) -> list[str]:
@@ -1206,6 +1394,7 @@ def main():
     refresh_review_log: list[dict] = []  # 更新したいが人の確認が要るもの
     refresh_errors: dict[str, str] = {}
     parse_errors: list[dict] = []
+    page_fetch_failed: list[str] = []  # 商品ページが取れず、登録を見送った商品のハンドル(次回に再試行される)
     ids_before = set(known_ids)  # 今回の追加分を更新点検の対象にしないため
     by_id = {r["id"]: r for r in data["products"]}
 
@@ -1283,10 +1472,7 @@ def main():
                     continue
 
                 try:
-                    if source_key == "antenna":
-                        record = parse_antenna_product(p, source_key, base_url)
-                    else:
-                        record = parse_southbound_product(p, base_url, source_key)
+                    record = parse_shopify_product(p, source)
                 except Exception as e:  # 売り切れ商品も読むようになったので、解析できない1商品でソース全体を止めない
                     parse_errors.append({"source": source_key, "handle": handle, "error": f"{type(e).__name__}: {e}"})
                     continue
@@ -1301,8 +1487,8 @@ def main():
                     continue
 
                 instock = in_stock(p)
-                if not instock and not recently_published(p):
-                    continue  # 売り切れで、直近の公開でもない(=過去の廃盤・完売品)は登録しない
+                if not instock and not recently_published(p) and not include_sold_out(source_key):
+                    continue  # 売り切れで、直近の公開でもない(=過去の廃盤・完売品)は登録しない(ブルワリー自身のショップは売り切れも対象)
                 if existing:
                     # 同じハンドルを別商品の旧レコードが使っている(=ハンドル再利用)。旧レコードには
                     # 一切触れず、新商品は衝突しない別IDで追加する(urlが本来のハンドルを保持するので、
@@ -1312,6 +1498,16 @@ def main():
                         n += 1
                     record["id"] = f"{handle}-recycled{n}"
                     recycled_handles.append(handle)
+
+                if source.get("page_parser") == "kyoto":
+                    # ホップ・度数・スタイルは商品ページの「スペック」タブにある。取れなければ登録を見送り次回に再試行する
+                    # (feedの紹介文だけの中途半端な記録を作らない)
+                    page = fetch_url_retry(f"{base_url}/products/{handle}")
+                    time.sleep(REQUEST_DELAY)
+                    if not page:
+                        page_fetch_failed.append(handle)
+                        continue
+                    enrich_kyoto_record(record, parse_kyoto_page(page), known_hops)
 
                 if not record.get("hops"):
                     # スペック欄が空でも説明文に品種名があれば補う(辞書ベースの決定的な抽出。ルールはhop_text.py)
@@ -1329,12 +1525,14 @@ def main():
                     if h not in known_hops:
                         unknown_hops_seen.add(h)
 
-                record["added"] = str(date.today())
+                # ブルワリー自身のショップ(added_from=published_at)は、公開日で登録する(初回の一括登録でNEWバッジが全件に付くのを避ける)
+                record["added"] = ((p.get("published_at") or "")[:10]
+                                   if source.get("added_from") == "published_at" and p.get("published_at") else str(date.today()))
                 data["products"].append(record)
                 added.append(record)
                 known_ids.add(record["id"])
                 records_by_handle.setdefault(handle, []).append(record)
-                if not instock:
+                if not instock and not include_sold_out(source_key):
                     new_sold_out.append(record["id"])
         except Exception as e:  # 1サイトの不具合(通信エラー・サイト構造の変更)で他の収集元の更新を止めない
             key = source.get("source_key") or source.get("name", "?")
@@ -1365,6 +1563,9 @@ def main():
     if parse_errors:
         print(f"\n[warn] {len(parse_errors)} product(s) could not be parsed and were skipped: "
               f"{', '.join(e['handle'] for e in parse_errors)}", file=sys.stderr)
+    if page_fetch_failed:
+        print(f"\n[warn] {len(page_fetch_failed)} product page(s) could not be read, so the product was not registered "
+              f"(it will be retried next run): {', '.join(page_fetch_failed[:10])}", file=sys.stderr)
     if recycled_handles:
         print(f"[note] {len(recycled_handles)} new product(s) sit on a handle previously used by a "
               f"different product (Shopify recycled it); added under '<handle>-recycledN' ids: "
@@ -1372,7 +1573,7 @@ def main():
     if added:
         print("\nNew products this run:")
         for p in added:
-            print(f"  - {p['name']} ({p['brewery']}) [{p['source']}] - hops: {', '.join(p['hops']) or 'unknown'}")
+            print(f"  - {p['name']} ({p['brewery']}) [{p['source']}] {p['style']} / {p['abv']} - hops: {', '.join(p['hops']) or 'unknown'}")
     if hops_from_description_log:
         print("\nHops filled from the product description (the spec field was empty):")
         for e in hops_from_description_log:
@@ -1415,6 +1616,7 @@ def main():
                 "refresh_review": refresh_review_log,
                 "refresh_errors": refresh_errors,
                 "parse_errors": parse_errors,
+                "page_fetch_failed": page_fetch_failed,
                 "sources": sources_summary,
                 "source_errors": source_errors,
             },
