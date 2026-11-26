@@ -24082,7 +24082,7 @@
       "name": "幸あれ (Best Wishes 2027)",
       "brewery": "Kyoto Brewing",
       "style": "Sake Yeast Saison",
-      "abv": "-",
+      "abv": "9%",
       "hops": [
         "Saaz",
         "Vista",
@@ -24102,7 +24102,7 @@
       "abv": "8%",
       "hops": [
         "Willamette",
-        "Styrian Goldings"
+        "Savinjski Golding"
       ],
       "url": "https://kyotobrewing.com/products/be-merry",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_570483d4-767e-45d2-9432-60da62ac8610.png?width=400",
@@ -24205,7 +24205,7 @@
       "name": "不滅の実 (Undying Truth)",
       "brewery": "Kyoto Brewing",
       "style": "Porter",
-      "abv": "-",
+      "abv": "7.5%",
       "hops": [
         "Willamette"
       ],
@@ -24292,7 +24292,7 @@
       "hops": [
         "Idaho 7",
         "Cascade",
-        "Mckenzie",
+        "McKenzie",
         "Amarillo",
         "Citra"
       ],
@@ -24307,7 +24307,7 @@
       "name": "火の鳥たち (Birds of Fire)",
       "brewery": "Kyoto Brewing",
       "style": "Sour IPA",
-      "abv": "-",
+      "abv": "7%",
       "hops": [
         "Motueka",
         "Sabro",
@@ -24342,9 +24342,9 @@
       "name": "かんぱい (Kanpai)",
       "brewery": "Kyoto Brewing",
       "style": "Festbier",
-      "abv": "-",
+      "abv": "5.5%",
       "hops": [
-        "Hallertau mittfruh"
+        "Hallertauer Mittelfruher"
       ],
       "url": "https://kyotobrewing.com/products/kanpai",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/2026_1400x1700_4e63eb58-27f6-47e8-8171-7ad8a249aaca.png?width=400",
@@ -24356,8 +24356,8 @@
       "id": "kyoto-aki-no-kimagure-2026",
       "name": "秋の気まぐれ 2026 (Aki no kimagure 2026)",
       "brewery": "Kyoto Brewing",
-      "style": "IPA",
-      "abv": "-",
+      "style": "Red IPA",
+      "abv": "6.5%",
       "hops": [
         "Cascade",
         "Centennial",
@@ -24376,9 +24376,9 @@
       "name": "白騎士 (White Knight)",
       "brewery": "Kyoto Brewing",
       "style": "Hefeweizen",
-      "abv": "-",
+      "abv": "5%",
       "hops": [
-        "Hallertau Mittlefruh"
+        "Hallertauer Mittelfruher"
       ],
       "url": "https://kyotobrewing.com/products/shiro-kishi-weizen",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_c47546b8-093f-4690-92a8-b8a32fa1eb3a.png?width=400",
@@ -24393,7 +24393,7 @@
       "style": "Blonde Ale",
       "abv": "7%",
       "hops": [
-        "Hallertau Mittlefruh",
+        "Hallertauer Mittelfruher",
         "Audacia"
       ],
       "url": "https://kyotobrewing.com/products/shimon-lavender",
@@ -24407,11 +24407,11 @@
       "name": "残心 (Zanshin)",
       "brewery": "Kyoto Brewing",
       "style": "缶内二次発酵 Hoppy Lager",
-      "abv": "-",
+      "abv": "5.5%",
       "hops": [
         "Strata",
         "Nelson Sauvin",
-        "Nelson Sauvin Hop Keif"
+        "Nelson Sauvin Kief"
       ],
       "url": "https://kyotobrewing.com/products/zanshin-lager",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/Silver__1400x1700_0deb1ed4-be85-4ef7-97f8-cac0ac82bdba.png?width=400",
@@ -24424,7 +24424,7 @@
       "name": "さもありなん (Indeed)",
       "brewery": "Kyoto Brewing",
       "style": "Lager",
-      "abv": "-",
+      "abv": "4.5%",
       "hops": [
         "Sterling",
         "X-14"
@@ -24473,7 +24473,7 @@
       "name": "実も葉も (Mimo Hamo)",
       "brewery": "Kyoto Brewing",
       "style": "Sour Ale",
-      "abv": "-",
+      "abv": "7%",
       "hops": [
         "Motueka",
         "Meridian"
@@ -24506,7 +24506,7 @@
       "name": "静寂をぶち壊せ (Break the Silence)",
       "brewery": "Kyoto Brewing",
       "style": "Hoppy Lager",
-      "abv": "-",
+      "abv": "5.5%",
       "hops": [
         "Audacia",
         "Lorien",
@@ -24540,7 +24540,7 @@
       "name": "ときめき熱視線 (Thrilling Gaze)",
       "brewery": "Kyoto Brewing",
       "style": "IPA",
-      "abv": "-",
+      "abv": "7%",
       "hops": [
         "Azacca",
         "El Dorado",
@@ -24574,10 +24574,10 @@
       "name": "朝焼けのハイウェイ (Highway at Dawn)",
       "brewery": "Kyoto Brewing",
       "style": "Summer Wheat Ale",
-      "abv": "-",
+      "abv": "5%",
       "hops": [
         "Lotus",
-        "Mckenzie"
+        "McKenzie"
       ],
       "url": "https://kyotobrewing.com/products/80s-summer-wheat-ale",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_422b1974-9578-4f05-a772-f3992dcd023b.png?width=400",
@@ -24590,7 +24590,7 @@
       "name": "おさきに (Osakini)",
       "brewery": "Kyoto Brewing",
       "style": "Helles",
-      "abv": "-",
+      "abv": "5%",
       "hops": [
         "Aurum",
         "Hallertauer Mittelfruher"
@@ -24606,7 +24606,7 @@
       "name": "乳糖依存症 (Lactophilia)",
       "brewery": "Kyoto Brewing",
       "style": "IPA",
-      "abv": "-",
+      "abv": "6.5%",
       "hops": [
         "Southern Cross (NZ Hops)"
       ],
@@ -24621,7 +24621,7 @@
       "name": "つぶつむ (Very Berry)",
       "brewery": "Kyoto Brewing",
       "style": "Fruit Sour",
-      "abv": "-",
+      "abv": "5.5%",
       "hops": [
         "Meridian"
       ],
@@ -24636,10 +24636,10 @@
       "name": "門外不出 (Brewers Reserve)",
       "brewery": "Kyoto Brewing",
       "style": "Belgian Ale",
-      "abv": "-",
+      "abv": "5%",
       "hops": [
         "Cascade",
-        "Hallertau Mittlefruh",
+        "Hallertauer Mittelfruher",
         "Sterling"
       ],
       "url": "https://kyotobrewing.com/products/belgian-single",
@@ -24653,7 +24653,7 @@
       "name": "週休6日 (New 6-Day Weekend)",
       "brewery": "Kyoto Brewing",
       "style": "Belgian Session IPA",
-      "abv": "-",
+      "abv": "4.5%",
       "hops": [
         "Simcoe",
         "Citra",
@@ -24670,7 +24670,7 @@
       "name": "ひょっと その２ (Hyotto No2)",
       "brewery": "Kyoto Brewing",
       "style": "Hazy IPA",
-      "abv": "-",
+      "abv": "6.5%",
       "hops": [
         "Riwaka",
         "Mosaic",
@@ -24689,7 +24689,7 @@
       "name": "愚かなる美 (Beautifully Foolish)",
       "brewery": "Kyoto Brewing",
       "style": "Fruited Berliner Weisse",
-      "abv": "-",
+      "abv": "4%",
       "hops": [
         "Motueka"
       ],
@@ -24707,7 +24707,7 @@
       "abv": "5.5%",
       "hops": [
         "Willamette",
-        "Styrian Goldings"
+        "Savinjski Golding"
       ],
       "url": "https://kyotobrewing.com/products/sharaku-esb",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_d890bf2a-3796-4fe9-b93c-2e2bdd8083a9.png?width=400",
@@ -24720,7 +24720,7 @@
       "name": "いざ進取 (IZA SHINSHU)",
       "brewery": "Kyoto Brewing",
       "style": "Saison",
-      "abv": "-",
+      "abv": "7.5%",
       "hops": [
         "Audacia",
         "Vista"
@@ -24736,7 +24736,7 @@
       "name": "夏の気まぐれ 2026 (Natsu no Kimagure 2026)",
       "brewery": "Kyoto Brewing",
       "style": "Session IPA",
-      "abv": "-",
+      "abv": "4.5%",
       "hops": [
         "Motueka",
         "Mosaic",
@@ -24753,7 +24753,7 @@
       "name": "至極陶然 (Sensory Reflection)",
       "brewery": "Kyoto Brewing",
       "style": "Saison",
-      "abv": "-",
+      "abv": "5.5%",
       "hops": [
         "Pacifica (NZ Hops)",
         "Talus",
@@ -24771,7 +24771,7 @@
       "name": "いろとりどり NZ IPA編 (Irotoridori - NZ IPA)",
       "brewery": "Kyoto Brewing",
       "style": "NZ IPA",
-      "abv": "-",
+      "abv": "6%",
       "hops": [
         "Riwaka",
         "Motueka",
@@ -24788,7 +24788,7 @@
       "name": "【JRAコラボ】大外一気 (Wide Run)",
       "brewery": "Kyoto Brewing",
       "style": "Hoppy Lager",
-      "abv": "-",
+      "abv": "5%",
       "hops": [
         "Centennial",
         "Chinook",
@@ -24820,9 +24820,9 @@
       "name": "合言葉はポン！ (The codeword is Pon!)",
       "brewery": "Kyoto Brewing",
       "style": "Golden Ale",
-      "abv": "-",
+      "abv": "4.5%",
       "hops": [
-        "Hallertau Mittlefruh"
+        "Hallertauer Mittelfruher"
       ],
       "url": "https://kyotobrewing.com/products/golden-ale-w-pon",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_20891274-cfb2-4f9f-982a-689a0ec19391.png?width=400",
@@ -24863,7 +24863,7 @@
       "name": "消えたブランケット (Where is my blanket?)",
       "brewery": "Kyoto Brewing",
       "style": "Brett IPA",
-      "abv": "-",
+      "abv": "8%",
       "hops": [
         "Cascade",
         "Anchovy",
@@ -24882,7 +24882,7 @@
       "name": "かく語りき (A Beer Odyssey)",
       "brewery": "Kyoto Brewing",
       "style": "Session IPA",
-      "abv": "-",
+      "abv": "4.5%",
       "hops": [
         "Mosaic",
         "Citra"
@@ -24913,9 +24913,9 @@
       "name": "洒落 オートミールスタウト編 (Sharaku Oatmeal Stout)",
       "brewery": "Kyoto Brewing",
       "style": "Stout",
-      "abv": "-",
+      "abv": "5.5%",
       "hops": [
-        "Styrian Goldings"
+        "Savinjski Golding"
       ],
       "url": "https://kyotobrewing.com/products/sharaku-oat-meal-stout",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_4c9e79f9-7f9d-482d-85d0-81672a72c5de.png?width=400",
@@ -24930,7 +24930,7 @@
       "style": "Pilsner",
       "abv": "5%",
       "hops": [
-        "Hallertauer Mittelfruh",
+        "Hallertauer Mittelfruher",
         "Saphir"
       ],
       "url": "https://kyotobrewing.com/products/meguri-itadaki",
@@ -24975,7 +24975,7 @@
       "name": "洒落 コーヒーブラウンエール編 (Sharaku Coffee Brown Ale)",
       "brewery": "Kyoto Brewing",
       "style": "Coffee Brown Ale",
-      "abv": "-",
+      "abv": "5%",
       "hops": [
         "Fuggle"
       ],
@@ -24990,7 +24990,7 @@
       "name": "百戦錬馬 (JRA Cold IPA)",
       "brewery": "Kyoto Brewing",
       "style": "Cold IPA",
-      "abv": "-",
+      "abv": "6.5%",
       "hops": [
         "El Dorado",
         "Azacca",
@@ -25025,7 +25025,7 @@
       "style": "Mexican Dark Lager",
       "abv": "5.5%",
       "hops": [
-        "Styrian Goldings",
+        "Savinjski Golding",
         "Motueka"
       ],
       "url": "https://kyotobrewing.com/products/mexican-dark-24h",
@@ -25059,8 +25059,8 @@
       "style": "Belgian Tripel",
       "abv": "8%",
       "hops": [
-        "Styrian Goldings",
-        "Madarina Bravaria"
+        "Savinjski Golding",
+        "Mandarina Bavaria"
       ],
       "url": "https://kyotobrewing.com/products/kikan-jasmin-tripel",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_e6c45983-9a22-42e9-b0d3-b5e51356df8d.png?width=400",
@@ -25073,7 +25073,7 @@
       "name": "ぱぴぷぺぴんす (Pa Pi Pu Pe Bingsoo)",
       "brewery": "Kyoto Brewing",
       "style": "Oat Cream Fruit Smoothie",
-      "abv": "-",
+      "abv": "6%",
       "hops": [],
       "url": "https://kyotobrewing.com/products/seoul-sweet",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_ef6fc136-913a-43d4-93e6-bc3962e7ff00.png?width=400",
@@ -25215,7 +25215,7 @@
       "name": "はばかりさん (Habakarisan)",
       "brewery": "Kyoto Brewing",
       "style": "Belgian Wit",
-      "abv": "-",
+      "abv": "4.5%",
       "hops": [],
       "url": "https://kyotobrewing.com/products/kyoto-habakarisan",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_497f3fde-091c-49a4-816f-1898b14dac40.png?width=400",
@@ -25353,6 +25353,824 @@
       "description": "ホップをとことん堪能したいという欲求を満たすため、逆転の発想から生まれた”にごり”IPA 京都醸造にとっては初めてのヘイジーIPAはリッチな口当たりとフルーティーでトロピカルな香りといった基本をしっかり押さえた仕上がり",
       "source": "kyoto",
       "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-小毬-komari",
+      "name": "小毬 (Komari)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [
+        "Ekuanot",
+        "Polaris",
+        "Mosaic",
+        "Strata"
+      ],
+      "url": "https://kyotobrewing.com/products/小毬-komari",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_2b9996e4-50ef-4841-9660-a20e6d06e322.png?width=400",
+      "description": "小麦の柔らかな口当たりと多彩なホップのアロマを楽しめる4.5％の軽快なIPA",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-kikan-dubbel",
+      "name": "一花八果 (Never Say Die)",
+      "brewery": "Kyoto Brewing",
+      "style": "Belgian Strong Ale",
+      "abv": "7%",
+      "hops": [],
+      "url": "https://kyotobrewing.com/products/kikan-dubbel",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/1400x1700_2a6bff8f-3a85-48ce-84a1-82d10af7b60f.png?width=400",
+      "description": "モルティーで味わい深いデュベルが無花果と出会う 麦芽の芳醇さが醍醐味の伝統的なベルジャン・デュベルにイチジクを合わせることにより、複雑味を帯びた層が加わり、飲めば飲むほど引き込まれる仕上がり。",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-2024-dragon",
+      "name": "上昇気竜 (Rising Dragon)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [
+        "Crystal",
+        "Columbus",
+        "Idaho 7",
+        "Mosaic",
+        "Talus",
+        "Chinook",
+        "Citra",
+        "Riwaka",
+        "Cascade"
+      ],
+      "url": "https://kyotobrewing.com/products/2024-dragon",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_c13aad89-f935-4cd7-be2e-06652bccf917.png?width=400",
+      "description": "品を感じさせるコクと柑橘ホップのシャープな香りが特長のレッドIPA",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-kyoto-wit",
+      "name": "あらはれ (ARAWARE)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [
+        "Polaris",
+        "Aramis"
+      ],
+      "url": "https://kyotobrewing.com/products/kyoto-wit",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_c425d89f-7136-422b-932a-709cce346a5c.png?width=400",
+      "description": "オーツと小麦の柔らかな口当たりにゆずの香りをあわせた爽快な二次熟成ベルジャンウィット",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-kyoto-blonde",
+      "name": "ゆらぎ (Yuragi)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [
+        "Crystal",
+        "Polaris"
+      ],
+      "url": "https://kyotobrewing.com/products/kyoto-blonde",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_164c7623-6331-497d-8d4f-ab32a7903c39.png?width=400",
+      "description": "麦のふくよかな香りを運ぶ心地のよい風に乗ったような快適で味わい深いベルジャンエール",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-toppa-wheat-wine",
+      "name": "白魔術 (White Magic)",
+      "brewery": "Kyoto Brewing",
+      "style": "ウィートワイン",
+      "abv": "11%",
+      "hops": [
+        "Mandarina Bavaria"
+      ],
+      "url": "https://kyotobrewing.com/products/toppa-wheat-wine",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_20dbb15d-12b7-4217-b87c-2c7fe614d3fc.png?width=400",
+      "description": "小麦が主役の優しくまったりとしたコクとフレーバーを味わうウィートワイン",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-wc_nakama_eldorado",
+      "name": "エルドラドの黄金比 (El Dorado's Golden Ratio)",
+      "brewery": "Kyoto Brewing",
+      "style": "Hazy IPA",
+      "abv": "6%",
+      "hops": [
+        "El Dorado"
+      ],
+      "url": "https://kyotobrewing.com/products/wc_nakama_eldorado",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_b8981836-fe84-4b06-803e-40891c9c65cf.png?width=400",
+      "description": "最新技術をもって人気ホップ、El Doradoに迫った目の覚めるようなヘイジーIPA ペレットホップに加え、クライオと濃縮ホップをバランスよく使い、トロピカルフルーツ、スイカ、ストーンフルーツをミックスしたようなEl Doradoのフレーバーに穏やかな甘みが感じられるヘイジーIPAに仕上げました。",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-wc_nakama_citra",
+      "name": "シトラの黄金比 (Citra's Golden Ratio)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [
+        "Citra"
+      ],
+      "url": "https://kyotobrewing.com/products/wc_nakama_citra",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_d357ee2e-9c4c-4e25-9ac0-59a7d5126af4.png?width=400",
+      "description": "WCとのコラボは最新ホップ製品でCitraに焦点を当てたシングルホップヘイジーIPA",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-kobo_luke_nakama",
+      "name": "【能登半島復興支援ビール】黙々人 (Mokumoku Jin)",
+      "brewery": "Kyoto Brewing",
+      "style": "グロジスキー",
+      "abv": "4%",
+      "hops": [
+        "Saaz"
+      ],
+      "url": "https://kyotobrewing.com/products/kobo_luke_nakama",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_0be4b25d-4ea1-46df-90b0-dddf1800086f.png?width=400",
+      "description": "KoboとGodspeedとのコラボは\"ポーランドのシャンパン\"と呼ばれるスモーキーな小麦ビール 燻製麦芽を使った軽やかで低アルコールの小麦ビール",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-donburako-ipa",
+      "name": "ドンブラコ IPA (Donburako IPA)",
+      "brewery": "Kyoto Brewing",
+      "style": "Hazy IPA",
+      "abv": "7%",
+      "hops": [
+        "Peacharine"
+      ],
+      "url": "https://kyotobrewing.com/products/donburako-ipa",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/IPA_1400x1700_5954638d-fdf1-49da-a805-aebad31b9a99.png?width=400",
+      "description": "パンチの効いたピーチャリンホップを詰め込んだ東海岸スタイルのヘイジーIPA ピーチャリンホップが主役の柔らかなイーストコーストIPA。オーツ麦の穏やかなハニーのような甘みが感じられ、そこにピーチャリンを始め、ニュージーランド産ホップをたっぷりと使用し、ピーチやネクタリン、柑橘のフレーバーが存分に楽しめる設計。",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-donburako-lager",
+      "name": "ドンブラコ ラガー (Donburako Lager)",
+      "brewery": "Kyoto Brewing",
+      "style": "Hoppy Lager",
+      "abv": "5%",
+      "hops": [
+        "Peacharine",
+        "Southern Cross (NZ Hops)",
+        "Kohatu"
+      ],
+      "url": "https://kyotobrewing.com/products/donburako-lager",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_3a129390-fbc9-457f-9ccf-2e399af822d6.png?width=400",
+      "description": "NZホップのトロピカル＋ピーチの味わいをたっぷり詰め込んだホッピーラガー 溢れるようなトロピカルピーチ、ストーンフルーツ、柑橘、そしてライチのようなホップフレーバーが、飲み口スムースなピルスナーモルトベースに支えられ、クリスピーでとても飲みやすいホッピーラガー",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-rokkasen-passion",
+      "name": "熱の果 (Netsu no Ka)",
+      "brewery": "Kyoto Brewing",
+      "style": "Hazy IPA",
+      "abv": "5%",
+      "hops": [
+        "Cascade",
+        "Simcoe",
+        "Citra",
+        "Talus",
+        "Strata",
+        "Motueka"
+      ],
+      "url": "https://kyotobrewing.com/products/rokkasen-passion",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_6e2d1dba-e4ec-49e9-8cc8-c3af452d105c.png?width=400",
+      "description": "トロピカルでさっぱりした味わいのパッションフルーツを使った南国ヘイジーIPA 小麦由来の優しい口当たりにパッションフルーツの甘やかな香り、少しの酸がドリンカブルなHazy IPA",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-belgian-single-2024",
+      "name": "門外不出2024 (Brewer's Reserve)",
+      "brewery": "Kyoto Brewing",
+      "style": "Belgian Ale",
+      "abv": "4.5%",
+      "hops": [
+        "Cascade"
+      ],
+      "url": "https://kyotobrewing.com/products/belgian-single-2024",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/2024_1400x1700_38a7632b-683c-4427-b9e5-4507cfcc7516.png?width=400",
+      "description": "現代によみがえる中世ベルギーの修道院秘蔵ビール、ベルジャンシングル 軽やかな喉ごしに、モルト・ホップ・酵母のバランスが良く、味わい深い。北海道産カスケードホップも絶妙なアクセントになり、心地よい爽快な苦みと香りの余韻を楽しめます。",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-ymarket-super-ipa",
+      "name": "自我事変 (Egotistic Dilemma)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [
+        "Nelson Sauvin",
+        "Amarillo",
+        "Azacca",
+        "Idaho 7"
+      ],
+      "url": "https://kyotobrewing.com/products/ymarket-super-ipa",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_cb89fd04-4f47-46de-9c34-844f779cff38.png?width=400",
+      "description": "Y.Marketとのコラボはアロマ爆発！前代未聞の9％のホップドカ盛りダブルIPA",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-motueka-tart-lime-ipa",
+      "name": "いろとりどりタートライムIPA編 (Irotoridori Tart Lime IPA edition)",
+      "brewery": "Kyoto Brewing",
+      "style": "IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Motueka"
+      ],
+      "url": "https://kyotobrewing.com/products/motueka-tart-lime-ipa",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/13.png?width=400",
+      "description": "新進ホップMotueka3部作！ライムのフレッシュな柑橘フレーバーとほのかな酸味を活かしたIPA MotuekaホップのTart（=穏やかな酸味）でトロピカル、そして爽やかな味わいを与えるライムのキャラクターに合わせて実際のライムジュースも少し使ったドライでキレのあるIPA",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-zakkoku-seitou",
+      "name": "正統派 (Orthodoxy)",
+      "brewery": "Kyoto Brewing",
+      "style": "Hefeweizen",
+      "abv": "5%",
+      "hops": [
+        "Saaz"
+      ],
+      "url": "https://kyotobrewing.com/products/zakkoku-seitou",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/350ml_can___1400x1700_30c48536-2716-472f-af2f-a47eefd3b3a9.png?width=400",
+      "description": "雑穀工房とのコラボは国産の穀物を使ったクラシックなヴァイツェン 程よいボディ感とソフトな小麦の存在感でパンのような滋味深い味わいのベースに酵母が生み出すマイルドなバナナやクローヴのようなキャラクターが光ります。さらに柑橘・コリアンダー・胡椒のようなほのかなニュアンスが全体をうまくまとめ上げ、飲みやすさに磨きをかけます。",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-zakkoku-itan",
+      "name": "異端派 (Heresy)",
+      "brewery": "Kyoto Brewing",
+      "style": "Hefeweizen",
+      "abv": "7.5%",
+      "hops": [
+        "Willamette",
+        "Saaz"
+      ],
+      "url": "https://kyotobrewing.com/products/zakkoku-itan",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/350ml_can___1400x1700_97c9e18c-8850-4ed2-8838-e39400b31d22.png?width=400",
+      "description": "雑穀工房とのもうひとつのコラボは、抹茶ポッキーに着想を得たヴァイツェン 抹茶ポッキーに着想を得たオーツクリームヴァイツェン。どっさりの煎茶＋抹茶ブレンドにトロピカル・スパイシー・ハーバルで優しい甘みも兼ね持ったホップを合わせ、いつもまでも口に運んでいたくなるような心地の良いお茶のご褒美ビールが出来ました。",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-mosaic-gyo",
+      "name": "真行草の行 (Shingyoso-GYO)",
+      "brewery": "Kyoto Brewing",
+      "style": "Mosaic Hazy IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Mosaic",
+        "Sabro"
+      ],
+      "url": "https://kyotobrewing.com/products/mosaic-gyo",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_0bf08565-6ea0-48d1-b72a-c8923fdeff56.png?width=400",
+      "description": "モザイクのトロピカルな個性を親しみやすく、柔らかい印象にまとめたNEIPA 程よいボディ感で、軽やかな甘さが感じられ、オーツ麦と小麦をたっぷり使うことで、柔らかくもしっかりとした口当たりに仕上げています。モザイクホップとサブロホップの組み合わせにより、ベリーやメロン、ココナッツ、トロピカルフルーツのような風味が溶け合い、苦味を控え目に設計することでホップを存分に楽しめるジューシーなIPAにしました。",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-mosaic-shin",
+      "name": "真行草の真 (Shingyoso-SHIN)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [
+        "Mosaic"
+      ],
+      "url": "https://kyotobrewing.com/products/mosaic-shin",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_6ac626dc-83ad-472c-8a8f-360eea0ba8de.png?width=400",
+      "description": "Mosaicホップ3部作の始まりは、純粋なモザイクを最大限に楽しめるクリアでシャープな西海岸IPA",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-sharaku-bitter",
+      "name": "洒落 イングリッシュビター編 (Sharaku English Bitter)",
+      "brewery": "Kyoto Brewing",
+      "style": "English Bitter",
+      "abv": "4.5%",
+      "hops": [
+        "Fuggle"
+      ],
+      "url": "https://kyotobrewing.com/products/sharaku-bitter",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/ENGLISH_BITTER_1400x1700_61c4cb28-4777-40ec-8d61-b985e4262ec2.png?width=400",
+      "description": "英国パブで大衆に愛される、味わい深くも何杯飲んでも飲み飽きないパブエール イングリッシュ・パブエールと言えば、飲みやすく、穏やかなモルトキャラクターとクリスプなフィニッシュを持ったスタイルで知られています。この洒落もライトなボディで、モルトからのトフィーやキャラメル、ビスケットのような滋味深い風味と、ホップの軽やかなスパイス感とハーブのアロマがミックスされて、なんとも快適な飲み心地を叶えています。",
+      "source": "kyoto",
+      "added": "2025-02-06"
+    },
+    {
+      "id": "kyoto-tama-no2",
+      "name": "玉　巨峰ブレンド (Tama - Kyoho Blend)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [],
+      "url": "https://kyotobrewing.com/products/tama-no2",
+      "image": "",
+      "description": "巨峰と赤ぶどう果汁の瑞々しい甘みや香りが美味しいフルーツサワー",
+      "source": "kyoto",
+      "added": "2025-02-05"
+    },
+    {
+      "id": "kyoto-mosaic-sou",
+      "name": "真行草の草 (Shingyoso-SOU)",
+      "brewery": "Kyoto Brewing",
+      "style": "Mosaic DDH Imperial White IPA",
+      "abv": "8%",
+      "hops": [
+        "Mosaic"
+      ],
+      "url": "https://kyotobrewing.com/products/mosaic-sou",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_1_bf0e5275-2219-4793-a6e8-bf032a55fe3b.png?width=400",
+      "description": "近代的な技を駆使し、モザイクの香り成分を最大限に解放した小麦のIPA 現代的なチオール解放術とハイブリッド酵母、さらに香り高いニュージーランド産ホップを使用したこのヘイジーなIPAは、トロピカルでジューシー、そして豊かなフレーバーとアロマに満ち満ちています。",
+      "source": "kyoto",
+      "added": "2025-02-05"
+    },
+    {
+      "id": "kyoto-freestyle-momo",
+      "name": "もものふ (MOMONOFU)",
+      "brewery": "Kyoto Brewing",
+      "style": "Pale Ale",
+      "abv": "5%",
+      "hops": [
+        "Peacharine"
+      ],
+      "url": "https://kyotobrewing.com/products/freestyle-momo",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_5db5dac3-84f2-4c98-a13e-d56bf86dc794.png?width=400",
+      "description": "醸造家仲間と厳選したNZホップのトロピカルなアロマあふれる鮮やかペールエール 非常に柔らかくクリーミーな口当たりをもったペールエール。ピーチャリンを主体とするNZ産ホップブレンドをたっぷりと使用し、トロピカルなフレーバーとアロマが際立ち、柑橘やストーンフルーツの風味も絶妙にブレンドされています。飲みやすい一方で、豊かな個性がしっかりと感じられるビールです。",
+      "source": "kyoto",
+      "added": "2025-02-04"
+    },
+    {
+      "id": "kyoto-motueka-oat-cream-ipa",
+      "name": "いろとりどり オーツクリームIPA編 (Irotoridori Oat Cream IPA edition)",
+      "brewery": "Kyoto Brewing",
+      "style": "IPA",
+      "abv": "7%",
+      "hops": [
+        "Motueka",
+        "Sabro"
+      ],
+      "url": "https://kyotobrewing.com/products/motueka-oat-cream-ipa",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/IPA_1400x1700_f025aa77-2f6a-41e9-9c5c-9db2f3fcda36.png?width=400",
+      "description": "オーツ麦芽由来のソフトでクリーミーなボディ感に、Motuekaのマイルドなライム香やトロピカルなニュアンスが心地よく響くと同時に、すこしの乳酸菌由来の酸味で後味はさっぱりとまとめあげた設計のIPA。",
+      "source": "kyoto",
+      "added": "2025-02-04"
+    },
+    {
+      "id": "kyoto-goketsu-terps",
+      "name": "豪傑 超タープス編 (Goketsu - Mega Terps)",
+      "brewery": "Kyoto Brewing",
+      "style": "DDH WIPA",
+      "abv": "8%",
+      "hops": [
+        "Simcoe",
+        "Citra"
+      ],
+      "url": "https://kyotobrewing.com/products/goketsu-terps",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_9fb44c7f-67b4-42b6-8078-3d3d6a310e2f.png?width=400",
+      "description": "鮮やかな柑橘に樹脂のようなねっとりとした香りがクセになるパンチの効いたIPA シムコー、シトラ、そしてメガタープスホップをブレンドしたこのDDH IPAは、独特の樹脂感とダンクな個性と、クリーンでキリッとしたドライな飲み口が特徴です。豪傑シリーズに共通する、ホップの持つ香り成分の力を最大限に引き出し、ド迫力のあるアロマとフレーバーを楽しめる最強の一杯に仕上がっています。",
+      "source": "kyoto",
+      "added": "2025-02-01"
+    },
+    {
+      "id": "kyoto-kbc20-ichii",
+      "name": "一意専心 (Ichii Senshin)",
+      "brewery": "Kyoto Brewing",
+      "style": "Belgian IPA",
+      "abv": "6%",
+      "hops": [
+        "Rakau",
+        "Riwaka",
+        "Mosaic"
+      ],
+      "url": "https://kyotobrewing.com/products/kbc20-ichii",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_1_280cdedd-0c8e-44b4-b933-1a700b9e4177.png?width=400",
+      "description": "鮮やかでアロマティック、それでいて飲みやすい新生ベルジャンIPA これまで以上に酵母とホップの融合に焦点をあてて改良を加えました。ベルジャン酵母由来のフルーティーなエステル香と、それを引き立てるNZホップのトロピカルなフレーバーが見事なほどに溶け合い、飲みやすさと同時に鮮烈な印象を与えるIPAに仕上げました。",
+      "source": "kyoto",
+      "added": "2025-01-27"
+    },
+    {
+      "id": "kyoto-kbc20-ichigo",
+      "name": "一期一会 (Ichigo Ichie)",
+      "brewery": "Kyoto Brewing",
+      "style": "Saison",
+      "abv": "5%",
+      "hops": [
+        "Cascade",
+        "Motueka"
+      ],
+      "url": "https://kyotobrewing.com/products/kbc20-ichigo",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_92665aa7-a755-41e1-ab6f-5f1c32676085.png?width=400",
+      "description": "飲みごたえと飲みやすさを兼ね持ったこのセゾンは、穏やかな苦みとすっきり柔らかな口当たり、そして厳選したニュージーランドホップの鮮やかなフルーツ香が光る自信作。",
+      "source": "kyoto",
+      "added": "2025-01-27"
+    },
+    {
+      "id": "kyoto-goketsu-sauvin",
+      "name": "豪傑 超ソーヴィン編 (Goketsu - Super Sauvin)",
+      "brewery": "Kyoto Brewing",
+      "style": "IPA",
+      "abv": "6%",
+      "hops": [
+        "Nelson Sauvin"
+      ],
+      "url": "https://kyotobrewing.com/products/goketsu-sauvin",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_5.png?width=400",
+      "description": "柔らかクリーミーな口当たりにネルソンソーヴィンのアロマがどっと溢れるヘイジーIPA ホップの香り成分チオールとぶどう果皮（ファンタズム）の効果で、底抜けにジューシーでぶっ飛んだIPA3部作、豪傑の第2弾は、ソフトな方向性を追求したオーツクリームDDH IPAです。ヘイジーで柔らかくクリーミーな口当たりが特徴ですが、そこに、マスカットやグレープフルーツ、パッションフルーツ、シトラスといったネルソンソーヴィンホップのアロマとフレーバーが溢れんばかりに感じられる仕上がりです。",
+      "source": "kyoto",
+      "added": "2025-01-18"
+    },
+    {
+      "id": "kyoto-matchan-bitter",
+      "name": "〼〼ハ〇 (Masu Masu Hamaru)",
+      "brewery": "Kyoto Brewing",
+      "style": "ESB",
+      "abv": "5%",
+      "hops": [
+        "Fuggle"
+      ],
+      "url": "https://kyotobrewing.com/products/matchan-bitter",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_b4c70642-abf6-443e-8935-23fc4cd959cb.png?width=400",
+      "description": "味わい深さと飲みやすさのバランスで飲むほどにクセになる英国のパブエール モルトの程よいキャラメル様のリッチな味わいにホップの苦み、フルーティーな香りを合わせた英国スタイルのエクストラスペシャルビター。味わい深さと飲みやすさのバランスの良さで、するするといつまでも飲んでいたいビールに仕上がっています。",
+      "source": "kyoto",
+      "added": "2025-01-11"
+    },
+    {
+      "id": "kyoto-goketsu-motueka",
+      "name": "豪傑 超モチュエカ編 (Goketsu - Mega Motueka)",
+      "brewery": "Kyoto Brewing",
+      "style": "Triple Dry Hop IPA",
+      "abv": "7%",
+      "hops": [
+        "Motueka"
+      ],
+      "url": "https://kyotobrewing.com/products/goketsu-motueka",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_bc88b5c4-6bb9-4feb-b7ea-d7b0c7270623.png?width=400",
+      "description": "Motuekaホップを主役に据えた、超がつくほどの香り爆発系ヘイジーIPA 香り成分チオールとファンタズムをテーマにしたIPAシリーズの第1弾は、Motuekaを主役に据えたヘイジーIPA。パッションフルーツ、シトラス、ライム、そしてぶどうのようなフレーバーとアロマが特徴。ボディを出すために小麦を加え、爽やかで飲みやすいフィニッシュに仕上げることで、香りを最大限に楽しめます。",
+      "source": "kyoto",
+      "added": "2025-01-06"
+    },
+    {
+      "id": "kyoto-hojo-white-grape-ipa",
+      "name": "豊醸 白ぶどうIPA編 (HOJO - White Grape IPA edition)",
+      "brewery": "Kyoto Brewing",
+      "style": "Double IPA",
+      "abv": "8.5%",
+      "hops": [
+        "Nelson Sauvin"
+      ],
+      "url": "https://kyotobrewing.com/products/hojo-white-grape-ipa",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/ImperialIPAwithWhiteGrape_1400x1700_1.png?width=400",
+      "description": "白ワインを彷彿とさせる香り高いネルソンに山形産白ぶどうを合わせたIPA シャープで爽やかな味わいの白ワインを彷彿とさせるIPA。ドライなフィニッシュとふんわりと香る柑橘や花のようなノートが特長。ぶどう独特の果実味と渋みがネルソンホップのハーブやフルーティーなフレーバーと調和し、白ワインとIPAの境界をぼかしたような仕上がり。",
+      "source": "kyoto",
+      "added": "2024-12-21"
+    },
+    {
+      "id": "kyoto-kodo-wo-yuku-hofu",
+      "name": "古道をゆく 豊富 (Pilgrims Respite - Hofu)",
+      "brewery": "Kyoto Brewing",
+      "style": "Saison",
+      "abv": "8%",
+      "hops": [],
+      "url": "https://kyotobrewing.com/products/kodo-wo-yuku-hofu",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/2024_1400x1700_7a7aa925-0750-4d20-adfc-4cbe27836d19.png?width=400",
+      "description": "お米とエルダーフラワーを使った、甘やかでドライな二次発酵ストロングセゾン デュポン醸造所のBon Voeuxに着想を得た、ストロングセゾン。ライスフレークを使ったセゾンらしい淡い色味とドライな口当たり、そこに甘みを帯びたハーバルなエルダーフラワーを合わせ、味わいをぱっと華やか、それでいてドリンカブルな味わいに仕上げました。",
+      "source": "kyoto",
+      "added": "2024-12-16"
+    },
+    {
+      "id": "kyoto-yamorido-barleywine",
+      "name": "狐火 (Kitsunebi - Kyoto edition)",
+      "brewery": "Kyoto Brewing",
+      "style": "Barley Wine",
+      "abv": "11.5%",
+      "hops": [
+        "Tettnanger"
+      ],
+      "url": "https://kyotobrewing.com/products/yamorido-barleywine",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_a2d5ebfe-f5ff-4837-9d0f-8a528bb98318.png?width=400",
+      "description": "家守堂とのコラボはスモーキーな京番茶を使った芳醇なバーレーワイン 驚くほどのスモーキーさを持つことでされる京番茶を使ったバーレーワイン。麦芽由来のキャラメルやトフィーのような滋味深さに京番茶の香草やたき火を想わせる燻製香がマッチし、得も言われぬ味わい深さを感じさせます。苦みを抑えめにすることで、リッチな風味とドリンカビリティをゆっくり楽しめる仕上がりに。",
+      "source": "kyoto",
+      "added": "2024-12-14"
+    },
+    {
+      "id": "kyoto-yuzu-sour2",
+      "name": "爽快柑 (Citric Charge)",
+      "brewery": "Kyoto Brewing",
+      "style": "Sour Ale",
+      "abv": "6%",
+      "hops": [
+        "Citra"
+      ],
+      "url": "https://kyotobrewing.com/products/yuzu-sour2",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/2025_1400x1700_2edf0838-37f5-4539-9066-5b47e09cb68a.png?width=400",
+      "description": "塩と柑橘果物の相性の良さがキラリと光る爽快なフルーツサワー ドライなフィニッシュとほのかな酸味を楽しめるゴーゼスタイルの柑橘サワーエール",
+      "source": "kyoto",
+      "added": "2024-12-13"
+    },
+    {
+      "id": "kyoto-hojo-sour-ipa",
+      "name": "豊醸 赤ぶどうサワーIPA編 (HOJO - Sour Grape IPA edition)",
+      "brewery": "Kyoto Brewing",
+      "style": "Sour IPA",
+      "abv": "6.5%",
+      "hops": [
+        "Nelson Sauvin"
+      ],
+      "url": "https://kyotobrewing.com/products/hojo-sour-ipa",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/Sour_Grape_IPA_1400x1700_1a950d97-c863-4251-a79f-500e3b33bf01.png?width=400",
+      "description": "ネルソンのトロピカルな個性と赤ぶどうの果実味溢れるサワーIPA この赤ぶどうを使ったサワーIPAは、リッチなモルトの風味に、特殊な酵母が生むほどよい酸味、そして柑橘、パッションフルーツ、グアバのような魅力的なホップのアロマが加わり、華やかでありながらさっぱり爽やか、そして飲みごたえのある味わい。",
+      "source": "kyoto",
+      "added": "2024-12-07"
+    },
+    {
+      "id": "kyoto-minoh-kolsch",
+      "name": "狐猿兄弟 (Koen Kyodai - Kyoto edition)",
+      "brewery": "Kyoto Brewing",
+      "style": "Kolsch",
+      "abv": "5%",
+      "hops": [],
+      "url": "https://kyotobrewing.com/products/minoh-kolsch",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_b046fe04-95a0-4ded-81c1-a17933b99e49.png?width=400",
+      "description": "箕面ビールとのコラボは、国産白桃をふんだんに使ったほんのり酸味のあるケルシュ 蜂蜜やビスケットのような風味を感じられる麦芽ブレンドと、国産の桃をたっぷりと使用し、クリーンでキレのあるケルシュスタイルのエール。けっして甘すぎず、ほどよい果物の香りと味わいが特徴で、特殊な酵母が生む爽やかな酸味が心地よいフィニッシュを演出します。",
+      "source": "kyoto",
+      "added": "2024-11-30"
+    },
+    {
+      "id": "kyoto-nara-stout",
+      "name": "二都物語 (Dream of Two Cities - Kyoto edition)",
+      "brewery": "Kyoto Brewing",
+      "style": "Stout",
+      "abv": "8%",
+      "hops": [
+        "Willamette"
+      ],
+      "url": "https://kyotobrewing.com/products/nara-stout",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_1bb90b8c-bde1-4a91-86bd-21d808c1ac43.png?width=400",
+      "description": "気持ちをじんわりと満たす食後のデザートのような、コーヒーを使ったミルクスタウト チョコレートやトフィー、キャラメルのような香ばしくてクリーミーな甘みをまったりと楽しませるフルボディのスタウト",
+      "source": "kyoto",
+      "added": "2024-11-25"
+    },
+    {
+      "id": "kyoto-hojo-pale-ale",
+      "name": "豊醸 ベルジャンペールエール編 (HOJO - Belgian Pale Ale Edition)",
+      "brewery": "Kyoto Brewing",
+      "style": "Pale Ale",
+      "abv": "5%",
+      "hops": [
+        "Nelson Sauvin"
+      ],
+      "url": "https://kyotobrewing.com/products/hojo-pale-ale",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/BelgianPaleAle_1400x1700_e784fe9a-7cbe-4555-b5ab-b3c0790a935b.png?width=400",
+      "description": "ネルソンソーヴィンとベルジャン酵母の魅力を詰め込んだ豊かな味わいのペールエール 程よいボディ感とベルジャン酵母由来のフルーティーなエステル香、ネルソンソーヴィンホップの柑橘＋フローラルな個性を合わせた豊かな味わいのペールエール",
+      "source": "kyoto",
+      "added": "2024-11-23"
+    },
+    {
+      "id": "kyoto-rokkasen-lemon",
+      "name": "檸の果 (Nei no Ka)",
+      "brewery": "Kyoto Brewing",
+      "style": "IPA",
+      "abv": "7%",
+      "hops": [
+        "Amarillo",
+        "Idaho 7",
+        "Motueka"
+      ],
+      "url": "https://kyotobrewing.com/products/rokkasen-lemon",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_93966ae4-179c-438d-a6e4-f58378dd66f5.png?width=400",
+      "description": "フローラルなホップブレンドとレモンがこの上ないハーモニーで奏でる酸っぱ爽やかなIPA レモンの酸味と柑橘系ホップの香りとフレーバーが相乗効果を生み、軽やかでクリスプ、そして爽快なIPAになりました。",
+      "source": "kyoto",
+      "added": "2024-11-18"
+    },
+    {
+      "id": "kyoto-mexican-stout",
+      "name": "一昼夜 メキシカンコーヒースタウト編 (Itchuya - Mexican Coffee Stout edition)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [],
+      "url": "https://kyotobrewing.com/products/mexican-stout",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/COFFEESTOUT_1400x1700_3b9ab921-c347-481b-817c-62a72713f141.png?width=400",
+      "description": "メキシコの夜を表現したコーヒーとペッパーを使ったスパイシーなスタウト",
+      "source": "kyoto",
+      "added": "2024-11-09"
+    },
+    {
+      "id": "kyoto-shintenchi-rice",
+      "name": "新天地 ライスラガー編 (New Frontier - Rice Lager)",
+      "brewery": "Kyoto Brewing",
+      "style": "Lager",
+      "abv": "4%",
+      "hops": [
+        "Rakau"
+      ],
+      "url": "https://kyotobrewing.com/products/shintenchi-rice",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_27696502-3b05-4916-b7fd-52e48fbcb60c.png?width=400",
+      "description": "お米を使ったライトラガーに多彩なホップブレンドでツイストを加えた自信作 ノーススターピルスナーという麦芽は、甘いパンのような素晴らしい風味があり、これにフレーク状のお米を加えることで、ビール内のタンパク質量が低くなり、キレのあるクリスプでドライなフィニッシュをもたらしてくれます。ホップは、ポーランド、ドイツ、ニュージーランドのホップをブレンドして使用しており、一杯のビールの中の国際色は非常に豊かです。こうした伝統的なレシピにはないユニークな組み合わせにより、クリーンなラガーでありながらも、フローラルでフルーティー、わずかにトロピカルな風味と緑茶のような軽めの余韻が感じられる特別な味わいのビールに仕上がっています。",
+      "source": "kyoto",
+      "added": "2024-10-21"
+    },
+    {
+      "id": "kyoto-sharaku-porter",
+      "name": "洒落 インペリアルポーター編 (Sharaku Imperial Porter)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [
+        "Crystal",
+        "Fuggle"
+      ],
+      "url": "https://kyotobrewing.com/products/sharaku-porter",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/ENGLISHIMPERRIALPOTER_1400x1700_04cd5fbb-7fb7-45f4-bdb7-0095c7fcc442.png?width=400",
+      "description": "豊かなボディ感と飲みやすさのバランスが光る、ちびりちびりと楽しむ大人のイングリッシュポーター",
+      "source": "kyoto",
+      "added": "2024-09-24"
+    },
+    {
+      "id": "kyoto-tekika4",
+      "name": "てきか ふじりんご編 (Tekika - Fuji Apple Edition)",
+      "brewery": "Kyoto Brewing",
+      "style": "Sour Ale",
+      "abv": "7%",
+      "hops": [
+        "Motueka"
+      ],
+      "url": "https://kyotobrewing.com/products/tekika4",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/2024_1400x1700_c1ae3807-db1c-4703-8978-945fec767078.png?width=400",
+      "description": "ふじりんごと摘果りんご果汁をたっぷり使った爽快で瑞々しいサワーエール ふじりんごのさわやかな酸味と清涼感をつめこみ、ドライでクリスピーなシードルとビールの間を狙った味わいです。",
+      "source": "kyoto",
+      "added": "2024-09-22"
+    },
+    {
+      "id": "kyoto-shintenchi-festbier",
+      "name": "新天地 フェストビア編 (New Frontier - Festbier)",
+      "brewery": "Kyoto Brewing",
+      "style": "Festbier",
+      "abv": "5.5%",
+      "hops": [
+        "Saaz"
+      ],
+      "url": "https://kyotobrewing.com/products/shintenchi-festbier",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/2023_1400x1700_e17c552f-a7b1-46ee-8b9a-d6dfb496ef7c.png?width=400",
+      "description": "麦芽・酵母・ホップの絶妙なバランスがたまらない本場オクトーバーフェスの味を再現！ 本場南ドイツのメルツェン(Marzen)とフェストビアのちょうど間を狙った新天地は、モルトとホップのバランスが心地よく、延々と飲み続けられる設計。",
+      "source": "kyoto",
+      "added": "2024-09-02"
+    },
+    {
+      "id": "kyoto-yomigaeru-washi-bottle",
+      "name": "よみがえる鷲 (Return to Köln)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [
+        "Mandarina Bavaria",
+        "Hallertau Blanc"
+      ],
+      "url": "https://kyotobrewing.com/products/yomigaeru-washi-bottle",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/01_8334182e-fe7a-4d97-ba6b-4a5ddee7070d.png?width=400",
+      "description": "",
+      "source": "kyoto",
+      "added": "2020-10-01"
+    },
+    {
+      "id": "kyoto-ichi-bottle",
+      "name": "壱 (Ichi)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [
+        "Cascade",
+        "Simcoe",
+        "Citra",
+        "Sabro"
+      ],
+      "url": "https://kyotobrewing.com/products/ichi-bottle",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/01.png?width=400",
+      "description": "",
+      "source": "kyoto",
+      "added": "2020-09-29"
+    },
+    {
+      "id": "kyoto-aki-no-kimagure-2020-bottle",
+      "name": "秋の気まぐれ 2020 (Aki no Kimagure 2020)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [
+        "Columbus",
+        "Idaho 7",
+        "Centennial"
+      ],
+      "url": "https://kyotobrewing.com/products/aki-no-kimagure-2020-bottle",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/2020-1_b81c06ba-6690-4201-941d-273250f8c0a7.png?width=400",
+      "description": "",
+      "source": "kyoto",
+      "added": "2020-08-31"
+    },
+    {
+      "id": "kyoto-saidokaa-no-aibou",
+      "name": "側車の相棒 (Sidecar Companions)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [],
+      "url": "https://kyotobrewing.com/products/saidokaa-no-aibou",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/29301bc470e0efed7dc1ae13a56a220a.jpg?width=400",
+      "description": "",
+      "source": "kyoto",
+      "added": "2020-06-01"
+    },
+    {
+      "id": "kyoto-yuwakuno-kajitsu",
+      "name": "誘惑の果実 (Fruits of Temptation)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [],
+      "url": "https://kyotobrewing.com/products/yuwakuno-kajitsu",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/4bad72c714c40ad9a45fe6a2db7d9eb8.jpg?width=400",
+      "description": "",
+      "source": "kyoto",
+      "added": "2020-06-01"
+    },
+    {
+      "id": "kyoto-shunkashuto-spring-2020",
+      "name": "春夏秋冬 - 春 2020 (Shunkashuto - Spring 2020)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [],
+      "url": "https://kyotobrewing.com/products/shunkashuto-spring-2020",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/2020_c7c7d97a-4d86-4245-a35d-561569e1c533.jpg?width=400",
+      "description": "",
+      "source": "kyoto",
+      "added": "2020-06-01"
+    },
+    {
+      "id": "kyoto-bonds-of-friendship",
+      "name": "親友との絆 (Bonds of Friendship)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [
+        "Saaz"
+      ],
+      "url": "https://kyotobrewing.com/products/bonds-of-friendship",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/7041a6a5ca6f3cb2e00f58d0e85cf7a0.jpg?width=400",
+      "description": "",
+      "source": "kyoto",
+      "added": "2020-06-01"
+    },
+    {
+      "id": "kyoto-brett-farmers-table-brett",
+      "name": "一汁多彩 Brett (Farmer's Table Brett)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [
+        "Aramis"
+      ],
+      "url": "https://kyotobrewing.com/products/brett-farmers-table-brett",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/4d90dd1b95520538226261eb435ed740_476a15bd-3238-4f40-9577-a8d401c6c35a.jpg?width=400",
+      "description": "",
+      "source": "kyoto",
+      "added": "2020-06-01"
+    },
+    {
+      "id": "kyoto-shinyu-tono-kizuna-bottle",
+      "name": "親友との絆 (Bonds of Friendship)",
+      "brewery": "Kyoto Brewing",
+      "style": "",
+      "abv": "-",
+      "hops": [
+        "Saaz"
+      ],
+      "url": "https://kyotobrewing.com/products/shinyu-tono-kizuna-bottle",
+      "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/1_e30f3d03-51f3-4f6d-b05a-8dad2e824d11.png?width=400",
+      "description": "",
+      "source": "kyoto",
+      "added": "2020-04-29"
     }
   ]
 }
