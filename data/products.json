@@ -25507,7 +25507,9 @@
       "style": "グロジスキー",
       "abv": "4%",
       "hops": [
-        "Saaz"
+        "Saaz",
+        "Tettnanger",
+        "Lubelski"
       ],
       "url": "https://kyotobrewing.com/products/kobo_luke_nakama",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_0be4b25d-4ea1-46df-90b0-dddf1800086f.png?width=400",
@@ -25706,7 +25708,9 @@
       "brewery": "Kyoto Brewing",
       "style": "Sour Ale",
       "abv": "5.5%",
-      "hops": [],
+      "hops": [
+        "Polaris"
+      ],
       "url": "https://kyotobrewing.com/products/tama-no2",
       "image": "",
       "description": "巨峰と赤ぶどう果汁の瑞々しい甘みや香りが美味しいフルーツサワー",
@@ -25867,7 +25871,8 @@
       "style": "Double IPA",
       "abv": "8.5%",
       "hops": [
-        "Nelson Sauvin"
+        "Nelson Sauvin",
+        "Southern Cross (NZ Hops)"
       ],
       "url": "https://kyotobrewing.com/products/hojo-white-grape-ipa",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/ImperialIPAwithWhiteGrape_1400x1700_1.png?width=400",
@@ -25881,7 +25886,9 @@
       "brewery": "Kyoto Brewing",
       "style": "Saison",
       "abv": "8%",
-      "hops": [],
+      "hops": [
+        "Spalter"
+      ],
       "url": "https://kyotobrewing.com/products/kodo-wo-yuku-hofu",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/2024_1400x1700_7a7aa925-0750-4d20-adfc-4cbe27836d19.png?width=400",
       "description": "お米とエルダーフラワーを使った、甘やかでドライな二次発酵ストロングセゾン デュポン醸造所のBon Voeuxに着想を得た、ストロングセゾン。ライスフレークを使ったセゾンらしい淡い色味とドライな口当たり、そこに甘みを帯びたハーバルなエルダーフラワーを合わせ、味わいをぱっと華やか、それでいてドリンカブルな味わいに仕上げました。",
@@ -25940,7 +25947,10 @@
       "brewery": "Kyoto Brewing",
       "style": "Kolsch",
       "abv": "5%",
-      "hops": [],
+      "hops": [
+        "Tettnanger",
+        "Hallertauer Mittelfruher"
+      ],
       "url": "https://kyotobrewing.com/products/minoh-kolsch",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_b046fe04-95a0-4ded-81c1-a17933b99e49.png?width=400",
       "description": "箕面ビールとのコラボは、国産白桃をふんだんに使ったほんのり酸味のあるケルシュ 蜂蜜やビスケットのような風味を感じられる麦芽ブレンドと、国産の桃をたっぷりと使用し、クリーンでキレのあるケルシュスタイルのエール。けっして甘すぎず、ほどよい果物の香りと味わいが特徴で、特殊な酵母が生む爽やかな酸味が心地よいフィニッシュを演出します。",
@@ -26000,7 +26010,9 @@
       "brewery": "Kyoto Brewing",
       "style": "Mexican Coffee Stout",
       "abv": "6.5%",
-      "hops": [],
+      "hops": [
+        "Fuggle"
+      ],
       "url": "https://kyotobrewing.com/products/mexican-stout",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/COFFEESTOUT_1400x1700_3b9ab921-c347-481b-817c-62a72713f141.png?width=400",
       "description": "メキシコの夜を表現したコーヒーとペッパーを使ったスパイシーなスタウト",
@@ -26014,7 +26026,9 @@
       "style": "Lager",
       "abv": "4%",
       "hops": [
-        "Rakau"
+        "Rakau",
+        "Hallertauer Mittelfruher",
+        "Lubelski"
       ],
       "url": "https://kyotobrewing.com/products/shintenchi-rice",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_27696502-3b05-4916-b7fd-52e48fbcb60c.png?width=400",
@@ -26077,7 +26091,8 @@
       "abv": "5.5%",
       "hops": [
         "Mandarina Bavaria",
-        "Hallertau Blanc"
+        "Hallertau Blanc",
+        "Polaris"
       ],
       "url": "https://kyotobrewing.com/products/yomigaeru-washi-bottle",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/01_8334182e-fe7a-4d97-ba6b-4a5ddee7070d.png?width=400",
@@ -26095,7 +26110,8 @@
         "Cascade",
         "Simcoe",
         "Citra",
-        "Sabro"
+        "Sabro",
+        "Columbus"
       ],
       "url": "https://kyotobrewing.com/products/ichi-bottle",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/01.png?width=400",
@@ -26112,7 +26128,8 @@
       "hops": [
         "Columbus",
         "Idaho 7",
-        "Centennial"
+        "Centennial",
+        "Merkur"
       ],
       "url": "https://kyotobrewing.com/products/aki-no-kimagure-2020-bottle",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/2020-1_b81c06ba-6690-4201-941d-273250f8c0a7.png?width=400",
@@ -26126,7 +26143,9 @@
       "brewery": "Kyoto Brewing",
       "style": "Saison",
       "abv": "7.5%",
-      "hops": [],
+      "hops": [
+        "Merkur"
+      ],
       "url": "https://kyotobrewing.com/products/saidokaa-no-aibou",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/29301bc470e0efed7dc1ae13a56a220a.jpg?width=400",
       "description": "",
@@ -26139,7 +26158,9 @@
       "brewery": "Kyoto Brewing",
       "style": "Sour Ale",
       "abv": "6%",
-      "hops": [],
+      "hops": [
+        "East Kent Golding"
+      ],
       "url": "https://kyotobrewing.com/products/yuwakuno-kajitsu",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/4bad72c714c40ad9a45fe6a2db7d9eb8.jpg?width=400",
       "description": "",
@@ -26152,7 +26173,9 @@
       "brewery": "Kyoto Brewing",
       "style": "Saison",
       "abv": "6%",
-      "hops": [],
+      "hops": [
+        "Hallertauer Mittelfruher"
+      ],
       "url": "https://kyotobrewing.com/products/shunkashuto-spring-2020",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/2020_c7c7d97a-4d86-4245-a35d-561569e1c533.jpg?width=400",
       "description": "",
@@ -26166,7 +26189,8 @@
       "style": "Golden Ale",
       "abv": "6%",
       "hops": [
-        "Saaz"
+        "Saaz",
+        "Merkur"
       ],
       "url": "https://kyotobrewing.com/products/bonds-of-friendship",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/7041a6a5ca6f3cb2e00f58d0e85cf7a0.jpg?width=400",
@@ -26196,7 +26220,8 @@
       "style": "Belgian Ale",
       "abv": "6%",
       "hops": [
-        "Saaz"
+        "Saaz",
+        "Merkur"
       ],
       "url": "https://kyotobrewing.com/products/shinyu-tono-kizuna-bottle",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/1_e30f3d03-51f3-4f6d-b05a-8dad2e824d11.png?width=400",

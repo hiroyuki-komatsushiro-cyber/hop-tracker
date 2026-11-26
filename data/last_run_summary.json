@@ -2,662 +2,226 @@
   "date": "2026-11-26",
   "new_products": [],
   "recycled_handles": [],
-  "hops_needing_aroma_review": [
-    "Flex",
-    "Lubelski",
-    "None",
-    "Poralis",
-    "Souther Cross",
-    "Tenttnager",
-    "ビタリング - Aramis",
-    "ビタリング - Columbus",
-    "ビタリング - East Kent Goldings",
-    "ビタリング - Hallertau Mittelfruh",
-    "ビタリング - Merkur",
-    "ビタリング - Polaris"
-  ],
+  "hops_needing_aroma_review": [],
   "hops_from_description": [],
   "new_products_without_hops": [],
   "new_products_sold_out": [],
   "refreshed": [
     {
-      "id": "kyoto-anniversary-2024",
-      "name": "【周年記念】燦々九度 (Sansankudo)",
+      "id": "kyoto-kobo_luke_nakama",
+      "name": "【能登半島復興支援ビール】黙々人 (Mokumoku Jin)",
       "source": "kyoto",
       "changes": {
         "hops": [
           [
-            "Tettnanger"
+            "Saaz"
           ],
+          [
+            "Saaz",
+            "Tettnanger",
+            "Lubelski"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "kyoto-tama-no2",
+      "name": "玉　巨峰ブレンド (Tama - Kyoho Blend)",
+      "source": "kyoto",
+      "changes": {
+        "hops": [
+          [],
+          [
+            "Polaris"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "kyoto-hojo-white-grape-ipa",
+      "name": "豊醸 白ぶどうIPA編 (HOJO - White Grape IPA edition)",
+      "source": "kyoto",
+      "changes": {
+        "hops": [
+          [
+            "Nelson Sauvin"
+          ],
+          [
+            "Nelson Sauvin",
+            "Southern Cross (NZ Hops)"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "kyoto-kodo-wo-yuku-hofu",
+      "name": "古道をゆく 豊富 (Pilgrims Respite - Hofu)",
+      "source": "kyoto",
+      "changes": {
+        "hops": [
+          [],
+          [
+            "Spalter"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "kyoto-minoh-kolsch",
+      "name": "狐猿兄弟 (Koen Kyodai - Kyoto edition)",
+      "source": "kyoto",
+      "changes": {
+        "hops": [
+          [],
           [
             "Tettnanger",
-            "Aramis"
+            "Hallertauer Mittelfruher"
           ]
         ]
       }
     },
     {
-      "id": "kyoto-rahr-collab",
-      "name": "揚々喜々 (Positive Vibes)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "6%"
-        ],
-        "style": [
-          "",
-          "IPA"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-mari-double-ipa",
-      "name": "毬次郎 (Kyujiro)",
+      "id": "kyoto-mexican-stout",
+      "name": "一昼夜 メキシカンコーヒースタウト編 (Itchuya - Mexican Coffee Stout edition)",
       "source": "kyoto",
       "changes": {
         "hops": [
+          [],
           [
-            "Ekuanot",
-            "Riwaka"
-          ],
-          [
-            "Ekuanot",
-            "Riwaka",
-            "Polaris",
-            "Columbus",
-            "Talus",
-            "Strata"
+            "Fuggle"
           ]
         ]
       }
     },
     {
-      "id": "kyoto-ipa-liberator",
-      "name": "解放者 (Liberator)",
+      "id": "kyoto-shintenchi-rice",
+      "name": "新天地 ライスラガー編 (New Frontier - Rice Lager)",
       "source": "kyoto",
       "changes": {
         "hops": [
           [
-            "Vic Secret",
-            "Cascade",
-            "Motueka",
-            "Simcoe",
-            "Citra"
+            "Rakau"
           ],
           [
-            "Vic Secret",
+            "Rakau",
+            "Hallertauer Mittelfruher",
+            "Lubelski"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "kyoto-yomigaeru-washi-bottle",
+      "name": "よみがえる鷲 (Return to Köln)",
+      "source": "kyoto",
+      "changes": {
+        "hops": [
+          [
+            "Mandarina Bavaria",
+            "Hallertau Blanc"
+          ],
+          [
+            "Mandarina Bavaria",
+            "Hallertau Blanc",
+            "Polaris"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "kyoto-ichi-bottle",
+      "name": "壱 (Ichi)",
+      "source": "kyoto",
+      "changes": {
+        "hops": [
+          [
             "Cascade",
-            "Motueka",
             "Simcoe",
             "Citra",
+            "Sabro"
+          ],
+          [
+            "Cascade",
+            "Simcoe",
+            "Citra",
+            "Sabro",
             "Columbus"
           ]
         ]
       }
     },
     {
-      "id": "kyoto-shintenchi-bock",
-      "name": "新天地 ボック編 (New Frontier - Bock)",
+      "id": "kyoto-aki-no-kimagure-2020-bottle",
+      "name": "秋の気まぐれ 2020 (Aki no Kimagure 2020)",
+      "source": "kyoto",
+      "changes": {
+        "hops": [
+          [
+            "Columbus",
+            "Idaho 7",
+            "Centennial"
+          ],
+          [
+            "Columbus",
+            "Idaho 7",
+            "Centennial",
+            "Merkur"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "kyoto-saidokaa-no-aibou",
+      "name": "側車の相棒 (Sidecar Companions)",
       "source": "kyoto",
       "changes": {
         "hops": [
           [],
           [
-            "Polaris",
+            "Merkur"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "kyoto-yuwakuno-kajitsu",
+      "name": "誘惑の果実 (Fruits of Temptation)",
+      "source": "kyoto",
+      "changes": {
+        "hops": [
+          [],
+          [
+            "East Kent Golding"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "kyoto-shunkashuto-spring-2020",
+      "name": "春夏秋冬 - 春 2020 (Shunkashuto - Spring 2020)",
+      "source": "kyoto",
+      "changes": {
+        "hops": [
+          [],
+          [
             "Hallertauer Mittelfruher"
           ]
         ]
       }
     },
     {
-      "id": "kyoto-rokkasen-citrus",
-      "name": "柑の果 (Kan no Ka)",
+      "id": "kyoto-bonds-of-friendship",
+      "name": "親友との絆 (Bonds of Friendship)",
       "source": "kyoto",
       "changes": {
         "hops": [
           [
-            "Motueka",
-            "Riwaka",
-            "Citra",
-            "Nelson Sauvin"
-          ],
-          [
-            "Motueka",
-            "Riwaka",
-            "Citra",
-            "Nelson Sauvin",
-            "Cascade",
-            "Chinook"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-ipa-revolutionist",
-      "name": "革命家 (Revolutionist)",
-      "source": "kyoto",
-      "changes": {
-        "hops": [
-          [
-            "Citra",
-            "Ekuanot",
-            "Idaho 7",
-            "Citra Cryo",
-            "Simcoe",
-            "Simcoe Cryo"
-          ],
-          [
-            "Citra",
-            "Ekuanot",
-            "Idaho 7",
-            "Citra Cryo",
-            "Simcoe",
-            "Simcoe Cryo",
-            "Polaris",
-            "Mosaic"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-小毬-komari",
-      "name": "小毬 (Komari)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "4.5%"
-        ],
-        "style": [
-          "",
-          "Session IPA"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-2024-dragon",
-      "name": "上昇気竜 (Rising Dragon)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "6.5%"
-        ],
-        "style": [
-          "",
-          "Red IPA"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-kyoto-wit",
-      "name": "あらはれ (ARAWARE)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "5%"
-        ],
-        "style": [
-          "",
-          "Witbier"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-kyoto-blonde",
-      "name": "ゆらぎ (Yuragi)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "5.5%"
-        ],
-        "style": [
-          "",
-          "Blonde Ale"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-toppa-wheat-wine",
-      "name": "白魔術 (White Magic)",
-      "source": "kyoto",
-      "changes": {
-        "hops": [
-          [
-            "Mandarina Bavaria"
-          ],
-          [
-            "Mandarina Bavaria",
-            "Polaris",
-            "Aramis"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-wc_nakama_citra",
-      "name": "シトラの黄金比 (Citra's Golden Ratio)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "6%"
-        ],
-        "style": [
-          "",
-          "Hazy IPA"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-donburako-ipa",
-      "name": "ドンブラコ IPA (Donburako IPA)",
-      "source": "kyoto",
-      "changes": {
-        "hops": [
-          [
-            "Peacharine"
-          ],
-          [
-            "Peacharine",
-            "Southern Cross (NZ Hops)",
-            "Vic Secret"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-rokkasen-passion",
-      "name": "熱の果 (Netsu no Ka)",
-      "source": "kyoto",
-      "changes": {
-        "hops": [
-          [
-            "Cascade",
-            "Simcoe",
-            "Citra",
-            "Talus",
-            "Strata",
-            "Motueka"
-          ],
-          [
-            "Cascade",
-            "Simcoe",
-            "Citra",
-            "Talus",
-            "Strata",
-            "Motueka",
-            "Mosaic"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-ymarket-super-ipa",
-      "name": "自我事変 (Egotistic Dilemma)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "9%"
-        ],
-        "style": [
-          "",
-          "DDH Double IPA"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-motueka-tart-lime-ipa",
-      "name": "いろとりどりタートライムIPA編 (Irotoridori Tart Lime IPA edition)",
-      "source": "kyoto",
-      "changes": {
-        "hops": [
-          [
-            "Motueka"
-          ],
-          [
-            "Motueka",
-            "Riwaka",
-            "Southern Cross (NZ Hops)"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-zakkoku-itan",
-      "name": "異端派 (Heresy)",
-      "source": "kyoto",
-      "changes": {
-        "hops": [
-          [
-            "Willamette",
             "Saaz"
           ],
           [
-            "Willamette",
             "Saaz",
-            "Talus"
+            "Merkur"
           ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-mosaic-shin",
-      "name": "真行草の真 (Shingyoso-SHIN)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "8%"
-        ],
-        "style": [
-          "",
-          "Mosaic West Coast Imperial IPA"
-        ],
-        "hops": [
-          [
-            "Mosaic"
-          ],
-          [
-            "Mosaic",
-            "Citra"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-sharaku-bitter",
-      "name": "洒落 イングリッシュビター編 (Sharaku English Bitter)",
-      "source": "kyoto",
-      "changes": {
-        "hops": [
-          [
-            "Fuggle"
-          ],
-          [
-            "Fuggle",
-            "East Kent Golding"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-tama-no2",
-      "name": "玉　巨峰ブレンド (Tama - Kyoho Blend)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "5.5%"
-        ],
-        "style": [
-          "",
-          "Sour Ale"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-mosaic-sou",
-      "name": "真行草の草 (Shingyoso-SOU)",
-      "source": "kyoto",
-      "changes": {
-        "hops": [
-          [
-            "Mosaic"
-          ],
-          [
-            "Mosaic",
-            "Southern Cross (NZ Hops)",
-            "Motueka"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-freestyle-momo",
-      "name": "もものふ (MOMONOFU)",
-      "source": "kyoto",
-      "changes": {
-        "hops": [
-          [
-            "Peacharine"
-          ],
-          [
-            "Peacharine",
-            "Waimea",
-            "Cascade"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-goketsu-terps",
-      "name": "豪傑 超タープス編 (Goketsu - Mega Terps)",
-      "source": "kyoto",
-      "changes": {
-        "hops": [
-          [
-            "Simcoe",
-            "Citra"
-          ],
-          [
-            "Simcoe",
-            "Citra",
-            "Amarillo"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-matchan-bitter",
-      "name": "〼〼ハ〇 (Masu Masu Hamaru)",
-      "source": "kyoto",
-      "changes": {
-        "hops": [
-          [
-            "Fuggle"
-          ],
-          [
-            "Fuggle",
-            "East Kent Golding"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-goketsu-motueka",
-      "name": "豪傑 超モチュエカ編 (Goketsu - Mega Motueka)",
-      "source": "kyoto",
-      "changes": {
-        "hops": [
-          [
-            "Motueka"
-          ],
-          [
-            "Motueka",
-            "Southern Cross (NZ Hops)"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-hojo-sour-ipa",
-      "name": "豊醸 赤ぶどうサワーIPA編 (HOJO - Sour Grape IPA edition)",
-      "source": "kyoto",
-      "changes": {
-        "hops": [
-          [
-            "Nelson Sauvin"
-          ],
-          [
-            "Nelson Sauvin",
-            "Kohia Nelson"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-mexican-stout",
-      "name": "一昼夜 メキシカンコーヒースタウト編 (Itchuya - Mexican Coffee Stout edition)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "6.5%"
-        ],
-        "style": [
-          "",
-          "Mexican Coffee Stout"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-sharaku-porter",
-      "name": "洒落 インペリアルポーター編 (Sharaku Imperial Porter)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "8.5%"
-        ],
-        "style": [
-          "",
-          "Porter"
-        ],
-        "hops": [
-          [
-            "Crystal",
-            "Fuggle"
-          ],
-          [
-            "Crystal",
-            "Fuggle",
-            "Hallertauer Mittelfruher"
-          ]
-        ]
-      }
-    },
-    {
-      "id": "kyoto-yomigaeru-washi-bottle",
-      "name": "よみがえる鷲 (Return to Köln)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "5.5%"
-        ],
-        "style": [
-          "",
-          "Kolsch"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-ichi-bottle",
-      "name": "壱 (Ichi)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "6.5%"
-        ],
-        "style": [
-          "",
-          "IPA"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-aki-no-kimagure-2020-bottle",
-      "name": "秋の気まぐれ 2020 (Aki no Kimagure 2020)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "6.5%"
-        ],
-        "style": [
-          "",
-          "Red IPA"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-saidokaa-no-aibou",
-      "name": "側車の相棒 (Sidecar Companions)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "7.5%"
-        ],
-        "style": [
-          "",
-          "Saison"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-yuwakuno-kajitsu",
-      "name": "誘惑の果実 (Fruits of Temptation)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "6%"
-        ],
-        "style": [
-          "",
-          "Sour Ale"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-shunkashuto-spring-2020",
-      "name": "春夏秋冬 - 春 2020 (Shunkashuto - Spring 2020)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "6%"
-        ],
-        "style": [
-          "",
-          "Saison"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-bonds-of-friendship",
-      "name": "親友との絆 (Bonds of Friendship)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "6%"
-        ],
-        "style": [
-          "",
-          "Golden Ale"
-        ]
-      }
-    },
-    {
-      "id": "kyoto-brett-farmers-table-brett",
-      "name": "一汁多彩 Brett (Farmer's Table Brett)",
-      "source": "kyoto",
-      "changes": {
-        "abv": [
-          "-",
-          "3.5%"
-        ],
-        "style": [
-          "",
-          "Saison"
         ]
       }
     },
@@ -666,179 +230,19 @@
       "name": "親友との絆 (Bonds of Friendship)",
       "source": "kyoto",
       "changes": {
-        "abv": [
-          "-",
-          "6%"
-        ],
-        "style": [
-          "",
-          "Belgian Ale"
+        "hops": [
+          [
+            "Saaz"
+          ],
+          [
+            "Saaz",
+            "Merkur"
+          ]
         ]
       }
     }
   ],
-  "refresh_review": [
-    {
-      "id": "kyoto-nashi-sour-1",
-      "name": "月満る (Moonlight)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['None'](保存=[]、サイト=['None'])"
-      ]
-    },
-    {
-      "id": "kyoto-kobo_luke_nakama",
-      "name": "【能登半島復興支援ビール】黙々人 (Mokumoku Jin)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['Lubelski'](保存=['Saaz']、サイト=['Tettnanger', 'Saaz', 'Lubelski'])"
-      ]
-    },
-    {
-      "id": "kyoto-tama-no2",
-      "name": "玉　巨峰ブレンド (Tama - Kyoho Blend)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['Poralis'](保存=[]、サイト=['Poralis'])"
-      ]
-    },
-    {
-      "id": "kyoto-hojo-white-grape-ipa",
-      "name": "豊醸 白ぶどうIPA編 (HOJO - White Grape IPA edition)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['Flex', 'Souther Cross'](保存=['Nelson Sauvin']、サイト=['Flex', 'Nelson Sauvin', 'Souther Cross'])"
-      ]
-    },
-    {
-      "id": "kyoto-kodo-wo-yuku-hofu",
-      "name": "古道をゆく 豊富 (Pilgrims Respite - Hofu)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['Flex'](保存=[]、サイト=['Flex', 'Spalter'])"
-      ]
-    },
-    {
-      "id": "kyoto-yuzu-sour2",
-      "name": "爽快柑 (Citric Charge)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['Flex'](保存=['Citra']、サイト=['Citra', 'Flex'])"
-      ]
-    },
-    {
-      "id": "kyoto-minoh-kolsch",
-      "name": "狐猿兄弟 (Koen Kyodai - Kyoto edition)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['Flex', 'Tenttnager'](保存=[]、サイト=['Flex', 'Tenttnager', 'Hallertauer Mittelfruher'])"
-      ]
-    },
-    {
-      "id": "kyoto-nara-stout",
-      "name": "二都物語 (Dream of Two Cities - Kyoto edition)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['Flex'](保存=['Willamette']、サイト=['Flex', 'Willamette'])"
-      ]
-    },
-    {
-      "id": "kyoto-mexican-stout",
-      "name": "一昼夜 メキシカンコーヒースタウト編 (Itchuya - Mexican Coffee Stout edition)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['Flex'](保存=[]、サイト=['Flex', 'Fuggle'])"
-      ]
-    },
-    {
-      "id": "kyoto-shintenchi-rice",
-      "name": "新天地 ライスラガー編 (New Frontier - Rice Lager)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['Lubelski'](保存=['Rakau']、サイト=['Hallertauer Mittelfruher', 'Lubelski', 'Rakau'])"
-      ]
-    },
-    {
-      "id": "kyoto-shintenchi-festbier",
-      "name": "新天地 フェストビア編 (New Frontier - Festbier)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['Flex'](保存=['Saaz']、サイト=['Flex', 'Saaz'])"
-      ]
-    },
-    {
-      "id": "kyoto-yomigaeru-washi-bottle",
-      "name": "よみがえる鷲 (Return to Köln)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['ビタリング - Polaris'](保存=['Mandarina Bavaria', 'Hallertau Blanc']、サイト=['ビタリング - Polaris'])"
-      ]
-    },
-    {
-      "id": "kyoto-ichi-bottle",
-      "name": "壱 (Ichi)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['ビタリング - Columbus'](保存=['Cascade', 'Simcoe', 'Citra', 'Sabro']、サイト=['ビタリング - Columbus'])"
-      ]
-    },
-    {
-      "id": "kyoto-aki-no-kimagure-2020-bottle",
-      "name": "秋の気まぐれ 2020 (Aki no Kimagure 2020)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['ビタリング - Merkur'](保存=['Columbus', 'Idaho 7', 'Centennial']、サイト=['ビタリング - Merkur'])"
-      ]
-    },
-    {
-      "id": "kyoto-saidokaa-no-aibou",
-      "name": "側車の相棒 (Sidecar Companions)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['ビタリング - Merkur'](保存=[]、サイト=['ビタリング - Merkur'])"
-      ]
-    },
-    {
-      "id": "kyoto-yuwakuno-kajitsu",
-      "name": "誘惑の果実 (Fruits of Temptation)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['ビタリング - East Kent Goldings'](保存=[]、サイト=['ビタリング - East Kent Goldings'])"
-      ]
-    },
-    {
-      "id": "kyoto-shunkashuto-spring-2020",
-      "name": "春夏秋冬 - 春 2020 (Shunkashuto - Spring 2020)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['ビタリング - Hallertau Mittelfruh'](保存=[]、サイト=['ビタリング - Hallertau Mittelfruh'])"
-      ]
-    },
-    {
-      "id": "kyoto-bonds-of-friendship",
-      "name": "親友との絆 (Bonds of Friendship)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['ビタリング - Merkur'](保存=['Saaz']、サイト=['ビタリング - Merkur'])"
-      ]
-    },
-    {
-      "id": "kyoto-brett-farmers-table-brett",
-      "name": "一汁多彩 Brett (Farmer's Table Brett)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['ビタリング - Aramis'](保存=['Aramis']、サイト=['ビタリング - Aramis'])"
-      ]
-    },
-    {
-      "id": "kyoto-shinyu-tono-kizuna-bottle",
-      "name": "親友との絆 (Bonds of Friendship)",
-      "source": "kyoto",
-      "reasons": [
-        "サイトの記載に未知の名前 ['ビタリング - Merkur'](保存=['Saaz']、サイト=['ビタリング - Merkur'])"
-      ]
-    }
-  ],
+  "refresh_review": [],
   "refresh_errors": {},
   "parse_errors": [],
   "page_fetch_failed": [],
@@ -866,7 +270,7 @@
     "kyoto": {
       "status": "ok",
       "added": 0,
-      "refreshed": 38
+      "refreshed": 15
     }
   },
   "source_errors": {}
