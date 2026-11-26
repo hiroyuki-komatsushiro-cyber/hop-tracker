@@ -124,7 +124,10 @@ for text, want in (("6.5%", "6.5%"), ("6.5％", "6.5%"), ("9.0", "9%"), ("７．
 for raw, want in (("Hallertau mittfruh", ["Hallertauer Mittelfruher"]), ("Hallertau Mittlefruh, Audacia", ["Hallertauer Mittelfruher", "Audacia"]),
                   ("Styrian Goldings, Aurum, McKenzie", ["Savinjski Golding", "Aurum", "McKenzie"]), ("Mckenzie", ["McKenzie"]),
                   ("Nelson Sauvin Hop Keif", ["Nelson Sauvin Kief"]), ("Madarina Bravaria", ["Mandarina Bavaria"]),
-                  ("Krush HyperBoost, Strata HyperBoost", ["Krush HyperBoost", "Strata HyperBoost"]), ("Willamette", ["Willamette"])):
+                  ("Krush HyperBoost, Strata HyperBoost", ["Krush HyperBoost", "Strata HyperBoost"]), ("Willamette", ["Willamette"]),
+                  ("ビタリング - Merkur", ["Merkur"]), ("ビタリング - East Kent Goldings", ["East Kent Golding"]),
+                  ("Flex, Saaz", ["Saaz"]), ("None", []), ("Poralis", ["Polaris"]), ("Souther Cross", ["Southern Cross (NZ Hops)"]),
+                  ("Tenttnager, Lubelski", ["Tettnanger", "Lubelski"]), ("Hallertauer Merkur", ["Merkur"])):
     check(f"hops {raw!r}", up.wcb_hops(raw), want)
 
 # ---- 追加後の分類(画面の絞り込み)まで通ること ----

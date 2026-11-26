@@ -235,6 +235,11 @@ HOP_NAME_FIXES = {
     "Hallertauer Mittelfruh": "Hallertauer Mittelfruher",
     "Nelson Sauvin Hop Keif": "Nelson Sauvin Kief",  # Kiefの綴りミス
     "Madarina Bravaria": "Mandarina Bavaria",
+    # 京都醸造の古い商品のホップ欄(2026-11-26): 綴りミス・品種でない記載
+    "Poralis": "Polaris", "Souther Cross": "Southern Cross (NZ Hops)", "Tenttnager": "Tettnanger",
+    "Hallertauer Merkur": "Merkur",  # Hopsteiner社の表記
+    "None": "",  # 「ホップ: None」=記載なし
+    "Flex": "",  # クリーンな苦味づけに使うホップエキス(製品名。香りはほぼ付かない)で、品種ではない
     "Modern Times Idea Machine": "",  # 別のビール(ブレンド用)の名前で、ホップではない
 }
 
@@ -1102,6 +1107,7 @@ def wcb_clean_token(tok: str) -> str:
     """「w/」行の1語 -> 正規化したホップ名(ホップでない注記は空文字)。供給元・ロットの修飾は外し、加工品の表記を揃える。"""
     t = re.sub(r"\s+", " ", tok).strip(" .　")
     t = re.sub(r"^w\s*/\s*", "", t, flags=re.I)
+    t = re.sub(r"^(?:ビタリング|アロマ|フレーバー|ドライホップ)\s*[-－ー:：]\s*", "", t)  # 京都醸造の「ビタリング - Merkur」(苦味づけのホップ)
     m = WCB_FORM_PAREN_RE.match(t)
     if m:  # 「Quantum(El Dorado)」= El Dorado Quantum
         t = f"{m.group(2).strip()} {m.group(1)}"
