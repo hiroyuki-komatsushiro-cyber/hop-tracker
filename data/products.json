@@ -24900,7 +24900,8 @@
       "style": "Belgian Strong Ale",
       "abv": "9%",
       "hops": [
-        "Tettnanger"
+        "Tettnanger",
+        "Aramis"
       ],
       "url": "https://kyotobrewing.com/products/anniversary-2024",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_7957799c-cb25-4afd-bee4-7009ab4998ed.png?width=400",
@@ -25199,8 +25200,8 @@
       "id": "kyoto-rahr-collab",
       "name": "揚々喜々 (Positive Vibes)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "IPA",
+      "abv": "6%",
       "hops": [
         "Simcoe"
       ],
@@ -25276,7 +25277,11 @@
       "abv": "8%",
       "hops": [
         "Ekuanot",
-        "Riwaka"
+        "Riwaka",
+        "Polaris",
+        "Columbus",
+        "Talus",
+        "Strata"
       ],
       "url": "https://kyotobrewing.com/products/mari-double-ipa",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_5ef74c2e-2ab0-418e-8d80-dc45fcfb647c.png?width=400",
@@ -25295,7 +25300,8 @@
         "Cascade",
         "Motueka",
         "Simcoe",
-        "Citra"
+        "Citra",
+        "Columbus"
       ],
       "url": "https://kyotobrewing.com/products/ipa-liberator",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_68877c5f-5fb8-473c-a822-65bcff7b0739.png?width=400",
@@ -25309,7 +25315,10 @@
       "brewery": "Kyoto Brewing",
       "style": "Bock",
       "abv": "7%",
-      "hops": [],
+      "hops": [
+        "Polaris",
+        "Hallertauer Mittelfruher"
+      ],
       "url": "https://kyotobrewing.com/products/shintenchi-bock",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_1_371525e4-fa42-4334-b2ee-e2c8e81e107c.png?width=400",
       "description": "ロースト麦芽のまろやかで深みを感じさせる味わいが秋冬にぴったりのダークラガー 麦芽の豊かな味わいはもちろん、味わいのバランスがとれたフィニッシュを楽しめるラガーです。パリっとドライな印象で麦芽の甘みが出過ぎないようにしながらも、そのフレーバーを最大限に活かすのもラガー酵母の働き。アクセントとなるチョコレート麦芽が麦芽ブレンド全体をまとめ上げ、まろやかで深みを感じさせる味わいに仕上げています。",
@@ -25326,7 +25335,9 @@
         "Motueka",
         "Riwaka",
         "Citra",
-        "Nelson Sauvin"
+        "Nelson Sauvin",
+        "Cascade",
+        "Chinook"
       ],
       "url": "https://kyotobrewing.com/products/rokkasen-citrus",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/2_1400x1700_1.png?width=400",
@@ -25346,7 +25357,9 @@
         "Idaho 7",
         "Citra Cryo",
         "Simcoe",
-        "Simcoe Cryo"
+        "Simcoe Cryo",
+        "Polaris",
+        "Mosaic"
       ],
       "url": "https://kyotobrewing.com/products/ipa-revolutionist",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_b5e38e6e-49f6-4a68-ba2a-2569ff05d385.png?width=400",
@@ -25358,8 +25371,8 @@
       "id": "kyoto-小毬-komari",
       "name": "小毬 (Komari)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Session IPA",
+      "abv": "4.5%",
       "hops": [
         "Ekuanot",
         "Polaris",
@@ -25389,8 +25402,8 @@
       "id": "kyoto-2024-dragon",
       "name": "上昇気竜 (Rising Dragon)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Red IPA",
+      "abv": "6.5%",
       "hops": [
         "Crystal",
         "Columbus",
@@ -25412,8 +25425,8 @@
       "id": "kyoto-kyoto-wit",
       "name": "あらはれ (ARAWARE)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Witbier",
+      "abv": "5%",
       "hops": [
         "Polaris",
         "Aramis"
@@ -25428,8 +25441,8 @@
       "id": "kyoto-kyoto-blonde",
       "name": "ゆらぎ (Yuragi)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Blonde Ale",
+      "abv": "5.5%",
       "hops": [
         "Crystal",
         "Polaris"
@@ -25447,7 +25460,9 @@
       "style": "ウィートワイン",
       "abv": "11%",
       "hops": [
-        "Mandarina Bavaria"
+        "Mandarina Bavaria",
+        "Polaris",
+        "Aramis"
       ],
       "url": "https://kyotobrewing.com/products/toppa-wheat-wine",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_20dbb15d-12b7-4217-b87c-2c7fe614d3fc.png?width=400",
@@ -25474,8 +25489,8 @@
       "id": "kyoto-wc_nakama_citra",
       "name": "シトラの黄金比 (Citra's Golden Ratio)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Hazy IPA",
+      "abv": "6%",
       "hops": [
         "Citra"
       ],
@@ -25507,7 +25522,9 @@
       "style": "Hazy IPA",
       "abv": "7%",
       "hops": [
-        "Peacharine"
+        "Peacharine",
+        "Southern Cross (NZ Hops)",
+        "Vic Secret"
       ],
       "url": "https://kyotobrewing.com/products/donburako-ipa",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/IPA_1400x1700_5954638d-fdf1-49da-a805-aebad31b9a99.png?width=400",
@@ -25544,7 +25561,8 @@
         "Citra",
         "Talus",
         "Strata",
-        "Motueka"
+        "Motueka",
+        "Mosaic"
       ],
       "url": "https://kyotobrewing.com/products/rokkasen-passion",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_6e2d1dba-e4ec-49e9-8cc8-c3af452d105c.png?width=400",
@@ -25571,8 +25589,8 @@
       "id": "kyoto-ymarket-super-ipa",
       "name": "自我事変 (Egotistic Dilemma)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "DDH Double IPA",
+      "abv": "9%",
       "hops": [
         "Nelson Sauvin",
         "Amarillo",
@@ -25592,7 +25610,9 @@
       "style": "IPA",
       "abv": "6.5%",
       "hops": [
-        "Motueka"
+        "Motueka",
+        "Riwaka",
+        "Southern Cross (NZ Hops)"
       ],
       "url": "https://kyotobrewing.com/products/motueka-tart-lime-ipa",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/13.png?width=400",
@@ -25623,7 +25643,8 @@
       "abv": "7.5%",
       "hops": [
         "Willamette",
-        "Saaz"
+        "Saaz",
+        "Talus"
       ],
       "url": "https://kyotobrewing.com/products/zakkoku-itan",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/350ml_can___1400x1700_97c9e18c-8850-4ed2-8838-e39400b31d22.png?width=400",
@@ -25651,10 +25672,11 @@
       "id": "kyoto-mosaic-shin",
       "name": "真行草の真 (Shingyoso-SHIN)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Mosaic West Coast Imperial IPA",
+      "abv": "8%",
       "hops": [
-        "Mosaic"
+        "Mosaic",
+        "Citra"
       ],
       "url": "https://kyotobrewing.com/products/mosaic-shin",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_6ac626dc-83ad-472c-8a8f-360eea0ba8de.png?width=400",
@@ -25669,7 +25691,8 @@
       "style": "English Bitter",
       "abv": "4.5%",
       "hops": [
-        "Fuggle"
+        "Fuggle",
+        "East Kent Golding"
       ],
       "url": "https://kyotobrewing.com/products/sharaku-bitter",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/ENGLISH_BITTER_1400x1700_61c4cb28-4777-40ec-8d61-b985e4262ec2.png?width=400",
@@ -25681,8 +25704,8 @@
       "id": "kyoto-tama-no2",
       "name": "玉　巨峰ブレンド (Tama - Kyoho Blend)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Sour Ale",
+      "abv": "5.5%",
       "hops": [],
       "url": "https://kyotobrewing.com/products/tama-no2",
       "image": "",
@@ -25697,7 +25720,9 @@
       "style": "Mosaic DDH Imperial White IPA",
       "abv": "8%",
       "hops": [
-        "Mosaic"
+        "Mosaic",
+        "Southern Cross (NZ Hops)",
+        "Motueka"
       ],
       "url": "https://kyotobrewing.com/products/mosaic-sou",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_1_bf0e5275-2219-4793-a6e8-bf032a55fe3b.png?width=400",
@@ -25712,7 +25737,9 @@
       "style": "Pale Ale",
       "abv": "5%",
       "hops": [
-        "Peacharine"
+        "Peacharine",
+        "Waimea",
+        "Cascade"
       ],
       "url": "https://kyotobrewing.com/products/freestyle-momo",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_5db5dac3-84f2-4c98-a13e-d56bf86dc794.png?width=400",
@@ -25744,7 +25771,8 @@
       "abv": "8%",
       "hops": [
         "Simcoe",
-        "Citra"
+        "Citra",
+        "Amarillo"
       ],
       "url": "https://kyotobrewing.com/products/goketsu-terps",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_9fb44c7f-67b4-42b6-8078-3d3d6a310e2f.png?width=400",
@@ -25807,7 +25835,8 @@
       "style": "ESB",
       "abv": "5%",
       "hops": [
-        "Fuggle"
+        "Fuggle",
+        "East Kent Golding"
       ],
       "url": "https://kyotobrewing.com/products/matchan-bitter",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_b4c70642-abf6-443e-8935-23fc4cd959cb.png?width=400",
@@ -25822,7 +25851,8 @@
       "style": "Triple Dry Hop IPA",
       "abv": "7%",
       "hops": [
-        "Motueka"
+        "Motueka",
+        "Southern Cross (NZ Hops)"
       ],
       "url": "https://kyotobrewing.com/products/goketsu-motueka",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/1400x1700_bc88b5c4-6bb9-4feb-b7ea-d7b0c7270623.png?width=400",
@@ -25895,7 +25925,8 @@
       "style": "Sour IPA",
       "abv": "6.5%",
       "hops": [
-        "Nelson Sauvin"
+        "Nelson Sauvin",
+        "Kohia Nelson"
       ],
       "url": "https://kyotobrewing.com/products/hojo-sour-ipa",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/Sour_Grape_IPA_1400x1700_1a950d97-c863-4251-a79f-500e3b33bf01.png?width=400",
@@ -25967,8 +25998,8 @@
       "id": "kyoto-mexican-stout",
       "name": "一昼夜 メキシカンコーヒースタウト編 (Itchuya - Mexican Coffee Stout edition)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Mexican Coffee Stout",
+      "abv": "6.5%",
       "hops": [],
       "url": "https://kyotobrewing.com/products/mexican-stout",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/COFFEESTOUT_1400x1700_3b9ab921-c347-481b-817c-62a72713f141.png?width=400",
@@ -25995,11 +26026,12 @@
       "id": "kyoto-sharaku-porter",
       "name": "洒落 インペリアルポーター編 (Sharaku Imperial Porter)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Porter",
+      "abv": "8.5%",
       "hops": [
         "Crystal",
-        "Fuggle"
+        "Fuggle",
+        "Hallertauer Mittelfruher"
       ],
       "url": "https://kyotobrewing.com/products/sharaku-porter",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/files/ENGLISHIMPERRIALPOTER_1400x1700_04cd5fbb-7fb7-45f4-bdb7-0095c7fcc442.png?width=400",
@@ -26041,8 +26073,8 @@
       "id": "kyoto-yomigaeru-washi-bottle",
       "name": "よみがえる鷲 (Return to Köln)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Kolsch",
+      "abv": "5.5%",
       "hops": [
         "Mandarina Bavaria",
         "Hallertau Blanc"
@@ -26057,8 +26089,8 @@
       "id": "kyoto-ichi-bottle",
       "name": "壱 (Ichi)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "IPA",
+      "abv": "6.5%",
       "hops": [
         "Cascade",
         "Simcoe",
@@ -26075,8 +26107,8 @@
       "id": "kyoto-aki-no-kimagure-2020-bottle",
       "name": "秋の気まぐれ 2020 (Aki no Kimagure 2020)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Red IPA",
+      "abv": "6.5%",
       "hops": [
         "Columbus",
         "Idaho 7",
@@ -26092,8 +26124,8 @@
       "id": "kyoto-saidokaa-no-aibou",
       "name": "側車の相棒 (Sidecar Companions)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Saison",
+      "abv": "7.5%",
       "hops": [],
       "url": "https://kyotobrewing.com/products/saidokaa-no-aibou",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/29301bc470e0efed7dc1ae13a56a220a.jpg?width=400",
@@ -26105,8 +26137,8 @@
       "id": "kyoto-yuwakuno-kajitsu",
       "name": "誘惑の果実 (Fruits of Temptation)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Sour Ale",
+      "abv": "6%",
       "hops": [],
       "url": "https://kyotobrewing.com/products/yuwakuno-kajitsu",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/4bad72c714c40ad9a45fe6a2db7d9eb8.jpg?width=400",
@@ -26118,8 +26150,8 @@
       "id": "kyoto-shunkashuto-spring-2020",
       "name": "春夏秋冬 - 春 2020 (Shunkashuto - Spring 2020)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Saison",
+      "abv": "6%",
       "hops": [],
       "url": "https://kyotobrewing.com/products/shunkashuto-spring-2020",
       "image": "https://cdn.shopify.com/s/files/1/0259/1080/4560/products/2020_c7c7d97a-4d86-4245-a35d-561569e1c533.jpg?width=400",
@@ -26131,8 +26163,8 @@
       "id": "kyoto-bonds-of-friendship",
       "name": "親友との絆 (Bonds of Friendship)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Golden Ale",
+      "abv": "6%",
       "hops": [
         "Saaz"
       ],
@@ -26146,8 +26178,8 @@
       "id": "kyoto-brett-farmers-table-brett",
       "name": "一汁多彩 Brett (Farmer's Table Brett)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Saison",
+      "abv": "3.5%",
       "hops": [
         "Aramis"
       ],
@@ -26161,8 +26193,8 @@
       "id": "kyoto-shinyu-tono-kizuna-bottle",
       "name": "親友との絆 (Bonds of Friendship)",
       "brewery": "Kyoto Brewing",
-      "style": "",
-      "abv": "-",
+      "style": "Belgian Ale",
+      "abv": "6%",
       "hops": [
         "Saaz"
       ],
