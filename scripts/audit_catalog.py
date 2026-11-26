@@ -58,6 +58,8 @@ KNOWN_UNRESOLVED_HOPS |= {"NZ04", "ID158", "7270", "USDA074", "Special X", "Jack
 # HBC 342/USDA 008/Pelre=実験品種・誤記の可能性があり香りの出典が乏しい
 KNOWN_UNRESOLVED_HOPS |= {"Kohia Nelson", "Nelson Terpene", "Maui Nelson Kief", "Tropical Fusion",
                           "HBC 342", "Usda 008", "Pelre"}
+# (2026-11-26) 京都醸造のホップ欄に出る、出典が見つからない名前(X-14は試験コードらしい。Mega Terps/Mega Motuekaは製品名のようだが詳細不明)
+KNOWN_UNRESOLVED_HOPS |= {"X-14", "Mega Terps", "Mega Motueka"}
 
 
 # 「同一商品か」の判定ロジックは週次スクリプトと共通なので、update_products.pyの定義を使う

@@ -40,6 +40,7 @@ import sys
 import time
 from datetime import date, timedelta
 from pathlib import Path
+from urllib.parse import quote
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
@@ -85,6 +86,9 @@ WP_MODIFIED_DAYS = int(os.environ.get("HOP_WP_MODIFIED_DAYS") or 14)
 # 1回の実行で更新してよい登録済み商品の数。これを超えるのは「サイトの構造が変わって解析結果が全体にずれた」ときなので、
 # 超えた分は適用せず確認(refresh_review)へ回す。大規模な一括補充は HOP_MAX_REFRESH=100 のように広げて1回だけ実行する
 MAX_REFRESH_PER_RUN = int(os.environ.get("HOP_MAX_REFRESH") or 60)
+# 商品ページに仕様がある収集元(京都醸造)で、度数・スタイル・ホップのどれかが空の登録済み商品について、商品ページを読み直す最大数/回。
+# ページ側が後から埋まる商品を拾うため(上限があるので、ずっと空のままの商品が毎週少数のアクセスになるだけ)
+PAGE_REFRESH_MAX = int(os.environ.get("HOP_PAGE_REFRESH_MAX") or 40)
 
 # 既知のブリュワリー名の表記ゆれ正規化(README_MIGRATION.md「更新ルール」より)。
 # キーは小文字・空白除去したゆれ表記、値はデータセットで使う正式表記。
@@ -225,6 +229,12 @@ HOP_NAME_FIXES = {
     "TRI2304CR": "Cryo Pop",  # Yakima Chiefの試験ブレンド名。2021年にCryo Pop Original Blendとして発売
     "Nelson Kief": "Nelson Sauvin Kief",  # 同じ行群の「Nelson Sauvin Hop Kief」の略記
     "Nelson Sauv": "Nelson Sauvin",  # 京都醸造の「Nelson Sauv T-45」(T-45はペレットの種類。2026-11-26)
+    # 京都醸造のホップ欄の綴りゆれ(2026-11-26)
+    "Styrian Goldings": "Savinjski Golding",  # "Styrian Golding"と同じ扱い(スロベニア産Golding)
+    "Hallertau mittfruh": "Hallertauer Mittelfruher", "Hallertau Mittlefruh": "Hallertauer Mittelfruher",
+    "Hallertauer Mittelfruh": "Hallertauer Mittelfruher",
+    "Nelson Sauvin Hop Keif": "Nelson Sauvin Kief",  # Kiefの綴りミス
+    "Madarina Bravaria": "Mandarina Bavaria",
     "Modern Times Idea Machine": "",  # 別のビール(ブレンド用)の名前で、ホップではない
 }
 
@@ -340,6 +350,9 @@ def strip_tags(t: str) -> str:
 
 def fetch_url_with_headers(url: str, timeout: int = 20):
     """Fetch a URL; returns (text, response headers). On failure returns ("", {})."""
+    # 日本語のハンドルを持つ商品がある(京都醸造の「kbc-…」。2026-11-26、非ASCIIのURLでUnicodeEncodeErrorとなり収集が途中で止まった)。
+    # ASCII以外・空白だけをパーセントエンコードする(既存の%xx・区切り記号はそのまま)
+    url = quote(url, safe="%/:?&=+,;#@!$'()*~-_.[]")
     req = Request(url, headers={"User-Agent": USER_AGENT})
     try:
         with urlopen(req, timeout=timeout) as resp:
@@ -691,7 +704,7 @@ def parse_southbound_product(p: dict, base_url: str, source_key: str) -> dict:
 # ---------------------------------------------------------------------------
 KYOTO_STYLE_RULES = [
     (r"サワー\s*IPA", "Sour IPA"), (r"ホワイト\s*IPA", "White IPA"), (r"ベルジャン\s*IPA|ベルギー\s*IPA", "Belgian IPA"),
-    (r"コールド\s*IPA", "Cold IPA"), (r"ブラック\s*IPA", "Black IPA"), (r"ライ\s*IPA", "Rye IPA"),
+    (r"コールド\s*IPA", "Cold IPA"), (r"ブラック\s*IPA", "Black IPA"), (r"ライ\s*IPA", "Rye IPA"), (r"レッド\s*IPA", "Red IPA"),
     (r"(ダブル|インペリアル|トリプル)\s*IPA", "Double IPA"), (r"セッション\s*IPA", "Session IPA"),
     (r"(ヘイジー|ニューイングランド|NE)\s*IPA", "Hazy IPA"), (r"(ウェスト|ウエスト)コースト\s*IPA|西海岸\s*IPA", "West Coast IPA"),
     (r"IPA", "IPA"),
@@ -707,6 +720,7 @@ KYOTO_STYLE_RULES = [
     (r"インペリアル.*スタウト", "Imperial Stout"), (r"スタウト", "Stout"), (r"ポーター", "Porter"),
     (r"ブラウン", "Brown Ale"), (r"ESB|エクストラ.*ビター|ビター", "ESB"), (r"アンバー", "Amber Ale"), (r"レッド", "Red Ale"),
     (r"ゴールデン", "Golden Ale"), (r"バーレイ|バーレー", "Barley Wine"),
+    (r"ボック", "Bock"), (r"クリスマス", "Christmas Ale"), (r"アニバーサリー", "Anniversary Ale"), (r"セレブレーション", "Celebration Ale"),
 ]
 
 
@@ -720,6 +734,16 @@ def kyoto_style_en(text: str) -> str:
         if re.search(pattern, text, re.I):
             return english
     return text
+
+
+def kyoto_abv(text: str) -> str:
+    """京都醸造の度数欄 -> '6.5%'。表記は「6.5%」「6.5％」(全角)「9.0」(記号なし)のどれもある(2026-11-26、全角と記号なしを読めず
+    登録した78件のうち34件で度数が空になった)。度数の行の値だけに使う(数字だけの欄を読む)。0以下・30超は度数とみなさない。"""
+    m = re.search(r"(\d+(?:\.\d+)?)", (text or "").translate(str.maketrans("０１２３４５６７８９．", "0123456789.")))
+    if not m:
+        return ""
+    v = float(m.group(1))
+    return f"{v:g}%" if 0 < v <= 30 else ""
 
 
 def _kyoto_lines(html_fragment: str) -> list[str]:
@@ -744,10 +768,7 @@ def parse_kyoto_product(p: dict, base_url: str, source_key: str, brewery: str = 
             spec[strip_tags(dt).strip()] = strip_tags(dd).strip()
     feel = re.search(r"<dt>【味わいの特徴】</dt>\s*<dd>(.*?)</dd>", body, re.S)
     description = " ".join(x for x in (blurb, strip_tags(feel.group(1)).strip() if feel else "") if x)
-    abv = "-"
-    am = re.search(r"(\d+(?:\.\d+)?)\s*%", spec.get("ABV", "") or spec.get("度数", ""))
-    if am:
-        abv = f"{float(am.group(1)):g}%"
+    abv = kyoto_abv(spec.get("ABV", "") or spec.get("度数", "")) or "-"
     image = ""
     if p.get("images"):
         image = re.sub(r"\?.*$", "", p["images"][0]["src"]) + "?width=400"
@@ -800,10 +821,9 @@ def parse_kyoto_page(page: str) -> dict:
     desc = labeled(panel("panel-description"))
     other = labeled(panel("panel-other"))
     abv_text = specs.get("度数") or feats.get("度数") or specs.get("ABV") or ""
-    am = re.search(r"(\d+(?:\.\d+)?)\s*%", abv_text)
     return {
         "style": specs.get("スタイル") or feats.get("スタイル") or "",
-        "abv": f"{float(am.group(1)):g}%" if am else "",
+        "abv": kyoto_abv(abv_text),
         "hops_raw": specs.get("ホップ", ""),
         "feel": desc.get("味わいの特徴", ""),
         "notes": other.get("ブルワーの声", ""),
@@ -1395,6 +1415,7 @@ def main():
     refresh_errors: dict[str, str] = {}
     parse_errors: list[dict] = []
     page_fetch_failed: list[str] = []  # 商品ページが取れず、登録を見送った商品のハンドル(次回に再試行される)
+    page_refreshes = 0  # 空の項目を埋めるために商品ページを読み直した数(PAGE_REFRESH_MAXまで)
     ids_before = set(known_ids)  # 今回の追加分を更新点検の対象にしないため
     by_id = {r["id"]: r for r in data["products"]}
 
@@ -1484,6 +1505,18 @@ def main():
                     live_desc = hops_from_description(body_full_text(p.get("body_html", "")), known_hops)
                     for rec in matched:
                         refresh_record(rec, record, live_desc)
+                        if (source.get("page_parser") == "kyoto" and page_refreshes < PAGE_REFRESH_MAX
+                                and (rec.get("abv") in ("", "-") or not rec.get("style") or not rec.get("hops"))):
+                            # 商品ページに仕様がある収集元で、空の項目がある登録済み商品は、ページを読み直して埋める(ページ側が後から埋まる/
+                            # 登録時に読み損ねた)。ページの記載は更新の根拠として扱い、通常の更新ルール(refresh_changes)で適用する
+                            page = fetch_url_retry(f"{base_url}/products/{handle}")
+                            time.sleep(REQUEST_DELAY)
+                            page_refreshes += 1
+                            if page:
+                                info = parse_kyoto_page(page)
+                                refresh_record(rec, {"style": kyoto_style_en(info["style"]), "abv": info["abv"] or "-",
+                                                     "hops": wcb_hops(info["hops_raw"])},
+                                               hops_from_description(" ".join(x for x in (info["feel"], info["notes"]) if x), known_hops))
                     continue
 
                 instock = in_stock(p)

@@ -90,8 +90,23 @@ for jp, en in (("ヘイジーIPA", "Hazy IPA"), ("ウェストコーストIPA", 
                ("メキシカンラガー", "Mexican Lager"), ("ラガー", "Lager"), ("セゾン", "Saison"), ("フラワーセゾン", "Saison"),
                ("サワーエール", "Sour Ale"), ("ベルジャンウィット", "Witbier"), ("ヴァイツェン", "Hefeweizen"), ("ケルシュ", "Kolsch"),
                ("インペリアルスタウト", "Imperial Stout"), ("スタウト", "Stout"), ("スモークバニラポーター", "Porter"),
-               ("West Coast IPA", "West Coast IPA"), ("", ""), ("アニバーサリーエール", "アニバーサリーエール")):  # 当てはまらない日本語は原文のまま
+               ("West Coast IPA", "West Coast IPA"), ("", ""), ("ミステリー酵母ビール", "ミステリー酵母ビール")):  # 当てはまらない日本語は原文のまま
     check(f"style {jp!r}", up.kyoto_style_en(jp), en)
+
+for jp, en in (("レッドIPA", "Red IPA"), ("ボック", "Bock"), ("クリスマスエール", "Christmas Ale"), ("ヘーフェヴァイツェン", "Hefeweizen"),
+               ("フェストビア", "Festbier"), ("セレブレーションエール", "Celebration Ale"), ("アニバーサリーエール", "Anniversary Ale")):
+    check(f"style {jp!r}", up.kyoto_style_en(jp), en)
+
+# ---- 度数: 「6.5%」「6.5％」(全角)「9.0」(記号なし)のどれも読む(全角と記号なしを読めずに34件が空になった実例) ----
+for text, want in (("6.5%", "6.5%"), ("6.5％", "6.5%"), ("9.0", "9%"), ("７．５％", "7.5%"), (" 5.5% ", "5.5%"), ("", ""), ("なし", ""), ("0", ""), ("120", "")):
+    check(f"kyoto_abv {text!r}", up.kyoto_abv(text), want)
+
+# ---- ホップ欄の綴りゆれ(京都醸造の過去分) ----
+for raw, want in (("Hallertau mittfruh", ["Hallertauer Mittelfruher"]), ("Hallertau Mittlefruh, Audacia", ["Hallertauer Mittelfruher", "Audacia"]),
+                  ("Styrian Goldings, Aurum, McKenzie", ["Savinjski Golding", "Aurum", "McKenzie"]), ("Mckenzie", ["McKenzie"]),
+                  ("Nelson Sauvin Hop Keif", ["Nelson Sauvin Kief"]), ("Madarina Bravaria", ["Mandarina Bavaria"]),
+                  ("Krush HyperBoost, Strata HyperBoost", ["Krush HyperBoost", "Strata HyperBoost"]), ("Willamette", ["Willamette"])):
+    check(f"hops {raw!r}", up.wcb_hops(raw), want)
 
 # ---- 追加後の分類(画面の絞り込み)まで通ること ----
 import style_class as sc  # noqa: E402
