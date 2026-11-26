@@ -122,6 +122,8 @@ def check_shopify(source: dict, products: list, report: dict, last_updated: date
             # 別ハンドルで同じ銘柄が再掲載されていれば、廃盤ではなく移転(週次が新商品として二重登録する一歩手前)
             moved = [x for x in ac.find_relocation_candidates(rec, catalog, known_ids) if x["handle"] not in registered_handles]
             r["B3"].append({"id": rec["id"], "name": rec["name"][:50], "relocated_to": [x["handle"] for x in moved[:3]]})
+            if moved:
+                r.setdefault("_catalog_hits", {})[rec["id"]] = moved[:3]  # 表示用(新しいハンドルのタイトル)
     report[key] = r
 
 
@@ -332,6 +334,9 @@ def main():
             show("B3 現在のサイトに見つからない登録済み商品(ハンドル失効=廃盤または移転)", r["B3"],
                  lambda x: f"{x['id']} {x['name']}" + (f"  -> 別ハンドルで再掲載? {x['relocated_to']}" if x["relocated_to"] else ""))
             print(f"   (うち別ハンドルで再掲載されている=二重登録の疑い: {len(moved)}件)")
+            for x in moved:  # 一覧(先頭12件)に入らなくても、二重登録の疑いは必ず全件出す
+                live_titles = {c["handle"]: c.get("title", "") for c in r.get("_catalog_hits", {}).get(x["id"], [])}
+                print(f"   !! 二重登録の疑い: {x['id']} {x['name']} -> {[(h, live_titles.get(h, '')[:50]) for h in x['relocated_to']]}")
             if r["parse_errors"]:
                 show("!! 解析できなかった商品(週次の失敗原因になる)", r["parse_errors"], lambda x: f"{x['handle']}: {x['error']}")
         else:  # 公式サイト系
